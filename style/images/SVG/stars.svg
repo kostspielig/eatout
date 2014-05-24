@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+]>
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="24px" height="48px" viewBox="-0.461 -1.552 24 48" enable-background="new -0.461 -1.552 24 48"
+	 xml:space="preserve">
+<defs>
+</defs>
+<g>
+	<g>
+		<polygon fill="#F21D2F" points="11.626,0 14.372,8.448 23.253,8.448 16.068,13.205 18.812,21.422 11.626,16.085 4.441,21.248 
+			7.186,13.234 0,8.448 8.882,8.448 		"/>
+	</g>
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="23.253" height="21.422">
+			
+				<feColorMatrix  type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0" color-interpolation-filters="sRGB" result="source"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="0" y="0" width="23.253" height="21.422" id="SVGID_1_">
+		<g filter="url(#Adobe_OpacityMaskFilter)">
+			
+				<image overflow="visible" width="28" height="26" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEASABIAAD/7AARRHVja3kAAQAEAAAAHgAA/+4AIUFkb2JlAGTAAAAAAQMA
+EAMCAwYAAAGTAAABvQAAAhz/2wCEABALCwsMCxAMDBAXDw0PFxsUEBAUGx8XFxcXFx8eFxoaGhoX
+Hh4jJSclIx4vLzMzLy9AQEBAQEBAQEBAQEBAQEABEQ8PERMRFRISFRQRFBEUGhQWFhQaJhoaHBoa
+JjAjHh4eHiMwKy4nJycuKzU1MDA1NUBAP0BAQEBAQEBAQEBAQP/CABEIABoAHAMBIgACEQEDEQH/
+xAB8AAACAwEAAAAAAAAAAAAAAAAABgEFBwQBAQAAAAAAAAAAAAAAAAAAAAAQAAEDAwUAAAAAAAAA
+AAAAAAQDBQYgAQIAEBEhEhEAAQMDAwQDAAAAAAAAAAAAARECAwAhBDFREhAgYRNxMkISAQAAAAAA
+AAAAAAAAAAAAACD/2gAMAwEAAhEDEQAAAM/6I04yoZVsHNLC5pgP/9oACAECAAEFAKP/2gAIAQMA
+AQUAo//aAAgBAQABBQDQgapW4iY6qsYiYAgcoYAGgnrnG3rIeeXbBpG5pO61P//aAAgBAgIGPwAf
+/9oACAEDAgY/AB//2gAIAQEBBj8AqT1hfW3keoZO8xtP7sgp03MzHIH2KWCeKemQ5z3kubHZbn4r
+xQGilFqLCxYRIyIBpKoABtUecwcXkcXtOu/d/9k=" transform="matrix(1 0 0 1 -2.4614 -2.5522)">
+			</image>
+		</g>
+	</mask>
+	<g opacity="0.75" mask="url(#SVGID_1_)">
+		<polygon fill="#C41826" points="11.626,0 14.372,8.448 23.253,8.448 16.068,13.205 18.812,21.422 11.626,16.085 4.441,21.248 
+			7.186,13.234 0,8.448 8.882,8.448 		"/>
+	</g>
+</g>
+<g>
+	<g>
+		<polygon fill="#F4F4F4" points="11.626,24 14.372,32.448 23.253,32.448 16.068,37.205 18.812,45.422 11.626,40.085 4.441,45.248 
+			7.186,37.234 0,32.448 8.882,32.448 		"/>
+	</g>
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter_1_" filterUnits="userSpaceOnUse" x="0" y="24" width="23.253" height="21.423">
+			
+				<feColorMatrix  type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0" color-interpolation-filters="sRGB" result="source"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="0" y="24" width="23.253" height="21.423" id="SVGID_2_">
+		<g filter="url(#Adobe_OpacityMaskFilter_1_)">
+			
+				<image overflow="visible" width="28" height="26" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEASABIAAD/7AARRHVja3kAAQAEAAAAHgAA/+4AIUFkb2JlAGTAAAAAAQMA
+EAMCAwYAAAGTAAABvQAAAhz/2wCEABALCwsMCxAMDBAXDw0PFxsUEBAUGx8XFxcXFx8eFxoaGhoX
+Hh4jJSclIx4vLzMzLy9AQEBAQEBAQEBAQEBAQEABEQ8PERMRFRISFRQRFBEUGhQWFhQaJhoaHBoa
+JjAjHh4eHiMwKy4nJycuKzU1MDA1NUBAP0BAQEBAQEBAQEBAQP/CABEIABoAHAMBIgACEQEDEQH/
+xAB8AAACAwEAAAAAAAAAAAAAAAAABgEFBwQBAQAAAAAAAAAAAAAAAAAAAAAQAAEDAwUAAAAAAAAA
+AAAAAAQDBQYgAQIAEBEhEhEAAQMDAwQDAAAAAAAAAAAAARECAwAhBDFREhAgYRNxMkISAQAAAAAA
+AAAAAAAAAAAAACD/2gAMAwEAAhEDEQAAAM/6I04yoZVsHNLC5pgP/9oACAECAAEFAKP/2gAIAQMA
+AQUAo//aAAgBAQABBQDQgapW4iY6qsYiYAgcoYAGgnrnG3rIeeXbBpG5pO61P//aAAgBAgIGPwAf
+/9oACAEDAgY/AB//2gAIAQEBBj8AqT1hfW3keoZO8xtP7sgp03MzHIH2KWCeKemQ5z3kubHZbn4r
+xQGilFqLCxYRIyIBpKoABtUecwcXkcXtOu/d/9k=" transform="matrix(1 0 0 1 -2.4614 21.4478)">
+			</image>
+		</g>
+	</mask>
+	<g opacity="0.75" mask="url(#SVGID_2_)">
+		<polygon fill="#E5E5E5" points="11.626,24 14.372,32.448 23.253,32.448 16.068,37.205 18.812,45.422 11.626,40.085 4.441,45.248 
+			7.186,37.234 0,32.448 8.882,32.448 		"/>
+	</g>
+</g>
+</svg>

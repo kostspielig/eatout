@@ -1,0 +1,146 @@
+[
+    {
+	"name": "Markthalle Neun",
+	"url": "http://www.markthalleneun.de/",
+	"address" : "Eisenbahnstraße 42",
+	"foodtype": "german",
+	"lat": 52.502166,
+	"lng": 13.431472,
+	"description": "This charming market has many options to eat, you can find from delicious curry bursts to all different types of cheesse. Definitely this a place not to be missed.",
+	"rating": 4.5,
+	"images": ["images/places/MarkthalleNeun/cburst0.jpg", "images/places/MarkthalleNeun/cburst1.jpg"]
+	
+    }, {
+	"name": "The Barn",
+	"url": "http://barn.bigcartel.com/",
+	"address" : "Schönhauser Allee 8",
+	"foodtype": "breakfast",
+	"lat": 52.529971,
+	"lng": 13.410655,
+	"description": "Never have I ever tried such a great coffee, the taste without sugar is superb. We also tried the carrot cake, and it was a great delight. The only reason why I did not give them a 5 is because the chairs are not really confortable, I would have loved to spend the afternoon there.",
+	"rating": 4.7,
+	"images": ["images/places/TheBarn/barn0.jpg","images/places/TheBarn/barn1.jpg","images/places/TheBarn/barn2.jpg","images/places/TheBarn/barn3.jpg","images/places/TheBarn/barn4.jpg"]
+    }, {
+	"name": "Shiso Burger",
+	"url": "http://www.shisoburger.de/",
+	"address" : "Auguststraße 29",
+	"foodtype": "burger",
+	"lat": 52.527236,
+	"lng": 13.398483,
+	"description": "It may not have the best burger in town, but for some reason I keep coming back for more. All the burgers have a unique flavour, and the fries are to die for. One of the must-order burgers is the chilli lemon: a unique pleasure to your senses. ",
+	"rating": 4.3,
+	"images": ["images/places/SishoBurger/sisho0.JPG","images/places/SishoBurger/image1.JPG","images/places/SishoBurger/image2.JPG","images/places/SishoBurger/image3.JPG","images/places/SishoBurger/image4.JPG","images/places/SishoBurger/image5.JPG"]
+    }, {
+	"name": "Cabslam - The California Breakfast Slam",
+	"url": "http://www.cabslam.com",
+	"address" : "Innstraße 47",
+	"foodtype": "breakfast",
+	"lat": 52.483219,
+	"lng": 13.446782,
+	"description": "Are you hungry? This is the place to be. I was not really sure about what to expect, since I have lived in California and could not remember that there was a Californian type of breakfast. The result? Well, the food is plenty and delicious.",
+	"rating": 4,
+	"images": ["images/places/CabSlam/cab0.JPG","images/places/CabSlam/image1.JPG","images/places/CabSlam/image2.JPG","images/places/CabSlam/image3.JPG"]
+    }, {
+	"name": "Kuchi",
+	"url": "http://www.kuchi.de/",
+	"address" : "Gipsstraße 3",
+	"foodtype": "japan",
+	"lat": 52.527236,
+	"lng": 13.399284,
+	"description": "",
+	"rating": 4.8,
+	"images": ["images/places/Kuchi/cover.JPG","images/places/Kuchi/image1.JPG","images/places/Kuchi/image2.JPG"]
+    }, {
+	"name": "Villa Di Wow",
+	"url": "http://www.facebook.com/villa.di.wow.berlin",
+	"address" : "Ohlauer Straße 30",
+	"foodtype": "pizza",
+	"lat": 52.4949835,
+	"lng": 13.4290841,
+	"description": "Phasellus iaculis venenatis viverra. Pellentesque mattis lectus sem. Donec facilisis dolor sed tellus mattis venenatis. Nullam gravida gravida est et egestas. Nam varius semper lacus eget hendrerit. Integer metus diam, ornare sit amet commodo vitae, posuere posuere enim. Aenean imperdiet est sapien, ut volutpat augue lacinia id.",
+	"rating": 3,
+	"images": ["images/places/VillaDiWow/villa0.JPG","images/places/VillaDiWow/image1.JPG","images/places/VillaDiWow/image2.JPG"]
+    },{
+	"name": "Manuela",
+	"url": "http://www.manuelatapas.com",
+	"address" : "Friedelstraße 34",
+	"foodtype": "egg",
+	"lat": 52.493247,
+	"lng": 13.427927,
+	"description": "Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
+	"rating": 3,
+	"images": ["images/places/Manuela/manuela0.JPG"]
+    },{
+	"name": "Tischendorf",
+	"url": "http://tischendorf-berlin.de/",
+	"address" : "Friedelstraße 25",
+	"foodtype": "muffin",
+	"lat": 52.49206,
+	"lng": 13.42825,
+	"description": "",
+	"rating": 3,
+	"images": ["images/places/Tischendorf/tischen0.JPG","images/places/Tischendorf/image1.JPG","images/places/Tischendorf/image2.JPG","images/places/Tischendorf/image3.JPG","images/places/Tischendorf/image4.JPG"]
+    },{
+	"name": "Le Cochon Bourgeois",
+	"url": "http://www.lecochon.de/",
+	"address" : "Fichtestraße 24",
+	"foodtype": "french",
+	"lat": 52.48959,
+	"lng": 13.413598,
+	"description": "Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
+	"rating": 3,
+	"images": ["images/places/LeCochonBourgeois/cochon0.JPG"]
+    },{
+	"name": "I Due Forni",
+	"url": "https://plus.google.com/109554841420417194193/",
+	"address" : "Schönhauser Allee 12",
+	"foodtype": "pizza",
+	"lat": 52.530849,
+	"lng": 13.412442,
+	"description": "Pizza in this restaurant is amazing, you have a wide variety to choose from. The downside? It is always crowded, and might not be the most romantic place to enjoy a quite dinner. I would recommend the terrace outside and the dessert!",
+	"rating": 4.2,
+	"images": ["images/places/IDueForni/due0.JPG"]
+    },{
+	"name": "Ristorante Masaniello",
+	"url": "http://www.masaniello.de",
+	"address" : "Hasenheide 20",
+	"foodtype": "pizza",
+	"lat": 52.48801,
+	"lng": 13.41893,
+	"description": "Pizza in this restaurant is amazing, you have a wide variety to choose from. The downside? It is always crowded, and might not be the most romantic place to enjoy a quite dinner. I would recommend the terrace outside and the dessert!",
+	"rating": 3.9,
+	"images": ["images/places/Masaniello/cover.JPG","images/places/Masaniello/image1.JPG","images/places/Masaniello/image2.JPG","images/places/Masaniello/image3.JPG","images/places/Masaniello/image4.JPG"]
+    },{
+	"name": "Cocolo Ramen Bar",
+	"url": "http://www.kuchi.de/index.php?r=cocolo-xberg",
+	"address" : "Paul-Lincke-Ufer 39",
+	"foodtype": "viet",
+	"lat": 52.49623,
+	"lng": 13.4221,
+	"description": "Ramen",
+	"rating": 4.3,
+	"images": ["images/places/Cocolo/cover.JPG","images/places/Cocolo/image1.JPG","images/places/Cocolo/image2.JPG","images/places/Cocolo/image3.JPG","images/places/Cocolo/image4.JPG","images/places/Cocolo/image5.JPG","images/places/Cocolo/image6.JPG","images/places/Cocolo/image7.JPG"]
+    },{
+	"name": "Mogg & Melzer",
+	"url": "http://moggandmelzer.com",
+	"address" : "Auguststraße 11-13",
+	"foodtype": "sandwitch",
+	"lat": 52.526498,
+	"lng": 13.394434,
+	"description": "Delish Turkey Pastrami",
+	"rating": 4.3,
+	"images": ["images/places/MoggMelzer/cover.JPG","images/places/MoggMelzer/image1.JPG","images/places/MoggMelzer/image2.JPG","images/places/MoggMelzer/image3.JPG","images/places/MoggMelzer/image4.JPG","images/places/MoggMelzer/image5.JPG"]
+    },{
+	"name": "Eiscafe Fräulein Frost",
+	"url": "http://moggandmelzer.com",
+	"address" : "Friedelstraße 39",
+	"foodtype": "icecream",
+	"lat": 52.4923402,
+	"lng": 13.4277503,
+	"description": "If this is not the best ice-cream in town, it  might be very close.",
+	"rating": 4.3,
+	"images": ["images/places/Eiscafe/cover.JPG","images/places/Eiscafe/image1.JPG","images/places/Eiscafe/image2.JPG"]
+    }
+
+
+]

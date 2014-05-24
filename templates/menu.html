@@ -1,0 +1,11 @@
+<div class="menu-content">
+  <div class="header">  </div>
+
+  <div class="find-me">
+    <span class="iamhere"></span> <a ng-click="geoLocate()" ng-href>  Find me</a>
+  </div>
+  <!-- <div class="menu-title"> District </div> -->
+  <ul>
+    <li class="menu-item" ng-repeat="district in districts" ng-click="centerPosition(district.lat, district.lng, district.zoom)">{{district.name}}</li>
+  </ul>
+</div>

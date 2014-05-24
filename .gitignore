@@ -1,0 +1,7 @@
+*.pyc
+*.css
+build/
+!lib/README.md
+.DS_Store
+*~
+style/stylesheets/.sass-cache/

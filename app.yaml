@@ -1,0 +1,43 @@
+application: eatoutberlin
+version: 2
+runtime: python27
+api_version: 1
+threadsafe: true
+
+libraries:
+- name: jinja2
+  version: latest
+
+handlers:
+- url: /favicon.ico
+  static_files: style/images/favicon.png
+  upload: style/images/favicon.png
+
+- url: /images
+  static_dir: style/images
+
+- url: /js
+  static_dir: js
+
+- url: /lib
+  static_dir: lib
+
+- url: /stylesheets
+  static_dir: style/stylesheets
+
+- url: /templates
+  static_dir: templates
+
+- url: /data
+  static_dir: data
+
+- url: /index.html
+  static_files: templates/index.html
+  upload: templates/index.html
+
+- url: /
+  static_files: templates/index.html
+  upload: templates/index.html
+
+- url: /.*
+  script: main.app
