@@ -25,6 +25,9 @@ eatoutControllers.controller(
 	    $scope.seeplace = false;
 	}
 
+	//See if the user already has been positioned in the map
+	$scope.findMe = false;
+
 	$scope.districts = {};
 
 	$scope.marker_icons = {
@@ -85,6 +88,11 @@ eatoutControllers.controller(
 	}
 
 	function drop() {
+	    //Order the array by descending vertical position on the map
+	    $scope.places.sort(function (a, b){
+		return (b.lat - a.lat)
+	    });
+
 	    for (var i = 0; i < $scope.places.length; i++) {
 		setTimeout(function(place) {
 		    addMarker();
@@ -132,7 +140,8 @@ eatoutControllers.controller(
 
 	$scope.geoLocate = function() {
 	    // Try HTML5 geolocation
-	    if(navigator.geolocation) {
+	    if(navigator.geolocation && !$scope.findMe) {
+		$scope.findMe = true;
 		navigator.geolocation.getCurrentPosition(function(position) {
 		    var pos = new google.maps.LatLng(position.coords.latitude,
 						     position.coords.longitude);
@@ -141,7 +150,8 @@ eatoutControllers.controller(
 			position: pos,
 			map: $scope.map,
 			icon: 'images/SVG/iamhere.svg',
-			animation: google.maps.Animation.DROP
+			animation: google.maps.Animation.DROP,
+			zIndex: 99999 
 		    });
 		    markers.push(marker);
 		    /* var infowindow = new google.maps.InfoWindow({

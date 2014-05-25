@@ -5,10 +5,11 @@
 all: once
 
 serve: 	
-	../google_appengine/dev_appserver.py .
+	dev_appserver.py .
 
 deploy:	
-	../google_appengine/appcfg.py update .
+	appcfg.py --oauth2 -A eatoutberlin update .
+
 
 #clean:
 #	rm -f app.yaml
