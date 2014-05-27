@@ -48,9 +48,10 @@ body { height: 100%; margin: 0; padding: 0;
 
 #weather { 
     font-size: 40px; color:$darkGray; font-weight: bold; position: absolute; z-index: 0; top: 18px; right: 20px; 
+    a { color:#333; text-decoration:none; overflow: hidden; }
     .w-temp { 
 	display: table-cell; vertical-align: bottom; padding: 0px 0 0px 5px; position: relative; top: 4px;
-	.w-units { font-weight: normal; font-size: 0.8em; display: inline-block; }
+	.w-units { font-weight: normal; font-size: 0.7em; display: inline-block; vertical-align: top; }
     }
     .w-icon { width: 60px; height:52px; display: table-cell; background:url(/images/weather/fair.svg) no-repeat center center;
 	      &.c0 {background:url(/images/weather/tornado.svg) no-repeat center center;}
@@ -66,7 +67,7 @@ body { height: 100%; margin: 0; padding: 0;
 	      &.c33, &.c34 { background:url(/images/weather/fair.svg) no-repeat center center; }
 	      &.c33 { background:url(/images/weather/fair-n.svg) no-repeat center center; }
 	      &.c23 { background:url(/images/weather/blustery.svg) no-repeat center center; }
-	      &.c26, &.c28 { background:url(/images/weather/cloudy.svg) no-repeat center center; }
+	      &.c26, &.c28 { background:url(/images/weather/cloudy.svg) no-repeat 0 -2px; }
 	      &.c27, &.c29 { background:url(/images/weather/mostly-cloudy-n.svg) no-repeat center center; }
 	      &.c30 { background:url(/images/weather/partly-cloudy.svg) no-repeat center center;}
 	      &.c37, &.c38, &.c39 {background:url(/images/weather/isolated-thunderstorms.svg) no-repeat center center;}
@@ -224,7 +225,7 @@ body { height: 100%; margin: 0; padding: 0;
 	    }
 	}
 	.content {
-	    padding: 40px 30px 20px 30px;
+	    padding: 40px 25px 20px 25px;
 	    background-color: $white;
 	    font-size: 20px;
 
