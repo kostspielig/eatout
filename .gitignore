@@ -1,5 +1,6 @@
 *.pyc
 *.css
+!_reset.css
 build/
 !lib/README.md
 .DS_Store
