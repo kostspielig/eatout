@@ -1,9 +1,8 @@
 <div>
-  <div id="map_canvas"  ng-init="initialize()"></div>
-  <div class="menu-icon" ng-click="showMenu()"></div>
-  <div ng-show="seemenu" getmenu class="main-menu"></div>
+  <div id="map_canvas"></div>
 
-  <div ng-show="seeplace" getplace class="main-place"></div>
+  <ng-include src="'templates/menu.html'"></ng-include>
+  <ng-include src="'templates/place.html'"></ng-include>
 
   <div id='weather' ng-controller="weatherCtrl">
     <a ng-href="https://www.google.es/search?q=weather+berlin"> <div class="w-icon c{{wcode}}"></div><div class="w-temp">{{temp}}<span class="w-units">°C</span></div></a>

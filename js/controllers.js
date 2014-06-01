@@ -1,8 +1,118 @@
 
 'use strict';
 
-
 var eatoutControllers = angular.module('eatoutControllers', []);
+
+var BERLIN_POS = new google.maps.LatLng(52.5096315, 13.4018519);
+
+var MARKER_ICONS = {
+    pizza: 'images/icons/SVG/pizza.svg',
+    beer: 'images/icons/SVG/beer.svg',
+    viet: 'images/icons/SVG/ramen.svg',
+    burger: 'images/icons/SVG/burger.svg',
+    japan: 'images/icons/SVG/sushi.svg',
+    breakfast: 'images/icons/SVG/coffee.svg',
+    croissant: 'images/icons/croissant.png',
+    cheese: 'images/icons/cheese.png',
+    icecream: 'images/icons/SVG/icecream.svg',
+    german: 'images/icons/SVG/german.svg',
+    muffin: 'images/icons/SVG/muffin.svg',
+    french: 'images/icons/SVG/french.svg',
+    egg: 'images/icons/SVG/spanish.svg',
+    sandwitch: 'images/icons/SVG/sandwitch.svg'
+};
+
+var MARKER_ICONS2 = {
+    pizza: 'images/icons/pizza.png',
+    beer: 'images/icons/beer.png',
+    viet: 'images/icons/viet.png',
+    burger: 'images/icons/burger.png',
+    japan: 'images/icons/japan.png',
+    breakfast: 'images/icons/breakfast.png',
+    croissant: 'images/icons/croissant.png',
+    cheese: 'images/icons/cheese.png',
+    icecream: 'images/icons/icecream.png',
+    german: 'images/icons/cburst.png',
+    muffin: 'images/icons/wmuffin.png',
+    french: 'images/icons/poulet.png',
+    egg: 'images/icons/egg.png'
+};
+
+var MAP_STYLES = [
+    {
+	stylers: [
+	    { hue: "#5ebf64" },
+	    { saturation: -20 }
+	]
+    },{
+	featureType: "road",
+	elementType: "geometry",
+	stylers: [
+	    { lightness: 100 },
+	    { visibility: "simplified" }
+	]
+    },{
+	featureType: "road",
+	elementType: "labels",
+	stylers: [
+	    { visibility: "off" }
+	]
+    },{
+	featureType: "administrative.locality",
+	elementType: "all",
+	stylers: [
+	    { color: "#ff1526" },
+	    { weight: 0.5 }
+	]
+    },{
+	featureType: "water",
+	elementType: "geometry",
+	stylers: [
+	    { color: "#05C7F2" }
+	]
+    },{
+	featureType: "landscape",
+	stylers: [
+	    { hue: "#FFB20E" },
+	    { saturation: 20 }
+	]
+    },{
+	featureType: "transit.line",
+	stylers:  [
+	    { visibility: "off" }
+	]
+    },{
+	featureType: "poi.school",
+	elementType: "all",
+	stylers:  [
+	    { visibility: "off" }
+	]
+    },{
+	featureType: "poi.business",
+	elementType: "label",
+	stylers:  [
+	    { visibility: "off" }
+	]
+    },{
+	featureType: "poi.sports_complex",
+	elementType: "all",
+	stylers:  [
+	    { visibility: "off" }
+	]
+    },{
+	featureType: "poi.medical",
+	elementType: "all",
+	stylers:  [
+	    { visibility: "off" }
+	]
+    },{
+	featureType: "landscape",
+	elementType: "geometry",
+	stylers:  [
+	    { visibility: "off" }
+	]
+    }
+];
 
 eatoutControllers.controller(
     'weatherCtrl', function($scope, weather) {
@@ -11,294 +121,146 @@ eatoutControllers.controller(
     });
 
 eatoutControllers.controller(
-    'mapCtrl', function($scope, $http, $routeParams, places) {
+    'menuCtrl', function($scope, backendData) {
+        $scope.seemenu = false;
 
-	$scope.berlin = new google.maps.LatLng(52.5096315, 13.4018519);
+        backendData.districtsPromise.success(function (data) {
+            $scope.districts = data;
+        })
 
-	$scope.seemenu = false;
-	$scope.seeplace = false;
-
-	$scope.showMenu = function () {
-	    $scope.seemenu = ($scope.seemenu == true)? false: true;
+	$scope.toggleMenu = function () {
+	    $scope.seemenu = !$scope.seemenu;
 	}
 
-        $scope.showPlaceByName = function() {
-            var place = $scope.places[1];
-	    var pos = new google.maps.LatLng(place.lat, place.lng);
-
-            showPlaceInfo(place);
-            $scope.map.panTo(pos);
-	    if ($scope.map.getZoom() < 16)
-		$scope.map.setZoom(16);
-	    $scope.map.panBy(150,0);
+        $scope.menuFindMe = function () {
+            $scope.findMe();
+            $scope.seemenu = false;
         }
 
-        var showPlaceInfo = function(place) {
-	    $scope.seeplace = true;
-	    $scope.place = place;
-	    $scope.$apply();
-	}
-
-	$scope.hidePlace = function() {
-	    $scope.seeplace = false;
-	}
-
-	//See if the user already has been positioned in the map
-	$scope.findMe = false;
-
-	$scope.districts = {};
-
-	$scope.marker_icons = {
-	    pizza: 'images/icons/SVG/pizza.svg',
-	    beer: 'images/icons/SVG/beer.svg',
-	    viet: 'images/icons/SVG/ramen.svg',
-	    burger: 'images/icons/SVG/burger.svg',
-	    japan: 'images/icons/SVG/sushi.svg',
-	    breakfast: 'images/icons/SVG/coffee.svg',
-	    croissant: 'images/icons/croissant.png',
-	    cheese: 'images/icons/cheese.png',
-	    icecream: 'images/icons/SVG/icecream.svg',
-	    german: 'images/icons/SVG/german.svg',
-	    muffin: 'images/icons/SVG/muffin.svg',
-	    french: 'images/icons/SVG/french.svg',
-	    egg: 'images/icons/SVG/spanish.svg',
-	    sandwitch: 'images/icons/SVG/sandwitch.svg'
-	};
-
-	$scope.marker_icons2 = {
-	    pizza: 'images/icons/pizza.png',
-	    beer: 'images/icons/beer.png',
-	    viet: 'images/icons/viet.png',
-	    burger: 'images/icons/burger.png',
-	    japan: 'images/icons/japan.png',
-	    breakfast: 'images/icons/breakfast.png',
-	    croissant: 'images/icons/croissant.png',
-	    cheese: 'images/icons/cheese.png',
-	    icecream: 'images/icons/icecream.png',
-	    german: 'images/icons/cburst.png',
-	    muffin: 'images/icons/wmuffin.png',
-	    french: 'images/icons/poulet.png',
-	    egg: 'images/icons/egg.png'
-	};
-
-	$scope.centerPosition = function(lat,lng, zoom) {
-	    var center = new google.maps.LatLng (lat, lng);
-	    console.log(center);
-	    $scope.map.panTo(center);
-	    $scope.map.setZoom(parseInt(zoom));
+        $scope.menuSelectDistrict = function (district) {
+            $scope.centerPosition(district.lat, district.lng, district.zoom);
 	    $scope.seemenu = false;
-	};
-
-	// Loading the places and districts
-	places.getPlaces($scope);
-	places.getDistricts($scope);
-
-	var markers = [];
-	var infowindows = [];
-
-	function getContent(place) {
-	    return "<div class='info-content'><h1>"+place.name+"</h1><div class='rating'><div class='rating-value' style=width:"+place.rating*120/5+"px></div></div><div class='description'>"+place.description+"</div></div>";
-	}
-
-	function drop() {
-	    //Order the array by descending vertical position on the map
-	    $scope.places.sort(function (a, b){
-		return (b.lat - a.lat)
-	    });
-
-	    for (var i = 0; i < $scope.places.length; i++) {
-		setTimeout(function(index) {
-                    return function(place) {
-		        addMarker(index);
-		    }
-                } (i),
-                i * 200);
-	    }
-	}
-
-	function addMarker(index) {
-	    var place = $scope.places[index];
-	    var pos = new google.maps.LatLng(place.lat, place.lng);
-	    /*var infowindow = new google.maps.InfoWindow({
-	      content: getContent(place),
-	      maxWidth: 600
-	      }); */
-
-	    var marker = new google.maps.Marker({
-		position: pos,
-		map: $scope.map,
-		icon: $scope.marker_icons[place.foodtype],
-		animation: google.maps.Animation.DROP
-	    });
-	    markers.push(marker);
-	    //infowindows.push(infowindow);
-	    google.maps.event.addListener(marker, 'click', function() {
-		showPlaceInfo(place);
-                $scope.map.panTo(pos);
-		if ($scope.map.getZoom() < 16)
-		    $scope.map.setZoom(16);
-		$scope.map.panBy(150,0);
-		//_.map(infowindows, function(i){i.close();})
-		//infowindow.open($scope.map,marker);
-	    });
-	}
-
-	function fitBounds (markers) {
-	    var bounds = new google.maps.LatLngBounds();
-	    for(var i=0;i<markers.length;i++) {
-		bounds.extend(markers[i].getPosition());
-	    }
-
-	    $scope.map.fitBounds(bounds);
-	}
-
-
-	$scope.geoLocate = function() {
-	    // Try HTML5 geolocation
-	    if(navigator.geolocation && !$scope.findMe) {
-		$scope.findMe = true;
-		navigator.geolocation.getCurrentPosition(function(position) {
-		    var pos = new google.maps.LatLng(position.coords.latitude,
-						     position.coords.longitude);
-
-		    var marker = new google.maps.Marker({
-			position: pos,
-			map: $scope.map,
-			icon: 'images/SVG/iamhere.svg',
-			animation: google.maps.Animation.DROP,
-			zIndex: 99999
-		    });
-		    markers.push(marker);
-		    /* var infowindow = new google.maps.InfoWindow({
-		       map: $scope.map,
-		       position: pos,
-		       content: 'You are here'
-		       });*/
-
-		    var distanceToBerlin = (google.maps.geometry.spherical.computeDistanceBetween(pos, $scope.berlin)/1000).toFixed(2);
-		    console.log(distanceToBerlin);
-		    //$scope.map.panTo(pos);
-		    //$scope.map.setZoom(5);
-		    fitBounds(markers);
-		}, function() {
-		    handleNoGeolocation(true);
-		});
-	    } else {
-		// Browser doesn't support Geolocation
-		handleNoGeolocation(false);
-	    }
-
-	    $scope.seemenu = false;
-	    //$scope.hidePlace();
-	}
-
-
-	function handleNoGeolocation(errorFlag) {
-	    if (errorFlag) {
-		var content = 'Error: The Geolocation service failed.';
-	    } else {
-		var content = 'Error: Your browser doesn\'t support geolocation.';
-	    }
-	}
-
-	$scope.initialize = function() {
-	    var mapOptions = {
-		center: $scope.berlin,
-		zoom: 13,
-		disableDefaultUI: true,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	    };
-	    $scope.map = new google.maps.Map(document.getElementById("map_canvas"),
-					     mapOptions);
-
-            var styles = [
-		{
-		    stylers: [
-			{ hue: "#5ebf64" },
-			{ saturation: -20 }
-		    ]
-		},{
-		    featureType: "road",
-		    elementType: "geometry",
-		    stylers: [
-			{ lightness: 100 },
-			{ visibility: "simplified" }
-		    ]
-		},{
-		    featureType: "road",
-		    elementType: "labels",
-		    stylers: [
-			{ visibility: "off" }
-		    ]
-		},{
-		    featureType: "administrative.locality",
-		    elementType: "all",
-		    stylers: [
-			{ color: "#ff1526" },
-			{ weight: 0.5 }
-		    ]
-		},{
-		    featureType: "water",
-		    elementType: "geometry",
-		    stylers: [
-			{ color: "#05C7F2" }
-		    ]
-		},{
-		    featureType: "landscape",
-		    stylers: [
-			{ hue: "#FFB20E" },
-			{ saturation: 20 }
-		    ]
-		},{
-		    featureType: "transit.line",
-		    stylers:  [
-			{ visibility: "off" }
-		    ]
-		},{
-		    featureType: "poi.school",
-		    elementType: "all",
-		    stylers:  [
-			{ visibility: "off" }
-		    ]
-		},{
-		    featureType: "poi.business",
-		    elementType: "label",
-		    stylers:  [
-			{ visibility: "off" }
-		    ]
-		},{
-		    featureType: "poi.sports_complex",
-		    elementType: "all",
-		    stylers:  [
-			{ visibility: "off" }
-		    ]
-		},{
-		    featureType: "poi.medical",
-		    elementType: "all",
-		    stylers:  [
-			{ visibility: "off" }
-		    ]
-		},{
-		    featureType: "landscape",
-		    elementType: "geometry",
-		    stylers:  [
-			{ visibility: "off" }
-		    ]
-		}
-	    ];
-
-	    $scope.map.setOptions({styles: styles});
-
-	    // do something only the first time the map is loaded
-	    google.maps.event.addListenerOnce($scope.map, 'tilesloaded', function(){
-		drop();
-	    });
-	    $scope.place = places.getPlace();
-	};
-
+        }
     });
 
+eatoutControllers.controller('mapCtrl', function($scope, $http, $routeParams,
+                                                 backendData, geolocation) {
+    $scope.seeplace = false;
 
+    $scope.hidePlace = function() {
+	$scope.seeplace = false;
+    }
+
+    $scope.centerPosition = function (lat, lng, zoom) {
+	var center = new google.maps.LatLng(lat, lng);
+	console.log(center);
+	map.panTo(center);
+	map.setZoom(parseInt(zoom));
+    };
+
+    $scope.findMe = function() {
+	geolocation.getCurrentPosition(function(position) {
+	    var pos = new google.maps.LatLng(position.coords.latitude,
+					     position.coords.longitude);
+
+            if (findMeMarker != null) {
+                markers.splice(markers.indexOf(findMeMarker), 1);
+                markers.pop(findMeMarker);
+            }
+
+	    findMeMarker = new google.maps.Marker({
+		map: map,
+                position: pos,
+		icon: 'images/SVG/iamhere.svg',
+		animation: google.maps.Animation.DROP,
+		zIndex: 99999,
+	    });
+
+	    var distanceToBerlin = (
+                google.maps.geometry.spherical.computeDistanceBetween(
+                    pos, BERLIN_POS)/1000).toFixed(2);
+	    console.log("Distance to Berlin:", distanceToBerlin);
+	    fitBounds(markers);
+	})
+    }
+
+    backendData.placesPromise.success(function (data) {
+        $scope.places = data;
+    })
+
+    var map = new google.maps.Map(
+        document.getElementById("map_canvas"), {
+	    center: BERLIN_POS,
+	    zoom: 13,
+	    disableDefaultUI: true,
+	    mapTypeId: google.maps.MapTypeId.ROADMAP,
+            styles: MAP_STYLES
+	});
+
+    var markers = [];
+    var findMeMarker = null;
+
+    var showPlaceByName = function() {
+        var place = $scope.places[1];
+	var pos = new google.maps.LatLng(place.lat, place.lng);
+
+        showPlaceInfo(place);
+        map.panTo(pos);
+	if (map.getZoom() < 16)
+	    map.setZoom(16);
+	map.panBy(150,0);
+    }
+
+    var showPlaceInfo = function(place) {
+	$scope.seeplace = true;
+	$scope.place = place;
+    }
+
+    function drop() {
+	for (var i = 0; i < $scope.places.length; i++) {
+	    setTimeout(function(index) {
+                return function(place) {
+		    addMarker(index);
+		}
+            } (i),
+            i * 200);
+	}
+    }
+
+    function addMarker(index) {
+	var place = $scope.places[index];
+	var pos = new google.maps.LatLng(place.lat, place.lng);
+	var marker = new google.maps.Marker({
+	    position: pos,
+	    map: map,
+	    icon: MARKER_ICONS[place.foodtype],
+	    animation: google.maps.Animation.DROP
+	});
+	markers.push(marker);
+	google.maps.event.addListener(marker, 'click', function() {
+	    showPlaceInfo(place);
+            map.panTo(pos);
+	    if (map.getZoom() < 16)
+		map.setZoom(16);
+	    map.panBy(150,0);
+            $scope.$apply();
+	});
+    }
+
+    function fitBounds(markers) {
+	var bounds = new google.maps.LatLngBounds();
+	for (var i = 0; i < markers.length; i++) {
+	    bounds.extend(markers[i].getPosition());
+	}
+
+	map.fitBounds(bounds);
+    }
+
+    // do something only the first time the map is loaded
+    google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
+        backendData.promise.then(drop);
+    });
+});
 
 eatoutControllers.controller(
     'placeCtrl', function($scope, $http) {

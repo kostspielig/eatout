@@ -1,37 +1,46 @@
 var eatoutServices = angular.module('eatoutServices', []);
 
-eatoutServices.factory('places', ['$http', '$rootScope',
-  function($http, $rootScope){
+eatoutServices.factory('geolocation', function () {
+    var service = {
+        getCurrentPosition: function (success) {
+	    // Try HTML5 geolocation
+	    if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(
+                    success,
+                    function () { alert("Geolocation failed!"); }
+                );
+            } else {
+                alert("Geolocation not supported by your browser!");
+            }
+        }
+    };
+    return service;
+});
 
-      $rootScope.place = '';
-      service = {
-	  getPlaces: function(scope) {
-	      $http.get('data/places.json').success(function(data) {
-		  scope.places = data;
-		  //scope.place = data[12];
-              });
-	  },
+eatoutServices.factory('backendData', function($http, $q) {
+    var service = {}
 
-	  getDistricts: function(scope) {
-	      $http.get('data/districts.json').success(function(data) {
-		  scope.districts = data;
-              });
-	  },
+    service.placesPromise = $http.get('data/places.json')
+        .success(function(data) {
+	    // Order the array by descending vertical position on the map
+	    data.sort(function (a, b){
+		return (b.lat - a.lat)
+	    });
+	    service.places = data;
+        });
 
-	  setPlace: function(place) {
-	      $rootScope.place = place;
-	  },
+    service.districtsPromise = $http.get('data/districts.json')
+        .success(function(data) {
+	    service.districts = data;
+        });
 
-	  getPlace: function() {
-	      return ;
-	  }
-      };
-      return service;
-  }]);
+    service.promise = $q.all([service.placesPromise,
+                              service.districtsPromise]);
+    return service;
+});
 
 eatoutServices.factory('weather', ['$http',
   function($http, $rootScope){
-      //var query = 'http://query.yahooapis.com/v1/public/yql?q=select item from weather.forecast where location="GMXX0007"and u="c"&format=json';
       var weather = '';
       var FORECAST_ENDPOINT = "http://query.yahooapis.com/v1/public/yql?q=";
       var FORECAST_YQL_OPEN 	= "select * from weather.forecast where location='";
@@ -45,8 +54,6 @@ eatoutServices.factory('weather', ['$http',
 		  scope.weather = data;
 		  scope.temp = data.query.results.channel.item.condition.temp;
 		  scope.wcode = data.query.results.channel.item.condition.code;
-		  //console.log(scope.weather.query.results.channel);
-		  //console.log(scope.temp);
 	      });
 	  }
       };

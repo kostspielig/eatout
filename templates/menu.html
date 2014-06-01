@@ -1,11 +1,19 @@
-<div class="menu-content">
-  <div class="header">  </div>
+<div ng-controller="menuCtrl">
+  <div class="menu-icon" ng-click="toggleMenu()"></div>
 
-  <div class="find-me">
-    <span class="iamhere"></span> <a ng-click="geoLocate()" ng-href>  Find me</a>
+  <div class="main-menu" ng-show="seemenu">
+    <div class="menu-content">
+      <div class="header"></div>
+
+      <div class="find-me">
+        <span class="iamhere"></span> <a ng-click="menuFindMe()" ng-href>  Find me</a>
+      </div>
+
+      <ul>
+        <li class="menu-item"
+            ng-repeat="district in districts"
+            ng-click="menuSelectDistrict(district)">{{district.name}}</li>
+      </ul>
+    </div>
   </div>
-  <!-- <div class="menu-title"> District </div> -->
-  <ul>
-    <li class="menu-item" ng-repeat="district in districts" ng-click="centerPosition(district.lat, district.lng, district.zoom)">{{district.name}}</li>
-  </ul>
 </div>
