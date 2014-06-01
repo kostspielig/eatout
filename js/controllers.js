@@ -22,7 +22,18 @@ eatoutControllers.controller(
 	    $scope.seemenu = ($scope.seemenu == true)? false: true;
 	}
 
-	$scope.showPlace = function(place) {
+        $scope.showPlaceByName = function() {
+            var place = $scope.places[1];
+	    var pos = new google.maps.LatLng(place.lat, place.lng);
+
+            showPlaceInfo(place);
+            $scope.map.panTo(pos);
+	    if ($scope.map.getZoom() < 16)
+		$scope.map.setZoom(16);
+	    $scope.map.panBy(150,0);
+        }
+
+        var showPlaceInfo = function(place) {
 	    $scope.seeplace = true;
 	    $scope.place = place;
 	    $scope.$apply();
@@ -84,7 +95,6 @@ eatoutControllers.controller(
 
 	var markers = [];
 	var infowindows = [];
-	var iterator = 0;
 
 	function getContent(place) {
 	    return "<div class='info-content'><h1>"+place.name+"</h1><div class='rating'><div class='rating-value' style=width:"+place.rating*120/5+"px></div></div><div class='description'>"+place.description+"</div></div>";
@@ -97,14 +107,17 @@ eatoutControllers.controller(
 	    });
 
 	    for (var i = 0; i < $scope.places.length; i++) {
-		setTimeout(function(place) {
-		    addMarker();
-		}, i * 200);
+		setTimeout(function(index) {
+                    return function(place) {
+		        addMarker(index);
+		    }
+                } (i),
+                i * 200);
 	    }
 	}
 
-	function addMarker() {
-	    var place = $scope.places[iterator];
+	function addMarker(index) {
+	    var place = $scope.places[index];
 	    var pos = new google.maps.LatLng(place.lat, place.lng);
 	    /*var infowindow = new google.maps.InfoWindow({
 	      content: getContent(place),
@@ -120,15 +133,14 @@ eatoutControllers.controller(
 	    markers.push(marker);
 	    //infowindows.push(infowindow);
 	    google.maps.event.addListener(marker, 'click', function() {
-		$scope.showPlace(place);
-		$scope.map.panTo(pos);
+		showPlaceInfo(place);
+                $scope.map.panTo(pos);
 		if ($scope.map.getZoom() < 16)
 		    $scope.map.setZoom(16);
 		$scope.map.panBy(150,0);
 		//_.map(infowindows, function(i){i.close();})
 		//infowindow.open($scope.map,marker);
 	    });
-	    iterator++;
 	}
 
 	function fitBounds (markers) {
