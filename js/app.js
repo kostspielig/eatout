@@ -7,21 +7,14 @@ var eatoutApp = angular.module('eatoutApp', [
     'eatoutServices'
 ]);
 
-/*
 eatoutApp.config(
     function($routeProvider) {
 	$routeProvider
 	    .when('/', {
-		templateUrl:'templates/index.html',
+		templateUrl:'templates/map.html',
 		controller: 'mapCtrl'
-	    })
-	    .when('/@:eatPlace',{
-		templateUrl:'templates/eat-entry.html',
-		controller: 'placeCtrl'
 	    })
 	    .otherwise({
 		redirectTo: '/'
 	    });
     });
-*/
-
