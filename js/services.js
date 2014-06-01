@@ -1,5 +1,5 @@
 var eatoutServices = angular.module('eatoutServices', []);
- 
+
 eatoutServices.factory('places', ['$http', '$rootScope',
   function($http, $rootScope){
 
@@ -11,7 +11,7 @@ eatoutServices.factory('places', ['$http', '$rootScope',
 		  //scope.place = data[12];
               });
 	  },
-	  
+
 	  getDistricts: function(scope) {
 	      $http.get('data/districts.json').success(function(data) {
 		  scope.districts = data;
@@ -21,7 +21,7 @@ eatoutServices.factory('places', ['$http', '$rootScope',
 	  setPlace: function(place) {
 	      $rootScope.place = place;
 	  },
-	  
+
 	  getPlace: function() {
 	      return ;
 	  }
@@ -37,7 +37,7 @@ eatoutServices.factory('weather', ['$http',
       var FORECAST_YQL_OPEN 	= "select * from weather.forecast where location='";
       var FORECAST_YQL_CLOSE 	= "'and u='c'&format=json";
       var YQL_BERLIN = "GMXX0007";
-  
+
       service ={
 	  getWeather: function(scope) {
 	      var url = FORECAST_ENDPOINT + FORECAST_YQL_OPEN + YQL_BERLIN + FORECAST_YQL_CLOSE;

@@ -18,7 +18,7 @@ eatoutControllers.controller(
 	$scope.seemenu = false;
 	$scope.seeplace = false;
 
-	$scope.showMenu = function () { 
+	$scope.showMenu = function () {
 	    $scope.seemenu = ($scope.seemenu == true)? false: true;
 	}
 
@@ -27,7 +27,7 @@ eatoutControllers.controller(
 	    $scope.place = place;
 	    $scope.$apply();
 	}
-	
+
 	$scope.hidePlace = function() {
 	    $scope.seeplace = false;
 	}
@@ -38,9 +38,9 @@ eatoutControllers.controller(
 	$scope.districts = {};
 
 	$scope.marker_icons = {
-	    pizza: 'images/icons/SVG/pizza.svg', 
-	    beer: 'images/icons/SVG/beer.svg', 
-	    viet: 'images/icons/SVG/ramen.svg', 
+	    pizza: 'images/icons/SVG/pizza.svg',
+	    beer: 'images/icons/SVG/beer.svg',
+	    viet: 'images/icons/SVG/ramen.svg',
 	    burger: 'images/icons/SVG/burger.svg',
 	    japan: 'images/icons/SVG/sushi.svg',
 	    breakfast: 'images/icons/SVG/coffee.svg',
@@ -55,9 +55,9 @@ eatoutControllers.controller(
 	};
 
 	$scope.marker_icons2 = {
-	    pizza: 'images/icons/pizza.png', 
-	    beer: 'images/icons/beer.png', 
-	    viet: 'images/icons/viet.png', 
+	    pizza: 'images/icons/pizza.png',
+	    beer: 'images/icons/beer.png',
+	    viet: 'images/icons/viet.png',
 	    burger: 'images/icons/burger.png',
 	    japan: 'images/icons/japan.png',
 	    breakfast: 'images/icons/breakfast.png',
@@ -110,7 +110,7 @@ eatoutControllers.controller(
 	      content: getContent(place),
 	      maxWidth: 600
 	      }); */
-	    
+
 	    var marker = new google.maps.Marker({
 		position: pos,
 		map: $scope.map,
@@ -148,13 +148,13 @@ eatoutControllers.controller(
 		navigator.geolocation.getCurrentPosition(function(position) {
 		    var pos = new google.maps.LatLng(position.coords.latitude,
 						     position.coords.longitude);
-		    
+
 		    var marker = new google.maps.Marker({
 			position: pos,
 			map: $scope.map,
 			icon: 'images/SVG/iamhere.svg',
 			animation: google.maps.Animation.DROP,
-			zIndex: 99999 
+			zIndex: 99999
 		    });
 		    markers.push(marker);
 		    /* var infowindow = new google.maps.InfoWindow({
@@ -188,9 +188,8 @@ eatoutControllers.controller(
 		var content = 'Error: Your browser doesn\'t support geolocation.';
 	    }
 	}
-	
-	$scope.initialize = function() {
 
+	$scope.initialize = function() {
 	    var mapOptions = {
 		center: $scope.berlin,
 		zoom: 13,
@@ -199,7 +198,8 @@ eatoutControllers.controller(
 	    };
 	    $scope.map = new google.maps.Map(document.getElementById("map_canvas"),
 					     mapOptions);
-	    var styles = [
+
+            var styles = [
 		{
 		    stylers: [
 			{ hue: "#5ebf64" },
@@ -283,15 +283,12 @@ eatoutControllers.controller(
 	    });
 	    $scope.place = places.getPlace();
 	};
-	
+
     });
 
 
 
 eatoutControllers.controller(
-    'placeCtrl', function($scope, $http) { 
-
-	
-
+    'placeCtrl', function($scope, $http) {
 
     });
