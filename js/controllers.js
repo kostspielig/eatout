@@ -5,7 +5,14 @@
 var eatoutControllers = angular.module('eatoutControllers', []);
 
 eatoutControllers.controller(
-    'mapCtrl', function($scope, $http, places, weather) {
+    'weatherCtrl', function($scope, weather) {
+        // Loading weather
+        weather.getWeather($scope);
+    });
+
+eatoutControllers.controller(
+    'mapCtrl', function($scope, $http, $routeParams, places) {
+
 	$scope.berlin = new google.maps.LatLng(52.5096315, 13.4018519);
 
 	$scope.seemenu = false;
@@ -74,10 +81,6 @@ eatoutControllers.controller(
 	// Loading the places and districts
 	places.getPlaces($scope);
 	places.getDistricts($scope);
-
-	// Loading weather
-	weather.getWeather($scope);
-
 
 	var markers = [];
 	var infowindows = [];
