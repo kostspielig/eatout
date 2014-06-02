@@ -22,16 +22,20 @@ $purple: #805BA6;
 
 html, .ng-scope { height: 100% }
 
-body { height: 100%; margin: 0; padding: 0;
-       overflow: hidden;
-       font-family: 'Josefin Sans', sans-serif;
-     }
+body {
+    height: 100%; margin: 0; padding: 0;
+    overflow: hidden;
+    font-family: 'Josefin Sans', sans-serif;
+}
 
-#map-canvas { height: 100%; width: 100%;
+#main-app { width: 100%; height: 100%; }
 
-	      .gm-style-iw { overflow: hidden !important;}
-	      .gm-style .gm-style-cc span, .gm-style .gm-style-cc a, .gm-style .gm-style-mtc div { display: none; }
-	    }
+#map-canvas {
+    height: 100%; width: 100%;
+
+    .gm-style-iw { overflow: hidden !important;}
+    .gm-style .gm-style-cc span, .gm-style .gm-style-cc a, .gm-style .gm-style-mtc div { display: none; }
+}
 
 #logo {
 
