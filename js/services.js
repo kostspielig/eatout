@@ -1,5 +1,18 @@
 var eob_services = angular.module('eob.services', []);
 
+// https://gist.github.com/bentruyman/1211400
+function toSlug (value) {
+  // 1) convert to lowercase
+  // 2) remove dashes and pluses
+  // 3) replace spaces with dashes
+  // 4) remove everything but alphanumeric characters and dashes
+  return value
+        .toLowerCase()
+        .replace(/-+/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/[^a-z0-9-]/g, '');
+};
+
 eob_services.factory('eob_geolocation', function () {
     var service = {
         getCurrentPosition: function (success) {
@@ -23,9 +36,13 @@ eob_services.factory('eob_data', function($http, $q) {
     service.placesPromise = $http.get('data/places.json')
         .success(function(data) {
 	    // Order the array by descending vertical position on the map
-	    data.sort(function (a, b){
+	    data.sort(function (a, b) {
 		return (b.lat - a.lat)
 	    });
+            // Compute slug information
+            data.forEach(function (place) {
+                place.slug = toSlug(place.name);
+            })
 	    service.places = data;
         });
 

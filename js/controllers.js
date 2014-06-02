@@ -144,19 +144,24 @@ eob_controllers.controller(
 
 eob_controllers.controller(
     'eob_MapCtrl',
-    function($scope, $http, $routeParams, eob_data, eob_geolocation)
+    function($scope, $http, $location, eob_data, eob_geolocation)
 {
-    $scope.seeplace = false;
+    $scope.seepanel = false;
 
-    $scope.hidePlace = function() {
-	$scope.seeplace = false;
+    $scope.hidePanel = function() {
+	$scope.seepanel = false;
+    }
+
+    $scope.showPanel = function() {
+	$scope.seepanel = true;
     }
 
     $scope.centerPosition = function (lat, lng, zoom) {
 	var center = new google.maps.LatLng(lat, lng);
 	console.log(center);
 	map.panTo(center);
-	map.setZoom(parseInt(zoom));
+	if (map.getZoom() < zoom)
+	    map.setZoom(zoom);
     };
 
     $scope.findMe = function() {
@@ -197,25 +202,8 @@ eob_controllers.controller(
 	    mapTypeId: google.maps.MapTypeId.ROADMAP,
             styles: MAP_STYLES
 	});
-
     var markers = [];
     var findMeMarker = null;
-
-    var showPlaceByName = function() {
-        var place = $scope.places[1];
-	var pos = new google.maps.LatLng(place.lat, place.lng);
-
-        showPlaceInfo(place);
-        map.panTo(pos);
-	if (map.getZoom() < 16)
-	    map.setZoom(16);
-	map.panBy(150,0);
-    }
-
-    var showPlaceInfo = function(place) {
-	$scope.seeplace = true;
-	$scope.place = place;
-    }
 
     function drop() {
 	for (var i = 0; i < $scope.places.length; i++) {
@@ -239,11 +227,7 @@ eob_controllers.controller(
 	});
 	markers.push(marker);
 	google.maps.event.addListener(marker, 'click', function() {
-	    showPlaceInfo(place);
-            map.panTo(pos);
-	    if (map.getZoom() < 16)
-		map.setZoom(16);
-	    map.panBy(150,0);
+            $location.path('/place/' + place.slug);
             $scope.$apply();
 	});
     }
@@ -264,6 +248,20 @@ eob_controllers.controller(
 });
 
 eob_controllers.controller(
-    'eob_PlaceCtrl', function($scope, $http) {
+    'eob_PlaceCtrl', function($scope, $routeParams, eob_data) {
+        eob_data.placesPromise.success(function (places) {
+            var place = _.findWhere(places, {slug: $routeParams.placeSlug});
+            if (place != null) {
+                $scope.place = place;
+	        $scope.showPanel();
+                $scope.centerPosition(place.lat, place.lng, 16);
+            } else {
+                alert("Place not found: " + $routeParams.placeSlug);
+            }
+        });
+    });
 
+eob_controllers.controller(
+    'eob_NoPlaceCtrl', function($scope) {
+        $scope.hidePanel();
     });

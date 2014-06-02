@@ -1,8 +1,12 @@
-<div>
+
+<div ng-controller="eob_MapCtrl">
   <div id="map_canvas"></div>
 
   <ng-include src="'templates/menu.html'"></ng-include>
-  <ng-include src="'templates/place.html'"></ng-include>
+
+  <div class="main-panel" ng-show="seepanel">
+    <div ng-view></div>
+  </div>
 
   <div id='weather' ng-controller="eob_WeatherCtrl">
     <a ng-href="https://www.google.es/search?q=weather+berlin">
