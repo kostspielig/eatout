@@ -29,7 +29,7 @@
 	"lng": 13.398483,
 	"description": "It may not have the best burger in town, but for some reason I keep coming back for more. All the burgers have a unique flavour, and the fries are to die for. One of the must-order burgers is the chilli lemon: a unique pleasure to your senses. ",
 	"rating": 4.3,
-	"images": ["images/places/SishoBurger/sisho0.JPG","images/places/SishoBurger/image1.JPG","images/places/SishoBurger/image2.JPG","images/places/SishoBurger/image3.JPG","images/places/SishoBurger/image4.JPG","images/places/SishoBurger/image5.JPG"]
+	"images": ["images/places/SishoBurger/sisho0.JPG","images/places/SishoBurger/image1.JPG","images/places/SishoBurger/image2.JPG","images/places/SishoBurger/image3.JPG","images/places/SishoBurger/image4.JPG","images/places/SishoBurger/image5.JPG","images/places/SishoBurger/image6.JPG"]
     }, {
 	"name": "Cabslam - The California Breakfast Slam",
 	"url": "http://www.cabslam.com",
@@ -140,6 +140,39 @@
 	"description": "If this is not the best ice-cream in town, it  might be very close.",
 	"rating": 4.3,
 	"images": ["images/places/Eiscafe/cover.JPG","images/places/Eiscafe/image1.JPG","images/places/Eiscafe/image2.JPG"]
+    },{
+	"name": "Sasaya",
+	"url": "hhttp://sasaya-berlin.de/",
+	"date": "29-05-2014",
+	"address" : "Lychener Straße 50",
+	"foodtype": "japan",
+	"lat": 52.544239,
+	"lng": 13.418352,
+	"description": "Berlin's authentic Japaneese.",
+	"rating": 4,
+	"images": ["images/places/Sasaya/image0.JPG","images/places/Sasaya/image1.JPG","images/places/Sasaya/image2.JPG"]
+    },{
+	"name": "Melbourne Canteen",
+	"url": "http://www.melbournecanteen.com/",
+	"date": "30-05-2014",
+	"address" : "Pannierstraße 57",
+	"foodtype": "egg",
+	"lat": 52.48703,
+	"lng": 13.43051,
+	"description": "Berlin's only French-Australian Café Restaurant and Cocktail bar.",
+	"rating": 4.2,
+	"images": ["images/places/MelbourneCanteen/image0.JPG","images/places/MelbourneCanteen/image1.JPG","images/places/MelbourneCanteen/image2.JPG","images/places/MelbourneCanteen/image3.JPG","images/places/MelbourneCanteen/image4.JPG","images/places/MelbourneCanteen/image5.JPG","images/places/MelbourneCanteen/image6.JPG","images/places/MelbourneCanteen/image7.JPG"]
+    },{
+	"name": "Maria Bonita",
+	"url": "http://mariabonitaberlin.wordpress.com/",
+	"date": "31-05-2014",
+	"address" : "Danziger Strasse 33",
+	"foodtype": "beer",
+	"lat": 52.54041,
+	"lng": 13.418194,
+	"description": "Berlin's First Authentic Mexican Restaurant.",
+	"rating": 4.7,
+	"images": ["images/places/MariaBonita/image1.JPG","images/places/MariaBonita/image2.JPG","images/places/MariaBonita/image3.JPG","images/places/MariaBonita/image4.JPG","images/places/MariaBonita/image5.JPG","images/places/MariaBonita/image6.JPG","images/places/MariaBonita/image7.JPG"]
     }
 
 ]
