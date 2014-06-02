@@ -13,6 +13,31 @@ function toSlug (value) {
         .replace(/[^a-z0-9-]/g, '');
 };
 
+eob_services.factory('eob_imgCache', function ($q) {
+    function loadImg(url) {
+        var promise = $q.defer();
+        var img = new Image();
+        img.src = url;
+        img.onload  = function() { promise.resolve(img); };
+        img.onerror = function() { promise.reject(img); };
+        return promise;
+    }
+
+    var cache = {};
+    return {
+        load: function (images) {
+            var promises = {};
+            for (var key in images) {
+                var promise = cache[key];
+                if (promise == null)
+                    promise = cache[key] = loadImg(images[key]);
+                promises[key] = promise;
+            }
+            return $q.all(promises);
+        }
+    };
+});
+
 eob_services.factory('eob_geolocation', function () {
     var service = {
         getCurrentPosition: function (success) {

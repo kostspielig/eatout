@@ -3,6 +3,8 @@
 
 var eob_controllers = angular.module('eob.controllers', []);
 
+var DROP_DELAY = 200;
+
 var BERLIN_POS = new google.maps.LatLng(52.5096315, 13.4018519);
 
 var MARKER_ICONS = {
@@ -19,7 +21,8 @@ var MARKER_ICONS = {
     muffin: 'images/icons/SVG/muffin.svg',
     french: 'images/icons/SVG/french.svg',
     egg: 'images/icons/SVG/spanish.svg',
-    sandwitch: 'images/icons/SVG/sandwitch.svg'
+    sandwitch: 'images/icons/SVG/sandwitch.svg',
+    findme: 'images/SVG/iamhere.svg'
 };
 
 var MARKER_ICONS2 = {
@@ -139,8 +142,11 @@ eob_controllers.controller(
 
 eob_controllers.controller(
     'eob_MapCtrl',
-    function($scope, $http, $location, eob_data, eob_geolocation)
+    function($scope, $http, $location,
+             eob_data, eob_geolocation, eob_imgCache)
 {
+    eob_imgCache.load(MARKER_ICONS);
+
     $scope.seemenu = false;
     $scope.seepanel = false;
     $scope.place = null;
@@ -181,31 +187,35 @@ eob_controllers.controller(
 
     $scope.findMe = function() {
 	eob_geolocation.getCurrentPosition(function(position) {
-	    var pos = new google.maps.LatLng(position.coords.latitude,
-					     position.coords.longitude);
+            eob_imgCache.load(
+                _.pick(MARKER_ICONS, 'findme')
+            ).then(function () {
+	        var pos = new google.maps.LatLng(position.coords.latitude,
+					         position.coords.longitude);
 
-            if (findMeMarker != null) {
-                markers.splice(markers.indexOf(findMeMarker), 1);
-                markers.pop(findMeMarker);
-                findMeMarker.setMap(null);
-            }
+                if (findMeMarker != null) {
+                    markers.splice(markers.indexOf(findMeMarker), 1);
+                    markers.pop(findMeMarker);
+                    findMeMarker.setMap(null);
+                }
 
-	    findMeMarker = new google.maps.Marker({
-		map: map,
-                position: pos,
-		icon: 'images/SVG/iamhere.svg',
-		animation: google.maps.Animation.DROP,
-		zIndex: 99999,
-	    });
-            markers.push(findMeMarker);
+	        findMeMarker = new google.maps.Marker({
+		    map: map,
+                    position: pos,
+		    icon: MARKER_ICONS['findme'],
+		    animation: google.maps.Animation.DROP,
+		    zIndex: 99999,
+	        });
+                markers.push(findMeMarker);
 
-	    var distanceToBerlin = (
-                google.maps.geometry.spherical.computeDistanceBetween(
-                    pos, BERLIN_POS) / 1000).toFixed(2);
-	    console.log("Distance to Berlin:", distanceToBerlin);
-	    fitBounds(markers);
-	})
-    }
+	        var distanceToBerlin = (
+                    google.maps.geometry.spherical.computeDistanceBetween(
+                        pos, BERLIN_POS) / 1000).toFixed(2);
+	        console.log("Distance to Berlin:", distanceToBerlin);
+	        fitBounds(markers);
+            });
+	});
+    };
 
     eob_data.placesPromise.success(function (data) {
         $scope.places = data;
@@ -222,31 +232,30 @@ eob_controllers.controller(
     var markers = [];
     var findMeMarker = null;
 
-    function drop() {
-	for (var i = 0; i < $scope.places.length; i++) {
-	    setTimeout(function(index) {
-                return function(place) {
-		    addMarker(index);
-		}
-            } (i),
-            i * 200);
-	}
-    }
+    function addMarkersFrom(index) {
+        if (index == null)
+            index = 0;
+        if (index >= 0 && index < $scope.places.length) {
+            var place = $scope.places[index];
+	    eob_imgCache.load(
+                _.pick(MARKER_ICONS, place.foodtype)
+            ).then(function () {
+                var marker = new google.maps.Marker({
+	            position: new google.maps.LatLng(place.lat, place.lng),
+	            map: map,
+	            icon: MARKER_ICONS[place.foodtype],
+	            animation: google.maps.Animation.DROP
+	        });
+	        markers.push(marker);
 
-    function addMarker(index) {
-	var place = $scope.places[index];
-	var pos = new google.maps.LatLng(place.lat, place.lng);
-	var marker = new google.maps.Marker({
-	    position: pos,
-	    map: map,
-	    icon: MARKER_ICONS[place.foodtype],
-	    animation: google.maps.Animation.DROP
-	});
-	markers.push(marker);
-	google.maps.event.addListener(marker, 'click', function() {
-            $location.path('/place/' + place.slug);
-            $scope.$apply();
-	});
+	        google.maps.event.addListener(marker, 'click', function() {
+                    $location.path('/place/' + place.slug);
+                    $scope.$apply();
+	        });
+
+                setTimeout(_.partial(addMarkersFrom, index + 1), DROP_DELAY);
+            });
+        }
     }
 
     function fitBounds(markers) {
@@ -260,7 +269,7 @@ eob_controllers.controller(
 
     // do something only the first time the map is loaded
     google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
-        eob_data.promise.then(drop);
+        eob_data.placesPromise.then(_.partial(addMarkersFrom, 0));
     });
 });
 
