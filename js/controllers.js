@@ -196,7 +196,7 @@ eob_controllers.controller(
 
 	    var distanceToBerlin = (
                 google.maps.geometry.spherical.computeDistanceBetween(
-                    pos, BERLIN_POS)/1000).toFixed(2);
+                    pos, BERLIN_POS) / 1000).toFixed(2);
 	    console.log("Distance to Berlin:", distanceToBerlin);
 	    fitBounds(markers);
 	})
