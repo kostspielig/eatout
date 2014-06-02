@@ -40,4 +40,5 @@ handlers:
   upload: templates/index.html
 
 - url: /.*
-  script: main.app
+  static_files: templates/index.html
+  upload: templates/index.html

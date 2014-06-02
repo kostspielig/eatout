@@ -18,3 +18,8 @@ eob_app.config(
 		redirectTo: '/'
 	    });
     });
+
+eob_app.config(
+    function($locationProvider) {
+        $locationProvider.html5Mode(true);
+    });
