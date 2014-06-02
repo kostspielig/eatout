@@ -120,13 +120,14 @@ eob_controllers.controller(
     });
 
 eob_controllers.controller(
-    'eob_MenuCtrl', function($scope, eob_data) {
+    'eob_MenuCtrl', function($scope, $location, eob_data) {
         eob_data.districtsPromise.success(function (data) {
             $scope.districts = data;
         })
 
         $scope.menuFindMe = function () {
             $scope.hideMenu();
+            $location.path("/");
             $scope.findMe();
         }
 
