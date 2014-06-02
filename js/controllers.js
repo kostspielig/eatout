@@ -121,24 +121,18 @@ eob_controllers.controller(
 
 eob_controllers.controller(
     'eob_MenuCtrl', function($scope, eob_data) {
-        $scope.seemenu = false;
-
         eob_data.districtsPromise.success(function (data) {
             $scope.districts = data;
         })
 
-	$scope.toggleMenu = function () {
-	    $scope.seemenu = !$scope.seemenu;
-	}
-
         $scope.menuFindMe = function () {
+            $scope.hideMenu();
             $scope.findMe();
-            $scope.seemenu = false;
         }
 
         $scope.menuSelectDistrict = function (district) {
+            $scope.hideMenu();
             $scope.centerPosition(district.lat, district.lng, district.zoom);
-	    $scope.seemenu = false;
         }
     });
 
@@ -146,22 +140,39 @@ eob_controllers.controller(
     'eob_MapCtrl',
     function($scope, $http, $location, eob_data, eob_geolocation)
 {
+    $scope.seemenu = false;
     $scope.seepanel = false;
 
-    $scope.hidePanel = function() {
-	$scope.seepanel = false;
-    }
-
-    $scope.showPanel = function() {
-	$scope.seepanel = true;
-    }
+    $scope.hidePanel = function() { $scope.seepanel = false; }
+    $scope.showPanel = function() { $scope.seepanel = true; }
+    $scope.hideMenu = function() { $scope.seemenu = false; }
+    $scope.showMenu = function() { $scope.seemenu = true; }
+    $scope.toggleMenu = function () { $scope.seemenu = !$scope.seemenu; }
 
     $scope.centerPosition = function (lat, lng, zoom) {
 	var center = new google.maps.LatLng(lat, lng);
-	console.log(center);
-	map.panTo(center);
-	if (map.getZoom() < zoom)
-	    map.setZoom(zoom);
+
+        if ($scope.seepanel || $scope.seemenu) {
+            // The panel might be changing right now, in which case
+            // 'offsetWidth' returns 0, so let's deffer this.
+            setTimeout(function () {
+                var mapWidth =
+                    document.getElementById('map-canvas').offsetWidth;
+                var panelWidth = !$scope.seepanel ? 0 :
+                    document.getElementById('main-panel').offsetWidth;
+                var menuWidth = !$scope.seemenu ? 0 :
+                    document.getElementById('main-menu').offsetWidth;
+                if (panelWidth >= mapWidth)
+                    panelWidth = 0;
+                var adjust = panelWidth / 2 - menuWidth / 2;
+	        map.panTo(center);
+                map.setZoom(zoom);
+                map.panBy(adjust, 0);
+            }, 0);
+        } else {
+            map.panTo(center);
+            map.setZoom(zoom);
+        }
     };
 
     $scope.findMe = function() {
@@ -195,7 +206,7 @@ eob_controllers.controller(
     })
 
     var map = new google.maps.Map(
-        document.getElementById("map_canvas"), {
+        document.getElementById('map-canvas'), {
 	    center: BERLIN_POS,
 	    zoom: 13,
 	    disableDefaultUI: true,
