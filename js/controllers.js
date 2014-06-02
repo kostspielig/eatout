@@ -192,6 +192,7 @@ eob_controllers.controller(
 		animation: google.maps.Animation.DROP,
 		zIndex: 99999,
 	    });
+            markers.push(findMeMarker);
 
 	    var distanceToBerlin = (
                 google.maps.geometry.spherical.computeDistanceBetween(
