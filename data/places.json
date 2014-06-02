@@ -9,7 +9,7 @@
 	"description": "This charming market has many options to eat, you can find from delicious curry bursts to all different types of cheesse. Definitely this a place not to be missed.",
 	"rating": 4.5,
 	"images": ["images/places/MarkthalleNeun/cburst0.jpg", "images/places/MarkthalleNeun/cburst1.jpg"]
-	
+
     }, {
 	"name": "The Barn",
 	"url": "http://barn.bigcartel.com/",
@@ -141,6 +141,5 @@
 	"rating": 4.3,
 	"images": ["images/places/Eiscafe/cover.JPG","images/places/Eiscafe/image1.JPG","images/places/Eiscafe/image2.JPG"]
     }
-
 
 ]
