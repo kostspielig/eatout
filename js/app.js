@@ -11,12 +11,12 @@ eob_app.config(
     function($routeProvider) {
 	$routeProvider
 	    .when('/', {
-		templateUrl:'templates/place.html',
-		controller: 'eob_NoPlaceCtrl'
+		templateUrl:'templates/empty.html',
+		controller: 'eob_NoPlaceUrlCtrl'
 	    })
             .when('/place/:placeSlug', {
-		templateUrl:'templates/place.html',
-		controller: 'eob_PlaceCtrl'
+		templateUrl:'templates/empty.html',
+		controller: 'eob_PlaceUrlCtrl'
 	    })
 	    .otherwise({
 		redirectTo: '/'

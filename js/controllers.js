@@ -143,12 +143,15 @@ eob_controllers.controller(
 {
     $scope.seemenu = false;
     $scope.seepanel = false;
+    $scope.place = null;
 
     $scope.hidePanel = function() { $scope.seepanel = false; }
     $scope.showPanel = function() { $scope.seepanel = true; }
     $scope.hideMenu = function() { $scope.seemenu = false; }
     $scope.showMenu = function() { $scope.seemenu = true; }
     $scope.toggleMenu = function () { $scope.seemenu = !$scope.seemenu; }
+
+    $scope.setPlace = function (place) { $scope.place = place; }
 
     $scope.centerPosition = function (lat, lng, zoom) {
 	var center = new google.maps.LatLng(lat, lng);
@@ -262,11 +265,11 @@ eob_controllers.controller(
 });
 
 eob_controllers.controller(
-    'eob_PlaceCtrl', function($scope, $routeParams, eob_data) {
+    'eob_PlaceUrlCtrl', function($scope, $routeParams, eob_data) {
         eob_data.placesPromise.success(function (places) {
             var place = _.findWhere(places, {slug: $routeParams.placeSlug});
             if (place != null) {
-                $scope.place = place;
+                $scope.setPlace(place);
 	        $scope.showPanel();
                 $scope.centerPosition(place.lat, place.lng, 16);
             } else {
@@ -276,6 +279,6 @@ eob_controllers.controller(
     });
 
 eob_controllers.controller(
-    'eob_NoPlaceCtrl', function($scope) {
+    'eob_NoPlaceUrlCtrl', function($scope) {
         $scope.hidePanel();
     });
