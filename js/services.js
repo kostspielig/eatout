@@ -1,6 +1,6 @@
-var eatoutServices = angular.module('eatoutServices', []);
+var eob_services = angular.module('eob.services', []);
 
-eatoutServices.factory('geolocation', function () {
+eob_services.factory('eob_geolocation', function () {
     var service = {
         getCurrentPosition: function (success) {
 	    // Try HTML5 geolocation
@@ -17,7 +17,7 @@ eatoutServices.factory('geolocation', function () {
     return service;
 });
 
-eatoutServices.factory('backendData', function($http, $q) {
+eob_services.factory('eob_data', function($http, $q) {
     var service = {}
 
     service.placesPromise = $http.get('data/places.json')
@@ -39,7 +39,7 @@ eatoutServices.factory('backendData', function($http, $q) {
     return service;
 });
 
-eatoutServices.factory('weather', ['$http',
+eob_services.factory('eob_weather', ['$http',
   function($http, $rootScope){
       var weather = '';
       var FORECAST_ENDPOINT = "http://query.yahooapis.com/v1/public/yql?q=";
@@ -47,7 +47,7 @@ eatoutServices.factory('weather', ['$http',
       var FORECAST_YQL_CLOSE 	= "'and u='c'&format=json";
       var YQL_BERLIN = "GMXX0007";
 
-      service ={
+      return {
 	  getWeather: function(scope) {
 	      var url = FORECAST_ENDPOINT + FORECAST_YQL_OPEN + YQL_BERLIN + FORECAST_YQL_CLOSE;
 	      $http.get(url).success(function(data) {
@@ -57,6 +57,4 @@ eatoutServices.factory('weather', ['$http',
 	      });
 	  }
       };
-      return service;
-
   }]);

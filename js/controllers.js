@@ -1,7 +1,7 @@
 
 'use strict';
 
-var eatoutControllers = angular.module('eatoutControllers', []);
+var eob_controllers = angular.module('eob.controllers', []);
 
 var BERLIN_POS = new google.maps.LatLng(52.5096315, 13.4018519);
 
@@ -114,17 +114,16 @@ var MAP_STYLES = [
     }
 ];
 
-eatoutControllers.controller(
-    'weatherCtrl', function($scope, weather) {
-        // Loading weather
-        weather.getWeather($scope);
+eob_controllers.controller(
+    'eob_WeatherCtrl', function($scope, eob_weather) {
+        eob_weather.getWeather($scope);
     });
 
-eatoutControllers.controller(
-    'menuCtrl', function($scope, backendData) {
+eob_controllers.controller(
+    'eob_MenuCtrl', function($scope, eob_data) {
         $scope.seemenu = false;
 
-        backendData.districtsPromise.success(function (data) {
+        eob_data.districtsPromise.success(function (data) {
             $scope.districts = data;
         })
 
@@ -143,8 +142,10 @@ eatoutControllers.controller(
         }
     });
 
-eatoutControllers.controller('mapCtrl', function($scope, $http, $routeParams,
-                                                 backendData, geolocation) {
+eob_controllers.controller(
+    'eob_MapCtrl',
+    function($scope, $http, $routeParams, eob_data, eob_geolocation)
+{
     $scope.seeplace = false;
 
     $scope.hidePlace = function() {
@@ -159,7 +160,7 @@ eatoutControllers.controller('mapCtrl', function($scope, $http, $routeParams,
     };
 
     $scope.findMe = function() {
-	geolocation.getCurrentPosition(function(position) {
+	eob_geolocation.getCurrentPosition(function(position) {
 	    var pos = new google.maps.LatLng(position.coords.latitude,
 					     position.coords.longitude);
 
@@ -184,7 +185,7 @@ eatoutControllers.controller('mapCtrl', function($scope, $http, $routeParams,
 	})
     }
 
-    backendData.placesPromise.success(function (data) {
+    eob_data.placesPromise.success(function (data) {
         $scope.places = data;
     })
 
@@ -258,11 +259,11 @@ eatoutControllers.controller('mapCtrl', function($scope, $http, $routeParams,
 
     // do something only the first time the map is loaded
     google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
-        backendData.promise.then(drop);
+        eob_data.promise.then(drop);
     });
 });
 
-eatoutControllers.controller(
-    'placeCtrl', function($scope, $http) {
+eob_controllers.controller(
+    'eob_PlaceCtrl', function($scope, $http) {
 
     });

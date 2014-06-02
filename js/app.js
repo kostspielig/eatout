@@ -1,18 +1,18 @@
 
-var eatoutApp = angular.module('eatoutApp', [
+var eob_app = angular.module('eob.app', [
     'ngAnimate',
     'ngRoute',
-    'eatoutControllers',
-    'eatoutDirectives',
-    'eatoutServices'
+    'eob.controllers',
+    'eob.directives',
+    'eob.services'
 ]);
 
-eatoutApp.config(
+eob_app.config(
     function($routeProvider) {
 	$routeProvider
 	    .when('/', {
 		templateUrl:'templates/map.html',
-		controller: 'mapCtrl'
+		controller: 'eob_MapCtrl'
 	    })
 	    .otherwise({
 		redirectTo: '/'

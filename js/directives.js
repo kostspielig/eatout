@@ -1,7 +1,7 @@
 
-var eatoutDirectives = angular.module('eatoutDirectives', []);
+var eob_directives = angular.module('eob.directives', []);
 
-eatoutDirectives.directive('dropdown', function($document) {
+eob_directives.directive('eob-dropdown', function($document) {
     return function(scope, element, attr){
 	element.on('click', function(event) {
 	    if ( element.parent().hasClass('open') )
