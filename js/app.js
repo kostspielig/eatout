@@ -11,7 +11,7 @@ eob_app.config(
     function($routeProvider) {
 	$routeProvider
 	    .when('/', {
-		templateUrl:'templates/empty.html',
+		templateUrl:'templates/place.html',
 		controller: 'eob_NoPlaceCtrl'
 	    })
             .when('/place/:placeSlug', {
