@@ -1,27 +1,31 @@
 
-var eatoutApp = angular.module('eatoutApp', [
+var eob_app = angular.module('eob.app', [
     'ngAnimate',
     'ngRoute',
-    'eatoutControllers',
-    'eatoutDirectives',
-    'eatoutServices'
+    'eob.controllers',
+    'eob.directives',
+    'eob.services'
 ]);
 
-/*
-eatoutApp.config(
+eob_app.config(
     function($routeProvider) {
 	$routeProvider
 	    .when('/', {
-		templateUrl:'templates/index.html',
-		controller: 'mapCtrl'
+		templateUrl:'templates/empty.html',
+		controller: 'eob_NoPlaceUrlCtrl'
 	    })
-	    .when('/@:eatPlace',{
-		templateUrl:'templates/eat-entry.html',
-		controller: 'placeCtrl'
+            .when('/place/:placeSlug', {
+		templateUrl:'templates/empty.html',
+		controller: 'eob_PlaceUrlCtrl'
 	    })
 	    .otherwise({
 		redirectTo: '/'
 	    });
     });
-*/
 
+eob_app.config(
+    function($locationProvider) {
+        $locationProvider.html5Mode(true);
+    });
+
+eob_app.run(['$route', angular.noop]);

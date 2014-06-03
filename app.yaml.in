@@ -1,5 +1,5 @@
 application: eatoutberlin
-version: 2
+version: %BRANCH
 runtime: python27
 api_version: 1
 threadsafe: true
@@ -40,4 +40,5 @@ handlers:
   upload: templates/index.html
 
 - url: /.*
-  script: main.app
+  static_files: templates/index.html
+  upload: templates/index.html

@@ -12,33 +12,37 @@ $white: #ffffff;
 $purple: #805BA6;
 
 
-@mixin bg-cover { 
+@mixin bg-cover {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover; 
+    background-size: cover;
 }
 
 
 html { height: 100% }
 
-body { height: 100%; margin: 0; padding: 0;
-       overflow: hidden;
-       font-family: 'Josefin Sans', sans-serif;
-     }
+body {
+    height: 100%; margin: 0; padding: 0;
+    overflow: hidden;
+    font-family: 'Josefin Sans', sans-serif;
+}
 
-#map_canvas { height: 100%; width: 100%; 
-	      
-	      .gm-style-iw { overflow: hidden !important;}  
-	      .gm-style .gm-style-cc span, .gm-style .gm-style-cc a, .gm-style .gm-style-mtc div { display: none; }
-	    }
+#main-app { width: 100%; height: 100%; }
 
-#logo { 
-     
+#map-canvas {
+    height: 100%; width: 100%;
+
+    .gm-style-iw { overflow: hidden !important;}
+    .gm-style .gm-style-cc span, .gm-style .gm-style-cc a, .gm-style .gm-style-mtc div { display: none; }
+}
+
+#logo {
+
     .tv-tower { position: absolute; z-index: 0; bottom: 10px; left: 20px; width: 67px; height: 235px; background: transparent url(/images/SVG/tvTower.svg) no-repeat 0 0;}
     .eatout-text { position: absolute; z-index: 0; bottom: 10px; left: 87px; width: 146px; height:71px; background: transparent url(/images/SVG/eatoutText.svg) no-repeat 0 0; }
 }
-#madewith { 
+#madewith {
     font-size: 12px; font-family: Helvetica, sans-serif ;
     position: absolute; z-index: 0; bottom: 10px; right: 10px;
     .love { color: $red; }
@@ -46,10 +50,10 @@ body { height: 100%; margin: 0; padding: 0;
 
 .menu-icon { width: 60px; height: 60px; position: absolute; top: 20px; left: 20px; background: transparent url(/images/SVG/menu.svg) no-repeat 0 0; cursor: pointer;  z-index: 100;}
 
-#weather { 
-    font-size: 40px; color:$darkGray; font-weight: bold; position: absolute; z-index: 0; top: 18px; right: 20px; 
+#weather {
+    font-size: 40px; color:$darkGray; font-weight: bold; position: absolute; z-index: 0; top: 18px; right: 20px;
     a { color:#333; text-decoration:none; overflow: hidden; }
-    .w-temp { 
+    .w-temp {
 	display: table-cell; vertical-align: bottom; padding: 0px 0 0px 5px; position: relative; top: 4px;
 	.w-units { font-weight: normal; font-size: 0.7em; display: inline-block; vertical-align: top; }
     }
@@ -71,17 +75,17 @@ body { height: 100%; margin: 0; padding: 0;
 	      &.c27, &.c29 { background:url(/images/weather/mostly-cloudy-n.svg) no-repeat center center; }
 	      &.c30 { background:url(/images/weather/partly-cloudy.svg) no-repeat center center;}
 	      &.c37, &.c38, &.c39 {background:url(/images/weather/isolated-thunderstorms.svg) no-repeat center center;}
-	      
+
 	    }
 }
 
-.main-menu {
+#main-menu {
     width: 300px;
     height: 100%;
     position: absolute;
     background: #333;
     color: white;
-    
+
     top: 0;
     left: 0;
     z-index: 9;
@@ -90,11 +94,11 @@ body { height: 100%; margin: 0; padding: 0;
     box-shadow: 0px 0px 5px -1px #333;
 
     transition: 0.2s all ease-out;
-    
+
 
     &.ng-hide-add, &.ng-hide-remove
     {
-	display: block !important; 
+	display: block !important;
     }
 
     &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active{
@@ -112,10 +116,10 @@ body { height: 100%; margin: 0; padding: 0;
 	padding: 100px  0 0 0px;
 
 	.header { position: absolute; top: -10px; left: 68px; z-index:2000; width: 158px; height: 80px;  background: url(/images/SVG/erlin.svg) no-repeat 0 0; }
-	
-	.menu-title { 
+
+	.menu-title {
 	    font-family: 'Josefin Slab', serif;
-	    padding: 5px 0 5px 35px; color: rgb(179, 177, 177); 
+	    padding: 5px 0 5px 35px; color: rgb(179, 177, 177);
 	}
 
 	div.find-me {
@@ -124,7 +128,7 @@ body { height: 100%; margin: 0; padding: 0;
 	    a { cursor: pointer;
 	      }
 	}
-	li.menu-item { 
+	li.menu-item {
 	    &:nth-child(odd) { background: #414040;}
 	    padding: 12px 0 10px 35px; font-size: 19px; font-weight: bold;
 	    &:hover { color: #b3b1b1; cursor: pointer; }
@@ -136,27 +140,27 @@ body { height: 100%; margin: 0; padding: 0;
     margin: 10px;
     font-family: 'Josefin Slab', serif;
 
-    h1 { 
-	display: inline-block;  
-	font-size: 30px; margin: 15px 0; font-family: Lily Script One, cursive ; 
+    h1 {
+	display: inline-block;
+	font-size: 30px; margin: 15px 0; font-family: Lily Script One, cursive ;
     }
     .description { font-size: 17px; }
     .rating { margin: 20px 10px;  }
 }
 
-.rating { display: inline-block; 
-	  float: right; 
+.rating { display: inline-block;
+	  float: right;
 	  background: url(/images/SVG/stars.svg) repeat-x 0 -24px;
 	  width: 120px; height: 24px;
 	  .rating-value {
 	      background: url(/images/SVG/stars.svg) repeat-x 0 0;
-	      height: 24px; 
+	      height: 24px;
 	  }
 	}
 
 /************** The Place *************/
 
-.main-place {
+#main-panel {
     width: 46vw;
     height: 100%;
     max-height: 100%;
@@ -176,13 +180,13 @@ body { height: 100%; margin: 0; padding: 0;
 
 
     overflow-y: scroll;
-    &::-webkit-scrollbar { 
-	display: none; 
-    } 
+    &::-webkit-scrollbar {
+	display: none;
+    }
 
     &.ng-hide-add, &.ng-hide-remove
     {
-	display: block !important; 
+	display: block !important;
     }
 
     &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active{
@@ -193,7 +197,7 @@ body { height: 100%; margin: 0; padding: 0;
     &.ng-hide-remove.ng-hide-remove-active, &.ng-hide-add{
 	margin-right: 0;
 	opacity: 1;
-    }    
+    }
 
     .place-wrapper {
 
@@ -247,15 +251,15 @@ body { height: 100%; margin: 0; padding: 0;
 }
 
 @media screen and (max-width: 860px) {
-    #logo { 
+    #logo {
 	.tv-tower { @include bg-cover; width: 34px; height: 120px;  left:10px;}
 	.eatout-text { @include bg-cover; left: 50px; height: 38px; width: 79px;  }
  }
 
 
-    .main-menu {
+    #main-menu {
 	width: 270px;
-	
+
 	&.ng-hide-remove, &.ng-hide-add.ng-hide-add-active{
 	    margin-left: -270px;
 	}
@@ -269,10 +273,10 @@ body { height: 100%; margin: 0; padding: 0;
 	.description { font-size: 15px; }
     }
 
-    .main-place { 
-	width: 100vw; 
+    #main-panel {
+	width: 100vw;
 	/*We need this for chrome for phones not just max width*/
-	height: initial;  
+	height: initial;
     }
 
 }

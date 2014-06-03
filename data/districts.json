@@ -2,26 +2,26 @@
     { "name": "Mitte",
       "lat" : "52.5316627",
       "lng" : "13.3897105",
-      "zoom": "15"
+      "zoom": 15
     },
     { "name": "Prenzlauer Berg",
       "lat" : "52.5377114",
       "lng" : "13.4284134",
-      "zoom": "15"	
+      "zoom": 15
     },
     { "name": "Neukolln",
       "lat" : "52.4772373",
       "lng" : "13.4386168",
-      "zoom": "14"
+      "zoom": 14
     },
     { "name": "Kreuzberg",
       "lat" : "52.4965738",
       "lng" : "13.4108379",
-      "zoom": "15"
+      "zoom": 15
     },
     { "name": "Friedrichain",
       "lat" : "52.5085378",
       "lng" : "13.4557724",
-      "zoom": "15"
+      "zoom": 15
     }
 ]

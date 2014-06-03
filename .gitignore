@@ -1,7 +1,9 @@
 *.pyc
 *.css
+!_reset.css
 build/
 !lib/README.md
 .DS_Store
+app.yaml
 *~
 style/stylesheets/.sass-cache/
