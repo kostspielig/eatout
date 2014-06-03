@@ -195,7 +195,6 @@ eob_controllers.controller(
 
                 if (findMeMarker != null) {
                     markers.splice(markers.indexOf(findMeMarker), 1);
-                    markers.pop(findMeMarker);
                     findMeMarker.setMap(null);
                 }
 
