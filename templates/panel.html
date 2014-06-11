@@ -10,8 +10,11 @@
 	    </div>
 	    <div class="rating-wrapper">
 	      <div class="rating-number"> {{place.rating}} </div>
-	      <div class="rating">
-	        <div class="rating-value" style="width: {{place.rating*120/5}}px"></div>
+              <div class="rating">
+                <div class="rating-value" style="width: {{place.rating*120/5}}px"></div>
+                <div class="rating-rest"
+                     style="width: {{120-place.rating*120/5}}px; background-position: {{-place.rating*120/5}}px -24px">
+                </div>
 	      </div>
 	    </div>
 
