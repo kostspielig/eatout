@@ -54,10 +54,10 @@ body {
     font-size: 40px; color:$darkGray; font-weight: bold; position: absolute; z-index: 0; top: 18px; right: 20px;
     a { color:#333; text-decoration:none; overflow: hidden; }
     .w-temp {
-	display: table-cell; vertical-align: bottom; padding: 0px 0 0px 5px; position: relative; top: 4px;
+	display: inline-block; vertical-align: bottom; padding: 0px 0 0px 0px; position: relative; top: 4px;
 	.w-units { font-weight: normal; font-size: 0.7em; display: inline-block; vertical-align: top; }
     }
-    .w-icon { width: 60px; height:52px; display: table-cell; background:url(/images/weather/fair.svg) no-repeat center center;
+    .w-icon { width: 60px; height:52px; display: inline-block; vertical-align: bottom;  background:url(/images/weather/fair.svg) no-repeat center center;
 	      &.c0 {background:url(/images/weather/tornado.svg) no-repeat center center;}
 	      &.c2 { background:url(/images/weather/hurricane.svg) no-repeat center center; }
 	      &.c3, &.c4 {background:url(/images/weather/thunderstorms.svg) no-repeat center center;}
