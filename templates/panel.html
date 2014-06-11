@@ -3,20 +3,22 @@
     <div class="place-wrapper">
       <div class="header" style="background-image: url( {{place.images.0}} ); ">
         <a class="close-place" href="/"></a>
-        <div class="place-info">
-	  <div class="place-name">
-	    <a ng-href="{{place.url}}" target="_blank"> {{place.name}} </a>
-	  </div>
-	  <div class="rating-wrapper">
-	    <div class="rating-number"> {{place.rating}} </div>
-	    <div class="rating">
-	      <div class="rating-value" style="width: {{place.rating*120/5}}px"></div>
+        <div class="place-info-area">
+          <div class="place-info">
+	    <div class="place-name">
+	      <a ng-href="{{place.url}}" target="_blank"> {{place.name}} </a>
 	    </div>
-	  </div>
+	    <div class="rating-wrapper">
+	      <div class="rating-number"> {{place.rating}} </div>
+	      <div class="rating">
+	        <div class="rating-value" style="width: {{place.rating*120/5}}px"></div>
+	      </div>
+	    </div>
 
-	  <div class="place-info">
-	    {{place.address}}
-	  </div>
+	    <div class="place-info">
+	      {{place.address}}
+	    </div>
+          </div>
         </div>
       </div>
 
