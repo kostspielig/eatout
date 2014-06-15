@@ -21,7 +21,7 @@ var MARKER_ICONS = {
     muffin: 'images/icons/SVG/muffin.svg',
     french: 'images/icons/SVG/french.svg',
     egg: 'images/icons/SVG/spanish.svg',
-    sandwitch: 'images/icons/SVG/sandwitch.svg',
+    sandwich: 'images/icons/SVG/sandwich.svg',
     findme: 'images/SVG/iamhere.svg'
 };
 
@@ -129,9 +129,6 @@ eob_controllers.controller(
         })
 
         $scope.menuFindMe = function ($event) {
-            //$scope.hideMenu();
-	    console.log(event);
-	    //event.target.className("active");
             $location.path("/");
             $scope.findMe();
         }
