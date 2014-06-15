@@ -5,15 +5,24 @@
     <div class="menu-content">
       <div class="header"></div>
 
-      <div class="find-me">
-        <span class="iamhere"></span> <a ng-click="menuFindMe()" ng-href>  Find me</a>
+      <div class="menu-items">
+	    <ul>
+	      <li class="menu-item find-me" ng-click="menuFindMe(this); isactive = 'findme';" ng-class="{active: isactive == 'findme'}">
+		<div class="item-icon"></div>
+		<span class="item-description">Find me</span> 
+	      </li>
+	      <li class="menu-item food-type" ng-click="isactive = 'food';" ng-class="{active: isactive == 'food'}">
+		<div class="item-icon"></div>
+		<span class="item-description">Food Type</span> 
+	      </li>
+              <li class="menu-item districts" ng-click="isactive = 'district';" ng-class="{active: isactive == 'district'}">
+		  <!-- ng-repeat="district in districts"
+		  ng-click="menuSelectDistrict(district)">{{district.name}} -->
+		<div class="item-icon"></div>
+		<span class="item-description">District</span> 
+	      </li>
+	    </ul>
       </div>
-
-      <ul>
-        <li class="menu-item"
-            ng-repeat="district in districts"
-            ng-click="menuSelectDistrict(district)">{{district.name}}</li>
-      </ul>
     </div>
   </div>
 </div>

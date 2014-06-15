@@ -128,8 +128,10 @@ eob_controllers.controller(
             $scope.districts = data;
         })
 
-        $scope.menuFindMe = function () {
-            $scope.hideMenu();
+        $scope.menuFindMe = function ($event) {
+            //$scope.hideMenu();
+	    console.log(event);
+	    //event.target.className("active");
             $location.path("/");
             $scope.findMe();
         }
