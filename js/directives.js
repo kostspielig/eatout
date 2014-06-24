@@ -1,7 +1,9 @@
 
 var eob_directives = angular.module('eob.directives', []);
 
-eob_directives.directive('eob-dropdown', function($document) {
+eob_directives
+    
+    .directive('eob-dropdown', function($document) {
     return function(scope, element, attr){
 	element.on('click', function(event) {
 	    if ( element.parent().hasClass('open') )
@@ -9,4 +11,15 @@ eob_directives.directive('eob-dropdown', function($document) {
 	    else element.parent().addClass('open');
 	});
     };
-});
+})
+
+    .directive('eob_markdown', function() {
+	var converter = new Showdown.converter();
+	return {
+	    restrict: 'E',
+	    link: function(scope, element, attrs) {
+		var htmlText =  converter.makeHtml(element.text());
+		element.html(htmlText);
+	    }
+	}
+    });
