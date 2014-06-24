@@ -21,8 +21,7 @@ var MARKER_ICONS = {
     muffin: 'images/icons/SVG/muffin.svg',
     french: 'images/icons/SVG/french.svg',
     egg: 'images/icons/SVG/spanish.svg',
-    sandwich: 'images/icons/SVG/sandwich.svg',
-    findme: 'images/SVG/iamhere.svg'
+    sandwich: 'images/icons/SVG/sandwich.svg'
 };
 
 var MARKER_ICONS2 = {
@@ -128,15 +127,26 @@ eob_controllers.controller(
             $scope.districts = data;
         })
 
+	$scope.foodTypes = Object.keys(MARKER_ICONS);
+
         $scope.menuFindMe = function ($event) {
             $location.path("/");
             $scope.findMe();
         }
 
         $scope.menuSelectDistrict = function (district) {
+	    $scope.submenu = '';
             $scope.hideMenu();
             $scope.centerPosition(district.lat, district.lng, district.zoom);
         }
+
+	$scope.toggleItem = function (item) {
+	    $scope.active = ($scope.active == item) ? '': item;
+	}
+	
+	$scope.isActive = function (item) {
+	    return $scope.active == item
+	}
     });
 
 eob_controllers.controller(
@@ -200,7 +210,7 @@ eob_controllers.controller(
 	        findMeMarker = new google.maps.Marker({
 		    map: map,
                     position: pos,
-		    icon: MARKER_ICONS['findme'],
+		    icon: 'images/SVG/iamhere.svg',
 		    animation: google.maps.Animation.DROP,
 		    zIndex: 99999,
 	        });

@@ -26,6 +26,16 @@ $purple: #805BA6;
     }
 }
 
+@mixin container-shadow {
+    -webkit-box-shadow: 0px 0px 5px -1px #333;
+    -moz-box-shadow: 0px 0px 5px -1px #333;
+    box-shadow: 0px 0px 5px -1px #333;
+}
+
+@mixin no-click { pointer-events: none; }
+
+@mixin click { pointer-events: auto; }
+
 html { height: 100% }
 
 body {
@@ -46,7 +56,7 @@ body {
 }
 
 #logo {
-
+    @include no-click;
     .tv-tower { position: absolute; z-index: 0; bottom: 10px; left: 20px; width: 67px; height: 235px; background: transparent url(/images/SVG/tvTower.svg) no-repeat 0 0;}
     .eatout-text { position: absolute; z-index: 0; bottom: 10px; left: 87px; width: 146px; height:71px; background: transparent url(/images/SVG/eatoutText.svg) no-repeat 0 0; }
 }
@@ -95,44 +105,42 @@ body {
 	display: inline-block; 
 	vertical-align: bottom;  
 	background:url(/images/weather/fair.svg) no-repeat center center;
-	      &.c0 {background:url(/images/weather/tornado.svg) no-repeat center center; }
-	      &.c2 { background:url(/images/weather/hurricane.svg) no-repeat center center; }
-	      &.c3, &.c4 {background:url(/images/weather/thunderstorms.svg) no-repeat center center; }
-	      &.c8, &.c9 { background:url(/images/weather/drizzle.svg) no-repeat center center; }
-	      &.c13, &.c14, &.c15, &.c16 {background:url(/images/weather/snow.svg) no-repeat center center; }
-	      &.c17, &.c35 {  background:url(/images/weather/hail.svg) no-repeat center center; }
-	      &.c18 {background:url(/images/weather/sleet.svg) no-repeat center center;}
-	      &.c19 { background:url(/images/weather/dust.svg) no-repeat center center; }
-	      &.c21 { background:url(/images/weather/haze.svg) no-repeat center center; }
-	      &.c32 {background:url(/images/weather/sunny.svg) no-repeat center center; }
-	      &.c33, &.c34 { background:url(/images/weather/fair.svg) no-repeat center center; }
-	      &.c33 { background:url(/images/weather/fair-n.svg) no-repeat center center; }
-	      &.c23 { background:url(/images/weather/blustery.svg) no-repeat center center; }
-	      &.c26, &.c28 { background:url(/images/weather/cloudy.svg) no-repeat 0 -2px; }
-	      &.c27, &.c29 { background:url(/images/weather/mostly-cloudy-n.svg) no-repeat center center; }
-	      &.c30 { background:url(/images/weather/partly-cloudy.svg) no-repeat center center;}
-	      &.c37, &.c38, &.c39 {background:url(/images/weather/isolated-thunderstorms.svg) no-repeat center center; }
-	      
+	&.c0 {background:url(/images/weather/tornado.svg) no-repeat center center; }
+	&.c2 { background:url(/images/weather/hurricane.svg) no-repeat center center; }
+	&.c3, &.c4 {background:url(/images/weather/thunderstorms.svg) no-repeat center center; }
+	&.c8, &.c9 { background:url(/images/weather/drizzle.svg) no-repeat center center; }
+	&.c13, &.c14, &.c15, &.c16 {background:url(/images/weather/snow.svg) no-repeat center center; }
+	&.c17, &.c35 {  background:url(/images/weather/hail.svg) no-repeat center center; }
+	&.c18 {background:url(/images/weather/sleet.svg) no-repeat center center;}
+	&.c19 { background:url(/images/weather/dust.svg) no-repeat center center; }
+	&.c21 { background:url(/images/weather/haze.svg) no-repeat center center; }
+	&.c32 {background:url(/images/weather/sunny.svg) no-repeat center center; }
+	&.c33, &.c34 { background:url(/images/weather/fair.svg) no-repeat center center; }
+	&.c33 { background:url(/images/weather/fair-n.svg) no-repeat center center; }
+	&.c23 { background:url(/images/weather/blustery.svg) no-repeat center center; }
+	&.c26, &.c28 { background:url(/images/weather/cloudy.svg) no-repeat 0 -2px; }
+	&.c27, &.c29 { background:url(/images/weather/mostly-cloudy-n.svg) no-repeat center center; }
+	&.c30 { background:url(/images/weather/partly-cloudy.svg) no-repeat center center;}
+	&.c37, &.c38, &.c39 {background:url(/images/weather/isolated-thunderstorms.svg) no-repeat center center; }
+	
     }
 }
 
+
 #main-menu {
-    width: 105px;
     height: 100%;
     position: absolute;
     background: #282828;
     color: white;
-
     top: 0;
     left: 0;
     z-index: 9;
-    -webkit-box-shadow: 0px 0px 5px -1px #333;
-    -moz-box-shadow: 0px 0px 5px -1px #333;
-    box-shadow: 0px 0px 5px -1px #333;
+    font-family: helvetica, arial; 
 
     transition: 0.2s all ease-out;
 
-    @include scroll-y;
+    @include no-click;
+
 
     &.ng-hide-add, &.ng-hide-remove {
 	display: block !important;
@@ -149,9 +157,37 @@ body {
     }
 
 
+    .submenus {
+	
+	&.districtItem { top: 198px; }
+	&.foodItem { top: 100px ; }
+	margin-left: 105px;
+	background: #282828;
+	padding: 8px 0;
+	font-weight: bold;
+	opacity: 0.9;
+	position: absolute;
+	top: 0;
+	
+	@include click;
+
+	li.submenu-item { 
+	    padding: 8px  15px; 
+	    font-size: 12px; 
+	    text-transform: uppercase; 
+	    cursor: pointer;
+	    color: #AAA;
+	    
+	    &:hover { background-color: #666; color:#222; }
+	}
+    }
     .menu-content {
 	padding: 100px  0 0 0px;
+	background: #282828;
+	width: 105px;
 
+	@include container-shadow;
+	@include click;
 	.header { 
 	    display: none;
 	    position: absolute; 
@@ -169,7 +205,7 @@ body {
 		text-align: center;
 
 		.item-icon { width: 64px; height: 64px; margin: 0 auto; background-position: 0 0; }
-		.item-description { text-transform: uppercase; font-size: 12px; color: #999; font-family: helvetica, arial ;}
+		.item-description { text-transform: uppercase; font-size: 12px; color: #999; }
 		&.active,
 		&:hover {
 		    background-color: $green;
@@ -179,65 +215,37 @@ body {
 		&.find-me .item-icon{ background-image: url(/images/menu/iamhere.svg); }
 		&.food-type .item-icon{ background-image: url(/images/menu/food.svg); }
 		&.districts .item-icon{ background-image: url(/images/menu/district.svg); }
-		
-		
+		&.best-places .item-icon{ background-image: url(/images/menu/star.svg); }
 	    }
 	}
-/*
-	.menu-title {
-	    font-family: 'Josefin Slab', serif;
-	    padding: 5px 0 5px 35px; color: rgb(179, 177, 177);
-	}
-
-	div.find-me {
-	    vertical-align: middle; 
-	    padding: 12px 0 10px 35px;
-	    .iamhere { 
-		display: inline-block; 
-		width: 10px; height: 31px; 
-		background: url(/images/SVG/iamhere_white.svg) no-repeat 0 0; 
-		@include bg-cover; 
-		vertical-align: middle;
-	    }
-	    a { cursor: pointer; }
-	}
-	
-	li.menu-item {
-	    &:nth-child(odd) { background: #414040; }
-	    padding: 12px 0 10px 35px; 
-	    font-size: 19px; 
-	    font-weight: bold;
-	    &:hover { color: #b3b1b1; cursor: pointer; }
-	} */
     }
-}
 
-.info-content {
-    margin: 10px;
-    font-family: 'Josefin Slab', serif;
+    .info-content {
+	margin: 10px;
+	font-family: 'Josefin Slab', serif;
 
-    h1 {
+	h1 {
+	    display: inline-block;
+	    font-size: 30px; 
+	    margin: 15px 0; 
+	    font-family: Lily Script One, cursive ;
+	}
+	.description { font-size: 17px; }
+	.rating { margin: 20px 10px;  }
+    }
+
+    .rating { 
 	display: inline-block;
-	font-size: 30px; 
-	margin: 15px 0; 
-	font-family: Lily Script One, cursive ;
-    }
-    .description { font-size: 17px; }
-    .rating { margin: 20px 10px;  }
-}
+	float: right;
+	background: url(/images/SVG/stars.svg) repeat-x 0 -24px;
+	width: 120px; height: 24px;
 
-.rating { 
-    display: inline-block;
-    float: right;
-    background: url(/images/SVG/stars.svg) repeat-x 0 -24px;
-    width: 120px; height: 24px;
-
-    .rating-value {
-	background: url(/images/SVG/stars.svg) repeat-x 0 0;
-	height: 24px;
+	.rating-value {
+	    background: url(/images/SVG/stars.svg) repeat-x 0 0;
+	    height: 24px;
+	}
     }
 }
-
 /************** The Place *************/
 
 #main-panel {
@@ -252,9 +260,8 @@ body {
     top: 0;
     right: 0;
     z-index: 8;
-    -webkit-box-shadow: 0px 0px 5px -1px #333;
-    -moz-box-shadow: 0px 0px 5px -1px #333;
-    box-shadow: 0px 0px 5px -1px #333;
+
+    @include container-shadow;
 
     transition: 0.5s all ease-out;
 
@@ -321,9 +328,9 @@ body {
 	    font-size: 20px;
 
 	    .images {
-		 width: 100%;
-		 margin: 20px auto;
-		 img { width: 100%; margin: 0 0 6px 0;}
+		width: 100%;
+		margin: 20px auto;
+		img { width: 100%; margin: 0 0 6px 0;}
 	    }
 	}
     }
@@ -343,6 +350,36 @@ body {
 	.eatout-text { @include bg-cover; left: 50px; height: 38px; width: 79px; }
     }
     
+}
+
+@media screen and (max-height: 400px) {
+    #main-menu {
+	.submenus {
+	    &.foodItem, &.districtItem { top: 0; }
+	}
+	.menu-content {
+	    padding: 88px 0 0 0px;
+
+    	    .menu-items {
+		li.menu-item {
+		    margin: 0px auto;
+		    padding: 4px 0;
+		    cursor: pointer;
+		    text-align: center;
+
+		    .item-icon {
+			background-size: cover;
+			height: 40px;
+			width: 40px;	
+		    }	
+		    
+		    &:hover, &.active {
+			.item-icon { background-position: 0 -40px; }
+		    }
+		}
+	    }
+	}
+    }
 }
 
 @media screen and (max-width: 760px) {
