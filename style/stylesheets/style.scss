@@ -19,6 +19,22 @@ $purple: #805BA6;
     background-size: cover;
 }
 
+@mixin scroll-y {
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+	display: none;
+    }
+}
+
+@mixin container-shadow {
+    -webkit-box-shadow: 0px 0px 5px -1px #333;
+    -moz-box-shadow: 0px 0px 5px -1px #333;
+    box-shadow: 0px 0px 5px -1px #333;
+}
+
+@mixin no-click { pointer-events: none; }
+
+@mixin click { pointer-events: auto; }
 
 html { height: 100% }
 
@@ -34,134 +50,205 @@ body {
     height: 100%; width: 100%;
 
     .gm-style-iw { overflow: hidden !important;}
-    .gm-style .gm-style-cc span, .gm-style .gm-style-cc a, .gm-style .gm-style-mtc div { display: none; }
+    .gm-style .gm-style-cc span, 
+    .gm-style .gm-style-cc a, 
+    .gm-style .gm-style-mtc div { display: none; }
 }
 
 #logo {
-
+    @include no-click;
     .tv-tower { position: absolute; z-index: 0; bottom: 10px; left: 20px; width: 67px; height: 235px; background: transparent url(/images/SVG/tvTower.svg) no-repeat 0 0;}
     .eatout-text { position: absolute; z-index: 0; bottom: 10px; left: 87px; width: 146px; height:71px; background: transparent url(/images/SVG/eatoutText.svg) no-repeat 0 0; }
 }
+
 #madewith {
-    font-size: 12px; font-family: Helvetica, sans-serif ;
+    font-size: 12px; font-family: Helvetica, sans-serif;
     position: absolute; z-index: 0; bottom: 10px; right: 10px;
     .love { color: $red; }
 }
 
-.menu-icon { width: 60px; height: 60px; position: absolute; top: 20px; left: 20px; background: transparent url(/images/SVG/menu.svg) no-repeat 0 0; cursor: pointer;  z-index: 100;}
-
-#weather {
-    font-size: 40px; color:$darkGray; font-weight: bold; position: absolute; z-index: 0; top: 18px; right: 20px;
-    a { color:#333; text-decoration:none; overflow: hidden; }
-    .w-temp {
-	display: inline-block; vertical-align: bottom; padding: 0px 0 0px 0px; position: relative; top: 4px;
-	.w-units { font-weight: normal; font-size: 0.7em; display: inline-block; vertical-align: top; }
-    }
-    .w-icon { width: 60px; height:52px; display: inline-block; vertical-align: bottom;  background:url(/images/weather/fair.svg) no-repeat center center;
-	      &.c0 {background:url(/images/weather/tornado.svg) no-repeat center center;}
-	      &.c2 { background:url(/images/weather/hurricane.svg) no-repeat center center; }
-	      &.c3, &.c4 {background:url(/images/weather/thunderstorms.svg) no-repeat center center;}
-	      &.c8, &.c9 { background:url(/images/weather/drizzle.svg) no-repeat center center; }
-	      &.c13, &.c14, &.c15, &.c16 {background:url(/images/weather/snow.svg) no-repeat center center;}
-	      &.c17, &.c35 {  background:url(/images/weather/hail.svg) no-repeat center center; }
-	      &.c18 {background:url(/images/weather/sleet.svg) no-repeat center center;}
-	      &.c19 { background:url(/images/weather/dust.svg) no-repeat center center; }
-	      &.c21 { background:url(/images/weather/haze.svg) no-repeat center center; }
-	      &.c32 {background:url(/images/weather/sunny.svg) no-repeat center center;}
-	      &.c33, &.c34 { background:url(/images/weather/fair.svg) no-repeat center center; }
-	      &.c33 { background:url(/images/weather/fair-n.svg) no-repeat center center; }
-	      &.c23 { background:url(/images/weather/blustery.svg) no-repeat center center; }
-	      &.c26, &.c28 { background:url(/images/weather/cloudy.svg) no-repeat 0 -2px; }
-	      &.c27, &.c29 { background:url(/images/weather/mostly-cloudy-n.svg) no-repeat center center; }
-	      &.c30 { background:url(/images/weather/partly-cloudy.svg) no-repeat center center;}
-	      &.c37, &.c38, &.c39 {background:url(/images/weather/isolated-thunderstorms.svg) no-repeat center center;}
-
-	    }
+.menu-icon { 
+    width: 60px; height: 60px; 
+    position: absolute; 
+    top: 20px; left: 20px; 
+    background: transparent url(/images/SVG/menu.svg) no-repeat 0 0; 
+    cursor: pointer;  
+    z-index: 100;
 }
 
+#weather {
+    font-size: 40px; 
+    color:$darkGray; 
+    font-weight: bold; 
+    z-index: 0;     
+    position: absolute; 
+    top: 18px; right: 20px;
+    
+    a { color:#333; text-decoration:none; overflow: hidden; }
+    
+    .w-temp {
+	display: inline-block; 
+	padding: 0px 0 0px 0px; 
+	position: relative; 
+	top: 4px;
+	
+	.w-units { 
+	    font-weight: normal; 
+	    font-size: 0.7em; 
+	    display: inline-block; 
+	    vertical-align: top; 
+	}
+    }
+    .w-icon { 
+	width: 60px; height:52px; 
+	display: inline-block; 
+	vertical-align: bottom;  
+	background:url(/images/weather/fair.svg) no-repeat center center;
+	&.c0 {background:url(/images/weather/tornado.svg) no-repeat center center; }
+	&.c2 { background:url(/images/weather/hurricane.svg) no-repeat center center; }
+	&.c3, &.c4 {background:url(/images/weather/thunderstorms.svg) no-repeat center center; }
+	&.c8, &.c9 { background:url(/images/weather/drizzle.svg) no-repeat center center; }
+	&.c13, &.c14, &.c15, &.c16 {background:url(/images/weather/snow.svg) no-repeat center center; }
+	&.c17, &.c35 {  background:url(/images/weather/hail.svg) no-repeat center center; }
+	&.c18 {background:url(/images/weather/sleet.svg) no-repeat center center;}
+	&.c19 { background:url(/images/weather/dust.svg) no-repeat center center; }
+	&.c21 { background:url(/images/weather/haze.svg) no-repeat center center; }
+	&.c32 {background:url(/images/weather/sunny.svg) no-repeat center center; }
+	&.c33, &.c34 { background:url(/images/weather/fair.svg) no-repeat center center; }
+	&.c33 { background:url(/images/weather/fair-n.svg) no-repeat center center; }
+	&.c23 { background:url(/images/weather/blustery.svg) no-repeat center center; }
+	&.c26, &.c28 { background:url(/images/weather/cloudy.svg) no-repeat 0 -2px; }
+	&.c27, &.c29 { background:url(/images/weather/mostly-cloudy-n.svg) no-repeat center center; }
+	&.c30 { background:url(/images/weather/partly-cloudy.svg) no-repeat center center;}
+	&.c37, &.c38, &.c39 {background:url(/images/weather/isolated-thunderstorms.svg) no-repeat center center; }
+	
+    }
+}
+
+
 #main-menu {
-    width: 300px;
     height: 100%;
     position: absolute;
-    background: #333;
+    background: #282828;
     color: white;
-
     top: 0;
     left: 0;
     z-index: 9;
-    -webkit-box-shadow: 0px 0px 5px -1px #333;
-    -moz-box-shadow: 0px 0px 5px -1px #333;
-    box-shadow: 0px 0px 5px -1px #333;
+    font-family: helvetica, arial; 
 
     transition: 0.2s all ease-out;
 
+    @include no-click;
 
-    &.ng-hide-add, &.ng-hide-remove
-    {
+
+    &.ng-hide-add, &.ng-hide-remove {
 	display: block !important;
     }
 
-    &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active{
-	margin-left: -300px;
+    &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active {
+	margin-left: -105px;
 	opacity: 0.5;
     }
 
-    &.ng-hide-remove.ng-hide-remove-active, &.ng-hide-add{
+    &.ng-hide-remove.ng-hide-remove-active, &.ng-hide-add {
 	margin-left: 0;
 	opacity: 1;
     }
 
 
+    .submenus {
+	
+	&.districtItem { top: 198px; }
+	&.foodItem { top: 100px ; }
+	margin-left: 105px;
+	background: #282828;
+	padding: 8px 0;
+	font-weight: bold;
+	opacity: 0.9;
+	position: absolute;
+	top: 0;
+	
+	@include click;
+
+	li.submenu-item { 
+	    padding: 8px  15px; 
+	    font-size: 12px; 
+	    text-transform: uppercase; 
+	    cursor: pointer;
+	    color: #AAA;
+	    
+	    &:hover { background-color: #666; color:#222; }
+	}
+    }
     .menu-content {
 	padding: 100px  0 0 0px;
+	background: #282828;
+	width: 105px;
 
-	.header { position: absolute; top: -10px; left: 68px; z-index:2000; width: 158px; height: 80px;  background: url(/images/SVG/erlin.svg) no-repeat 0 0; }
-
-	.menu-title {
-	    font-family: 'Josefin Slab', serif;
-	    padding: 5px 0 5px 35px; color: rgb(179, 177, 177);
+	@include container-shadow;
+	@include click;
+	.header { 
+	    display: none;
+	    position: absolute; 
+	    top: -10px; left: 68px; 
+	    z-index:2000; 
+	    width: 158px; height: 80px;  
+	    background: url(/images/SVG/erlin.svg) no-repeat 0 0; 
 	}
+	
+	.menu-items {
+	    li.menu-item {
+		margin: 0px auto;
+		padding: 9px 0;
+		cursor: pointer;
+		text-align: center;
 
-	div.find-me {
-	    vertical-align: middle; padding: 12px 0 10px 35px;
-	    .iamhere { display: inline-block; width: 10px; height: 31px; background: url(/images/SVG/iamhere_white.svg) no-repeat 0 0; @include bg-cover; vertical-align: middle;}
-	    a { cursor: pointer;
-	      }
-	}
-	li.menu-item {
-	    &:nth-child(odd) { background: #414040;}
-	    padding: 12px 0 10px 35px; font-size: 19px; font-weight: bold;
-	    &:hover { color: #b3b1b1; cursor: pointer; }
+		.item-icon { width: 64px; height: 64px; margin: 0 auto; background-position: 0 0; }
+		.item-description { text-transform: uppercase; font-size: 12px; color: #999; }
+		&.active,
+		&:hover {
+		    background-color: $green;
+		    .item-icon { background-position: 0 -64px; }
+		    .item-description { color: white;}
+		}
+		&.find-me .item-icon{ background-image: url(/images/menu/iamhere.svg); }
+		&.food-type .item-icon{ background-image: url(/images/menu/food.svg); }
+		&.districts .item-icon{ background-image: url(/images/menu/district.svg); }
+		&.best-places .item-icon{ background-image: url(/images/menu/star.svg); }
+	    }
 	}
     }
-}
 
-.info-content {
-    margin: 10px;
-    font-family: 'Josefin Slab', serif;
+    .info-content {
+	margin: 10px;
+	font-family: 'Josefin Slab', serif;
 
-    h1 {
+	h1 {
+	    display: inline-block;
+	    font-size: 30px; 
+	    margin: 15px 0; 
+	    font-family: Lily Script One, cursive ;
+	}
+	.description { font-size: 17px; }
+	.rating { margin: 20px 10px;  }
+    }
+
+    .rating { 
 	display: inline-block;
-	font-size: 30px; margin: 15px 0; font-family: Lily Script One, cursive ;
-    }
-    .description { font-size: 17px; }
-    .rating { margin: 20px 10px;  }
-}
+	float: right;
+	background: url(/images/SVG/stars.svg) repeat-x 0 -24px;
+	width: 120px; height: 24px;
 
-.rating { display: inline-block;
-	  float: right;
-	  background: url(/images/SVG/stars.svg) repeat-x 0 -24px;
-	  width: 120px; height: 24px;
-	  .rating-value {
-	      background: url(/images/SVG/stars.svg) repeat-x 0 0;
-	      height: 24px;
-	  }
+	.rating-value {
+	    background: url(/images/SVG/stars.svg) repeat-x 0 0;
+	    height: 24px;
 	}
-
+    }
+}
 /************** The Place *************/
 
 #main-panel {
-    width: 46vw;
+    width: 50vw;
     height: 100%;
     max-height: 100%;
     overflow: visible;
@@ -172,29 +259,23 @@ body {
     top: 0;
     right: 0;
     z-index: 8;
-    -webkit-box-shadow: 0px 0px 5px -1px #333;
-    -moz-box-shadow: 0px 0px 5px -1px #333;
-    box-shadow: 0px 0px 5px -1px #333;
+
+    @include container-shadow;
 
     transition: 0.5s all ease-out;
 
+    @include scroll-y;
 
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-	display: none;
-    }
-
-    &.ng-hide-add, &.ng-hide-remove
-    {
+    &.ng-hide-add, &.ng-hide-remove  {
 	display: block !important;
     }
 
-    &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active{
+    &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active {
 	margin-right: -600px;
 	opacity: 0.5;
     }
 
-    &.ng-hide-remove.ng-hide-remove-active, &.ng-hide-add{
+    &.ng-hide-remove.ng-hide-remove-active, &.ng-hide-add {
 	margin-right: 0;
 	opacity: 1;
     }
@@ -203,7 +284,6 @@ body {
 
 	.header  {
 	    padding: 35vh 60px 40px 4vw;
-
 	    -webkit-background-size: cover;
 	    -moz-background-size: cover;
 	    -o-background-size: cover;
@@ -211,7 +291,14 @@ body {
 	    background-position: center;
 	    background-color: $darkGray;
 
-	    .close-place { width: 35px; height:35px; display:block; position: absolute; top: 15px; right: 10px; cursor: pointer; background: url(/images/SVG/close.svg) no-repeat center;}
+	    .close-place { 
+		width: 35px; height:35px; 
+		display:block; 
+		position: absolute; 
+		top: 15px; right: 10px; 
+		cursor: pointer; 
+		background: url(/images/SVG/close.svg) no-repeat center;
+	    }
 
 	    .place-info {
 		display: inline-block;
@@ -223,7 +310,13 @@ body {
 		    a { color: $white; text-decoration: none; }
 		}
 		.rating-wrapper {
-		    .rating-number { font-size: 25px; font-weight: bold; color: $red; display: inline-block; vertical-align: bottom; }
+		    .rating-number { 
+			font-size: 25px; 
+			font-weight: bold; 
+			color: $red; 
+			display: inline-block; 
+			vertical-align: bottom; 
+		    }
 		    .rating { float: none; }
 		}
 	    }
@@ -234,9 +327,9 @@ body {
 	    font-size: 20px;
 
 	    .images {
-		 width: 100%;
-		 margin: 20px auto;
-		 img { width: 100%; margin: 0 0 6px 0;}
+		width: 100%;
+		margin: 20px auto;
+		img { width: 100%; margin: 0 0 6px 0;}
 	    }
 	}
     }
@@ -253,26 +346,47 @@ body {
 @media screen and (max-width: 860px) {
     #logo {
 	.tv-tower { @include bg-cover; width: 34px; height: 120px;  left:10px;}
-	.eatout-text { @include bg-cover; left: 50px; height: 38px; width: 79px;  }
- }
+	.eatout-text { @include bg-cover; left: 50px; height: 38px; width: 79px; }
+    }
+    
+}
 
-
+@media screen and (max-height: 400px) {
     #main-menu {
-	width: 270px;
+	.submenus {
+	    &.foodItem, &.districtItem { top: 0; }
+	}
+	.menu-content {
+	    padding: 88px 0 0 0px;
 
-	&.ng-hide-remove, &.ng-hide-add.ng-hide-add-active{
-	    margin-left: -270px;
+    	    .menu-items {
+		li.menu-item {
+		    margin: 0px auto;
+		    padding: 4px 0;
+		    cursor: pointer;
+		    text-align: center;
+
+		    .item-icon {
+			background-size: cover;
+			height: 40px;
+			width: 40px;	
+		    }	
+		    
+		    &:hover, &.active {
+			.item-icon { background-position: 0 -40px; }
+		    }
+		}
+	    }
 	}
     }
-
 }
 
 @media screen and (max-width: 760px) {
-    /*    #logo { width: 105px; height: 110px; background: transparent url(/images/SVG/eatoutb_small.svg); left:10px; } */
+    
     .info-content {
 	.description { font-size: 15px; }
     }
-
+    
     #main-panel {
 	width: 100vw;
 	/*We need this for chrome for phones not just max width*/
