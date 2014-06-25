@@ -32,7 +32,7 @@
     </div>
     <div class="submenus {{active}}">
       <ul class="submenu" ng-show="isActive('foodItem')">
-	<li class="submenu-item" ng-repeat="food in foodTypes">{{food}}</li>
+	<li class="submenu-item" ng-repeat="food in foodTypes" ng-click="menuSelectFood(food);">{{food}}</li>
       </ul> 
       <ul class="submenu" ng-show="isActive('districtItem')" >
 	<li class="submenu-item" ng-repeat="district in districts" ng-click="menuSelectDistrict(district);">{{district.name}}</li>

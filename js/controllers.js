@@ -134,8 +134,14 @@ eob_controllers.controller(
             $scope.findMe();
         }
 
+	$scope.menuSelectFood = function (foodType) {
+	    $scope.active = '';
+            $scope.hideMenu();
+	    $scope.filterMarkers (foodType);
+	}
+	
         $scope.menuSelectDistrict = function (district) {
-	    $scope.submenu = '';
+	    $scope.active = '';
             $scope.hideMenu();
             $scope.centerPosition(district.lat, district.lng, district.zoom);
         }
@@ -156,7 +162,7 @@ eob_controllers.controller(
 {
     eob_imgCache.load(MARKER_ICONS);
 
-    $scope.seemenu = false;
+    $scope.seemenu = true;
     $scope.seepanel = false;
     $scope.place = null;
 
@@ -264,6 +270,15 @@ eob_controllers.controller(
                 setTimeout(_.partial(addMarkersFrom, index + 1), DROP_DELAY);
             });
         }
+    }
+
+
+    $scope.filterMarkers = function(type) {
+	_.map(markers, function(element) {
+	    if (element.getIcon() == MARKER_ICONS[type])
+		element.setVisible(true)
+	    else element.setVisible(false)
+	})
     }
 
     function fitBounds(markers) {
