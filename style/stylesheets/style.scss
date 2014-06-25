@@ -233,17 +233,6 @@ body {
 	.rating { margin: 20px 10px;  }
     }
 
-    .rating { 
-	display: inline-block;
-	float: right;
-	background: url(/images/SVG/stars.svg) repeat-x 0 -24px;
-	width: 120px; height: 24px;
-
-	.rating-value {
-	    background: url(/images/SVG/stars.svg) repeat-x 0 0;
-	    height: 24px;
-	}
-    }
 }
 /************** The Place *************/
 
@@ -333,7 +322,17 @@ body {
 	    }
 	}
     }
+  .rating { 
+	display: inline-block;
+	float: right;
+	background: url(/images/SVG/stars.svg) repeat-x 0 -24px;
+	width: 120px; height: 24px;
 
+	.rating-value {
+	    background: url(/images/SVG/stars.svg) repeat-x 0 0;
+	    height: 24px;
+	}
+    }
 }
 
 
