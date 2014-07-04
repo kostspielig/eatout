@@ -14,7 +14,7 @@ var MARKER_ICONS = {
     burger: 'images/icons/SVG/burger.svg',
     japan: 'images/icons/SVG/sushi.svg',
     breakfast: 'images/icons/SVG/coffee.svg',
-    croissant: 'images/icons/croissant.png',
+    //croissant: 'images/icons/croissant.png',
     cheese: 'images/icons/cheese.png',
     icecream: 'images/icons/SVG/icecream.svg',
     german: 'images/icons/SVG/german.svg',
@@ -64,7 +64,7 @@ var MAP_STYLES = [
 	elementType: "all",
 	stylers: [
 	    { color: "#ff1526" },
-	    { weight: 0.5 }
+	    { weight: 0.4 }
 	]
     },{
 	featureType: "water",
@@ -127,7 +127,8 @@ eob_controllers.controller(
             $scope.districts = data;
         })
 
-	$scope.foodTypes = Object.keys(MARKER_ICONS);
+	$scope.foodTypes= ["all"];
+	$scope.foodTypes = $scope.foodTypes.concat(Object.keys(MARKER_ICONS));
 
         $scope.menuFindMe = function ($event) {
             $location.path("/");
@@ -136,13 +137,13 @@ eob_controllers.controller(
 
 	$scope.menuSelectFood = function (foodType) {
 	    $scope.active = '';
-            $scope.hideMenu();
+            //$scope.hideMenu();
 	    $scope.filterMarkers (foodType);
 	}
 	
         $scope.menuSelectDistrict = function (district) {
 	    $scope.active = '';
-            $scope.hideMenu();
+            //$scope.hideMenu();
             $scope.centerPosition(district.lat, district.lng, district.zoom);
         }
 
@@ -275,16 +276,18 @@ eob_controllers.controller(
 
     $scope.filterMarkers = function(type) {
 	_.map(markers, function(element) {
-	    if (element.getIcon() == MARKER_ICONS[type])
-		element.setVisible(true)
-	    else element.setVisible(false)
+	    if (element.getIcon() == MARKER_ICONS[type] || type == "all")
+		element.setVisible(true);
+	    else element.setVisible(false);
+	    //fitBounds(markers);
 	})
     }
 
     function fitBounds(markers) {
 	var bounds = new google.maps.LatLngBounds();
 	for (var i = 0; i < markers.length; i++) {
-	    bounds.extend(markers[i].getPosition());
+	    if (markers[i].getVisible() == true)
+		bounds.extend(markers[i].getPosition());
 	}
 
 	map.fitBounds(bounds);
