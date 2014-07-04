@@ -57,8 +57,8 @@ body {
 
 #logo {
     @include no-click;
-    .tv-tower { position: absolute; z-index: 0; bottom: 10px; left: 20px; width: 67px; height: 235px; background: transparent url(/images/SVG/tvTower.svg) no-repeat 0 0;}
-    .eatout-text { position: absolute; z-index: 0; bottom: 10px; left: 87px; width: 146px; height:71px; background: transparent url(/images/SVG/eatoutText.svg) no-repeat 0 0; }
+    .tv-tower { position: absolute; z-index: 0; bottom: 10px; left: 32px; width: 67px; height: 235px; background: transparent url(/images/SVG/tvTower.svg) no-repeat 0 0;}
+    .eatout-text { position: absolute; z-index: 0; bottom: 10px; left: 114px; width: 146px; height:71px; background: transparent url(/images/SVG/eatoutText.svg) no-repeat 0 0; }
 }
 
 #madewith {
