@@ -1,25 +1,33 @@
 <div id="main-panel" ng-show="seepanel">
-  <div class="place-item">
+  <div class="place-item" ng-controller="eob_PlaceCtrl">
     <div class="place-wrapper">
       <div class="header" style="background-image: url( {{place.images.0}} ); ">
         <a class="close-place" href="/"></a>
-        <div class="place-info">
-	  <div class="place-name">
-	    <a ng-href="{{place.url}}" target="_blank"> {{place.name}} </a>
-	  </div>
-	  <div class="rating-wrapper">
-	    <div class="rating-number"> {{place.rating}} </div>
-	    <div class="rating">
-	      <div class="rating-value" style="width: {{place.rating*120/5}}px"></div>
+        <div class="place-info-area">
+          <div class="place-info">
+	    <div class="place-name">
+	      <a ng-href="{{place.url}}" target="_blank"> {{place.name}} </a>
 	    </div>
-	  </div>
+	    <div class="rating-wrapper">
+	      <div class="rating-number"> {{place.rating}} </div>
+              <div class="rating">
+                <div class="rating-value" style="width: {{place.rating*120/5}}px"></div>
+                <div class="rating-rest"
+                     style="width: {{120-place.rating*120/5}}px; background-position: {{-place.rating*120/5}}px -24px">
+                </div>
+	      </div>
+	    </div>
+	    <div class="place-info">
+	      {{place.address}}
+	    </div>
+          </div>
 
-	  <div class="place-info">
-	    {{place.address}}
-	  </div>
+          <div class="social-icons">
+            <a class="share twitter" title="Share on Twitter" href="" ng-click="twitterShare()"></a>
+            <a class="share facebook"  title="Share on Facebook" href="" ng-click="facebookShare()"></a>
+          </div>
         </div>
       </div>
-
       <div class="content">
         <div class="description">
 	  {{place.description}}

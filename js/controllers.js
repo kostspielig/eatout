@@ -143,7 +143,7 @@ eob_controllers.controller(
 	$scope.toggleItem = function (item) {
 	    $scope.active = ($scope.active == item) ? '': item;
 	}
-	
+
 	$scope.isActive = function (item) {
 	    return $scope.active == item
 	}
@@ -280,6 +280,57 @@ eob_controllers.controller(
         eob_data.placesPromise.then(_.partial(addMarkersFrom, 0));
     });
 });
+
+
+eob_controllers.controller(
+    'eob_PlaceCtrl', function($scope, $location, $window) {
+        var shareMsg = function (place) {
+            return 'I found delicious ' + place.foodtype
+                + ' at '+ place.name + ' via #EatOutBerlin';
+        }
+
+        var twitterShareUrl = function () {
+            var place = $scope.place;
+            if (place) {
+                var msg = shareMsg(place);
+                return 'http://twitter.com/share?'
+                     + 'text=' + $window.encodeURIComponent(msg)
+                     + '&url=' + $location.absUrl();
+            }
+            return '';
+        }
+
+        function externalize(url) {
+            return $location.protocol()
+                + '://' + $location.host()
+                + '/' + url;
+        }
+
+        $scope.twitterShare = function () {
+            $window.open(
+                twitterShareUrl(),
+                'height=450, width=550'
+                    + ', top='  + ($window.innerHeight/2 - 225)
+                    + ', left=' + ($window.innerWidth/2 - 275)
+                    + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+        }
+
+        $scope.facebookShare = function () {
+            var place = $scope.place;
+            if (place) {
+                var msg = shareMsg(place);
+                FB.ui({
+                    method: 'feed',
+                    link: $location.absUrl(),
+                    picture: externalize(place.images[0]),
+                    name: "Eat Out Berlin: " + place.name,
+                    description: shareMsg(place)
+                }, function () {});
+            };
+
+        }
+    });
+
 
 eob_controllers.controller(
     'eob_PlaceUrlCtrl', function($scope, $routeParams, eob_data) {
