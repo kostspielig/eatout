@@ -1,5 +1,5 @@
 <div id="main-panel" ng-show="seepanel">
-  <div class="place-item">
+  <div class="place-item" ng-controller="eob_PlaceCtrl">
     <div class="place-wrapper">
       <div class="header" style="background-image: url( {{place.images.0}} ); ">
         <a class="close-place" href="/"></a>
@@ -23,8 +23,8 @@
           </div>
 
           <div class="social-icons">
-            <div class="share twitter"></div>
-            <div class="share facebook"></div>
+            <a class="share twitter" title="Share on Twitter" href="" ng-click="twitterShare()"></a>
+            <a class="share facebook"></a>
           </div>
         </div>
       </div>
