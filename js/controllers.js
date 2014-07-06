@@ -324,7 +324,7 @@ eob_controllers.controller(
                     link: $location.absUrl(),
                     picture: externalize(place.images[0]),
                     name: "Eat Out Berlin: " + place.name,
-                    description: shareMsg(place)
+                    description: place.description
                 }, function () {});
             };
 
