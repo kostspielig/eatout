@@ -58,8 +58,8 @@ body {
 
 #logo {
     @include no-click;
-    .tv-tower { position: absolute; z-index: 0; bottom: 10px; left: 20px; width: 67px; height: 235px; background: transparent url(/images/SVG/tvTower.svg) no-repeat 0 0;}
-    .eatout-text { position: absolute; z-index: 0; bottom: 10px; left: 87px; width: 146px; height:71px; background: transparent url(/images/SVG/eatoutText.svg) no-repeat 0 0; }
+    .tv-tower { position: absolute; z-index: 0; bottom: 10px; left: 32px; width: 67px; height: 235px; background: transparent url(/images/SVG/tvTower.svg) no-repeat 0 0;}
+    .eatout-text { position: absolute; z-index: 0; bottom: 10px; left: 114px; width: 146px; height:71px; background: transparent url(/images/SVG/eatoutText.svg) no-repeat 0 0; }
 }
 
 #madewith {
@@ -88,9 +88,9 @@ body {
     a { color:#333; text-decoration:none; overflow: hidden; }
 
     .w-temp {
-	display: inline-block;
-	padding: 0px 0 0px 0px;
-	position: relative;
+	display: block;
+	padding: 15px 0 0px 5px;
+	float: left;
 	top: 4px;
 
 	.w-units {
@@ -100,10 +100,13 @@ body {
 	    vertical-align: top;
 	}
     }
+
     .w-icon {
 	width: 60px; height:52px;
-	display: inline-block;
+	display: block;
+	float: left;
 	vertical-align: bottom;
+
 	background:url(/images/weather/fair.svg) no-repeat center center;
 	&.c0 {background:url(/images/weather/tornado.svg) no-repeat center center; }
 	&.c2 { background:url(/images/weather/hurricane.svg) no-repeat center center; }
@@ -160,7 +163,7 @@ body {
     .submenus {
 
 	&.districtItem { top: 198px; }
-	&.foodItem { top: 100px ; }
+	&.foodItem { top: 100px; width: 115px; }
 	margin-left: 105px;
 	background: #282828;
 	padding: 8px 0;
@@ -177,6 +180,29 @@ body {
 	    text-transform: uppercase;
 	    cursor: pointer;
 	    color: #AAA;
+
+	    &.submenu-food { padding: 8px 6px;}
+	    &.submenu-all { color: white; background-color: #121212;  padding: 8px 25px;}
+
+	    &.checkall, &.checkall:hover { background-color: $green; color: white; }
+	    &.checkitem, &.checkitem:hover {
+		color: $green;
+	    }
+	    .icon-container { display: inline-block; width: 11px; height: 10px; margin-right: 5px; }
+	    .checkicon {
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+		top: -2px;
+		left: 6px;
+		width: 5px;
+		height: 11px;
+		border: 2px solid #30D400;
+		border-style: none solid solid none;
+
+		transition: 280ms;
+		position: relative;
+		box-sizing: border-box;
+	    }
 
 	    &:hover { background-color: #666; color:#222; }
 	}
@@ -233,7 +259,6 @@ body {
 	.description { font-size: 17px; }
 	.rating { margin: 20px 10px;  }
     }
-
 }
 
 .rating {
@@ -280,7 +305,7 @@ body {
 
     &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active {
 	margin-right: -600px;
-	opacity: 0.5;
+    /*opacity: 0.5;*/
     }
 
     &.ng-hide-remove.ng-hide-remove-active, &.ng-hide-add {
@@ -370,6 +395,17 @@ body {
 		margin: 20px auto;
 		img { width: 100%; margin: 0 0 6px 0;}
 	    }
+	}
+    }
+    .rating {
+	display: inline-block;
+	float: right;
+	background: url(/images/SVG/stars.svg) repeat-x 0 -24px;
+	width: 120px; height: 24px;
+
+	.rating-value {
+	    background: url(/images/SVG/stars.svg) repeat-x 0 0;
+	    height: 24px;
 	}
     }
 }

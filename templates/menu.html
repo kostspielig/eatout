@@ -1,6 +1,6 @@
 <div ng-controller="eob_MenuCtrl">
   <div class="menu-icon" ng-click="toggleMenu()"></div>
-
+  
   <div id="main-menu" ng-show="seemenu">
 
     <div class="menu-content">
@@ -14,8 +14,6 @@
 	  </li>
 
           <li class="menu-item districts" ng-click="toggleItem('districtItem')" ng-class="{active: isActive('districtItem')}">
-	    <!-- ng-repeat="district in districts"
-		 ng-click="menuSelectDistrict(district)">{{district.name}} -->
 	    <div class="item-icon"></div>
 	    <span class="item-description">District</span> 
 	  </li>
@@ -32,7 +30,13 @@
     </div>
     <div class="submenus {{active}}">
       <ul class="submenu" ng-show="isActive('foodItem')">
-	<li class="submenu-item" ng-repeat="food in foodTypes">{{food}}</li>
+	<li class="submenu-item submenu-all" ng-class="{checkall: allChecked, notcheckall: !allChecked}"  ng-click="menuSelectAll();"> all</li>
+	<li class="submenu-item submenu-food" ng-class="{checkitem: foodTypeChecked[food]}"  ng-repeat="food in foodTypes" ng-click="menuSelectFoodType(food);"> 
+	  <div class="icon-container">
+	    <div ng-class="{ checkicon: foodTypeChecked[food] }" style="with: 10px"></div> 
+	  </div>
+	  {{food}}
+	</li>
       </ul> 
       <ul class="submenu" ng-show="isActive('districtItem')" >
 	<li class="submenu-item" ng-repeat="district in districts" ng-click="menuSelectDistrict(district);">{{district.name}}</li>
