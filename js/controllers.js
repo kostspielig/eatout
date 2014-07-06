@@ -300,6 +300,12 @@ eob_controllers.controller(
             return '';
         }
 
+        function externalize(url) {
+            return $location.protocol()
+                + '://' + $location.host()
+                + '/' + url;
+        }
+
         $scope.twitterShare = function () {
             $window.open(
                 twitterShareUrl(),
@@ -307,6 +313,21 @@ eob_controllers.controller(
                     + ', top='  + ($window.innerHeight/2 - 225)
                     + ', left=' + ($window.innerWidth/2 - 275)
                     + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+        }
+
+        $scope.facebookShare = function () {
+            var place = $scope.place;
+            if (place) {
+                var msg = shareMsg(place);
+                FB.ui({
+                    method: 'feed',
+                    link: $location.absUrl(),
+                    picture: externalize(place.images[0]),
+                    name: "Eat Out Berlin: " + place.name,
+                    description: shareMsg(place)
+                }, function () {});
+            };
+
         }
     });
 
