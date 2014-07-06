@@ -343,6 +343,8 @@ body {
             .place-info {
 		display: inline-block;
 		color: $white;
+		max-width: 90%;
+		
 		.place-name {
 		    font-size: 32px;
 		    margin: 15px 0 5px;
