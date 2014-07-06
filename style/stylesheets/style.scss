@@ -190,6 +190,8 @@ body {
 	    }
 	    .icon-container { display: inline-block; width: 11px; height: 10px; margin-right: 5px; }
 	    .checkicon {
+		-ms-transform: rotate(45deg);
+		-o-transform: rotate(45deg);
 		-webkit-transform: rotate(45deg);
 		transform: rotate(45deg);
 		top: -2px;
