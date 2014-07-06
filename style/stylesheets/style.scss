@@ -310,7 +310,7 @@ body {
 
             .place-info-area {
                 background: $darkGrayShaded;
-                padding: 0 60px 20px 4vw;
+                padding: 0 3vw 20px 4vw;
             }
 
             .place-info {
@@ -331,9 +331,35 @@ body {
 			vertical-align: bottom;
 		    }
 		    .rating { float: none; }
-		}
+	        }
 	    }
+
+            .social-icons {
+                display: table-cell;
+                float: right;
+                vertical-align: middle;
+                text-align: center;
+                padding: 22px 0 0 0;
+                width: 30px;
+            }
+
+            .share {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+            }
+
+            .twitter {
+                background: url(/images/SVG/sicons.svg);
+                background-position: 30px 30px;
+                margin-bottom: 4px
+            }
+            .facebook {
+                background: url(/images/SVG/sicons.svg);
+                background-position: 0px 30px;
+            }
 	}
+
 	.content {
 	    padding: 40px 25px 20px 25px;
 	    background-color: $white;
