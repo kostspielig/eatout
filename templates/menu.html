@@ -1,5 +1,11 @@
 <div ng-controller="eob_MenuCtrl">
-  <div class="menu-icon" ng-click="toggleMenu()"></div>
+  <div class="menu-icon" ng-click="toggleMenu()">
+    <div class="menu-toggle {{menustate}}">
+      <b></b>
+      <b></b>
+      <b></b>
+    </div>
+  </div>
   
   <div id="main-menu" ng-show="seemenu">
 

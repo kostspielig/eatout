@@ -176,12 +176,17 @@ eob_controllers.controller(
 	$scope.seemenu = true;
 	$scope.seepanel = false;
 	$scope.place = null;
+	$scope.menustate = "close";
 
 	$scope.hidePanel = function() { $scope.seepanel = false; }
 	$scope.showPanel = function() { $scope.seepanel = true; }
 	$scope.hideMenu = function() { $scope.seemenu = false; }
 	$scope.showMenu = function() { $scope.seemenu = true; }
-	$scope.toggleMenu = function () { $scope.seemenu = !$scope.seemenu; }
+
+	$scope.toggleMenu = function () { 
+	    $scope.seemenu = !$scope.seemenu; 
+	    $scope.menustate = $scope.menustate == "open" ? "close" : "open"; 
+	}
 
 	$scope.setPlace = function (place) { $scope.place = place; }
 
