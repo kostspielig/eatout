@@ -125,7 +125,15 @@ body {
     border-radius: 2px;
 }
 
+.menu-toggle.open b:nth-child(2) {
+    -webkit-transition: opacity 600ms, width 600ms;
+    transition: opacity 600ms, width 600ms;
+    opacity: 1;
+}
+
 .menu-toggle.close b:nth-child(2) {
+    -webkit-transition: opacity 600ms, width 600ms;
+    transition: opacity 600ms, width 600ms;
     width: 0;
     opacity: 0;
 }
@@ -174,6 +182,7 @@ body {
     animation-name: close-button-last-child;
     animation-fill-mode: forwards;
 }
+
 
 @-webkit-keyframes close-button-first-child {
     0% { -webkit-transform:none; transform:none }
@@ -559,13 +568,15 @@ body {
 
 }
 
-@media screen and (max-height: 400px) {
+@media screen and (max-height: 450px) {
+    .menu-icon { left: 24px; }
     #main-menu {
 	.submenus {
 	    &.foodItem, &.districtItem { top: 0; }
 	}
 	.menu-content {
 	    padding: 88px 0 0 0px;
+	    width: 90px;
 
     	    .menu-items {
 		li.menu-item {
