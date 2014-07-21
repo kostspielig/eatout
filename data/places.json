@@ -173,6 +173,26 @@
 	"description": "Berlin's First Authentic Mexican Restaurant.",
 	"rating": 4.7,
 	"images": ["images/places/MariaBonita/image1.JPG","images/places/MariaBonita/image2.JPG","images/places/MariaBonita/image3.JPG","images/places/MariaBonita/image4.JPG","images/places/MariaBonita/image5.JPG","images/places/MariaBonita/image6.JPG"]
+    }, {
+	"name": "The Bird",
+	"url": "http://www.thebirdinberlin.com",
+	"address" : "Kottbusser Damm 95",
+	"foodtype": "burger",
+	"lat": 52.4938036,
+	"lng": 13.4221936,
+	"description": "Lorem fistrum la caidita a wan ese que llega por la gloria de mi madre llevame al sircoo ese hombree ahorarr sexuarl por la gloria de mi madre. Está la cosa muy malar al ataquerl qué dise usteer ahorarr pupita. Mamaar me cago en tus muelas amatomaa apetecan papaar papaar papaar papaar está la cosa muy malar diodeno jarl ese hombree sexuarl. Me cago en tus muelas a peich a gramenawer sexuarl. Mamaar sexuarl qué dise usteer a gramenawer ahorarr pecador a gramenawer hasta luego Lucas ese pedazo de. ",
+	"rating": 4.1,
+	"images": ["images/places/TheBird/cover.JPG","images/places/TheBird/image1.JPG"]
+    },{
+	"name": "Sauvage",
+	"url": "http://sauvageberlin.com",
+	"address" : "Pflügerstraße 25",
+	"foodtype": "french",
+	"lat": 52.48996,
+	"lng": 13.433356,
+	"description": "Amatomaa diodeno torpedo papaar papaar te voy a borrar el cerito está la cosa muy malar ahorarr a wan pecador está la cosa muy malar. Diodenoo te va a hasé pupitaa no puedor te va a hasé pupitaa qué dise usteer papaar papaar llevame al sircoo. Diodeno mamaar por la gloria de mi madre no te digo trigo por no llamarte Rodrigor amatomaa ese pedazo de tiene musho peligro a wan.",
+	"rating": 3.8,
+	"images": ["images/places/Sauvage/cover.JPG","images/places/Sauvage/image1.JPG","images/places/Sauvage/image2.JPG","images/places/Sauvage/image3.JPG"]
     }
 
 ]
