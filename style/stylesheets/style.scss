@@ -138,7 +138,7 @@ body {
     opacity: 0;
 }
 
-.menu-toggle.close  b:first-child {
+.menu-toggle.close b:first-child {
     -webkit-animation-delay: 200ms;
     -webkit-animation-duration: 300ms;
     -webkit-animation-name: close-button-first-child;
@@ -168,7 +168,7 @@ body {
     -webkit-animation-fill-mode: forwards;
     animation-delay: 200ms;
     animation-duration: 300ms;
-    animation-name: close-button-first-child;
+    animation-name: open-button-first-child;
     animation-fill-mode: forwards;
 }
 
@@ -179,7 +179,7 @@ body {
     -webkit-animation-fill-mode: forwards;
     animation-delay: 200ms;
     animation-duration: 300ms;
-    animation-name: close-button-last-child;
+    animation-name: open-button-last-child;
     animation-fill-mode: forwards;
 }
 
@@ -192,7 +192,15 @@ body {
 	   transform:translate3d(0, 8px, 0) rotate(45deg) }
 }
 
-@-webkit-keyframes close-button-last-child{
+@keyframes close-button-first-child {
+    0% { -webkit-transform:none; transform:none }
+    50% { -webkit-transform:translate3d(0, 3px, 0); 
+	  transform:translate3d(0, 3px, 0) }
+    100% { -webkit-transform:translate3d(0, 8px, 0) rotate(45deg); 
+	   transform:translate3d(0, 8px, 0) rotate(45deg) }
+}
+
+@-webkit-keyframes close-button-last-child {
     0% { -webkit-transform:none;transform:none }
     50% { -webkit-transform:translate3d(0, -3px, 0);
 	  transform:translate3d(0, -3px, 0) }
@@ -201,13 +209,14 @@ body {
 }
 
 
-@-webkit-keyframes open-button-first-child {
-    0% { -webkit-transform:none; transform:none }
-    50% { -webkit-transform:translate3d(0, 3px, 0); 
-	  transform:translate3d(0, 3px, 0) }
-    100% { -webkit-transform:translate3d(0, 8px, 0) rotate(45deg); 
-	   transform:translate3d(0, 8px, 0) rotate(45deg) }
+@keyframes close-button-last-child {
+    0% { -webkit-transform:none;transform:none }
+    50% { -webkit-transform:translate3d(0, -3px, 0);
+	  transform:translate3d(0, -3px, 0) }
+    100% { -webkit-transform:translate3d(0, -8px, 0) rotate(-45deg);
+	   transform:translate3d(0, -8px, 0) rotate(-45deg) }
 }
+
 
 @-webkit-keyframes open-button-last-child {
     0% { -webkit-transform:translate3d(0, -8px, 0) rotate(-45deg);
@@ -217,9 +226,26 @@ body {
     100% { -webkit-transform:none; transform:none}
 }
 
+@keyframes open-button-last-child {
+    0% { -webkit-transform:translate3d(0, -8px, 0) rotate(-45deg);
+	 transform:translate3d(0, -8px, 0) rotate(-45deg) }
+    50% { -webkit-transform:translate3d(0, -3px, 0);
+	  transform:translate3d(0, -3px, 0)}
+    100% { -webkit-transform:none; transform:none}
+}
+
 @-webkit-keyframes open-button-first-child {
     0% { -webkit-transform:translate3d(0, 8px, 0) rotate(45deg);
-       transform:translate3d(0, 8px, 0) rotate(45deg) }
+	 transform:translate3d(0, 8px, 0) rotate(45deg) }
+    50% { -webkit-transform:translate3d(0, 3px, 0);
+	  transform:translate3d(0, 3px, 0)}
+    100% { -webkit-transform:none;
+	   transform:none}
+}
+
+@keyframes open-button-first-child {
+    0% { -webkit-transform:translate3d(0, 8px, 0) rotate(45deg);
+	 transform:translate3d(0, 8px, 0) rotate(45deg) }
     50% { -webkit-transform:translate3d(0, 3px, 0);
 	  transform:translate3d(0, 3px, 0)}
     100% { -webkit-transform:none;
@@ -234,12 +260,11 @@ body {
     position: absolute;
     top: 18px; right: 20px;
 
-    a { color:#333; text-decoration:none; overflow: hidden; }
+    a { color:#333; text-decoration:none; overflow: hidden; display: flex;}
 
     .w-temp {
 	display: block;
 	padding: 15px 0 0px 5px;
-	float: left;
 	top: 4px;
 
 	.w-units {
@@ -253,7 +278,6 @@ body {
     .w-icon {
 	width: 60px; height:52px;
 	display: block;
-	float: left;
 	vertical-align: bottom;
 
 	background:url(/images/weather/fair.svg) no-repeat center center;
@@ -299,13 +323,13 @@ body {
     }
 
     &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active {
-	margin-left: -105px;
-	opacity: 0.5;
+	//margin-left: -105px;
+	transform: translate3d(-105px, 0, 0);
     }
 
     &.ng-hide-remove.ng-hide-remove-active, &.ng-hide-add {
-	margin-left: 0;
-	opacity: 1;
+	//margin-left: 0;
+	transform: translate3d(0,0,0);
     }
 
 
@@ -371,7 +395,6 @@ body {
 	    top: -10px; left: 68px;
 	    z-index:2000;
 	    width: 158px; height: 80px;
-	    background: url(/images/SVG/erlin.svg) no-repeat 0 0;
 	}
 
 	.menu-items {
@@ -455,13 +478,11 @@ body {
     }
 
     &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active {
-	margin-right: -600px;
-    /*opacity: 0.5;*/
+	transform: translate3d(100%, 0,0);
     }
 
     &.ng-hide-remove.ng-hide-remove-active, &.ng-hide-add {
-	margin-right: 0;
-	opacity: 1;
+	transform: translate3d(0,0,0);
     }
 
     .place-wrapper {
