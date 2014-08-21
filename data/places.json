@@ -6,6 +6,7 @@
 	"foodtype": "german",
 	"lat": 52.502166,
 	"lng": 13.431472,
+	"title": "New concept of food and shopping made fun",
 	"description": "This charming market has many options to eat, you can find from delicious curry bursts to all different types of cheesse. Definitely this a place not to be missed.",
 	"rating": 4.5,
 	"images": ["images/places/MarkthalleNeun/cburst0.jpg", "images/places/MarkthalleNeun/cburst1.jpg"]
@@ -17,6 +18,7 @@
 	"foodtype": "breakfast",
 	"lat": 52.529971,
 	"lng": 13.410655,
+	"title": "Coffee Roastery",
 	"description": "Never have I ever tried such a great coffee, the taste without sugar is superb. We also tried the carrot cake, and it was a great delight. The only reason why I did not give them a 5 is because the chairs are not really confortable, I would have loved to spend the afternoon there.",
 	"rating": 4.7,
 	"images": ["images/places/TheBarn/barn0.jpg","images/places/TheBarn/barn1.jpg","images/places/TheBarn/barn2.jpg","images/places/TheBarn/barn3.jpg","images/places/TheBarn/barn4.jpg"]
@@ -27,9 +29,10 @@
 	"foodtype": "burger",
 	"lat": 52.527236,
 	"lng": 13.398483,
+	"title": "Coffee Roastery",
 	"description": "It may not have the best burger in town, but for some reason I keep coming back for more. All the burgers have a unique flavour, and the fries are to die for. One of the must-order burgers is the chilli lemon: a unique pleasure to your senses. ",
 	"rating": 4.3,
-	"images": ["images/places/SishoBurger/sisho0.JPG","images/places/SishoBurger/image1.JPG","images/places/SishoBurger/image2.JPG","images/places/SishoBurger/image3.JPG","images/places/SishoBurger/image4.JPG","images/places/SishoBurger/image5.JPG","images/places/SishoBurger/image6.JPG"]
+	"images": ["images/places/SishoBurger/cover.JPG","images/places/SishoBurger/image1.JPG","images/places/SishoBurger/image2.JPG","images/places/SishoBurger/image3.JPG","images/places/SishoBurger/image4.JPG","images/places/SishoBurger/image5.JPG","images/places/SishoBurger/image6.JPG"]
     }, {
 	"name": "Cabslam - The California Breakfast Slam",
 	"url": "http://www.cabslam.com",
@@ -37,6 +40,7 @@
 	"foodtype": "breakfast",
 	"lat": 52.483219,
 	"lng": 13.446782,
+	"title": "Coffee Roastery",
 	"description": "Are you hungry? This is the place to be. I was not really sure about what to expect, since I have lived in California and could not remember that there was a Californian type of breakfast. The result? Well, the food is plenty and delicious.",
 	"rating": 4,
 	"images": ["images/places/CabSlam/cab0.JPG","images/places/CabSlam/image1.JPG","images/places/CabSlam/image2.JPG","images/places/CabSlam/image3.JPG"]
@@ -46,8 +50,9 @@
 	"address" : "Gipsstraße 3",
 	"foodtype": "japan",
 	"lat": 52.527236,
-	"lng": 13.399284,
-	"description": "",
+	"lng": 13.399284, 
+	"title": "Japanese Sushi Bar",
+	"description": "As a sushi lover, Kuchi was the official stop in Mitte. Fresh rolls that melt in your mouth, and delicious sashimi.",
 	"rating": 4.8,
 	"images": ["images/places/Kuchi/cover.JPG","images/places/Kuchi/image1.JPG","images/places/Kuchi/image2.JPG"]
     }, {
@@ -57,6 +62,7 @@
 	"foodtype": "pizza",
 	"lat": 52.4949835,
 	"lng": 13.4290841,
+	"title": "Coffee Roastery",
 	"description": "Phasellus iaculis venenatis viverra. Pellentesque mattis lectus sem. Donec facilisis dolor sed tellus mattis venenatis. Nullam gravida gravida est et egestas. Nam varius semper lacus eget hendrerit. Integer metus diam, ornare sit amet commodo vitae, posuere posuere enim. Aenean imperdiet est sapien, ut volutpat augue lacinia id.",
 	"rating": 3,
 	"images": ["images/places/VillaDiWow/villa0.JPG","images/places/VillaDiWow/image1.JPG","images/places/VillaDiWow/image2.JPG"]
@@ -67,9 +73,10 @@
 	"foodtype": "egg",
 	"lat": 52.493247,
 	"lng": 13.427927,
-	"description": "Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
+	"title": "The must-try Spanish place.",
+	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 3,
-	"images": ["images/places/Manuela/manuela0.JPG"]
+	"images": ["images/places/Manuela/cover.JPG","images/places/Manuela/image1.JPG","images/places/Manuela/image2.JPG"]
     },{
 	"name": "Tischendorf",
 	"url": "http://tischendorf-berlin.de/",
@@ -77,9 +84,10 @@
 	"foodtype": "muffin",
 	"lat": 52.49206,
 	"lng": 13.42825,
-	"description": "",
-	"rating": 3,
-	"images": ["images/places/Tischendorf/tischen0.JPG","images/places/Tischendorf/image1.JPG","images/places/Tischendorf/image2.JPG","images/places/Tischendorf/image3.JPG","images/places/Tischendorf/image4.JPG"]
+	"title": "The best Brunch in Neukolln",
+	"description": "Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
+	"rating": 4,
+	"images": ["images/places/Tischendorf/cover.JPG","images/places/Tischendorf/image1.JPG","images/places/Tischendorf/image2.JPG","images/places/Tischendorf/image3.JPG","images/places/Tischendorf/image4.JPG"]
     },{
 	"name": "Le Cochon Bourgeois",
 	"url": "http://www.lecochon.de/",
@@ -87,6 +95,7 @@
 	"foodtype": "french",
 	"lat": 52.48959,
 	"lng": 13.413598,
+	"title": "Title",
 	"description": "Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 3,
 	"images": ["images/places/LeCochonBourgeois/cochon0.JPG"]
@@ -97,6 +106,7 @@
 	"foodtype": "pizza",
 	"lat": 52.530849,
 	"lng": 13.412442,
+	"title": "Title",
 	"description": "Pizza in this restaurant is amazing, you have a wide variety to choose from. The downside? It is always crowded, and might not be the most romantic place to enjoy a quite dinner. I would recommend the terrace outside and the dessert!",
 	"rating": 4.2,
 	"images": ["images/places/IDueForni/due0.JPG"]
@@ -107,6 +117,7 @@
 	"foodtype": "pizza",
 	"lat": 52.48801,
 	"lng": 13.41893,
+	"title": "Title",
 	"description": "Pizza in this restaurant is amazing, you have a wide variety to choose from. The downside? It is always crowded, and might not be the most romantic place to enjoy a quite dinner. I would recommend the terrace outside and the dessert!",
 	"rating": 3.9,
 	"images": ["images/places/Masaniello/cover.JPG","images/places/Masaniello/image1.JPG","images/places/Masaniello/image2.JPG","images/places/Masaniello/image3.JPG","images/places/Masaniello/image4.JPG"]
@@ -117,6 +128,7 @@
 	"foodtype": "viet",
 	"lat": 52.49623,
 	"lng": 13.4221,
+	"title": "Title",
 	"description": "Ramen",
 	"rating": 4.3,
 	"images": ["images/places/Cocolo/cover.JPG","images/places/Cocolo/image1.JPG","images/places/Cocolo/image2.JPG","images/places/Cocolo/image3.JPG","images/places/Cocolo/image4.JPG","images/places/Cocolo/image5.JPG","images/places/Cocolo/image6.JPG","images/places/Cocolo/image7.JPG"]
@@ -127,6 +139,7 @@
 	"foodtype": "sandwich",
 	"lat": 52.526498,
 	"lng": 13.394434,
+	"title": "Title",
 	"description": "Delish Turkey Pastrami",
 	"rating": 4.3,
 	"images": ["images/places/MoggMelzer/cover.JPG","images/places/MoggMelzer/image1.JPG","images/places/MoggMelzer/image2.JPG","images/places/MoggMelzer/image3.JPG","images/places/MoggMelzer/image4.JPG","images/places/MoggMelzer/image5.JPG"]
@@ -148,6 +161,7 @@
 	"foodtype": "japan",
 	"lat": 52.544239,
 	"lng": 13.418352,
+	"title": "Title",
 	"description": "Berlin's authentic Japaneese.",
 	"rating": 4,
 	"images": ["images/places/Sasaya/image0.JPG","images/places/Sasaya/image1.JPG","images/places/Sasaya/image2.JPG"]
@@ -159,6 +173,7 @@
 	"foodtype": "egg",
 	"lat": 52.48703,
 	"lng": 13.43051,
+	"title": "Title",
 	"description": "Berlin's only French-Australian Café Restaurant and Cocktail bar.",
 	"rating": 4.2,
 	"images": ["images/places/MelbourneCanteen/image0.JPG","images/places/MelbourneCanteen/image1.JPG","images/places/MelbourneCanteen/image2.JPG","images/places/MelbourneCanteen/image3.JPG","images/places/MelbourneCanteen/image4.JPG","images/places/MelbourneCanteen/image5.JPG","images/places/MelbourneCanteen/image6.JPG","images/places/MelbourneCanteen/image7.JPG"]
@@ -170,6 +185,7 @@
 	"foodtype": "beer",
 	"lat": 52.54041,
 	"lng": 13.418194,
+	"title": "Title",
 	"description": "Berlin's First Authentic Mexican Restaurant.",
 	"rating": 4.7,
 	"images": ["images/places/MariaBonita/image1.JPG","images/places/MariaBonita/image2.JPG","images/places/MariaBonita/image3.JPG","images/places/MariaBonita/image4.JPG","images/places/MariaBonita/image5.JPG","images/places/MariaBonita/image6.JPG"]
@@ -190,9 +206,21 @@
 	"foodtype": "french",
 	"lat": 52.48996,
 	"lng": 13.433356,
+	"title": "Paleo Food",
 	"description": "Amatomaa diodeno torpedo papaar papaar te voy a borrar el cerito está la cosa muy malar ahorarr a wan pecador está la cosa muy malar. Diodenoo te va a hasé pupitaa no puedor te va a hasé pupitaa qué dise usteer papaar papaar llevame al sircoo. Diodeno mamaar por la gloria de mi madre no te digo trigo por no llamarte Rodrigor amatomaa ese pedazo de tiene musho peligro a wan.",
 	"rating": 3.8,
 	"images": ["images/places/Sauvage/cover.JPG","images/places/Sauvage/image1.JPG","images/places/Sauvage/image2.JPG","images/places/Sauvage/image3.JPG"]
+    },{
+	"name": "Yumcha Heroes",
+	"url": "http://www.yumchaheroes.de/",
+	"address" : "Weinbergsweg 8",
+	"foodtype": "viet",
+	"lat": 52.531192,
+	"lng": 13.402727,
+	"title": "Homemade Chinese dumplings",
+	"description": "Amatomaa diodeno torpedo papaar papaar te voy a borrar el cerito está la cosa muy malar ahorarr a wan pecador está la cosa muy malar. Diodenoo te va a hasé pupitaa no puedor te va a hasé pupitaa qué dise usteer papaar papaar llevame al sircoo. Diodeno mamaar por la gloria de mi madre no te digo trigo por no llamarte Rodrigor amatomaa ese pedazo de tiene musho peligro a wan.",
+	"rating": 3.8,
+	"images": ["images/places/yumchaheroes/cover.jpg","images/places/yumchaheroes/image1.jpg","images/places/yumchaheroes/image2.jpg","images/places/yumchaheroes/image3.jpg","images/places/yumchaheroes/image4.jpg"]
     }
 
 ]
