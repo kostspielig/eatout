@@ -1,4 +1,36 @@
 
+var eob_app = angular.module('eob.app', [
+    'ngAnimate',
+    'ngRoute',
+    'eob.controllers',
+    'eob.directives',
+    'eob.services'
+]);
+
+eob_app.config(
+    function($routeProvider) {
+	$routeProvider
+	    .when('/', {
+		templateUrl:'templates/empty.html',
+		controller: 'eob_NoPlaceUrlCtrl'
+	    })
+            .when('/place/:placeSlug', {
+		templateUrl:'templates/empty.html',
+		controller: 'eob_PlaceUrlCtrl'
+	    })
+	    .otherwise({
+		redirectTo: '/'
+	    });
+    });
+
+eob_app.config(
+    function($locationProvider) {
+        $locationProvider.html5Mode(true);
+    });
+
+eob_app.run(['$route', angular.noop]);
+
+
 'use strict';
 
 var eob_controllers = angular.module('eob.controllers', []);
@@ -137,10 +169,6 @@ eob_controllers.controller(
             $scope.findMe();
         }
 
-	$scope.openSuggestion = function() {
-	    $location.path('/suggestion');
-	}
-
 	$scope.menuSelectAll =  function() { 
 	    $scope.allChecked = true;
 	    $scope.foodTypeChecked = {};
@@ -180,28 +208,14 @@ eob_controllers.controller(
 	$scope.seemenu = true;
 	$scope.seepanel = false;
 	$scope.place = null;
-	$scope.panel = true;
-	$scope.suggestions = true;
-	$scope.menustate = "close";
 
 	$scope.hidePanel = function() { $scope.seepanel = false; }
 	$scope.showPanel = function() { $scope.seepanel = true; }
 	$scope.hideMenu = function() { $scope.seemenu = false; }
 	$scope.showMenu = function() { $scope.seemenu = true; }
-
-	$scope.toggleMenu = function () { 
-	    $scope.seemenu = !$scope.seemenu; 
-	    $scope.menustate = $scope.menustate == "open" ? "close" : "open"; 
-	}
+	$scope.toggleMenu = function () { $scope.seemenu = !$scope.seemenu; }
 
 	$scope.setPlace = function (place) { $scope.place = place; }
-	$scope.setSuggestions = function (place) { $scope.suggestions = place; }
-	$scope.setPanel = function (panel) { $scope.panel = panel; }
-
-	$scope.openPlace  = function(placeSlug) {
-	    $location.path('/place/' + placeSlug);
-	    $scope.$apply();
-	};
 
 	$scope.centerPosition = function (lat, lng, zoom) {
 	    var center = new google.maps.LatLng(lat, lng);
@@ -227,18 +241,6 @@ eob_controllers.controller(
 		map.panTo(center);
 		map.setZoom(zoom);
             }
-	};
-
-	$scope.getLocation = function() {
-	    eob_geolocation.getCurrentPosition(function(position) {
-		eob_imgCache.load(
-                    _.pick(MARKER_ICONS, 'findme')
-		).then(function () {
-	            var pos = new google.maps.LatLng(position.coords.latitude,
-					             position.coords.longitude);
-		    return pos;
-		});
-	    });
 	};
 
 	$scope.findMe = function() {
@@ -267,7 +269,7 @@ eob_controllers.controller(
 			google.maps.geometry.spherical.computeDistanceBetween(
                             pos, BERLIN_POS) / 1000).toFixed(2);
 	            console.log("Distance to Berlin:", distanceToBerlin);
-	            //fitBounds(markers);
+	            fitBounds(markers);
 		});
 	    });
 	};
@@ -298,15 +300,15 @@ eob_controllers.controller(
                     var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(place.lat, place.lng),
 			map: map,
-			title: place.name,
 			icon: MARKER_ICONS[place.foodtype],
 			animation: google.maps.Animation.DROP
 	            });
 	            markers.push(marker);
 
-	            google.maps.event.addListener(marker, 'click', function(){
-			$scope.openPlace(place.slug)
-		    });
+	            google.maps.event.addListener(marker, 'click', function() {
+			$location.path('/place/' + place.slug);
+			$scope.$apply();
+	            });
 
                     setTimeout(_.partial(addMarkersFrom, index + 1), DROP_DELAY);
 		});
@@ -347,15 +349,12 @@ eob_controllers.controller(
         }
 
         var twitterShareUrl = function () {
-	    event = event || window.event // cross-browser event
-	    event.stopPropagation ? event.stopPropagation() : (event.cancelBubble=true);
-
             var place = $scope.place;
             if (place) {
                 var msg = shareMsg(place);
                 return 'http://twitter.com/share?'
-                    + 'text=' + $window.encodeURIComponent(msg)
-                    + '&url=' + $location.absUrl();
+                     + 'text=' + $window.encodeURIComponent(msg)
+                     + '&url=' + $location.absUrl();
             }
             return '';
         }
@@ -376,8 +375,6 @@ eob_controllers.controller(
         }
 
         $scope.facebookShare = function () {
-	    event = event || window.event // cross-browser event
-	    event.stopPropagation ? event.stopPropagation() : (event.cancelBubble=true);
             var place = $scope.place;
             if (place) {
                 var msg = shareMsg(place);
@@ -399,7 +396,6 @@ eob_controllers.controller(
         eob_data.placesPromise.success(function (places) {
             var place = _.findWhere(places, {slug: $routeParams.placeSlug});
             if (place != null) {
-		$scope.setPanel('place');
                 $scope.setPlace(place);
 	        $scope.showPanel();
                 $scope.centerPosition(place.lat, place.lng, 16);
@@ -409,20 +405,136 @@ eob_controllers.controller(
         });
     });
 
-
-eob_controllers.controller(
-    'eob_SuggestionUrlCtrl', function($scope, eob_data) {
-	eob_data.placesPromise.success(function (places) { 
-	    $scope.setPanel('suggestion');
-            $scope.setPlace(places[0]);
-	    $scope.setSuggestions(places);
-	    //console.log($scope.suggestions)
-	    $scope.showPanel();
-	});
-    });
-
-
 eob_controllers.controller(
     'eob_NoPlaceUrlCtrl', function($scope) {
         $scope.hidePanel();
     });
+
+
+var eob_directives = angular.module('eob.directives', []);
+
+eob_directives
+    
+    .directive('eob-dropdown', function($document) {
+    return function(scope, element, attr){
+	element.on('click', function(event) {
+	    if ( element.parent().hasClass('open') )
+		element.parent().removeClass('open');
+	    else element.parent().addClass('open');
+	});
+    };
+})
+
+    .directive('eob_markdown', function() {
+	var converter = new Showdown.converter();
+	return {
+	    restrict: 'E',
+	    link: function(scope, element, attrs) {
+		var htmlText =  converter.makeHtml(element.text());
+		element.html(htmlText);
+	    }
+	}
+    });
+
+var eob_services = angular.module('eob.services', []);
+
+// https://gist.github.com/bentruyman/1211400
+function toSlug (value) {
+  // 1) convert to lowercase
+  // 2) remove dashes and pluses
+  // 3) replace spaces with dashes
+  // 4) remove everything but alphanumeric characters and dashes
+  return value
+        .toLowerCase()
+        .replace(/-+/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/[^a-z0-9-]/g, '');
+};
+
+eob_services.factory('eob_imgCache', function ($q) {
+    function loadImg(url) {
+        var promise = $q.defer();
+        var img = new Image();
+        img.src = url;
+        img.onload  = function() { promise.resolve(img); };
+        img.onerror = function() { promise.reject(img); };
+        return promise;
+    }
+
+    var cache = {};
+    return {
+        load: function (images) {
+            var promises = {};
+            for (var key in images) {
+                var promise = cache[key];
+                if (promise == null)
+                    promise = cache[key] = loadImg(images[key]);
+                promises[key] = promise;
+            }
+            return $q.all(promises);
+        }
+    };
+});
+
+eob_services.factory('eob_geolocation', function () {
+    var service = {
+        getCurrentPosition: function (success) {
+	    // Try HTML5 geolocation
+	    if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(
+                    success,
+                    function () { alert("Geolocation failed!"); }
+                );
+            } else {
+                alert("Geolocation not supported by your browser!");
+            }
+        }
+    };
+    return service;
+});
+
+eob_services.factory('eob_data', function($http, $q) {
+    var service = {}
+
+    service.placesPromise = $http.get('data/places.json')
+        .success(function(data) {
+	    // Order the array by descending vertical position on the map
+	    data.sort(function (a, b) {
+		return (b.lat - a.lat)
+	    });
+            // Compute slug information
+            data.forEach(function (place) {
+                place.slug = toSlug(place.name);
+            })
+	    service.places = data;
+        });
+
+    service.districtsPromise = $http.get('data/districts.json')
+        .success(function(data) {
+	    service.districts = data;
+        });
+
+    service.promise = $q.all([service.placesPromise,
+                              service.districtsPromise]);
+    return service;
+});
+
+eob_services.factory('eob_weather', ['$http',
+  function($http, $rootScope){
+      var weather = '';
+      var FORECAST_ENDPOINT = "http://query.yahooapis.com/v1/public/yql?q=";
+      var FORECAST_YQL_OPEN 	= "select * from weather.forecast where location='";
+      var FORECAST_YQL_CLOSE 	= "'and u='c'&format=json";
+      var YQL_BERLIN = "GMXX0007";
+
+      return {
+	  getWeather: function(scope) {
+	      var url = FORECAST_ENDPOINT + FORECAST_YQL_OPEN + YQL_BERLIN + FORECAST_YQL_CLOSE;
+	      $http.get(url).success(function(data) {
+		  scope.weather = data;
+		  scope.temp = data.query.results.channel.item.condition.temp;
+		  scope.wcode = data.query.results.channel.item.condition.code;
+	      });
+	  }
+      };
+  }]);

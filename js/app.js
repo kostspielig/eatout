@@ -18,6 +18,10 @@ eob_app.config(
 		templateUrl:'templates/empty.html',
 		controller: 'eob_PlaceUrlCtrl'
 	    })
+	    .when('/suggestion', {
+		templateUrl: 'templates/empty.html',
+		controller: 'eob_SuggestionUrlCtrl'
+	    })
 	    .otherwise({
 		redirectTo: '/'
 	    });
