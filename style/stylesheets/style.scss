@@ -96,9 +96,9 @@ body {
 }
 
 .menu-icon {
-    background-color: #333;
+    background-color: #282828;
     border-radius: 2px;
-    width: 18px;
+    width: 23px;
     height: 18px;
     padding: 11px;
 }
@@ -222,7 +222,7 @@ body {
     0% { -webkit-transform:translate3d(0, -8px, 0) rotate(-45deg);
 	 transform:translate3d(0, -8px, 0) rotate(-45deg) }
     50% { -webkit-transform:translate3d(0, -3px, 0);
-	transform:translate3d(0, -3px, 0)}
+	  transform:translate3d(0, -3px, 0)}
     100% { -webkit-transform:none; transform:none}
 }
 
@@ -255,7 +255,7 @@ body {
 #weather {
     font-size: 40px;
     color:$darkGray;
-    font-weight: bold;
+    font-weight: 700;
     z-index: 0;
     position: absolute;
     top: 18px; right: 20px;
@@ -268,7 +268,7 @@ body {
 	top: 4px;
 
 	.w-units {
-	    font-weight: normal;
+	    font-weight: 400;
 	    font-size: 0.7em;
 	    display: inline-block;
 	    vertical-align: top;
@@ -462,10 +462,11 @@ body {
     position: absolute;
     background: #FFF;
     color: $darkGray;
-
     top: 0;
     right: 0;
     z-index: 8;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 
     @include container-shadow;
 
@@ -564,11 +565,38 @@ body {
 	    background-color: $white;
 	    font-size: 20px;
 
+	    .title {
+		font-size: 1.12em;
+		font-weight: bold;
+		padding: 0px 0px 10px;
+	    }
 	    .images {
 		width: 100%;
 		margin: 20px auto;
 		img { width: 100%; margin: 0 0 6px 0;}
 	    }
+	}
+    }
+
+    .suggestion-wrapper {
+	.close-place.close-place {
+	    background: url(/images/SVG/close-dark.svg) no-repeat center;
+	    top: 25px;
+	    right: 15px;
+	}
+
+	.searchbox {
+	    font-size: 2em;
+	    color: $darkGray;
+	    padding: 24px 0px 24px 30px;
+	    border: none;
+	    background: 0 0;
+	    outline: 0;
+	}
+	
+	.header {
+	    margin: 0 0 6px 0;
+	    cursor: pointer;
 	}
     }
 }
@@ -631,6 +659,11 @@ body {
 	width: 100vw;
 	/*We need this for chrome for phones not just max width*/
 	height: initial;
+	.suggestion-wrapper {
+	    .searchbox {
+		padding: 24px 0px 24px 90px;
+	    }
+	}
     }
 
 }
