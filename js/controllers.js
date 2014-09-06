@@ -9,19 +9,21 @@ var BERLIN_POS = new google.maps.LatLng(52.5096315, 13.4018519);
 
 var MARKER_ICONS = {
     pizza: 'images/icons/SVG/pizza.svg',
-    beer: 'images/icons/SVG/beer.svg',
+    //beer: 'images/icons/SVG/beer.svg',
     viet: 'images/icons/SVG/ramen.svg',
     burger: 'images/icons/SVG/burger.svg',
-    japan: 'images/icons/SVG/sushi.svg',
+    japanese: 'images/icons/SVG/sushi.svg',
     breakfast: 'images/icons/SVG/coffee.svg',
+    mexican: 'images/icons/SVG/mexican.svg',
+    cocktails: 'images/icons/SVG/cocktails.svg',
     //croissant: 'images/icons/croissant.png',
     //cheese: 'images/icons/cheese.png',
     icecream: 'images/icons/SVG/icecream.svg',
     german: 'images/icons/SVG/german.svg',
-    muffin: 'images/icons/SVG/muffin.svg',
+    bakery: 'images/icons/SVG/muffin.svg',
     french: 'images/icons/SVG/french.svg',
     spanish: 'images/icons/SVG/spanish.svg',
-    brunch: 'images/icons/SVG/spanish.svg',
+    brunch: 'images/icons/SVG/brunch.svg',
     sandwich: 'images/icons/SVG/sandwich.svg'
 };
 
@@ -163,9 +165,13 @@ eob_controllers.controller(
 	$scope.menuSelectFoodType = function (food) {
 	    $scope.allChecked = false;
 	    $scope.foodTypeChecked[food] = !$scope.foodTypeChecked[food];
-	    $scope.filterMarkers(_.filter($scope.foodTypes, function (foodtype) {
-		return $scope.foodTypeChecked[foodtype];
-	    }));
+	    var checkedTypes = _.filter($scope.foodTypes, function (foodtype) {
+		return $scope.foodTypeChecked[foodtype]; });
+	    if (_.isEmpty(checkedTypes)) {
+		$scope.menuSelectAll();
+	    } else {
+		$scope.filterMarkers(checkedTypes);
+	    }
 	};
 	
         $scope.menuSelectDistrict = function (district) {
@@ -277,7 +283,6 @@ eob_controllers.controller(
 			markers.splice(markers.indexOf(findMeMarker), 1);
 			findMeMarker.setMap(null);
                     }
-
 	            findMeMarker = new google.maps.Marker({
 			map: map,
 			position: pos,
@@ -324,11 +329,16 @@ eob_controllers.controller(
 		eob_imgCache.load(
                     _.pick(MARKER_ICONS, place.foodtype)
 		).then(function () {
+		    var image = {
+			url: MARKER_ICONS[place.foodtype],
+			size: new google.maps.Size(70, 85),
+			scaledSize: new google.maps.Size(70, 85)
+		    };
                     var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(place.lat, place.lng),
 			map: map,
 			title: place.name,
-			icon: MARKER_ICONS[place.foodtype],
+			icon: image,
 			animation: google.maps.Animation.DROP
 	            });
 	            markers.push(marker);
@@ -344,11 +354,12 @@ eob_controllers.controller(
 
 	$scope.filterMarkers = function(types) {
 	    _.map(markers, function(marker) {
-		var visible = null !== _.find(types, function (type) { 
+		var visible = undefined !== _.find(types, function (type) { 
 		    return marker.getIcon() === MARKER_ICONS[type];
 		});
 		marker.setVisible(visible);
-	    })
+	    });
+	    
 	};
 
 	function getSuggestedPlaces(pos, places) {
