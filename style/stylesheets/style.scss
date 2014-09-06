@@ -509,12 +509,13 @@ body {
             .place-info-area {
                 background: $darkGrayShaded;
                 padding: 0 3vw 20px 4vw;
+		position: relative;
             }
 
             .place-info {
 		display: inline-block;
 		color: $white;
-		max-width: 90%;
+		max-width: 84%;
 		
 		.place-name {
 		    font-size: 32px;
@@ -540,8 +541,10 @@ body {
 	    }
 
             .social-icons {
-                display: table-cell;
-                float: right;
+                display: inline-block;
+		position: absolute;
+		top: 0px;
+		right: 4vw;
                 vertical-align: middle;
                 text-align: center;
                 padding: 17px 0 0 0;
@@ -667,6 +670,7 @@ body {
 	.suggestion-wrapper {
 	    .searchbox {
 		padding: 24px 0px 24px 90px;
+		width: 65%;
 	    }
 	}
     }
