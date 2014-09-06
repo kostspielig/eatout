@@ -65,12 +65,12 @@
 	"title": "Coffee Roastery",
 	"description": "Phasellus iaculis venenatis viverra. Pellentesque mattis lectus sem. Donec facilisis dolor sed tellus mattis venenatis. Nullam gravida gravida est et egestas. Nam varius semper lacus eget hendrerit. Integer metus diam, ornare sit amet commodo vitae, posuere posuere enim. Aenean imperdiet est sapien, ut volutpat augue lacinia id.",
 	"rating": 3,
-	"images": ["images/places/VillaDiWow/villa0.JPG","images/places/VillaDiWow/image1.JPG","images/places/VillaDiWow/image2.JPG"]
+	"images": ["images/places/VillaDiWow/cover.JPG","images/places/VillaDiWow/image1.JPG","images/places/VillaDiWow/image2.JPG"]
     },{
 	"name": "Manuela",
 	"url": "http://www.manuelatapas.com",
 	"address" : "Friedelstraße 34",
-	"foodtype": "egg",
+	"foodtype": "spanish",
 	"lat": 52.493247,
 	"lng": 13.427927,
 	"title": "The must-try Spanish place.",
@@ -170,7 +170,7 @@
 	"url": "http://www.melbournecanteen.com/",
 	"date": "30-05-2014",
 	"address" : "Pannierstraße 57",
-	"foodtype": "egg",
+	"foodtype": "brunch",
 	"lat": 52.48703,
 	"lng": 13.43051,
 	"title": "Title",
@@ -221,6 +221,28 @@
 	"description": "Amatomaa diodeno torpedo papaar papaar te voy a borrar el cerito está la cosa muy malar ahorarr a wan pecador está la cosa muy malar. Diodenoo te va a hasé pupitaa no puedor te va a hasé pupitaa qué dise usteer papaar papaar llevame al sircoo. Diodeno mamaar por la gloria de mi madre no te digo trigo por no llamarte Rodrigor amatomaa ese pedazo de tiene musho peligro a wan.",
 	"rating": 3.8,
 	"images": ["images/places/yumchaheroes/cover.jpg","images/places/yumchaheroes/image1.jpg","images/places/yumchaheroes/image2.jpg","images/places/yumchaheroes/image3.jpg","images/places/yumchaheroes/image4.jpg"]
+    },{
+	"name": "Infarm",
+	"url": "https://www.facebook.com/infarm.de",
+	"address" : "Glogauer Straße 6",
+	"foodtype": "brunch",
+	"lat": 52.494075,
+	"lng": 13.437823,
+	"title": "An authentic Israeli Brunch experience",
+	"description": "Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
+	"rating": 4.4,
+	"images": ["images/places/infarm/cover.JPG","images/places/infarm/image1.JPG","images/places/infarm/image2.JPG","images/places/infarm/image3.JPG","images/places/infarm/image4.JPG","images/places/infarm/image6.JPG"]
+    }, {
+	"name": "Klunkerkranich",
+	"url": "http://www.klunkerkranich.de",
+	"address" : "Karl-Marx-Straße 66",
+	"foodtype": "pizza",
+	"lat": 52.482081,
+	"lng": 13.432256,
+	"title": "The best views of the city",
+	"description": "Phasellus iaculis venenatis viverra. Pellentesque mattis lectus sem. Donec facilisis dolor sed tellus mattis venenatis. Nullam gravida gravida est et egestas. Nam varius semper lacus eget hendrerit. Integer metus diam, ornare sit amet commodo vitae, posuere posuere enim. Aenean imperdiet est sapien, ut volutpat augue lacinia id.",
+	"rating": 4.7,
+	"images": ["images/places/klunkerkranich/cover.JPG","images/places/klunkerkranich/image1.JPG","images/places/klunkerkranich/image2.JPG"]
     }
 
 ]
