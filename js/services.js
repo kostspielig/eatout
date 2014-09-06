@@ -81,7 +81,7 @@ eob_services.factory('eob_data', function($http, $q) {
     return service;
 });
 
-eob_services.factory('eob_weather', ['$http',
+eob_services.factory('eob_weather', ['$http', '$rootScope',
   function($http, $rootScope){
       var weather = '';
       var FORECAST_ENDPOINT = "http://query.yahooapis.com/v1/public/yql?q=";

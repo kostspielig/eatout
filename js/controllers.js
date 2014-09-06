@@ -20,7 +20,8 @@ var MARKER_ICONS = {
     german: 'images/icons/SVG/german.svg',
     muffin: 'images/icons/SVG/muffin.svg',
     french: 'images/icons/SVG/french.svg',
-    egg: 'images/icons/SVG/spanish.svg',
+    spanish: 'images/icons/SVG/spanish.svg',
+    brunch: 'images/icons/SVG/spanish.svg',
     sandwich: 'images/icons/SVG/sandwich.svg'
 };
 
@@ -57,6 +58,12 @@ var MAP_STYLES = [
 	featureType: "road",
 	elementType: "labels",
 	stylers: [
+	    { visibility: "on" }
+	]
+    },{
+	featureType: "road.highway",
+	elementType: "labels",
+	stylers: [
 	    { visibility: "off" }
 	]
     },{
@@ -80,6 +87,12 @@ var MAP_STYLES = [
 	]
     },{
 	featureType: "transit.line",
+	stylers:  [
+	    { visibility: "off" }
+	]
+    },{
+	featureType: "poi",
+	elementType: "labels",
 	stylers:  [
 	    { visibility: "off" }
 	]
@@ -125,7 +138,7 @@ eob_controllers.controller(
     'eob_MenuCtrl', function($scope, $location, eob_data) {
         eob_data.districtsPromise.success(function (data) {
             $scope.districts = data;
-        })
+        });
 
 	$scope.foodTypes = Object.keys(MARKER_ICONS);
 
@@ -134,18 +147,18 @@ eob_controllers.controller(
 
         $scope.menuFindMe = function ($event) {
             $location.path("/");
-            $scope.findMe();
-        }
+            $scope.findMe(true);
+        };
 
 	$scope.openSuggestion = function() {
 	    $location.path('/suggestion');
-	}
+	};
 
 	$scope.menuSelectAll =  function() { 
 	    $scope.allChecked = true;
 	    $scope.foodTypeChecked = {};
 	    $scope.filterMarkers($scope.foodTypes);
-	}
+	};
 
 	$scope.menuSelectFoodType = function (food) {
 	    $scope.allChecked = false;
@@ -153,21 +166,21 @@ eob_controllers.controller(
 	    $scope.filterMarkers(_.filter($scope.foodTypes, function (foodtype) {
 		return $scope.foodTypeChecked[foodtype];
 	    }));
-	}
+	};
 	
         $scope.menuSelectDistrict = function (district) {
 	    $scope.active = '';
             //$scope.hideMenu();
             $scope.centerPosition(district.lat, district.lng, district.zoom);
-        }
+        };
 
 	$scope.toggleItem = function (item) {
-	    $scope.active = ($scope.active == item) ? '': item;
-	}
+	    $scope.active = ($scope.active === item) ? '': item;
+	};
 
 	$scope.isActive = function (item) {
-	    return $scope.active == item
-	}
+	    return $scope.active === item;
+	};
     });
 
 eob_controllers.controller(
@@ -185,18 +198,30 @@ eob_controllers.controller(
 	$scope.menustate = "close";
 
 	$scope.hidePanel = function() { $scope.seepanel = false; }
-	$scope.showPanel = function() { $scope.seepanel = true; }
-	$scope.hideMenu = function() { $scope.seemenu = false; }
-	$scope.showMenu = function() { $scope.seemenu = true; }
+	$scope.showPanel = function() { 
+	    $scope.seepanel = true; 
+	    if (window.innerWidth < 760) {
+		$scope.hideMenu();
+	    }
+	};
+	$scope.hideMenu = function() { 
+	    $scope.seemenu = false; 
+	    $scope.menustate = "open"; 
+	};
+	$scope.showMenu = function() { 
+	    $scope.seemenu = true; 
+	    $scope.menustate = "close"; 
+	};
+
 
 	$scope.toggleMenu = function () { 
 	    $scope.seemenu = !$scope.seemenu; 
-	    $scope.menustate = $scope.menustate == "open" ? "close" : "open"; 
-	}
+	    $scope.menustate = $scope.menustate === "open" ? "close" : "open"; 
+	};
 
-	$scope.setPlace = function (place) { $scope.place = place; }
-	$scope.setSuggestions = function (place) { $scope.suggestions = place; }
-	$scope.setPanel = function (panel) { $scope.panel = panel; }
+	$scope.setPlace = function (place) { $scope.place = place; };
+	$scope.setSuggestions = function (place) { $scope.suggestions = place; };
+	$scope.setPanel = function (panel) { $scope.panel = panel; };
 
 	$scope.openPlace  = function(placeSlug) {
 	    $location.path('/place/' + placeSlug);
@@ -216,16 +241,15 @@ eob_controllers.controller(
 			document.getElementById('main-panel').offsetWidth;
                     var menuWidth = !$scope.seemenu ? 0 :
 			document.getElementById('main-menu').offsetWidth;
-                    if (panelWidth >= mapWidth)
-			panelWidth = 0;
+                    if (panelWidth >= mapWidth) { panelWidth = 0; }
                     var adjust = panelWidth / 2 - menuWidth / 2;
 	            map.panTo(center);
-                    map.setZoom(zoom);
+		    if (zoom) { map.setZoom(zoom); }  
                     map.panBy(adjust, 0);
 		}, 0);
             } else {
 		map.panTo(center);
-		map.setZoom(zoom);
+		if (zoom) { map.setZoom(zoom); }
             }
 	};
 
@@ -241,7 +265,7 @@ eob_controllers.controller(
 	    });
 	};
 
-	$scope.findMe = function() {
+	$scope.findMe = function(center) {
 	    eob_geolocation.getCurrentPosition(function(position) {
 		eob_imgCache.load(
                     _.pick(MARKER_ICONS, 'findme')
@@ -249,7 +273,7 @@ eob_controllers.controller(
 	            var pos = new google.maps.LatLng(position.coords.latitude,
 					             position.coords.longitude);
 
-                    if (findMeMarker != null) {
+                    if (findMeMarker !== null) {
 			markers.splice(markers.indexOf(findMeMarker), 1);
 			findMeMarker.setMap(null);
                     }
@@ -259,14 +283,18 @@ eob_controllers.controller(
 			position: pos,
 			icon: 'images/SVG/iamhere.svg',
 			animation: google.maps.Animation.DROP,
-			zIndex: 99999,
+			zIndex: 9999999,
 	            });
                     markers.push(findMeMarker);
 
+		    if (center) {
+			$scope.centerPosition(position.coords.latitude, position.coords.longitude);
+		    }
+		    
+		    getSuggestedPlaces(pos, $scope.places);
 	            var distanceToBerlin = (
 			google.maps.geometry.spherical.computeDistanceBetween(
                             pos, BERLIN_POS) / 1000).toFixed(2);
-	            console.log("Distance to Berlin:", distanceToBerlin);
 	            //fitBounds(markers);
 		});
 	    });
@@ -274,7 +302,8 @@ eob_controllers.controller(
 
 	eob_data.placesPromise.success(function (data) {
             $scope.places = data;
-	})
+	    $scope.findMe(false);
+	});
 
 	var map = new google.maps.Map(
             document.getElementById('map-canvas'), {
@@ -288,8 +317,8 @@ eob_controllers.controller(
 	var findMeMarker = null;
 
 	function addMarkersFrom(index) {
-            if (index == null)
-		index = 0;
+            if (index === null) { index = 0; }
+
             if (index >= 0 && index < $scope.places.length) {
 		var place = $scope.places[index];
 		eob_imgCache.load(
@@ -315,18 +344,49 @@ eob_controllers.controller(
 
 	$scope.filterMarkers = function(types) {
 	    _.map(markers, function(marker) {
-		var visible = null != _.find(types, function (type) { 
-		    return marker.getIcon() == MARKER_ICONS[type]
+		var visible = null !== _.find(types, function (type) { 
+		    return marker.getIcon() === MARKER_ICONS[type];
 		});
 		marker.setVisible(visible);
 	    })
+	};
+
+	function getSuggestedPlaces(pos, places) {
+	    var suggestions = {},
+	        i = 0,
+	        min = 999;
+	    
+	    for (i; i < places.length; i++) {
+		var placePos = new google.maps.LatLng(places[i].lat,places[i].lng);
+		var distance = (google.maps.geometry.spherical.computeDistanceBetween(
+                    pos, placePos ) / 1000).toFixed(2);
+		places[i].distance = distance;
+		if (min > distance) {
+		    min = distance;
+		}
+	    }
+
+	    if (min >= 999) { suggestions = null; }
+	   
+	    // Get the closest places
+	    var newPlaces = places.slice(0);
+	    newPlaces.sort(compareDistances);
+	    suggestions = newPlaces.slice(0,5);
+	    return suggestions;
 	}
 
+	function compareDistances(a,b) {
+	    if (a.distance < b.distance) { return -1; }
+	    if (a.distance > b.distance) { return 1;  }
+	    return 0;
+	}
+	
 	function fitBounds(markers) {
 	    var bounds = new google.maps.LatLngBounds();
 	    for (var i = 0; i < markers.length; i++) {
-		if (markers[i].getVisible() == true)
+		if (markers[i].getVisible() === true) {
 		    bounds.extend(markers[i].getPosition());
+		}
 	    }
 
 	    map.fitBounds(bounds);
@@ -342,41 +402,41 @@ eob_controllers.controller(
 eob_controllers.controller(
     'eob_PlaceCtrl', function($scope, $location, $window) {
         var shareMsg = function (place) {
-            return 'I found delicious ' + place.foodtype
-                + ' at '+ place.name + ' via #EatOutBerlin';
+            return 'I found delicious ' + place.foodtype +
+                ' at '+ place.name + ' via #EatOutBerlin';
         }
 
         var twitterShareUrl = function () {
-	    event = event || window.event // cross-browser event
-	    event.stopPropagation ? event.stopPropagation() : (event.cancelBubble=true);
+	    event = event || window.event;
+	    event.stoppPropagation ? event.stopPropagation() : (event.cancelBubble=true);
 
             var place = $scope.place;
             if (place) {
                 var msg = shareMsg(place);
-                return 'http://twitter.com/share?'
-                    + 'text=' + $window.encodeURIComponent(msg)
-                    + '&url=' + $location.absUrl();
+                return 'http://twitter.com/share?' +
+                    'text=' + $window.encodeURIComponent(msg) +
+                    '&url=' + $location.absUrl();
             }
             return '';
         }
 
         function externalize(url) {
-            return $location.protocol()
-                + '://' + $location.host()
-                + '/' + url;
+            return $location.protocol() +
+                '://' + $location.host() +
+                '/' + url;
         }
 
         $scope.twitterShare = function () {
             $window.open(
                 twitterShareUrl(),
-                'height=450, width=550'
-                    + ', top='  + ($window.innerHeight/2 - 225)
-                    + ', left=' + ($window.innerWidth/2 - 275)
-                    + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
-        }
+                'height=450, width=550' +
+                    ', top='  + ($window.innerHeight/2 - 225) +
+                    ', left=' + ($window.innerWidth/2 - 275) +
+                    ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+        };
 
         $scope.facebookShare = function () {
-	    event = event || window.event // cross-browser event
+	    event = event || window.event; 
 	    event.stopPropagation ? event.stopPropagation() : (event.cancelBubble=true);
             var place = $scope.place;
             if (place) {
@@ -389,8 +449,7 @@ eob_controllers.controller(
                     description: place.description
                 }, function () {});
             };
-
-        }
+        };
     });
 
 
@@ -398,7 +457,7 @@ eob_controllers.controller(
     'eob_PlaceUrlCtrl', function($scope, $routeParams, eob_data) {
         eob_data.placesPromise.success(function (places) {
             var place = _.findWhere(places, {slug: $routeParams.placeSlug});
-            if (place != null) {
+            if (place !== null) {
 		$scope.setPanel('place');
                 $scope.setPlace(place);
 	        $scope.showPanel();
@@ -414,11 +473,10 @@ eob_controllers.controller(
     'eob_SuggestionUrlCtrl', function($scope, eob_data) {
 	eob_data.placesPromise.success(function (places) { 
 	    $scope.setPanel('suggestion');
-            $scope.setPlace(places[0]);
-	    $scope.setSuggestions(places);
-	    //console.log($scope.suggestions)
+            $scope.setSuggestions(places);
 	    $scope.showPanel();
 	});
+
     });
 
 

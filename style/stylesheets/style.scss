@@ -383,7 +383,7 @@ body {
 	}
     }
     .menu-content {
-	padding: 100px  0 0 0px;
+	padding: 92px  0 0 0px;
 	background: #282828;
 	width: 105px;
 
@@ -488,6 +488,15 @@ body {
 
     .place-wrapper {
 
+	.close-place {
+	    width: 35px; height:35px;
+	    display:block;
+	    position: absolute;
+	    top: 15px; right: 10px;
+	    cursor: pointer;
+	    background: url(/images/SVG/close.svg) no-repeat center;
+	}
+
 	.header  {
             padding: 35vh 0 20px 0;
 	    -webkit-background-size: cover;
@@ -496,15 +505,6 @@ body {
 	    background-size: cover;
 	    background-position: center;
 	    background-color: $darkGray;
-
-	    .close-place {
-		width: 35px; height:35px;
-		display:block;
-		position: absolute;
-		top: 15px; right: 10px;
-		cursor: pointer;
-		background: url(/images/SVG/close.svg) no-repeat center;
-	    }
 
             .place-info-area {
                 background: $darkGrayShaded;
@@ -532,6 +532,11 @@ body {
 		    }
 		    .rating { float: none; }
 	        }
+		.place-address{ display: inline-block; margin-right: 5px; }
+		.distance-from-me { display: inline-block; }
+		.sico { width: 13px; height: 16px; position: relative; top: 2px; display: inline-block; }
+		.ico-walking { background: url(/images/SVG/walking.svg) no-repeat center; }
+		.ico-place { background: url(/images/SVG/place.svg) no-repeat center; }
 	    }
 
             .social-icons {
