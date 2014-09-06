@@ -15,14 +15,15 @@
             </div>
 	  </div>
 	</div>
-	<div class="place-address">
+	<div class="place-address"> <span class="sico ico-place"></span>
 	  {{place.address}}
 	</div>
+	<div class="distance-from-me" ng-if="place.distance"> <span class="sico ico-walking"></span> {{place.distance}} km  </div>
       </div>
 
       <div class="social-icons">
-        <a class="share twitter" title="Share on Twitter" href="" ng-click="twitterShare()"></a>
-        <a class="share facebook"  title="Share on Facebook" href="" ng-click="facebookShare()"></a>
+        <a class="share twitter" title="Share on Twitter" href="" ng-click="twitterShare();"></a>
+        <a class="share facebook"  title="Share on Facebook" href="" ng-click="facebookShare();"></a>
       </div>
     </div>
   </div>
