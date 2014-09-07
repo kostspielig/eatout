@@ -354,8 +354,8 @@ eob_controllers.controller(
 
 	$scope.filterMarkers = function(types) {
 	    _.map(markers, function(marker) {
-		var visible = undefined !== _.find(types, function (type) { 
-		    return marker.getIcon() === MARKER_ICONS[type];
+		var visible = undefined != _.find(types, function (type) {
+		    return marker.getIcon().url == MARKER_ICONS[type];
 		});
 		marker.setVisible(visible);
 	    });
