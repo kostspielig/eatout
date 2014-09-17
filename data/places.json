@@ -53,7 +53,7 @@
 	"lng": 13.399284, 
 	"title": "Japanese Sushi Bar",
 	"description": "As a sushi lover, Kuchi was the official stop in Mitte. Fresh rolls that melt in your mouth, and delicious sashimi.",
-	"rating": 4.8,
+	"rating": 4.6,
 	"images": ["images/places/Kuchi/cover.JPG","images/places/Kuchi/image1.JPG","images/places/Kuchi/image2.JPG"]
     }, {
 	"name": "Villa Di Wow",
@@ -97,7 +97,7 @@
 	"lng": 13.413598,
 	"title": "Title",
 	"description": "Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
-	"rating": 3,
+	"rating": 4.8,
 	"images": ["images/places/LeCochonBourgeois/cochon0.JPG"]
     },{
 	"name": "I Due Forni",
@@ -119,7 +119,7 @@
 	"lng": 13.41893,
 	"title": "Title",
 	"description": "Pizza in this restaurant is amazing, you have a wide variety to choose from. The downside? It is always crowded, and might not be the most romantic place to enjoy a quite dinner. I would recommend the terrace outside and the dessert!",
-	"rating": 3.9,
+	"rating": 3.4,
 	"images": ["images/places/Masaniello/cover.JPG","images/places/Masaniello/image1.JPG","images/places/Masaniello/image2.JPG","images/places/Masaniello/image3.JPG","images/places/Masaniello/image4.JPG"]
     },{
 	"name": "Cocolo Ramen Bar",
@@ -141,7 +141,7 @@
 	"lng": 13.394434,
 	"title": "Title",
 	"description": "Delish Turkey Pastrami",
-	"rating": 4.3,
+	"rating": 3.8,
 	"images": ["images/places/MoggMelzer/cover.JPG","images/places/MoggMelzer/image1.JPG","images/places/MoggMelzer/image2.JPG","images/places/MoggMelzer/image3.JPG","images/places/MoggMelzer/image4.JPG","images/places/MoggMelzer/image5.JPG"]
     },{
 	"name": "Eiscafe Fräulein Frost",
@@ -163,7 +163,7 @@
 	"lng": 13.418352,
 	"title": "Title",
 	"description": "Berlin's authentic Japaneese.",
-	"rating": 4,
+	"rating": 4.5,
 	"images": ["images/places/Sasaya/image0.JPG","images/places/Sasaya/image1.JPG","images/places/Sasaya/image2.JPG"]
     },{
 	"name": "Melbourne Canteen",
@@ -175,7 +175,7 @@
 	"lng": 13.43051,
 	"title": "Title",
 	"description": "Berlin's only French-Australian Café Restaurant and Cocktail bar.",
-	"rating": 4.2,
+	"rating": 3.5,
 	"images": ["images/places/MelbourneCanteen/image0.JPG","images/places/MelbourneCanteen/image1.JPG","images/places/MelbourneCanteen/image2.JPG","images/places/MelbourneCanteen/image3.JPG","images/places/MelbourneCanteen/image4.JPG","images/places/MelbourneCanteen/image5.JPG","images/places/MelbourneCanteen/image6.JPG","images/places/MelbourneCanteen/image7.JPG"]
     },{
 	"name": "Maria Bonita",
@@ -187,7 +187,7 @@
 	"lng": 13.418194,
 	"title": "Title",
 	"description": "Berlin's First Authentic Mexican Restaurant.",
-	"rating": 4.7,
+	"rating": 4.2,
 	"images": ["images/places/MariaBonita/image1.JPG","images/places/MariaBonita/image2.JPG","images/places/MariaBonita/image3.JPG","images/places/MariaBonita/image4.JPG","images/places/MariaBonita/image5.JPG","images/places/MariaBonita/image6.JPG"]
     }, {
 	"name": "The Bird",
@@ -197,7 +197,7 @@
 	"lat": 52.4938036,
 	"lng": 13.4221936,
 	"description": "Lorem fistrum la caidita a wan ese que llega por la gloria de mi madre llevame al sircoo ese hombree ahorarr sexuarl por la gloria de mi madre. Está la cosa muy malar al ataquerl qué dise usteer ahorarr pupita. Mamaar me cago en tus muelas amatomaa apetecan papaar papaar papaar papaar está la cosa muy malar diodeno jarl ese hombree sexuarl. Me cago en tus muelas a peich a gramenawer sexuarl. Mamaar sexuarl qué dise usteer a gramenawer ahorarr pecador a gramenawer hasta luego Lucas ese pedazo de. ",
-	"rating": 4.1,
+	"rating": 4.2,
 	"images": ["images/places/TheBird/cover.JPG","images/places/TheBird/image1.JPG"]
     },{
 	"name": "Sauvage",
@@ -219,7 +219,7 @@
 	"lng": 13.402727,
 	"title": "Homemade Chinese dumplings",
 	"description": "Amatomaa diodeno torpedo papaar papaar te voy a borrar el cerito está la cosa muy malar ahorarr a wan pecador está la cosa muy malar. Diodenoo te va a hasé pupitaa no puedor te va a hasé pupitaa qué dise usteer papaar papaar llevame al sircoo. Diodeno mamaar por la gloria de mi madre no te digo trigo por no llamarte Rodrigor amatomaa ese pedazo de tiene musho peligro a wan.",
-	"rating": 3.8,
+	"rating": 3.7,
 	"images": ["images/places/yumchaheroes/cover.jpg","images/places/yumchaheroes/image1.jpg","images/places/yumchaheroes/image2.jpg","images/places/yumchaheroes/image3.jpg","images/places/yumchaheroes/image4.jpg"]
     },{
 	"name": "Infarm",
@@ -230,7 +230,7 @@
 	"lng": 13.437823,
 	"title": "An authentic Israeli Brunch experience",
 	"description": "Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
-	"rating": 4.4,
+	"rating": 4.5,
 	"images": ["images/places/infarm/cover.JPG","images/places/infarm/image1.JPG","images/places/infarm/image2.JPG","images/places/infarm/image3.JPG","images/places/infarm/image4.JPG","images/places/infarm/image6.JPG"]
     }, {
 	"name": "Klunkerkranich",
@@ -241,7 +241,7 @@
 	"lng": 13.432256,
 	"title": "The best views of the city",
 	"description": "Phasellus iaculis venenatis viverra. Pellentesque mattis lectus sem. Donec facilisis dolor sed tellus mattis venenatis. Nullam gravida gravida est et egestas. Nam varius semper lacus eget hendrerit. Integer metus diam, ornare sit amet commodo vitae, posuere posuere enim. Aenean imperdiet est sapien, ut volutpat augue lacinia id.",
-	"rating": 4.7,
+	"rating": 4.4,
 	"images": ["images/places/klunkerkranich/cover.JPG","images/places/klunkerkranich/image1.JPG","images/places/klunkerkranich/image2.JPG"]
     },{
 	"name": "On Egin",
@@ -252,7 +252,7 @@
 	"lng": 13.44108,
 	"title": "Authentically delicious Spanish discovery in Berlin.",
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
-	"rating": 3,
+	"rating": 4.5,
 	"images": ["images/places/OnEgin/cover.JPG","images/places/OnEgin/image1.JPG","images/places/OnEgin/image2.JPG"]
     },{
 	"name": "Lissabonbon",
@@ -263,7 +263,7 @@
 	"lng": 13.4374,
 	"title": "Vintage portugese Cafe.",
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
-	"rating": 3,
+	"rating": 3.9,
 	"images": ["images/places/Lissabonbon/cover.JPG","images/places/Lissabonbon/image1.JPG","images/places/Lissabonbon/image2.JPG"]
     },{
 	"name": "A Magica",
@@ -275,10 +275,10 @@
 	"lng": 13.415377,
 	"title": "We may have found a new favorite pizza place",
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
-	"rating": 3,
+	"rating": 4.2,
 	"images": ["images/places/Amagica/cover.JPG","images/places/Amagica/image1.JPG","images/places/Amagica/image2.JPG","images/places/Amagica/image3.JPG"]
     },{
-	"name": "Raamson ",
+	"name": "Raamson",
 	"url": "http://www.raamson-berlin.de/",
 	"address" : "Kolonnenstraße 48-49",
 	"date" : "13/09/14",
@@ -287,7 +287,7 @@
 	"lng": 13.36313,
 	"title": "Sri Lanka",
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
-	"rating": 3,
+	"rating": 4,
 	"images": ["images/places/RAAMSON/cover.JPG","images/places/RAAMSON/image1.JPG","images/places/RAAMSON/image2.JPG","images/places/RAAMSON/image3.JPG","images/places/RAAMSON/image4.JPG"]
     },{
 	"name": "Neue Heimat",
@@ -299,7 +299,7 @@
 	"lng": 13.4542575,
 	"title": "Street Food Market",
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
-	"rating": 3,
+	"rating": 3.9,
 	"images": ["images/places/neueheimat/cover.JPG","images/places/neueheimat/image1.JPG","images/places/neueheimat/image2.JPG","images/places/neueheimat/image3.JPG","images/places/neueheimat/image4.JPG"]
     }
 
