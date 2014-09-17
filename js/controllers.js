@@ -5,7 +5,7 @@ var eob_controllers = angular.module('eob.controllers', []);
 
 var DROP_DELAY = 200;
 
-var BERLIN_POS = new google.maps.LatLng(52.5096315, 13.4018519);
+var BERLIN_POS = new google.maps.LatLng(52.5170423, 13.4018519);
 
 var MARKER_ICONS = {
     pizza: 'images/icons/SVG/pizza.svg',
@@ -203,7 +203,7 @@ eob_controllers.controller(
 	$scope.suggestions = true;
 	$scope.menustate = "close";
 
-	$scope.hidePanel = function() { $scope.seepanel = false; }
+	$scope.hidePanel = function() { $scope.seepanel = false; };
 	$scope.showPanel = function() { 
 	    $scope.seepanel = true; 
 	    if (window.innerWidth < 760) {
@@ -297,17 +297,13 @@ eob_controllers.controller(
 		    }
 		    
 		    getSuggestedPlaces(pos, $scope.places);
-	            var distanceToBerlin = (
-			google.maps.geometry.spherical.computeDistanceBetween(
-                            pos, BERLIN_POS) / 1000).toFixed(2);
-	            //fitBounds(markers);
 		});
 	    });
 	};
 
 	eob_data.placesPromise.success(function (data) {
             $scope.places = data;
-	    $scope.findMe(false);
+	    //$scope.findMe(false);
 	});
 
 	var map = new google.maps.Map(
@@ -344,12 +340,13 @@ eob_controllers.controller(
 	            markers.push(marker);
 
 	            google.maps.event.addListener(marker, 'click', function(){
-			$scope.openPlace(place.slug)
+			$scope.openPlace(place.slug);
 		    });
 
                     setTimeout(_.partial(addMarkersFrom, index + 1), DROP_DELAY);
 		});
             }
+	    else if (index === $scope.places.length) { $scope.findMe(false); }
 	}
 
 	$scope.filterMarkers = function(types) {
@@ -415,7 +412,7 @@ eob_controllers.controller(
         var shareMsg = function (place) {
             return 'I found delicious ' + place.foodtype +
                 ' at '+ place.name + ' via #EatOutBerlin';
-        }
+        };
 
         var twitterShareUrl = function () {
 	    event = event || window.event;
@@ -429,7 +426,7 @@ eob_controllers.controller(
                     '&url=' + $location.absUrl();
             }
             return '';
-        }
+        };
 
         function externalize(url) {
             return $location.protocol() +
@@ -459,7 +456,7 @@ eob_controllers.controller(
                     name: "Eat Out Berlin: " + place.name,
                     description: place.description
                 }, function () {});
-            };
+            }
         };
     });
 

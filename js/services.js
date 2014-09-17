@@ -11,7 +11,7 @@ function toSlug (value) {
         .replace(/-+/g, '')
         .replace(/\s+/g, '-')
         .replace(/[^a-z0-9-]/g, '');
-};
+}
 
 eob_services.factory('eob_imgCache', function ($q) {
     function loadImg(url) {
@@ -29,8 +29,9 @@ eob_services.factory('eob_imgCache', function ($q) {
             var promises = {};
             for (var key in images) {
                 var promise = cache[key];
-                if (promise == null)
+                if (promise == null) {
                     promise = cache[key] = loadImg(images[key]);
+		}
                 promises[key] = promise;
             }
             return $q.all(promises);
@@ -56,18 +57,18 @@ eob_services.factory('eob_geolocation', function () {
 });
 
 eob_services.factory('eob_data', function($http, $q) {
-    var service = {}
+    var service = {};
 
     service.placesPromise = $http.get('data/places.json')
         .success(function(data) {
 	    // Order the array by descending vertical position on the map
 	    data.sort(function (a, b) {
-		return (b.lat - a.lat)
+		return (b.lat - a.lat);
 	    });
             // Compute slug information
             data.forEach(function (place) {
                 place.slug = toSlug(place.name);
-            })
+            });
 	    service.places = data;
         });
 
@@ -81,9 +82,8 @@ eob_services.factory('eob_data', function($http, $q) {
     return service;
 });
 
-eob_services.factory('eob_weather', ['$http', '$rootScope',
-  function($http, $rootScope){
-      var weather = '';
+eob_services.factory('eob_weather', ['$http',
+  function($http){
       var FORECAST_ENDPOINT = "http://query.yahooapis.com/v1/public/yql?q=";
       var FORECAST_YQL_OPEN 	= "select * from weather.forecast where location='";
       var FORECAST_YQL_CLOSE 	= "'and u='c'&format=json";
