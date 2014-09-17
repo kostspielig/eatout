@@ -79,6 +79,7 @@
     	"$": false,
     	"EOB": true,
 	"ga": true,
+	"FB": true,
 	"google": true,
 	"angular": true
 	}
