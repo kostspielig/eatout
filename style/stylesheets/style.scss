@@ -22,9 +22,9 @@ $purple: #805BA6;
 
 @mixin scroll-y {
     overflow-y: scroll;
-    &::-webkit-scrollbar {
+    /* &::-webkit-scrollbar {
 	display: none;
-    }
+    } */
 }
 
 @mixin container-shadow {
@@ -36,6 +36,17 @@ $purple: #805BA6;
 @mixin no-click { pointer-events: none; }
 
 @mixin click { pointer-events: auto; }
+
+@mixin animation ($delay, $duration, $name, $fill) {
+    -webkit-animation-delay: $delay;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-name: $name;
+    -webkit-animation-fill-mode: $fill;
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-name: $name;
+    animation-fill-mode: $fill;
+}
 
 html { height: 100% }
 
@@ -138,49 +149,21 @@ body {
     opacity: 0;
 }
 
-.menu-toggle.close b:first-child {
-    -webkit-animation-delay: 200ms;
-    -webkit-animation-duration: 300ms;
-    -webkit-animation-name: close-button-first-child;
-    -webkit-animation-fill-mode: forwards;
-    animation-delay: 200ms;
-    animation-duration: 300ms;
-    animation-name: close-button-first-child;
-    animation-fill-mode: forwards;
+.menu-toggle.close b:first-child { 
+    @include animation(200ms, 300ms,close-button-first-child, forwards ); 
 }
 
 .menu-toggle.close b:last-child {
-    -webkit-animation-delay: 200ms;
-    -webkit-animation-duration: 300ms;
-    -webkit-animation-name: close-button-last-child;
-    -webkit-animation-fill-mode: forwards;
-    animation-delay: 200ms;
-    animation-duration: 300ms;
-    animation-name: close-button-last-child;
-    animation-fill-mode: forwards;
+    @include animation(200ms, 300ms,close-button-last-child, forwards );
 }
 
 
 .menu-toggle.open b:first-child {
-    -webkit-animation-delay: 200ms;
-    -webkit-animation-duration: 300ms;
-    -webkit-animation-name: open-button-first-child;
-    -webkit-animation-fill-mode: forwards;
-    animation-delay: 200ms;
-    animation-duration: 300ms;
-    animation-name: open-button-first-child;
-    animation-fill-mode: forwards;
+    @include animation(200ms, 300ms,open-button-first-child, forwards );
 }
 
 .menu-toggle.open b:last-child {
-    -webkit-animation-delay: 200ms;
-    -webkit-animation-duration: 300ms;
-    -webkit-animation-name: open-button-last-child;
-    -webkit-animation-fill-mode: forwards;
-    animation-delay: 200ms;
-    animation-duration: 300ms;
-    animation-name: open-button-last-child;
-    animation-fill-mode: forwards;
+    @include animation(200ms, 300ms,open-button-last-child, forwards );
 }
 
 
@@ -569,9 +552,17 @@ body {
 	}
 
 	.content {
-	    padding: 40px 25px 20px 25px;
+	    padding: 55px 25px 20px 25px;
 	    background-color: $white;
 	    font-size: 20px;
+
+	    .last-visited {
+		font-size: 0.8em;
+		float: right;
+		margin-top: -30px;
+		.sico { width: 16px; height: 16px; position: relative; top: 2px; display: inline-block; }
+		.ico-seen {  background: url(/images/SVG/eye.svg) no-repeat center; }
+	    }
 
 	    .title {
 		font-size: 1.12em;
