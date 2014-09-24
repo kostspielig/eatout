@@ -7,24 +7,32 @@ var DROP_DELAY = 200;
 
 var BERLIN_POS = new google.maps.LatLng(52.5170423, 13.4018519);
 
+var ASCII_ART = 
+"Made with ❤ by\n"+
+"\t\t\t   /\\/\\   __ _ _ __(_) __ _ \n"+
+"\t\t\t  /    \\ / _` | '__| |/ _` |\n"+
+"\t\t\t / /\\/\\ \\ (_| | |  | | (_| |\n"+
+"\t\t\t \\/    \\/\\__,_|_|  |_|\\__,_|";
+
 var MARKER_ICONS = {
-    pizza: 'images/icons/SVG/pizza.svg',
+    //bakery: 'images/icons/SVG/muffin.svg',
     //beer: 'images/icons/SVG/beer.svg',
-    viet: 'images/icons/SVG/ramen.svg',
-    burger: 'images/icons/SVG/burger.svg',
-    japanese: 'images/icons/SVG/sushi.svg',
     breakfast: 'images/icons/SVG/coffee.svg',
-    mexican: 'images/icons/SVG/mexican.svg',
+    brunch: 'images/icons/SVG/brunch.svg',
+    burger: 'images/icons/SVG/burger.svg',
     cocktails: 'images/icons/SVG/cocktails.svg',
     //croissant: 'images/icons/croissant.png',
     //cheese: 'images/icons/cheese.png',
-    icecream: 'images/icons/SVG/icecream.svg',
-    german: 'images/icons/SVG/german.svg',
-    bakery: 'images/icons/SVG/muffin.svg',
     french: 'images/icons/SVG/french.svg',
+    german: 'images/icons/SVG/german.svg',
+    icecream: 'images/icons/SVG/icecream.svg',
+    japanese: 'images/icons/SVG/sushi.svg',
+    mexican: 'images/icons/SVG/mexican.svg',
+    italian: 'images/icons/SVG/pizza.svg',
+    portuguese: 'images/icons/SVG/sardine.svg',
     spanish: 'images/icons/SVG/spanish.svg',
-    brunch: 'images/icons/SVG/brunch.svg',
-    sandwich: 'images/icons/SVG/sandwich.svg'
+    sandwich: 'images/icons/SVG/sandwich.svg',
+    viet: 'images/icons/SVG/ramen.svg'
 };
 
 var MARKER_ICONS2 = {
@@ -196,6 +204,7 @@ eob_controllers.controller(
     {
 	eob_imgCache.load(MARKER_ICONS);
 
+	console.log(ASCII_ART);
 	$scope.seemenu = true;
 	$scope.seepanel = false;
 	$scope.place = null;
