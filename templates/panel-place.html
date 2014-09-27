@@ -20,7 +20,7 @@
 	</div>
 	<div class="distance-from-me" ng-if="place.distance"> <span class="sico ico-walking"></span> {{place.distance}} km</div>
       </div>
-
+      <div class="recommended" ng-if="place.recommended"></div>
       <div class="social-icons">
         <a class="share twitter" title="Share on Twitter" href="" ng-click="twitterShare();"></a>
         <a class="share facebook"  title="Share on Facebook" href="" ng-click="facebookShare();"></a>
@@ -32,8 +32,8 @@
     <div class="title">
       {{place.title}}
     </div>
-    <div class="description">
-      {{place.description}}
+    <div class="description" ng-bind-html="place.description | unsafe">
+
     </div>
     <div class="images">
       <div class="" ng-repeat="img in place.images" ng-show="!$first">
