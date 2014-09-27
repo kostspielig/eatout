@@ -1,6 +1,4 @@
 
-'use strict';
-
 var eob_controllers = angular.module('eob.controllers', []);
 
 var DROP_DELAY = 200;
@@ -155,7 +153,7 @@ eob_controllers.controller(
 	$scope.allChecked = true;
 	$scope.foodTypeChecked = {};
 
-        $scope.menuFindMe = function ($event) {
+        $scope.menuFindMe = function () {
             $location.path("/");
             $scope.findMe(true);
         };

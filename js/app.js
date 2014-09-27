@@ -33,3 +33,13 @@ eob_app.config(
     });
 
 eob_app.run(['$route', angular.noop]);
+
+
+/**
+ * Filters
+ */
+eob_app.filter('unsafe', function($sce) {
+    return function(val) {
+        return $sce.trustAsHtml(val);
+    };
+});
