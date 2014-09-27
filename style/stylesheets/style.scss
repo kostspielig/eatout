@@ -319,7 +319,7 @@ body {
     .submenus {
 
 	&.districtItem { top: 198px; }
-	&.foodItem { top: 100px; width: 115px; }
+	&.foodItem { top: 100px; width: 120px; }
 	margin-left: 105px;
 	background: #282828;
 	padding: 8px 0;
@@ -475,7 +475,7 @@ body {
 	    width: 35px; height:35px;
 	    display:block;
 	    position: absolute;
-	    top: 15px; right: 10px;
+	    top: 20px; right: 13px;
 	    cursor: pointer;
 	    background: url(/images/SVG/close.svg) no-repeat center;
 	}
@@ -493,7 +493,22 @@ body {
                 background: $darkGrayShaded;
                 padding: 0 3vw 20px 4vw;
 		position: relative;
-            }
+		.recommended {
+		    position: absolute;
+		    top: -10px; right: 2.3vw;
+		    background: url(/images/recommendation.png) no-repeat center;
+		    width: 76px;
+		    height: 64px;
+		}
+		div.recommended + div {
+		    position: absolute;
+		    top: 46px;
+		    right: 2vw;
+		    width: 76px;
+		    .twitter { margin-bottom: 0; }
+		}
+	    }
+        
 
             .place-info {
 		display: inline-block;
@@ -534,6 +549,7 @@ body {
                 width: 36px;
             }
 
+
             .share {
                 display: inline-block;
                 width: 36px;
@@ -559,8 +575,8 @@ body {
 	    .last-visited {
 		font-size: 0.8em;
 		float: right;
-		margin-top: -30px;
-		.sico { width: 16px; height: 16px; position: relative; top: 2px; display: inline-block; }
+		margin-top: -32px;
+		.sico { width: 16px; height: 14px; position: relative; top: 2px; display: inline-block; }
 		.ico-seen {  background: url(/images/SVG/eye.svg) no-repeat center; }
 	    }
 
@@ -620,6 +636,7 @@ body {
     .menu-icon { left: 24px; }
     #main-menu {
 	.submenus {
+	    margin-left: 90px;
 	    &.foodItem, &.districtItem { top: 0; }
 	}
 	.menu-content {
@@ -648,6 +665,16 @@ body {
     }
 }
 
+@media screen and (max-height: 340px) {
+     #main-menu {
+	 .menu-items { 
+	     .menu-item .item-description { display: none; }
+	 }
+	 .submenus li.submenu-item.submenu-all {
+	     padding: 6px 25px;
+	 }
+     }
+}
 @media screen and (max-width: 760px) {
 
     .info-content {
