@@ -65,7 +65,7 @@
 	"url": "http://www.facebook.com/villa.di.wow.berlin",
 	"address" : "Ohlauer Straße 30",
 	"date" : "2014-02-16",
-	"foodtype": "pizza",
+	"foodtype": "italian",
 	"lat": 52.4949835,
 	"lng": 13.4290841,
 	"title": "Coffee Roastery",
@@ -83,13 +83,13 @@
 	"title": "The must-try Spanish place.",
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 3,
-	"images": ["images/places/Manuela/cover.JPG","images/places/Manuela/image1.JPG","images/places/Manuela/image2.JPG"]
+	"images": ["images/places/Manuela/cover.JPG","images/places/Manuela/image1.JPG","images/places/Manuela/image2.JPG","images/places/Manuela/image3.JPG","images/places/Manuela/image4.JPG"]
     },{
 	"name": "Tischendorf",
 	"url": "http://tischendorf-berlin.de/",
 	"address" : "Friedelstraße 25",
 	"date" : "2014-08-28",
-	"foodtype": "bakery",
+	"foodtype": "breakfast",
 	"lat": 52.49206,
 	"lng": 13.42825,
 	"title": "The best Brunch in Neukolln",
@@ -113,7 +113,7 @@
 	"url": "https://plus.google.com/109554841420417194193/",
 	"address" : "Schönhauser Allee 12",
 	"date" : "2013-09-07",
-	"foodtype": "pizza",
+	"foodtype": "italian",
 	"lat": 52.530849,
 	"lng": 13.412442,
 	"title": "Title",
@@ -125,7 +125,7 @@
 	"url": "http://www.masaniello.de",
 	"address" : "Hasenheide 20",
 	"date" : "2014-04-20",
-	"foodtype": "pizza",
+	"foodtype": "italian",
 	"lat": 52.48801,
 	"lng": 13.41893,
 	"title": "Title",
@@ -273,16 +273,17 @@
 	"title": "Authentically delicious Spanish discovery in Berlin.",
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 4.5,
-	"images": ["images/places/OnEgin/cover.JPG","images/places/OnEgin/image1.JPG","images/places/OnEgin/image2.JPG"]
+	"recommended": true,
+	"images": ["images/places/OnEgin/cover.JPG","images/places/OnEgin/image1.JPG","images/places/OnEgin/image2.JPG","images/places/OnEgin/image3.JPG","images/places/OnEgin/image4.JPG"]
     },{
 	"name": "Lissabonbon",
 	"url": "http://lissabonbon.com/",
 	"address" : "Reichenberger Straße 104",
 	"date" : "2014-09-07",
-	"foodtype": "spanish",
+	"foodtype": "portuguese",
 	"lat": 52.49372,
 	"lng": 13.4374,
-	"title": "Vintage portugese Cafe.",
+	"title": "Vintage portuguese Cafe.",
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 3.9,
 	"images": ["images/places/Lissabonbon/cover.JPG","images/places/Lissabonbon/image1.JPG","images/places/Lissabonbon/image2.JPG"]
@@ -291,12 +292,13 @@
 	"url": "http://www.amagica.de/",
 	"address" : "Greifenhagener Straße 54",
 	"date" : "2014-09-12",
-	"foodtype": "pizza",
+	"foodtype": "italian",
 	"lat": 52.547824,
 	"lng": 13.415377,
 	"title": "We may have found a new favorite pizza place",
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 4.2,
+	"recommended" : true,
 	"images": ["images/places/Amagica/cover.JPG","images/places/Amagica/image1.JPG","images/places/Amagica/image2.JPG","images/places/Amagica/image3.JPG"]
     },{
 	"name": "Raamson",
@@ -322,6 +324,19 @@
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 3.9,
 	"images": ["images/places/neueheimat/cover.JPG","images/places/neueheimat/image1.JPG","images/places/neueheimat/image2.JPG","images/places/neueheimat/image3.JPG","images/places/neueheimat/image4.JPG"]
+    },{
+	"name": "Sala Da Mangiare",
+	"url": "http://www.saladamangiare.de/",
+	"address" : "Mainzer Straße 23",
+	"date" : "2014-09-20",
+	"foodtype": "italian",
+	"lat": 52.480655,
+	"lng": 13.427778,
+	"title": "Homemade Pasta in Neukolln",
+	"description": "Have you ever imagined what it would be dinning in the living room of an Italian friend, snob enough to look sophisticated and rustic enough to look friendly? This is how it feels to be sitting in Sala da Mangiare, a small corner of Neukölln fondly led by an Italian couple. <br/> The menu is short but unequivocal, led by several types of their specialty, homemade pasta. The simple but high quality ingredients bring out the tender but al dente, strange and delicious to the palate accustomed to industrial pasta texture. <br/> Reservations recommended as the place is small and the weekend is usually full. Being small, the environment can be noisy at rush hour, but when the audience starts to go into the night, the room reveals its romantic and warm side. <br/> We liked the wine, and the homemade licorice liqueur was a surprise.",
+	"rating": 4.6,
+	"recommended": true,
+	"images": ["images/places/SalaDaMangiare/cover.JPG","images/places/SalaDaMangiare/image1.JPG","images/places/SalaDaMangiare/image2.JPG","images/places/SalaDaMangiare/image3.JPG","images/places/SalaDaMangiare/image4.JPG"]
     }
 
 ]
