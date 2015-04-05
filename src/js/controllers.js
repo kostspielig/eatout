@@ -5,7 +5,7 @@ var DROP_DELAY = 200;
 
 var BERLIN_POS = new google.maps.LatLng(52.5170423, 13.4018519);
 
-var ASCII_ART = 
+var ASCII_ART =
 "Made with ❤ by\n"+
 "\t\t\t   /\\/\\   __ _ _ __(_) __ _ \n"+
 "\t\t\t  /    \\ / _` | '__| |/ _` |\n"+
@@ -162,7 +162,7 @@ eob_controllers.controller(
 	    $location.path('/suggestion');
 	};
 
-	$scope.menuSelectAll =  function() { 
+	$scope.menuSelectAll =  function() {
 	    $scope.allChecked = true;
 	    $scope.foodTypeChecked = {};
 	    $scope.filterMarkers($scope.foodTypes);
@@ -179,7 +179,7 @@ eob_controllers.controller(
 		$scope.filterMarkers(checkedTypes);
 	    }
 	};
-	
+
         $scope.menuSelectDistrict = function (district) {
 	    $scope.active = '';
             //$scope.hideMenu();
@@ -205,31 +205,37 @@ eob_controllers.controller(
 	console.log(ASCII_ART);
 	$scope.seemenu = true;
 	$scope.seepanel = false;
+        $scope.expandpanel = 50;
 	$scope.place = null;
 	$scope.panel = true;
 	$scope.suggestions = true;
 	$scope.menustate = "close";
 
 	$scope.hidePanel = function() { $scope.seepanel = false; };
-	$scope.showPanel = function() { 
-	    $scope.seepanel = true; 
+	$scope.showPanel = function() {
+	    $scope.seepanel = true;
 	    if (window.innerWidth < 760) {
 		$scope.hideMenu();
 	    }
 	};
-	$scope.hideMenu = function() { 
-	    $scope.seemenu = false; 
-	    $scope.menustate = "open"; 
+	$scope.hideMenu = function() {
+	    $scope.seemenu = false;
+	    $scope.menustate = "open";
 	};
-	$scope.showMenu = function() { 
-	    $scope.seemenu = true; 
-	    $scope.menustate = "close"; 
+	$scope.showMenu = function() {
+	    $scope.seemenu = true;
+	    $scope.menustate = "close";
 	};
 
+        $scope.expandPanel = function() {
+	    $scope.seemenu = false;
+	    $scope.menustate = "open";
+            $scope.expandpanel = 100;
+	};
 
-	$scope.toggleMenu = function () { 
-	    $scope.seemenu = !$scope.seemenu; 
-	    $scope.menustate = $scope.menustate === "open" ? "close" : "open"; 
+	$scope.toggleMenu = function () {
+	    $scope.seemenu = !$scope.seemenu;
+	    $scope.menustate = $scope.menustate === "open" ? "close" : "open";
 	};
 
 	$scope.setPlace = function (place) { $scope.place = place; };
@@ -257,7 +263,7 @@ eob_controllers.controller(
                     if (panelWidth >= mapWidth) { panelWidth = 0; }
                     var adjust = panelWidth / 2 - menuWidth / 2;
 	            map.panTo(center);
-		    if (zoom) { map.setZoom(zoom); }  
+		    if (zoom) { map.setZoom(zoom); }
                     map.panBy(adjust, 0);
 		}, 0);
             } else {
@@ -302,7 +308,7 @@ eob_controllers.controller(
 		    if (center) {
 			$scope.centerPosition(position.coords.latitude, position.coords.longitude);
 		    }
-		    
+
 		    getSuggestedPlaces(pos, $scope.places);
 		});
 	    });
@@ -363,14 +369,14 @@ eob_controllers.controller(
 		});
 		marker.setVisible(visible);
 	    });
-	    
+
 	};
 
 	function getSuggestedPlaces(pos, places) {
 	    var suggestions = {},
 	        i = 0,
 	        min = 999;
-	    
+
 	    for (i; i < places.length; i++) {
 		var placePos = new google.maps.LatLng(places[i].lat,places[i].lng);
 		var distance = (google.maps.geometry.spherical.computeDistanceBetween(
@@ -382,7 +388,7 @@ eob_controllers.controller(
 	    }
 
 	    if (min >= 999) { suggestions = null; }
-	   
+
 	    // Get the closest places
 	    var newPlaces = places.slice(0);
 	    newPlaces.sort(compareDistances);
@@ -395,7 +401,7 @@ eob_controllers.controller(
 	    if (a.distance > b.distance) { return 1;  }
 	    return 0;
 	}
-	
+
 	function fitBounds(markers) {
 	    var bounds = new google.maps.LatLngBounds();
 	    for (var i = 0; i < markers.length; i++) {
@@ -451,7 +457,7 @@ eob_controllers.controller(
         };
 
         $scope.facebookShare = function () {
-	    event = event || window.event; 
+	    event = event || window.event;
 	    event.stopPropagation ? event.stopPropagation() : (event.cancelBubble=true);
             var place = $scope.place;
             if (place) {
@@ -486,7 +492,7 @@ eob_controllers.controller(
 
 eob_controllers.controller(
     'eob_SuggestionUrlCtrl', function($scope, eob_data) {
-	eob_data.placesPromise.success(function (places) { 
+	eob_data.placesPromise.success(function (places) {
 	    $scope.setPanel('suggestion');
             $scope.setSuggestions(places);
 	    $scope.showPanel();

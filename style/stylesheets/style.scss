@@ -27,6 +27,12 @@ $purple: #805BA6;
     } */
 }
 
+@mixin backface {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility:    hidden;
+  -ms-backface-visibility:     hidden;
+}
+
 @mixin container-shadow {
     -webkit-box-shadow: 0px 0px 5px -1px #333;
     -moz-box-shadow: 0px 0px 5px -1px #333;
@@ -69,32 +75,32 @@ body {
 
 #logo {
     @include no-click;
-    .tv-tower { 
-	position: absolute; 
-	z-index: 0; 
-	bottom: 10px; 
-	left: 32px; 
-	width: 67px; 
-	height: 235px; 
+    .tv-tower {
+	position: absolute;
+	z-index: 0;
+	bottom: 10px;
+	left: 32px;
+	width: 67px;
+	height: 235px;
 	background: transparent url(/images/SVG/tvTower.svg) no-repeat 0 0;
     }
-    .eatout-text { 
-	position: absolute; 
-	z-index: 0; 
-	bottom: 10px; 
-	left: 114px; 
-	width: 146px; 
-	height:71px; 
-	background: transparent url(/images/SVG/eatoutText.svg) no-repeat 0 0; 
+    .eatout-text {
+	position: absolute;
+	z-index: 0;
+	bottom: 10px;
+	left: 114px;
+	width: 146px;
+	height:71px;
+	background: transparent url(/images/SVG/eatoutText.svg) no-repeat 0 0;
     }
 }
 
 #madewith {
-    font-size: 12px; 
+    font-size: 12px;
     font-family: Helvetica, sans-serif;
-    position: absolute; 
-    z-index: 0; 
-    bottom: 10px; 
+    position: absolute;
+    z-index: 0;
+    bottom: 10px;
     right: 10px;
     .love { color: $red; }
 }
@@ -114,7 +120,34 @@ body {
     padding: 11px;
 }
 
-.menu-toggle b {
+.expand-panel {
+    position: fixed;
+    cursor: pointer;
+    top: 30px;
+    left: 16px;
+    width: 20px;
+    height: 30px;
+
+    b:nth-child(1) {
+        -webkit-transform:translate3d(0, 3px, 0) rotate(-45deg);
+	transform:translate3d(0, 3px, 0) rotate(-45deg)
+    }
+
+    b:nth-child(2) {
+        -webkit-transform:translate3d(0, 13px, 0) rotate(45deg);
+	transform:translate3d(0, 13px, 0) rotate(45deg)
+    }
+
+    b:nth-child(3) {
+        -webkit-transform:translate3d(5px, 5px, 0);
+	transform:translate3d(5px, 5px, 0);
+        width: 22px;
+    }
+}
+
+.menu-toggle b,
+.expand-panel b,
+.menu-icon b {
     display: block;
     width: 100%;
     height: 2px;
@@ -125,15 +158,6 @@ body {
 
 .menu-toggle b+b {
     margin-top: 6px;
-}
-
-.menu-icon b {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: #FFF;
-    margin: 0px auto;
-    border-radius: 2px;
 }
 
 .menu-toggle.open b:nth-child(2) {
@@ -149,8 +173,8 @@ body {
     opacity: 0;
 }
 
-.menu-toggle.close b:first-child { 
-    @include animation(200ms, 300ms,close-button-first-child, forwards ); 
+.menu-toggle.close b:first-child {
+    @include animation(200ms, 300ms,close-button-first-child, forwards );
 }
 
 .menu-toggle.close b:last-child {
@@ -169,17 +193,17 @@ body {
 
 @-webkit-keyframes close-button-first-child {
     0% { -webkit-transform:none; transform:none }
-    50% { -webkit-transform:translate3d(0, 3px, 0); 
+    50% { -webkit-transform:translate3d(0, 3px, 0);
 	  transform:translate3d(0, 3px, 0) }
-    100% { -webkit-transform:translate3d(0, 8px, 0) rotate(45deg); 
+    100% { -webkit-transform:translate3d(0, 8px, 0) rotate(45deg);
 	   transform:translate3d(0, 8px, 0) rotate(45deg) }
 }
 
 @keyframes close-button-first-child {
     0% { -webkit-transform:none; transform:none }
-    50% { -webkit-transform:translate3d(0, 3px, 0); 
+    50% { -webkit-transform:translate3d(0, 3px, 0);
 	  transform:translate3d(0, 3px, 0) }
-    100% { -webkit-transform:translate3d(0, 8px, 0) rotate(45deg); 
+    100% { -webkit-transform:translate3d(0, 8px, 0) rotate(45deg);
 	   transform:translate3d(0, 8px, 0) rotate(45deg) }
 }
 
@@ -308,11 +332,13 @@ body {
     &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active {
 	//margin-left: -105px;
 	transform: translate3d(-105px, 0, 0);
+	-webkit-transform: translate3d(-105px, 0, 0);
     }
 
     &.ng-hide-remove.ng-hide-remove-active, &.ng-hide-add {
 	//margin-left: 0;
 	transform: translate3d(0,0,0);
+	-webkit-transform: translate3d(0,0,0);
     }
 
 
@@ -456,6 +482,7 @@ body {
     transition: 0.5s all ease-out;
 
     @include scroll-y;
+    @include backface;
 
     &.ng-hide-add, &.ng-hide-remove  {
 	display: block !important;
@@ -463,21 +490,22 @@ body {
 
     &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active {
 	transform: translate3d(100%, 0,0);
+	-webkit-transform: translate3d(100%, 0,0);
     }
 
     &.ng-hide-remove.ng-hide-remove-active, &.ng-hide-add {
 	transform: translate3d(0,0,0);
+	-webkit-transform: translate3d(0,0,0);
     }
 
     .place-wrapper {
-
+        -webkit-overflow-scrolling: touch;
 	.close-place {
-	    width: 35px; height:35px;
+	    width: 28px; height:28px;
 	    display:block;
 	    position: absolute;
-	    top: 20px; right: 13px;
+	    top: 30px; right: 16px;
 	    cursor: pointer;
-	    background: url(/images/SVG/close.svg) no-repeat center;
 	}
 
 	.header  {
@@ -508,13 +536,13 @@ body {
 		    .twitter { margin-bottom: 0; }
 		}
 	    }
-        
+
 
             .place-info {
 		display: inline-block;
 		color: $white;
 		max-width: 84%;
-		
+
 		.place-name {
 		    font-size: 32px;
 		    margin: 15px 0 5px;
@@ -594,10 +622,11 @@ body {
     }
 
     .suggestion-wrapper {
+         -webkit-overflow-scrolling: touch;
 	.close-place.close-place {
-	    background: url(/images/SVG/close-dark.svg) no-repeat center;
-	    top: 25px;
-	    right: 15px;
+	    b { background: $darkGray; }
+	    top: 34px;
+	    right: 16px;
 	}
 
 	.searchbox {
@@ -608,7 +637,7 @@ body {
 	    background: 0 0;
 	    outline: 0;
 	}
-	
+
 	.header {
 	    margin: 0 0 6px 0;
 	    cursor: pointer;
@@ -667,7 +696,7 @@ body {
 
 @media screen and (max-height: 340px) {
      #main-menu {
-	 .menu-items { 
+	 .menu-items {
 	     .menu-item .item-description { display: none; }
 	 }
 	 .submenus li.submenu-item.submenu-all {

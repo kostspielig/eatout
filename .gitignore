@@ -8,3 +8,6 @@ app.yaml
 *~
 style/stylesheets/.sass-cache/
 node_modules/
+src/coffee/*.js
+dist/
+DSC*.JPG

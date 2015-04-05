@@ -10,6 +10,7 @@
 	"title": "New concept of food and shopping made fun",
 	"description": "This charming market has many options to eat, you can find from delicious curry bursts to all different types of cheesse. Definitely this a place not to be missed.",
 	"rating": 4.5,
+	"pricerange": 2,
 	"images": ["images/places/MarkthalleNeun/cburst0.jpg", "images/places/MarkthalleNeun/cburst1.jpg"]
 
     }, {
@@ -23,6 +24,7 @@
 	"title": "Coffee Roastery",
 	"description": "Never have I ever tried such a great coffee, the taste without sugar is superb. We also tried the carrot cake, and it was a great delight. The only reason why I did not give them a 5 is because the chairs are not really confortable, I would have loved to spend the afternoon there.",
 	"rating": 4.7,
+	"pricerange": 1,
 	"images": ["images/places/TheBarn/barn0.jpg","images/places/TheBarn/barn1.jpg","images/places/TheBarn/barn2.jpg","images/places/TheBarn/barn3.jpg","images/places/TheBarn/barn4.jpg"]
     }, {
 	"name": "Shiso Burger",
@@ -35,6 +37,7 @@
 	"title": "Coffee Roastery",
 	"description": "It may not have the best burger in town, but for some reason I keep coming back for more. All the burgers have a unique flavour, and the fries are to die for. One of the must-order burgers is the chilli lemon: a unique pleasure to your senses. ",
 	"rating": 4.3,
+	"pricerange": 1,
 	"images": ["images/places/SishoBurger/cover.JPG","images/places/SishoBurger/image1.JPG","images/places/SishoBurger/image2.JPG","images/places/SishoBurger/image3.JPG","images/places/SishoBurger/image4.JPG","images/places/SishoBurger/image5.JPG","images/places/SishoBurger/image6.JPG"]
     }, {
 	"name": "Cabslam - The California Breakfast Slam",
@@ -47,6 +50,7 @@
 	"title": "Coffee Roastery",
 	"description": "Are you hungry? This is the place to be. I was not really sure about what to expect, since I have lived in California and could not remember that there was a Californian type of breakfast. The result? Well, the food is plenty and delicious.",
 	"rating": 4,
+	"pricerange": 2,
 	"images": ["images/places/CabSlam/cab0.JPG","images/places/CabSlam/image1.JPG","images/places/CabSlam/image2.JPG","images/places/CabSlam/image3.JPG"]
     }, {
 	"name": "Kuchi",
@@ -55,10 +59,11 @@
 	"date" : "2014-02-27",
 	"foodtype": "japanese",
 	"lat": 52.527236,
-	"lng": 13.399284, 
+	"lng": 13.399284,
 	"title": "Japanese Sushi Bar",
 	"description": "As a sushi lover, Kuchi was the official stop in Mitte. Fresh rolls that melt in your mouth, and delicious sashimi.",
 	"rating": 4.6,
+	"pricerange": 2,
 	"images": ["images/places/Kuchi/cover.JPG","images/places/Kuchi/image1.JPG","images/places/Kuchi/image2.JPG"]
     }, {
 	"name": "Villa Di Wow",
@@ -71,6 +76,7 @@
 	"title": "Coffee Roastery",
 	"description": "Phasellus iaculis venenatis viverra. Pellentesque mattis lectus sem. Donec facilisis dolor sed tellus mattis venenatis. Nullam gravida gravida est et egestas. Nam varius semper lacus eget hendrerit. Integer metus diam, ornare sit amet commodo vitae, posuere posuere enim. Aenean imperdiet est sapien, ut volutpat augue lacinia id.",
 	"rating": 3,
+	"pricerange": 1,
 	"images": ["images/places/VillaDiWow/cover.JPG","images/places/VillaDiWow/image1.JPG","images/places/VillaDiWow/image2.JPG"]
     },{
 	"name": "Manuela",
@@ -83,6 +89,7 @@
 	"title": "The must-try Spanish place.",
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 3,
+	"pricerange": 2,
 	"images": ["images/places/Manuela/cover.JPG","images/places/Manuela/image1.JPG","images/places/Manuela/image2.JPG","images/places/Manuela/image3.JPG","images/places/Manuela/image4.JPG"]
     },{
 	"name": "Tischendorf",
@@ -95,6 +102,7 @@
 	"title": "The best Brunch in Neukolln",
 	"description": "Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 4,
+	"pricerange": 1,
 	"images": ["images/places/Tischendorf/cover.JPG","images/places/Tischendorf/image1.JPG","images/places/Tischendorf/image2.JPG","images/places/Tischendorf/image3.JPG","images/places/Tischendorf/image4.JPG"]
     },{
 	"name": "Le Cochon Bourgeois",
@@ -107,6 +115,7 @@
 	"title": "Title",
 	"description": "Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 4.8,
+	"pricerange": 3,
 	"images": ["images/places/LeCochonBourgeois/cochon0.JPG"]
     },{
 	"name": "I Due Forni",
@@ -119,6 +128,7 @@
 	"title": "Title",
 	"description": "Pizza in this restaurant is amazing, you have a wide variety to choose from. The downside? It is always crowded, and might not be the most romantic place to enjoy a quite dinner. I would recommend the terrace outside and the dessert!",
 	"rating": 4.2,
+	"pricerange": 2,
 	"images": ["images/places/IDueForni/due0.JPG"]
     },{
 	"name": "Ristorante Masaniello",
@@ -131,6 +141,7 @@
 	"title": "Title",
 	"description": "Pizza in this restaurant is amazing, you have a wide variety to choose from. The downside? It is always crowded, and might not be the most romantic place to enjoy a quite dinner. I would recommend the terrace outside and the dessert!",
 	"rating": 3.4,
+	"pricerange": 2,
 	"images": ["images/places/Masaniello/cover.JPG","images/places/Masaniello/image1.JPG","images/places/Masaniello/image2.JPG","images/places/Masaniello/image3.JPG","images/places/Masaniello/image4.JPG"]
     },{
 	"name": "Cocolo Ramen Bar",
@@ -143,6 +154,7 @@
 	"title": "Title",
 	"description": "Ramen",
 	"rating": 4.3,
+	"pricerange": 2,
 	"images": ["images/places/Cocolo/cover.JPG","images/places/Cocolo/image1.JPG","images/places/Cocolo/image2.JPG","images/places/Cocolo/image3.JPG","images/places/Cocolo/image4.JPG","images/places/Cocolo/image5.JPG","images/places/Cocolo/image6.JPG","images/places/Cocolo/image7.JPG"]
     },{
 	"name": "Mogg & Melzer",
@@ -155,6 +167,7 @@
 	"title": "Title",
 	"description": "Delish Turkey Pastrami",
 	"rating": 3.8,
+	"pricerange": 2,
 	"images": ["images/places/MoggMelzer/cover.JPG","images/places/MoggMelzer/image1.JPG","images/places/MoggMelzer/image2.JPG","images/places/MoggMelzer/image3.JPG","images/places/MoggMelzer/image4.JPG","images/places/MoggMelzer/image5.JPG"]
     },{
 	"name": "Eiscafe Fräulein Frost",
@@ -166,6 +179,7 @@
 	"lng": 13.4277503,
 	"description": "If this is not the best ice-cream in town, it  might be very close.",
 	"rating": 4.3,
+	"pricerange": 1,
 	"images": ["images/places/Eiscafe/cover.JPG","images/places/Eiscafe/image1.JPG","images/places/Eiscafe/image2.JPG"]
     },{
 	"name": "Sasaya",
@@ -178,6 +192,7 @@
 	"title": "Berlin's authentic Japaneese delight.",
 	"description": "Berlin's authentic Japaneese.",
 	"rating": 4.5,
+	"pricerange": 2,
 	"images": ["images/places/Sasaya/image0.JPG","images/places/Sasaya/image1.JPG","images/places/Sasaya/image2.JPG"]
     },{
 	"name": "Melbourne Canteen",
@@ -188,6 +203,7 @@
 	"lat": 52.48703,
 	"lng": 13.43051,
 	"title": "Title",
+	"pricerange": 2,
 	"description": "Berlin's only French-Australian Café Restaurant and Cocktail bar.",
 	"rating": 3.5,
 	"images": ["images/places/MelbourneCanteen/image0.JPG","images/places/MelbourneCanteen/image1.JPG","images/places/MelbourneCanteen/image2.JPG","images/places/MelbourneCanteen/image3.JPG","images/places/MelbourneCanteen/image4.JPG","images/places/MelbourneCanteen/image5.JPG","images/places/MelbourneCanteen/image6.JPG","images/places/MelbourneCanteen/image7.JPG"]
@@ -202,6 +218,7 @@
 	"title": "The closest Mexican food we have found in Berlin",
 	"description": "Berlin's First Authentic Mexican Restaurant.",
 	"rating": 4.2,
+	"pricerange": 1,
 	"images": ["images/places/MariaBonita/image1.JPG","images/places/MariaBonita/image2.JPG","images/places/MariaBonita/image3.JPG","images/places/MariaBonita/image4.JPG","images/places/MariaBonita/image5.JPG","images/places/MariaBonita/image6.JPG"]
     }, {
 	"name": "The Bird",
@@ -213,6 +230,7 @@
 	"lng": 13.4221936,
 	"description": "Lorem fistrum la caidita a wan ese que llega por la gloria de mi madre llevame al sircoo ese hombree ahorarr sexuarl por la gloria de mi madre. Está la cosa muy malar al ataquerl qué dise usteer ahorarr pupita. Mamaar me cago en tus muelas amatomaa apetecan papaar papaar papaar papaar está la cosa muy malar diodeno jarl ese hombree sexuarl. Me cago en tus muelas a peich a gramenawer sexuarl. Mamaar sexuarl qué dise usteer a gramenawer ahorarr pecador a gramenawer hasta luego Lucas ese pedazo de. ",
 	"rating": 4.2,
+	"pricerange": 2,
 	"images": ["images/places/TheBird/cover.JPG","images/places/TheBird/image1.JPG"]
     },{
 	"name": "Sauvage",
@@ -225,6 +243,7 @@
 	"title": "Paleo Food",
 	"description": "Amatomaa diodeno torpedo papaar papaar te voy a borrar el cerito está la cosa muy malar ahorarr a wan pecador está la cosa muy malar. Diodenoo te va a hasé pupitaa no puedor te va a hasé pupitaa qué dise usteer papaar papaar llevame al sircoo. Diodeno mamaar por la gloria de mi madre no te digo trigo por no llamarte Rodrigor amatomaa ese pedazo de tiene musho peligro a wan.",
 	"rating": 3.8,
+	"pricerange": 2,
 	"images": ["images/places/Sauvage/cover.JPG","images/places/Sauvage/image1.JPG","images/places/Sauvage/image2.JPG","images/places/Sauvage/image3.JPG"]
     },{
 	"name": "Yumcha Heroes",
@@ -237,6 +256,7 @@
 	"title": "Homemade Chinese dumplings",
 	"description": "Amatomaa diodeno torpedo papaar papaar te voy a borrar el cerito está la cosa muy malar ahorarr a wan pecador está la cosa muy malar. Diodenoo te va a hasé pupitaa no puedor te va a hasé pupitaa qué dise usteer papaar papaar llevame al sircoo. Diodeno mamaar por la gloria de mi madre no te digo trigo por no llamarte Rodrigor amatomaa ese pedazo de tiene musho peligro a wan.",
 	"rating": 3.7,
+	"pricerange": 2,
 	"images": ["images/places/yumchaheroes/cover.jpg","images/places/yumchaheroes/image1.jpg","images/places/yumchaheroes/image2.jpg","images/places/yumchaheroes/image3.jpg","images/places/yumchaheroes/image4.jpg"]
     },{
 	"name": "Infarm",
@@ -249,6 +269,7 @@
 	"title": "An authentic Israeli Brunch experience",
 	"description": "Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 4.5,
+	"pricerange": 1,
 	"images": ["images/places/infarm/cover.JPG","images/places/infarm/image1.JPG","images/places/infarm/image2.JPG","images/places/infarm/image3.JPG","images/places/infarm/image4.JPG","images/places/infarm/image6.JPG"]
     }, {
 	"name": "Klunkerkranich",
@@ -261,6 +282,7 @@
 	"title": "The best views of the city",
 	"description": "Phasellus iaculis venenatis viverra. Pellentesque mattis lectus sem. Donec facilisis dolor sed tellus mattis venenatis. Nullam gravida gravida est et egestas. Nam varius semper lacus eget hendrerit. Integer metus diam, ornare sit amet commodo vitae, posuere posuere enim. Aenean imperdiet est sapien, ut volutpat augue lacinia id.",
 	"rating": 4.4,
+	"pricerange": 1,
 	"images": ["images/places/klunkerkranich/cover.JPG","images/places/klunkerkranich/image1.JPG","images/places/klunkerkranich/image2.JPG"]
     },{
 	"name": "On Egin",
@@ -273,6 +295,7 @@
 	"title": "Authentically delicious Spanish discovery in Berlin.",
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 4.5,
+	"pricerange": 1,
 	"recommended": true,
 	"images": ["images/places/OnEgin/cover.JPG","images/places/OnEgin/image1.JPG","images/places/OnEgin/image2.JPG","images/places/OnEgin/image3.JPG","images/places/OnEgin/image4.JPG"]
     },{
@@ -286,6 +309,7 @@
 	"title": "Vintage portuguese Cafe.",
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 3.9,
+	"pricerange": 1,
 	"images": ["images/places/Lissabonbon/cover.JPG","images/places/Lissabonbon/image1.JPG","images/places/Lissabonbon/image2.JPG"]
     },{
 	"name": "A Magica",
@@ -298,6 +322,7 @@
 	"title": "We may have found a new favorite pizza place",
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 4.2,
+	"pricerange": 1,
 	"recommended" : true,
 	"images": ["images/places/Amagica/cover.JPG","images/places/Amagica/image1.JPG","images/places/Amagica/image2.JPG","images/places/Amagica/image3.JPG"]
     },{
@@ -311,6 +336,7 @@
 	"title": "Sri Lanka",
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 4,
+	"pricerange": 2,
 	"images": ["images/places/RAAMSON/cover.JPG","images/places/RAAMSON/image1.JPG","images/places/RAAMSON/image2.JPG","images/places/RAAMSON/image3.JPG","images/places/RAAMSON/image4.JPG"]
     },{
 	"name": "Neue Heimat",
@@ -323,6 +349,7 @@
 	"title": "Street Food Market",
 	"description": "Being Spanish, Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis semper auctor.",
 	"rating": 3.9,
+	"pricerange": 1,
 	"images": ["images/places/neueheimat/cover.JPG","images/places/neueheimat/image1.JPG","images/places/neueheimat/image2.JPG","images/places/neueheimat/image3.JPG","images/places/neueheimat/image4.JPG"]
     },{
 	"name": "Sala Da Mangiare",
@@ -335,6 +362,7 @@
 	"title": "Homemade Pasta in Neukolln",
 	"description": "Have you ever imagined what it would be dinning in the living room of an Italian friend, snob enough to look sophisticated and rustic enough to look friendly? This is how it feels to be sitting in Sala da Mangiare, a small corner of Neukölln fondly led by an Italian couple. <br/> The menu is short but unequivocal, led by several types of their specialty, homemade pasta. The simple but high quality ingredients bring out the tender but al dente, strange and delicious to the palate accustomed to industrial pasta texture. <br/> Reservations recommended as the place is small and the weekend is usually full. Being small, the environment can be noisy at rush hour, but when the audience starts to go into the night, the room reveals its romantic and warm side. <br/> We liked the wine, and the homemade licorice liqueur was a surprise.",
 	"rating": 4.6,
+	"pricerange": 2,
 	"recommended": true,
 	"images": ["images/places/SalaDaMangiare/cover.JPG","images/places/SalaDaMangiare/image1.JPG","images/places/SalaDaMangiare/image2.JPG","images/places/SalaDaMangiare/image3.JPG","images/places/SalaDaMangiare/image4.JPG"]
     }
