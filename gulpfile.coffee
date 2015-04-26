@@ -5,7 +5,8 @@ autoprefixer = require 'gulp-autoprefixer'
 minifycss = require 'gulp-minify-css'
 jshint = require 'gulp-jshint'
 uglify = require 'gulp-uglify'
-imagemin = require 'gulp-imagemin'
+imagemin = require 'gulp-imagemin' # Compress images
+imageResize = require 'gulp-image-resize'
 rename = require 'gulp-rename'
 clean = require 'gulp-clean'
 concat = require 'gulp-concat'
@@ -14,18 +15,23 @@ cache = require 'gulp-cache'
 livereload = require 'gulp-livereload'
 coffee = require 'gulp-coffee'
 gutil = require 'gulp-util'
+changed = require 'gulp-changed'
+debug = require 'gulp-debug'
 
 sources =
-    sass: 'style/**/*.scss'
-    css:  'style/stylesheets/style.css'
-    html: 'index.html'
-    coffee: 'src/coffee/**/*.coffee'
+    sass:    'style/**/*.scss'
+    css:     'style/stylesheets/style.css'
+    html:    'index.html'
+    coffee:  'src/coffee/**/*.coffee'
+    sources: 'src/**/*.js'
+    images:  'style/images/places/**/*.{JPG,jpg}'
 
 dest =
     coffee: 'src/coffee'
-    css: 'dist/styles'
-    html: 'dist/'
-    js: 'dist/js'
+    css:    'dist/styles'
+    html:   'dist/'
+    js:     'dist/js'
+    images: 'dist/images'
 
 # Styles
 gulp.task 'styles', ->
@@ -47,7 +53,7 @@ gulp.task 'lint', ->
 
 # Scripts
 gulp.task 'scripts', ->
-    gulp.src('src/**/*.js')
+    gulp.src(sources.js)
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('default'))
         .pipe(concat('main.js'))
@@ -55,7 +61,7 @@ gulp.task 'scripts', ->
         .pipe(rename(suffix: '.min'))
         .pipe(uglify())
         .pipe(gulp.dest(dest.js))
-        .pipe(notify(message: 'Scripts task complete'));
+        .pipe(notify(message: 'Scripts task complete'))
 
 # Images
 # gulp.task('images', function() {
@@ -64,6 +70,19 @@ gulp.task 'scripts', ->
 #        .pipe(gulp.dest('dist/images'))
 #        .pipe(notify({ message: 'Images task complete' }));
 #});
+
+# Images -resize
+gulp.task 'resize', ->
+    gulp.src(sources.images) # 'style/images/places/Lagari/*.{JPG,jpg}'
+        .pipe imageResize
+            width : 1000
+            upscale : false
+        #.pipe(rename(suffix: "-M"))
+        .pipe(gulp.dest((file) ->
+            # process.stdout.write(file.base)
+            return file.base.replace('places', 'places-M')
+        )) # Destination in the same folder as source
+
 
 # Clean
 gulp.task 'clean', ->
