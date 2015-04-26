@@ -408,10 +408,10 @@ eob_controllers.controller 'eob_PlaceUrlCtrl', ($scope, $routeParams, eob_data) 
 
 eob_controllers.controller 'eob_SuggestionUrlCtrl', ($scope, eob_data) ->
     eob_data.placesPromise.success (places) ->
-    $scope.setPanel 'suggestion'
-    $scope.setSuggestions places
-    $scope.showPanel()
-    return
+        $scope.setPanel 'suggestion'
+        $scope.setSuggestions places
+        $scope.showPanel()
+        return
 
 eob_controllers.controller 'eob_NoPlaceUrlCtrl', ($scope) ->
     do $scope.hidePanel
