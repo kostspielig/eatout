@@ -12,6 +12,14 @@ $yellow: #fff6d5;
 $white: #ffffff;
 $purple: #805BA6;
 
+::selection {
+    background: $green; /* WebKit/Blink Browsers */
+    color: white;
+}
+::-moz-selection {
+    background: $green; /* Gecko Browsers */
+    color: white;
+}
 
 @mixin bg-cover {
     -webkit-background-size: cover;
