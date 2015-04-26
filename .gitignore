@@ -6,8 +6,13 @@ build/
 .DS_Store
 app.yaml
 *~
+\#*\#
+.\#*
+style/images/places/*
+style/images/places-M/*
 style/stylesheets/.sass-cache/
 node_modules/
 src/coffee/*.js
 dist/
 DSC*.JPG
+lib/bower
