@@ -30,6 +30,7 @@ MARKER_ICONS =
     spanish: 'images/icons/SVG/spanish.svg'
     sandwich: 'images/icons/SVG/sandwich.svg'
     viet: 'images/icons/SVG/ramen.svg'
+    foodtruck: 'images/icons/SVG/food-truck.svg'
 
 
 MAP_STYLES = [
