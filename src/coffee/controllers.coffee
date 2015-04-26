@@ -185,6 +185,7 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
 
     $scope.hidePanel = ->
         $scope.seepanel = false
+        $scope.expandpanel = 50
 
     $scope.showPanel = ->
         $scope.seepanel = true
@@ -199,7 +200,7 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
 
     $scope.expandPanel = ->
         $scope.hideMenu()
-        $scope.expandpanel = 100
+        $scope.expandpanel = if $scope.expandpanel is 100 then 50 else 100
 
     $scope.toggleMenu = ->
         $scope.seemenu = !$scope.seemenu
