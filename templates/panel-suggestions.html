@@ -1,5 +1,6 @@
 <div class="suggestion-wrapper place-wrapper">
   <input class="searchbox" ng-model="query" autofocus placeholder="Type to search">
+  <a class="expand-panel" ng-click="expandPanel();"><b></b><b></b><b></b></a>
   <a class="close-place" href="/">
     <div class="menu-toggle close">
       <b></b> <b></b> <b></b>
@@ -24,7 +25,7 @@
 	  {{place.address}}
 	</div>
 	<div class="distance-from-me" ng-if="place.distance"> <span class="sico ico-walking"></span> {{place.distance}} km  </div>
-     
+
       </div>
 
       <div class="recommended" ng-if="place.recommended"></div>

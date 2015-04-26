@@ -117,7 +117,7 @@ body {
     position: absolute;
     top: 26px; left: 31px;
     cursor: pointer;
-    z-index: 100;
+    z-index: 10;
 }
 
 .menu-icon {
@@ -128,28 +128,41 @@ body {
     padding: 11px;
 }
 
+.expanded-100 {
+    a.expand-panel {
+        -ms-transform: rotate(-180deg) translateX(-4px); /* IE 9 */
+        -webkit-transform: rotate(-180deg) translateX(-4px); /* Chrome, Safari, Opera */
+        transform: scaleX(-1) translateX(-4px);
+    }
+}
+
 .expand-panel {
     position: fixed;
     cursor: pointer;
-    top: 30px;
+    top: 28px;
     left: 16px;
-    width: 20px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
+
+    -webkit-transition: 0.5s transform ease-out;
+    transition: 0.5s transform ease-out;
 
     b:nth-child(1) {
-        -webkit-transform:translate3d(0, 3px, 0) rotate(-45deg);
-	transform:translate3d(0, 3px, 0) rotate(-45deg)
+        -webkit-transform:translate3d(0, 8px, 0) rotate(-45deg);
+	transform:translate3d(0, 8px, 0) rotate(-45deg);
+        width: 20px;
     }
 
     b:nth-child(2) {
-        -webkit-transform:translate3d(0, 13px, 0) rotate(45deg);
-	transform:translate3d(0, 13px, 0) rotate(45deg)
+        -webkit-transform:translate3d(0, 19px, 0) rotate(45deg);
+	transform:translate3d(0, 19px, 0) rotate(45deg);
+        width: 20px;
     }
 
     b:nth-child(3) {
-        -webkit-transform:translate3d(5px, 5px, 0);
-	transform:translate3d(5px, 5px, 0);
-        width: 22px;
+        -webkit-transform:translate3d(10px, 9px, 0);
+	transform:translate3d(10px, 10px, 0);
+        width: 17px;
     }
 }
 
@@ -328,7 +341,7 @@ body {
     z-index: 9;
     font-family: helvetica, arial;
 
-    transition: 0.2s all ease-out;
+    transition: 0.2s translate ease-out;
 
     @include no-click;
 
@@ -481,13 +494,14 @@ body {
     color: $darkGray;
     top: 0;
     right: 0;
-    z-index: 8;
+    z-index: 11;
     -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
 
     @include container-shadow;
 
-    transition: 0.5s all ease-out;
+    transition: 0.5s transform ease-out,
+                0.5s width ease-out;
 
     @include scroll-y;
     @include backface;
@@ -604,7 +618,7 @@ body {
 	}
 
 	.content {
-	    padding: 55px 25px 20px 25px;
+	    padding: 55px 4vw 20px 4vw;
 	    background-color: $white;
 	    font-size: 20px;
 
@@ -622,15 +636,21 @@ body {
 		padding: 0px 0px 10px;
 	    }
 	    .images {
+
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
 		width: 100%;
 		margin: 20px auto;
+                .image-container {  padding: 1%; }
 		img { width: 100%; margin: 0 0 6px 0;}
 	    }
 	}
     }
 
     .suggestion-wrapper {
-         -webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: touch;
+        .expand-panel b { background: $darkGray; }
 	.close-place.close-place {
 	    b { background: $darkGray; }
 	    top: 34px;
@@ -640,7 +660,7 @@ body {
 	.searchbox {
 	    font-size: 2em;
 	    color: $darkGray;
-	    padding: 24px 0px 24px 30px;
+	    padding: 24px 0px 24px 70px;
 	    border: none;
 	    background: 0 0;
 	    outline: 0;

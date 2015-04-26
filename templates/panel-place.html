@@ -1,5 +1,6 @@
 <div class="place-wrapper">
   <div class="header" style="background-image: url( {{place.images.0}} ); ">
+    <a class="expand-panel" ng-click="expandPanel();"><b></b><b></b><b></b></a>
     <a class="close-place" href="/">
       <div class="menu-toggle close">
 	<b></b> <b></b> <b></b>
@@ -40,8 +41,11 @@
 
     </div>
     <div class="images">
-      <div class="" ng-repeat="img in place.images" ng-show="!$first">
-	<img ng-src="{{img}}" class="place-image" alt="" />
+      <div class="image-container" ng-repeat="img in place.images" ng-show="!$first">
+        <figure>
+	  <img ng-src="{{img}}" class="place-image" alt="{{place.title}}" />
+          <!-- <figcaption>Caption for this image</figcaption> -->
+        </figure>
       </div>
     </div>
   </div>
