@@ -637,13 +637,15 @@ body {
 	    }
 	    .images {
 
-                display: flex;
-                flex-wrap: wrap;
+                //display: flex;
+                //flex-wrap: wrap;
+                display: block;
                 align-items: center;
 		width: 100%;
 		margin: 20px auto;
-                .image-container {  padding: 1%; }
-		img { width: 100%; margin: 0 0 6px 0;}
+                //.image-container {  padding: 1%; }
+                figure { font-size: 0; }
+		img { width: 100%; margin: 0 0 0px 0;}
 	    }
 	}
     }
@@ -739,7 +741,8 @@ body {
     }
 
     #main-panel {
-	width: 100vw;
+	width: 100vw !important;
+        .expand-panel { display: none; }
 	/*We need this for chrome for phones not just max width*/
 	height: initial;
 	.suggestion-wrapper {
@@ -750,4 +753,13 @@ body {
 	}
     }
 
+}
+
+@media screen and (min-width: 870px) {
+
+    #main-panel.expanded-100 {
+	.place-wrapper .content {
+	    padding: 55px 10vw 20px 10vw;
+        }
+    }
 }
