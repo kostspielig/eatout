@@ -4,7 +4,11 @@
       <b></b> <b></b> <b></b>
     </div>
   </div>
-
+  <div class="tag-list {{seepanel ? 'panel-open' : 'panel-close'}}">
+    <ul>
+      <li class="tag" ng-class="" ng-repeat="(food, val) in foodTypeChecked" ng-if="val" ng-click="menuSelectFoodType(food);">{{food}} <div class="close-icon no-animation"><b></b> <b></b></div></li>
+    </ul>
+  </div>
   <div id="main-menu" ng-show="seemenu">
 
     <div class="menu-content">

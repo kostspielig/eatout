@@ -166,9 +166,42 @@ body {
     }
 }
 
+.tag-list {
+    position: absolute;
+    top: 40px;
+    right: 180px;
+    width: 70%;
+    transition: transform 1s ease;
+
+    &.panel-open {
+        transform: translateX(-52vw);
+        right: 0;
+        width: 170px;
+    }
+    .tag {
+        background: $red;
+        float: right;
+        color: white;
+        margin: 0 10px 10px 0;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 15px;
+        padding: 5px 10px;
+        display: inline-block;
+        font-weight: bold;
+        .close-icon {
+            display: inline-block;
+            height: 13px;
+            margin: -1px 0 0 4px;
+            width: 13px;
+        }
+    }
+}
+
 .menu-toggle b,
 .expand-panel b,
-.menu-icon b {
+.menu-icon b,
+.close-icon b {
     display: block;
     width: 100%;
     height: 2px;
@@ -210,7 +243,6 @@ body {
 .menu-toggle.open b:last-child {
     @include animation(200ms, 300ms,open-button-last-child, forwards );
 }
-
 
 @-webkit-keyframes close-button-first-child {
     0% { -webkit-transform:none; transform:none }
@@ -676,6 +708,21 @@ body {
 }
 
 
+/********************* CSS ICONS *************************/
+
+.close-icon {
+    b:first-child {
+        -webkit-transform:translate3d(0, 7px, 0) rotate(45deg);
+        transform:translate3d(0, 7px, 0) rotate(45deg)
+    }
+    b:last-child {
+        -webkit-transform:translate3d(0, 5px, 0) rotate(-45deg);
+	transform:translate3d(0, 5px, 0) rotate(-45deg)
+    }
+}
+
+
+
 /*********************************************************************
  *                    RESIZING THE WINDOW                             *
  *********************************************************************/
@@ -739,7 +786,8 @@ body {
     .info-content {
 	.description { font-size: 15px; }
     }
-
+    .menu-icon { z-index: 15; }
+    #main-menu { z-index: 12; }
     #main-panel {
 	width: 100vw !important;
         .expand-panel { display: none; }
