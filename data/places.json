@@ -632,7 +632,8 @@
 	"description": "As a sushi lover, Kuchi was the official stop in Mitte. Fresh rolls that melt in your mouth, and delicious sashimi.",
 	"rating": 4.0,
 	"pricerange": 3,
-	"images": ["images/places-M/DrTo/cover.JPG","images/places-M/DrTo/image1.JPG","images/places-M/DrTo/image2.JPG","images/places-M/DrTo/image3.JPG","images/places-M/DrTo/image4.JPG","images/places-M/DrTo/image5.JPG","images/places-M/DrTo/image6.JPG","images/places-M/DrTo/image7.JPG"]
+	"images": ["images/places-M/DrTo/cover.JPG","images/places-M/DrTo/image1.JPG","images/places-M/DrTo/image2.JPG",
+                   "images/places-M/DrTo/image3.JPG","images/places-M/DrTo/image4.JPG","images/places-M/DrTo/image5.JPG","images/places-M/DrTo/image6.JPG","images/places-M/DrTo/image7.JPG"]
     }, {
 	"name": "Concierge Coffee",
 	"url": "https://www.facebook.com/ConciergeCoffee",
