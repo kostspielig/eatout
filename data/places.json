@@ -34,8 +34,8 @@
 	"foodtype": "burger",
 	"lat": 52.527236,
 	"lng": 13.398483,
-	"title": "Coffee Roastery",
-	"description": "It may not have the best burger in town, but for some reason I keep coming back for more. All the burgers have a unique flavour, and the fries are to die for. One of the must-order burgers is the chilli lemon: a unique pleasure to your senses. ",
+	"title": "Japanese style burgers",
+	"description": "It may not have the best burger in town, but for some reason I keep coming back for more. All the burgers have a unique flavour, and the fries are to die for. One of the must-order burgers is the chilli lemon: a unique pleasure to your senses.",
 	"rating": 4.3,
 	"pricerange": 1,
 	"images": ["images/places-M/SishoBurger/cover.JPG","images/places-M/SishoBurger/image1.JPG","images/places-M/SishoBurger/image2.JPG","images/places-M/SishoBurger/image3.JPG","images/places-M/SishoBurger/image4.JPG","images/places-M/SishoBurger/image5.JPG","images/places-M/SishoBurger/image6.JPG"]
@@ -620,5 +620,31 @@
 	"rating": 4.8,
 	"pricerange": 2.5,
 	"images": ["images/places-M/Redwood/cover.JPG","images/places-M/Redwood/image1.JPG","images/places-M/Redwood/image2.JPG"]
+    }, {
+	"name": "Dr To's",
+	"url": "https://www.facebook.com/drtos",
+	"address" : "Weichselstraße 54",
+	"date" : "2015-05-03",
+	"foodtype": "japanese",
+	"lat": 52.485864,
+	"lng": 13.434984,
+	"title": "Japanese Tapas Bar",
+	"description": "As a sushi lover, Kuchi was the official stop in Mitte. Fresh rolls that melt in your mouth, and delicious sashimi.",
+	"rating": 4.0,
+	"pricerange": 3,
+	"images": ["images/places-M/DrTo/cover.JPG","images/places-M/DrTo/image1.JPG","images/places-M/DrTo/image2.JPG","images/places-M/DrTo/image3.JPG","images/places-M/DrTo/image4.JPG","images/places-M/DrTo/image5.JPG","images/places-M/DrTo/image6.JPG","images/places-M/DrTo/image7.JPG"]
+    }, {
+	"name": "Concierge Coffee",
+	"url": "https://www.facebook.com/ConciergeCoffee",
+	"address" : "Paul-Lincke-Ufer 39-40",
+	"date" : "2015-05-03",
+	"foodtype": "breakfast",
+	"lat": 52.496069,
+	"lng": 13.422091,
+	"title": "Coffee Roastery",
+	"description": "Never have I ever tried such a great coffee, the taste without sugar is superb. We also tried the carrot cake, and it was a great delight. The only reason why I did not give them a 5 is because the chairs are not really confortable, I would have loved to spend the afternoon there.",
+	"rating": 4.7,
+	"pricerange": 2,
+	"images": ["images/places-M/Concierge/cover.JPG","images/places-M/Concierge/image1.JPG","images/places-M/Concierge/image2.JPG","images/places-M/Concierge/image3.JPG","images/places-M/Concierge/image4.JPG"]
     }
 ]
