@@ -19,6 +19,9 @@ handlers:
 - url: /js
   static_dir: js
 
+- url: /src
+  static_dir: src
+
 - url: /lib
   static_dir: lib
 
