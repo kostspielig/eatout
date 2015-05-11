@@ -1,0 +1,21 @@
+name: House of Small Wonder
+url: 'http://www.houseofsmallwonder.de/'
+address: Johannisstraße 20
+date: '2015-03-27'
+foodtype: breakfast
+lat: 52.52471
+lng: 13.38885
+title: 'Breakfast from Williamsburg, Brooklyn'
+description: ''
+rating: 4.1
+pricerange: 2
+recommended: true
+images:
+  - images/places-M/HOSM/cover.JPG
+  - images/places-M/HOSM/image1.JPG
+  - images/places-M/HOSM/image2.JPG
+  - images/places-M/HOSM/image3.JPG
+  - images/places-M/HOSM/image4.JPG
+  - images/places-M/HOSM/image5.JPG
+  - images/places-M/HOSM/image6.JPG
+  - images/places-M/HOSM/image7.JPG

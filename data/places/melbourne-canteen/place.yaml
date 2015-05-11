@@ -1,0 +1,20 @@
+name: Melbourne Canteen
+url: 'http://www.melbournecanteen.com/'
+date: '2014-05-30'
+address: Pannierstraße 57
+foodtype: brunch
+lat: 52.48703
+lng: 13.43051
+title: Title
+pricerange: 2
+description: "Berlin's only French-Australian Café Restaurant and Cocktail bar."
+rating: 3.5
+images:
+  - images/places-M/MelbourneCanteen/image0.JPG
+  - images/places-M/MelbourneCanteen/image1.JPG
+  - images/places-M/MelbourneCanteen/image2.JPG
+  - images/places-M/MelbourneCanteen/image3.JPG
+  - images/places-M/MelbourneCanteen/image4.JPG
+  - images/places-M/MelbourneCanteen/image5.JPG
+  - images/places-M/MelbourneCanteen/image6.JPG
+  - images/places-M/MelbourneCanteen/image7.JPG

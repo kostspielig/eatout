@@ -1,0 +1,20 @@
+name: "Dr To's"
+url: 'https://www.facebook.com/drtos'
+address: Weichselstraße 54
+date: '2015-05-03'
+foodtype: japanese
+lat: 52.485864
+lng: 13.434984
+title: Japanese Tapas Bar
+description: 'As a sushi lover, Kuchi was the official stop in Mitte. Fresh rolls that melt in your mouth, and delicious sashimi.'
+rating: 4
+pricerange: 3
+images:
+  - images/places-M/DrTo/cover.JPG
+  - images/places-M/DrTo/image1.JPG
+  - images/places-M/DrTo/image2.JPG
+  - images/places-M/DrTo/image3.JPG
+  - images/places-M/DrTo/image4.JPG
+  - images/places-M/DrTo/image5.JPG
+  - images/places-M/DrTo/image6.JPG
+  - images/places-M/DrTo/image7.JPG

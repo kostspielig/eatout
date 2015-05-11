@@ -1,0 +1,16 @@
+name: Max und Moritz
+url: 'http://www.maxundmoritzberlin.de/'
+address: Oranienstraße 162
+date: '2015-03-08'
+foodtype: german
+lat: 52.502646
+lng: 13.414026
+title: Authentic German Experience
+description: ''
+rating: 4
+pricerange: 3.5
+images:
+  - images/places-M/MaxUndMoritz/cover.JPG
+  - images/places-M/MaxUndMoritz/image1.JPG
+  - images/places-M/MaxUndMoritz/image2.JPG
+  - images/places-M/MaxUndMoritz/image3.JPG

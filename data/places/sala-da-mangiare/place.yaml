@@ -1,0 +1,18 @@
+name: Sala Da Mangiare
+url: 'http://www.saladamangiare.de/'
+address: Mainzer Straße 23
+date: '2014-09-20'
+foodtype: italian
+lat: 52.480655
+lng: 13.427778
+title: Homemade Pasta in Neukolln
+description: 'Have you ever imagined what it would be dinning in the living room of an Italian friend, snob enough to look sophisticated and rustic enough to look friendly? This is how it feels to be sitting in Sala da Mangiare, a small corner of Neukölln fondly led by an Italian couple. <br/> The menu is short but unequivocal, led by several types of their specialty, homemade pasta. The simple but high quality ingredients bring out the tender but al dente, strange and delicious to the palate accustomed to industrial pasta texture. <br/> Reservations recommended as the place is small and the weekend is usually full. Being small, the environment can be noisy at rush hour, but when the audience starts to go into the night, the room reveals its romantic and warm side. <br/> We liked the wine, and the homemade licorice liqueur was a surprise.'
+rating: 4.6
+pricerange: 2.5
+recommended: true
+images:
+  - images/places-M/SalaDaMangiare/cover.JPG
+  - images/places-M/SalaDaMangiare/image1.JPG
+  - images/places-M/SalaDaMangiare/image2.JPG
+  - images/places-M/SalaDaMangiare/image3.JPG
+  - images/places-M/SalaDaMangiare/image4.JPG

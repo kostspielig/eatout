@@ -1,0 +1,17 @@
+name: Angry Chicken
+url: 'http://www.angry-chicken.com/'
+address: Oranienstraße 16
+date: '2014-10-12'
+foodtype: burger
+lat: 52.50069
+lng: 13.42287
+title: Korean style fried chicken
+description: 'It may not have the best burger in town, but for some reason I keep coming back for more. All the burgers have a unique flavour, and the fries are to die for. One of the must-order burgers is the chilli lemon: a unique pleasure to your senses. '
+rating: 4.2
+pricerange: 1
+images:
+  - images/places-M/AngryChicken/cover.JPG
+  - images/places-M/AngryChicken/image1.JPG
+  - images/places-M/AngryChicken/image2.JPG
+  - images/places-M/AngryChicken/image3.JPG
+  - images/places-M/AngryChicken/image4.JPG

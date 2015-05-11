@@ -1,0 +1,16 @@
+name: Burgermeister
+url: 'http://www.thefuturebreakfast.com/'
+address: Oberbaumstraße 8
+date: '2015-04-04'
+foodtype: burger
+lat: 52.501036
+lng: 13.442571
+title: The Burger
+description: ''
+rating: 3.7
+pricerange: 1
+recommended: false
+images:
+  - images/places-M/Burgermeister/cover.JPG
+  - images/places-M/Burgermeister/image1.JPG
+  - images/places-M/Burgermeister/image2.JPG

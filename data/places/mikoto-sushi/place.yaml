@@ -1,0 +1,17 @@
+name: Mikoto Sushi
+url: 'http://www.sushi-mikoto.de/'
+address: Pappelallee 22
+date: '2015-04-03'
+foodtype: japanese
+lat: 52.5444
+lng: 13.4162941
+title: Sushi and Cocktails
+description: ''
+rating: 3.7
+pricerange: 2
+recommended: true
+images:
+  - images/places-M/Mikoto/cover.JPG
+  - images/places-M/Mikoto/image1.JPG
+  - images/places-M/Mikoto/image2.JPG
+  - images/places-M/Mikoto/image3.JPG

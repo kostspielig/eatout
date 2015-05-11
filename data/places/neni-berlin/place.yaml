@@ -1,0 +1,19 @@
+name: NENI Berlin
+url: 'http://www.25hours-hotels.com/en/bikini/restaurant/neni-berlin.html'
+address: Budapester Straße 40
+date: '2015-04-04'
+foodtype: brunch
+lat: 52.50572
+lng: 13.33776
+title: At the 25hours hotel bikini berlin
+description: 'The culinary mosaic of Persian, Russian, Arabic, Moroccan, Turkish, Spanish, German and Austrian influences'
+rating: 4.1
+pricerange: 3
+recommended: true
+images:
+  - images/places-M/Neni/cover.JPG
+  - images/places-M/Neni/image1.JPG
+  - images/places-M/Neni/image2.JPG
+  - images/places-M/Neni/image3.JPG
+  - images/places-M/Neni/image4.JPG
+  - images/places-M/Neni/image5.JPG

@@ -1,0 +1,20 @@
+name: Cocolo Ramen Bar
+url: 'http://www.kuchi.de/index.php?r=cocolo-xberg'
+address: Paul-Lincke-Ufer 39
+date: '2014-04-16'
+foodtype: viet
+lat: 52.49623
+lng: 13.4221
+title: Title
+description: Ramen
+rating: 4.3
+pricerange: 2
+images:
+  - images/places-M/Cocolo/cover.JPG
+  - images/places-M/Cocolo/image1.JPG
+  - images/places-M/Cocolo/image2.JPG
+  - images/places-M/Cocolo/image3.JPG
+  - images/places-M/Cocolo/image4.JPG
+  - images/places-M/Cocolo/image5.JPG
+  - images/places-M/Cocolo/image6.JPG
+  - images/places-M/Cocolo/image7.JPG

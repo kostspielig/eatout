@@ -1,0 +1,18 @@
+name: The Future Breakfast
+url: 'http://www.thefuturebreakfast.com/'
+address: Tempelhofer Ufer 1
+date: '2015-04-04'
+foodtype: foodtruck
+lat: 52.49717
+lng: 13.39047
+title: The Breakfast Food Truch
+description: ''
+rating: 4.9
+pricerange: 2
+recommended: true
+images:
+  - images/places-M/TheFutureBreakfast/cover.JPG
+  - images/places-M/TheFutureBreakfast/image1.JPG
+  - images/places-M/TheFutureBreakfast/image2.JPG
+  - images/places-M/TheFutureBreakfast/image3.JPG
+  - images/places-M/TheFutureBreakfast/image4.JPG

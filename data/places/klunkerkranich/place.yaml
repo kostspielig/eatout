@@ -1,0 +1,15 @@
+name: Klunkerkranich
+url: 'http://www.klunkerkranich.de'
+address: Karl-Marx-Straße 66
+date: '2014-08-17'
+foodtype: cocktails
+lat: 52.482081
+lng: 13.432256
+title: The best views of the city
+description: 'Phasellus iaculis venenatis viverra. Pellentesque mattis lectus sem. Donec facilisis dolor sed tellus mattis venenatis. Nullam gravida gravida est et egestas. Nam varius semper lacus eget hendrerit. Integer metus diam, ornare sit amet commodo vitae, posuere posuere enim. Aenean imperdiet est sapien, ut volutpat augue lacinia id.'
+rating: 4.2
+pricerange: 1.5
+images:
+  - images/places-M/klunkerkranich/cover.JPG
+  - images/places-M/klunkerkranich/image1.JPG
+  - images/places-M/klunkerkranich/image2.JPG

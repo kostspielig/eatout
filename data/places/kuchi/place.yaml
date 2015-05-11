@@ -1,0 +1,15 @@
+name: Kuchi
+url: 'http://www.kuchi.de/'
+address: Gipsstraße 3
+date: '2014-02-27'
+foodtype: japanese
+lat: 52.527236
+lng: 13.399284
+title: Japanese Sushi Bar
+description: 'As a sushi lover, Kuchi was the official stop in Mitte. Fresh rolls that melt in your mouth, and delicious sashimi.'
+rating: 4.6
+pricerange: 3
+images:
+  - images/places-M/Kuchi/cover.JPG
+  - images/places-M/Kuchi/image1.JPG
+  - images/places-M/Kuchi/image2.JPG

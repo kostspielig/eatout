@@ -1,0 +1,20 @@
+name: Jimmy Woo
+url: 'http://jimmy-woo.de/'
+address: Friedelstraße 24
+date: '2015-05-02'
+foodtype: viet
+lat: 52.491949
+lng: 13.428121
+title: French indochine cuisine
+description: ''
+rating: 4
+pricerange: 2
+images:
+  - images/places-M/JimmyWoo/cover.JPG
+  - images/places-M/JimmyWoo/image1.JPG
+  - images/places-M/JimmyWoo/image2.JPG
+  - images/places-M/JimmyWoo/image3.JPG
+  - images/places-M/JimmyWoo/image4.JPG
+  - images/places-M/JimmyWoo/image5.JPG
+  - images/places-M/JimmyWoo/image6.JPG
+  - images/places-M/JimmyWoo/image7.JPG
