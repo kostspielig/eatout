@@ -9,8 +9,24 @@ $green: #5ebf64;
 $darkGray: #333333;
 $darkGrayShaded: rgba(30, 30, 30, 0.55);
 $yellow: #fff6d5;
+$darkYellow: #ffc200;
 $white: #ffffff;
 $purple: #805BA6;
+$blue: #05c7f2;
+$brown: #8e4b39;
+$lightBlue: #baf0f4;
+$darkBlue: #364fc4;
+
+
+.red        { background-color: $red !important; }
+.green      { background-color: $green !important; }
+.yellow     { background-color: $darkYellow !important; }
+.purple     { background-color: $purple !important; }
+.black      { background-color: $darkGray !important; }
+.blue       { background-color: $blue !important; }
+.brown      { background-color: $brown !important; }
+.light-blue { background-color: $lightBlue !important; color: $darkGray !important; b { background: $darkGray !important; }}
+.dark-blue  { background-color: $darkBlue !important; }
 
 ::selection {
     background: $green; /* WebKit/Blink Browsers */

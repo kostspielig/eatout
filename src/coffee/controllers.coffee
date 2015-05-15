@@ -29,23 +29,23 @@ ASCII_ART = "Made with ❤ by\n\n"+
 MARKER_ICONS =
     #bakery: 'images/icons/SVG/muffin.svg'
     #beer: 'images/icons/SVG/beer.svg'
-    breakfast: 'images/icons/SVG/coffee.svg'
-    brunch: 'images/icons/SVG/brunch.svg'
-    burger: 'images/icons/SVG/burger.svg'
-    cocktails: 'images/icons/SVG/cocktails.svg'
-    #croissant: 'images/icons/croissant.png'
+    breakfast: url: 'images/icons/SVG/coffee.svg', color: 'blue'
+    brunch: url: 'images/icons/SVG/brunch.svg', color: 'purple'
+    burger: url: 'images/icons/SVG/burger.svg', color: 'purple'
+    cocktails: url: 'images/icons/SVG/cocktails.svg', color: 'black'
+    #croissant: 'images/icons/croissant.png', color: ''
     #cheese: 'images/icons/cheese.png'
-    french: 'images/icons/SVG/french.svg'
-    german: 'images/icons/SVG/german.svg'
-    icecream: 'images/icons/SVG/icecream.svg'
-    japanese: 'images/icons/SVG/sushi.svg'
-    mexican: 'images/icons/SVG/mexican.svg'
-    italian: 'images/icons/SVG/pizza.svg'
-    portuguese: 'images/icons/SVG/sardine.svg'
-    spanish: 'images/icons/SVG/spanish.svg'
-    sandwich: 'images/icons/SVG/sandwich.svg'
-    viet: 'images/icons/SVG/ramen.svg'
-    foodtruck: 'images/icons/SVG/food-truck.svg'
+    french: url: 'images/icons/SVG/french.svg', color: 'light-blue'
+    german: url: 'images/icons/SVG/german.svg', color: 'black'
+    icecream: url: 'images/icons/SVG/icecream.svg', color: 'dark-blue'
+    japanese: url: 'images/icons/SVG/sushi.svg', color: 'red'
+    mexican: url: 'images/icons/SVG/mexican.svg', color: 'brown'
+    italian: url: 'images/icons/SVG/pizza.svg', color: 'green'
+    portuguese: url: 'images/icons/SVG/sardine.svg', color: 'green'
+    spanish: url: 'images/icons/SVG/spanish.svg', color: 'yellow'
+    sandwich: url: 'images/icons/SVG/sandwich.svg', color: 'purple'
+    viet: url: 'images/icons/SVG/ramen.svg', color: 'red'
+    foodtruck: url: 'images/icons/SVG/food-truck.svg', color: 'green'
 
 
 MAP_STYLES = [
@@ -184,6 +184,9 @@ eob_controllers.controller 'eob_MenuCtrl', ($scope, $location, eob_data) ->
     $scope.isActive = (item) ->
         $scope.active is item
 
+    $scope.getColor = (type) ->
+        MARKER_ICONS[type].color
+
     return
 
 
@@ -301,7 +304,7 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
             place = $scope.places[index]
             eob_imgCache.load(_.pick(MARKER_ICONS, place.foodtype)).then ->
                 image =
-                    url: MARKER_ICONS[place.foodtype]
+                    url: MARKER_ICONS[place.foodtype].url
                     size: new google.maps.Size(70, 85)
                     scaledSize: new google.maps.Size(70, 85)
 
@@ -325,7 +328,7 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
     $scope.filterMarkers = (types) ->
         _.map markers, (marker) ->
             visible = undefined != _.find types, (type) ->
-                marker.getIcon().url is MARKER_ICONS[type]
+                marker.getIcon().url is MARKER_ICONS[type].url
             marker.setVisible visible
 
     getSuggestedPlaces = (pos, places) ->
