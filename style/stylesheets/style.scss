@@ -1,9 +1,9 @@
 
 /* imports */
 @import '_reset.css';
+@import 'mixins.scss';
 
 /* variables */
-
 $red: #ff1526;
 $green: #5ebf64;
 $darkGray: #333333;
@@ -22,45 +22,19 @@ $purple: #805BA6;
 }
 
 @mixin bg-cover {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    @include background-size(cover);
 }
 
 @mixin scroll-y {
     overflow-y: scroll;
-    /* &::-webkit-scrollbar {
-	display: none;
-    } */
-}
-
-@mixin backface {
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility:    hidden;
-  -ms-backface-visibility:     hidden;
 }
 
 @mixin container-shadow {
-    -webkit-box-shadow: 0px 0px 5px -1px #333;
-    -moz-box-shadow: 0px 0px 5px -1px #333;
-    box-shadow: 0px 0px 5px -1px #333;
+    @include css3-prefix('box-shadow', 0px 0px 5px -1px #333);
 }
 
 @mixin no-click { pointer-events: none; }
-
-@mixin click { pointer-events: auto; }
-
-@mixin animation ($delay, $duration, $name, $fill) {
-    -webkit-animation-delay: $delay;
-    -webkit-animation-duration: $duration;
-    -webkit-animation-name: $name;
-    -webkit-animation-fill-mode: $fill;
-    animation-delay: $delay;
-    animation-duration: $duration;
-    animation-name: $name;
-    animation-fill-mode: $fill;
-}
+@mixin click    { pointer-events: auto; }
 
 html { height: 100% }
 
@@ -83,6 +57,7 @@ body {
 
 #logo {
     @include no-click;
+
     .tv-tower {
 	position: absolute;
 	z-index: 0;
@@ -130,9 +105,7 @@ body {
 
 .expanded-100 {
     a.expand-panel {
-        -ms-transform: rotate(-180deg) translateX(-4px); /* IE 9 */
-        -webkit-transform: rotate(-180deg) translateX(-4px); /* Chrome, Safari, Opera */
-        transform: scaleX(-1) translateX(-4px);
+        @include transform(rotate(-180deg) translateX(-4px));
     }
 }
 
@@ -144,24 +117,20 @@ body {
     width: 40px;
     height: 40px;
 
-    -webkit-transition: 0.5s transform ease-out;
-    transition: 0.5s transform ease-out;
+    @include transition(0.5s transform ease-out);
 
     b:nth-child(1) {
-        -webkit-transform:translate3d(0, 8px, 0) rotate(-45deg);
-	transform:translate3d(0, 8px, 0) rotate(-45deg);
+        @include transform(translate3d(0, 8px, 0) rotate(-45deg));
         width: 20px;
     }
 
     b:nth-child(2) {
-        -webkit-transform:translate3d(0, 19px, 0) rotate(45deg);
-	transform:translate3d(0, 19px, 0) rotate(45deg);
+        @include transform(translate3d(0, 19px, 0) rotate(45deg));
         width: 20px;
     }
 
     b:nth-child(3) {
-        -webkit-transform:translate3d(10px, 9px, 0);
-	transform:translate3d(10px, 10px, 0);
+        @include transform(translate3d(10px, 10px, 0));
         width: 17px;
     }
 }
@@ -172,9 +141,10 @@ body {
     right: 180px;
     width: 70%;
     transition: transform 1s ease;
+    @include transition(transform 1s ease);
 
     &.panel-open {
-        transform: translateX(-52vw);
+        @include transform(translateX(-52vw));
         right: 0;
         width: 170px;
     }
@@ -215,113 +185,65 @@ body {
 }
 
 .menu-toggle.open b:nth-child(2) {
-    -webkit-transition: opacity 600ms, width 600ms;
-    transition: opacity 600ms, width 600ms;
+    @include transition(opacity 600ms, width 600ms);
     opacity: 1;
 }
 
 .menu-toggle.close b:nth-child(2) {
-    -webkit-transition: opacity 600ms, width 600ms;
-    transition: opacity 600ms, width 600ms;
+    @include transition(opacity 600ms, width 600ms);
     width: 0;
     opacity: 0;
 }
 
 .menu-toggle.close b:first-child {
-    @include animation(200ms, 300ms,close-button-first-child, forwards );
+    @include animation(200ms, 300ms,close-button-first-child, forwards);
 }
 
 .menu-toggle.close b:last-child {
-    @include animation(200ms, 300ms,close-button-last-child, forwards );
+    @include animation(200ms, 300ms,close-button-last-child, forwards);
 }
 
-
 .menu-toggle.open b:first-child {
-    @include animation(200ms, 300ms,open-button-first-child, forwards );
+    @include animation(200ms, 300ms,open-button-first-child, forwards);
 }
 
 .menu-toggle.open b:last-child {
-    @include animation(200ms, 300ms,open-button-last-child, forwards );
+    @include animation(200ms, 300ms,open-button-last-child, forwards);
 }
 
-@-webkit-keyframes close-button-first-child {
-    0% { -webkit-transform:none; transform:none }
-    50% { -webkit-transform:translate3d(0, 3px, 0);
-	  transform:translate3d(0, 3px, 0) }
-    100% { -webkit-transform:translate3d(0, 8px, 0) rotate(45deg);
-	   transform:translate3d(0, 8px, 0) rotate(45deg) }
+@include keyframes(close-button-first-child) {
+    0%   { @include transform(none) }
+    50%  { @include transform(translate3d(0, 3px, 0)) }
+    100% { @include transform(translate3d(0, 8px, 0) rotate(45deg)) }
 }
 
-@keyframes close-button-first-child {
-    0% { -webkit-transform:none; transform:none }
-    50% { -webkit-transform:translate3d(0, 3px, 0);
-	  transform:translate3d(0, 3px, 0) }
-    100% { -webkit-transform:translate3d(0, 8px, 0) rotate(45deg);
-	   transform:translate3d(0, 8px, 0) rotate(45deg) }
+@include keyframes(close-button-last-child) {
+    0%   { @include transform(none) }
+    50%  { @include transform(translate3d(0, -3px, 0)) }
+    100% { @include transform(translate3d(0, -8px, 0) rotate(-45deg)) }
 }
 
-@-webkit-keyframes close-button-last-child {
-    0% { -webkit-transform:none;transform:none }
-    50% { -webkit-transform:translate3d(0, -3px, 0);
-	  transform:translate3d(0, -3px, 0) }
-    100% { -webkit-transform:translate3d(0, -8px, 0) rotate(-45deg);
-	   transform:translate3d(0, -8px, 0) rotate(-45deg) }
+@include keyframes(open-button-last-child) {
+    0%   { @include transform(translate3d(0, -8px, 0) rotate(-45deg)) }
+    50%  { @include transform(translate3d(0, -3px, 0)) }
+    100% { @include transform(none) }
 }
 
-
-@keyframes close-button-last-child {
-    0% { -webkit-transform:none;transform:none }
-    50% { -webkit-transform:translate3d(0, -3px, 0);
-	  transform:translate3d(0, -3px, 0) }
-    100% { -webkit-transform:translate3d(0, -8px, 0) rotate(-45deg);
-	   transform:translate3d(0, -8px, 0) rotate(-45deg) }
-}
-
-
-@-webkit-keyframes open-button-last-child {
-    0% { -webkit-transform:translate3d(0, -8px, 0) rotate(-45deg);
-	 transform:translate3d(0, -8px, 0) rotate(-45deg) }
-    50% { -webkit-transform:translate3d(0, -3px, 0);
-	  transform:translate3d(0, -3px, 0)}
-    100% { -webkit-transform:none; transform:none}
-}
-
-@keyframes open-button-last-child {
-    0% { -webkit-transform:translate3d(0, -8px, 0) rotate(-45deg);
-	 transform:translate3d(0, -8px, 0) rotate(-45deg) }
-    50% { -webkit-transform:translate3d(0, -3px, 0);
-	  transform:translate3d(0, -3px, 0)}
-    100% { -webkit-transform:none; transform:none}
-}
-
-@-webkit-keyframes open-button-first-child {
-    0% { -webkit-transform:translate3d(0, 8px, 0) rotate(45deg);
-	 transform:translate3d(0, 8px, 0) rotate(45deg) }
-    50% { -webkit-transform:translate3d(0, 3px, 0);
-	  transform:translate3d(0, 3px, 0)}
-    100% { -webkit-transform:none;
-	   transform:none}
-}
-
-@keyframes open-button-first-child {
-    0% { -webkit-transform:translate3d(0, 8px, 0) rotate(45deg);
-	 transform:translate3d(0, 8px, 0) rotate(45deg) }
-    50% { -webkit-transform:translate3d(0, 3px, 0);
-	  transform:translate3d(0, 3px, 0)}
-    100% { -webkit-transform:none;
-	   transform:none}
+@include keyframes(open-button-first-child) {
+    0%   { @include transform(translate3d(0, 8px, 0) rotate(45deg)) }
+    50%  { @include transform(translate3d(0, 3px, 0)) }
+    100% { @include transform(none) }
 }
 
 #weather {
     font-size: 40px;
-    color:$darkGray;
+    color: $darkGray;
     font-weight: 700;
     z-index: 0;
     position: absolute;
     top: 18px; right: 20px;
 
-    a { color:#333; text-decoration:none; overflow: hidden; display: flex;}
-
+    a { color:#333; text-decoration:none; overflow: hidden; display: flex; }
     .w-temp {
 	display: block;
 	padding: 15px 0 0px 5px;
@@ -339,8 +261,8 @@ body {
 	width: 60px; height:52px;
 	display: block;
 	vertical-align: bottom;
-
 	background:url(/images/weather/fair.svg) no-repeat center center;
+
 	&.c0 {background:url(/images/weather/tornado.svg) no-repeat center center; }
 	&.c2 { background:url(/images/weather/hurricane.svg) no-repeat center center; }
 	&.c3, &.c4 {background:url(/images/weather/thunderstorms.svg) no-repeat center center; }
@@ -373,32 +295,27 @@ body {
     z-index: 9;
     font-family: helvetica, arial;
 
-    transition: 0.2s translate ease-out;
-
+    @include transition(0.2s translate ease-out);
     @include no-click;
-
 
     &.ng-hide-add, &.ng-hide-remove {
 	display: block !important;
     }
 
     &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active {
-	//margin-left: -105px;
-	transform: translate3d(-105px, 0, 0);
-	-webkit-transform: translate3d(-105px, 0, 0);
+        @include transform(translate3d(-105px, 0, 0));
     }
 
     &.ng-hide-remove.ng-hide-remove-active, &.ng-hide-add {
-	//margin-left: 0;
-	transform: translate3d(0,0,0);
-	-webkit-transform: translate3d(0,0,0);
+        @include transform(translate3d(0,0,0));
     }
 
-
     .submenus {
+        @include click;
 
 	&.districtItem { top: 198px; }
 	&.foodItem { top: 100px; width: 120px; }
+
 	margin-left: 105px;
 	background: #282828;
 	padding: 8px 0;
@@ -406,8 +323,6 @@ body {
 	opacity: 0.9;
 	position: absolute;
 	top: 0;
-
-	@include click;
 
 	li.submenu-item {
 	    padding: 8px  15px;
@@ -425,18 +340,15 @@ body {
 	    }
 	    .icon-container { display: inline-block; width: 11px; height: 10px; margin-right: 5px; }
 	    .checkicon {
-		-ms-transform: rotate(45deg);
-		-o-transform: rotate(45deg);
-		-webkit-transform: rotate(45deg);
-		transform: rotate(45deg);
+                @include transform(rotate(45deg));
+                @include transition(280ms);
+
 		top: -2px;
 		left: 6px;
 		width: 5px;
 		height: 11px;
 		border: 2px solid #30D400;
 		border-style: none solid solid none;
-
-		transition: 280ms;
 		position: relative;
 		box-sizing: border-box;
 	    }
@@ -444,6 +356,7 @@ body {
 	    &:hover { background-color: #666; color:#222; }
 	}
     }
+
     .menu-content {
 	padding: 92px  0 0 0px;
 	background: #282828;
@@ -451,6 +364,7 @@ body {
 
 	@include container-shadow;
 	@include click;
+
 	.header {
 	    display: none;
 	    position: absolute;
@@ -474,10 +388,10 @@ body {
 		    .item-icon { background-position: 0 -64px; }
 		    .item-description { color: white;}
 		}
-		&.find-me .item-icon{ background-image: url(/images/menu/iamhere.svg); }
-		&.food-type .item-icon{ background-image: url(/images/menu/food.svg); }
-		&.districts .item-icon{ background-image: url(/images/menu/district.svg); }
-		&.best-places .item-icon{ background-image: url(/images/menu/star.svg); }
+		&.find-me .item-icon     { background-image: url(/images/menu/iamhere.svg); }
+		&.food-type .item-icon   { background-image: url(/images/menu/food.svg); }
+		&.districts .item-icon   { background-image: url(/images/menu/district.svg); }
+		&.best-places .item-icon { background-image: url(/images/menu/star.svg); }
 	    }
 	}
     }
@@ -527,13 +441,10 @@ body {
     top: 0;
     right: 0;
     z-index: 11;
-    -webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
 
+    @include transform(translate3d(0,0,0));
     @include container-shadow;
-
-    transition: 0.5s transform ease-out,
-                0.5s width ease-out;
+    @include transition(0.5s transform ease-out, 0.5s width ease-out);
 
     @include scroll-y;
     @include backface;
@@ -543,17 +454,16 @@ body {
     }
 
     &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active {
-	transform: translate3d(100%, 0,0);
-	-webkit-transform: translate3d(100%, 0,0);
+        @include transform(translate3d(100%, 0,0));
     }
 
     &.ng-hide-remove.ng-hide-remove-active, &.ng-hide-add {
-	transform: translate3d(0,0,0);
-	-webkit-transform: translate3d(0,0,0);
+	@include transform(translate3d(0,0,0));
     }
 
     .place-wrapper {
         -webkit-overflow-scrolling: touch;
+
 	.close-place {
 	    width: 28px; height:28px;
 	    display:block;
@@ -563,18 +473,17 @@ body {
 	}
 
 	.header  {
-            padding: 35vh 0 20px 0;
-	    -webkit-background-size: cover;
-	    -moz-background-size: cover;
-	    -o-background-size: cover;
-	    background-size: cover;
+            @include background-size(cover);
+
 	    background-position: center;
 	    background-color: $darkGray;
+            padding: 35vh 0 20px 0;
 
             .place-info-area {
                 background: $darkGrayShaded;
                 padding: 0 3vw 20px 4vw;
 		position: relative;
+
 		.recommended {
 		    position: absolute;
 		    top: -10px; right: 2.3vw;
@@ -582,6 +491,7 @@ body {
 		    width: 76px;
 		    height: 64px;
 		}
+
 		div.recommended + div {
 		    position: absolute;
 		    top: 46px;
@@ -613,11 +523,11 @@ body {
 		    }
 		    .rating { float: none; }
 	        }
-		.place-address{ display: inline-block; margin-right: 5px; }
+		.place-address { display: inline-block; margin-right: 5px; }
 		.distance-from-me { display: inline-block; }
 		.sico { width: 13px; height: 16px; position: relative; top: 2px; display: inline-block; }
 		.ico-walking { background: url(/images/SVG/walking.svg) no-repeat center; }
-		.ico-place { background: url(/images/SVG/place.svg) no-repeat center; }
+		.ico-place   { background: url(/images/SVG/place.svg) no-repeat center; }
 	    }
 
             .social-icons {
@@ -630,14 +540,11 @@ body {
                 padding: 17px 0 0 0;
                 width: 36px;
             }
-
-
             .share {
                 display: inline-block;
                 width: 36px;
                 height: 36px;
             }
-
             .twitter {
                 background: url(/images/SVG/sicons.svg);
                 background-position: 39px 37px;
@@ -668,7 +575,6 @@ body {
 		padding: 0px 0px 10px;
 	    }
 	    .images {
-
                 //display: flex;
                 //flex-wrap: wrap;
                 display: block;
@@ -712,12 +618,10 @@ body {
 
 .close-icon {
     b:first-child {
-        -webkit-transform:translate3d(0, 7px, 0) rotate(45deg);
-        transform:translate3d(0, 7px, 0) rotate(45deg)
+        @include transform(translate3d(0, 7px, 0) rotate(45deg));
     }
     b:last-child {
-        -webkit-transform:translate3d(0, 5px, 0) rotate(-45deg);
-	transform:translate3d(0, 5px, 0) rotate(-45deg)
+        @include transform(translate3d(0, 5px, 0) rotate(-45deg));
     }
 }
 
@@ -726,16 +630,13 @@ body {
 /*********************************************************************
  *                    RESIZING THE WINDOW                             *
  *********************************************************************/
-@media screen and (max-width: 1150px) {
-
-}
+@media screen and (max-width: 1150px) { }
 
 @media screen and (max-width: 860px) {
     #logo {
 	.tv-tower { @include bg-cover; width: 34px; height: 120px;  left:10px;}
 	.eatout-text { @include bg-cover; left: 50px; height: 38px; width: 79px; }
     }
-
 }
 
 @media screen and (max-height: 450px) {
@@ -781,18 +682,19 @@ body {
 	 }
      }
 }
-@media screen and (max-width: 760px) {
 
+@media screen and (max-width: 760px) {
     .info-content {
 	.description { font-size: 15px; }
     }
-    .menu-icon { z-index: 15; }
-    #main-menu { z-index: 12; }
+    .menu-icon  { z-index: 15; }
+    #main-menu  { z-index: 12; }
     #main-panel {
 	width: 100vw !important;
-        .expand-panel { display: none; }
 	/*We need this for chrome for phones not just max width*/
 	height: initial;
+
+        .expand-panel { display: none; }
 	.suggestion-wrapper {
 	    .searchbox {
 		padding: 24px 0px 24px 90px;
@@ -804,7 +706,6 @@ body {
 }
 
 @media screen and (min-width: 870px) {
-
     #main-panel.expanded-100 {
 	.place-wrapper .content {
 	    padding: 55px 10vw 20px 10vw;
