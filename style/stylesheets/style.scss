@@ -137,13 +137,13 @@ body {
 
 .tag-list {
     position: absolute;
-    top: 40px;
-    right: 180px;
-    width: 70%;
-    transition: transform 1s ease;
-    @include transition(transform 1s ease);
+    top: 90px;
+    right: 15px;
+    width: 160px;
+    @include transition(transform 0.5s ease-out);
 
     &.panel-open {
+        @include transition(transform 0.5s ease-out);
         @include transform(translateX(-52vw));
         right: 0;
         width: 170px;
@@ -157,8 +157,9 @@ body {
         cursor: pointer;
         font-size: 15px;
         padding: 5px 10px;
-        display: inline-block;
+        display: block;
         font-weight: bold;
+
         .close-icon {
             display: inline-block;
             height: 13px;
@@ -242,6 +243,14 @@ body {
     z-index: 0;
     position: absolute;
     top: 18px; right: 20px;
+
+    @include transition(transform 0.5s ease-out);
+
+    &.panel-open {
+        @include transition(transform 0.5s ease-out);
+        @include transform(translateX(-52vw));
+        right: 0;
+    }
 
     a { color:#333; text-decoration:none; overflow: hidden; display: flex; }
     .w-temp {
@@ -332,12 +341,11 @@ body {
 	    color: #AAA;
 
 	    &.submenu-food { padding: 8px 6px;}
-	    &.submenu-all { color: white; padding: 8px 25px;}
+	    &.submenu-all  { color: white; padding: 8px 25px;}
 
-	    &.checkall, &.checkall:hover { background-color: $green; color: white; }
-	    &.checkitem, &.checkitem:hover {
-		color: $green;
-	    }
+	    &.checkall, &.checkall:hover   { background-color: $green; color: white; }
+	    &.checkitem, &.checkitem:hover { color: $green; }
+
 	    .icon-container { display: inline-block; width: 11px; height: 10px; margin-right: 5px; }
 	    .checkicon {
                 @include transform(rotate(45deg));

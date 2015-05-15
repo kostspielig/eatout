@@ -175,6 +175,9 @@ eob_controllers.controller 'eob_MenuCtrl', ($scope, $location, eob_data) ->
         $scope.active = ''
         $scope.centerPosition district.lat, district.lng, district.zoom
 
+    $scope.closeSubmenus = () ->
+        $scope.active = ''
+
     $scope.toggleItem = (item) ->
         $scope.active = (if $scope.active is item then '' else item)
 
@@ -220,6 +223,7 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
 
     $scope.toggleMenu = ->
         $scope.seemenu = !$scope.seemenu
+        $scope.active = ''
 
     $scope.setPlace = (place) -> $scope.place = place
     $scope.setSuggestions = (place) -> $scope.suggestions = place

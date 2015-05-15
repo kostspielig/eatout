@@ -6,10 +6,10 @@
   </div>
   <div class="tag-list {{seepanel ? 'panel-open' : 'panel-close'}}">
     <ul>
-      <li class="tag" ng-class="" ng-repeat="(food, val) in foodTypeChecked" ng-if="val" ng-click="menuSelectFoodType(food);">{{food}} <div class="close-icon no-animation"><b></b> <b></b></div></li>
+      <li class="tag {{ getColor(food) }}" ng-class="" ng-repeat="(food, val) in foodTypeChecked" ng-if="val" ng-click="menuSelectFoodType(food);">{{food}} <div class="close-icon no-animation"><b></b> <b></b></div></li>
     </ul>
   </div>
-  <div id="main-menu" ng-show="seemenu">
+  <div id="main-menu" ng-show="seemenu" click-out="closeSubmenus()">
 
     <div class="menu-content">
       <div class="header"></div>
@@ -36,6 +36,7 @@
 	</ul>
       </div>
     </div>
+
     <div class="submenus {{active}}">
       <ul class="submenu" ng-show="isActive('foodItem')">
 	<li class="submenu-item submenu-all" ng-class="{checkall: allChecked, notcheckall: !allChecked}"  ng-click="menuSelectAll();"> all</li>
