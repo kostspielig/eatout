@@ -17,6 +17,9 @@ coffee = require 'gulp-coffee'
 gutil = require 'gulp-util'
 changed = require 'gulp-changed'
 debug = require 'gulp-debug'
+yaml = require 'gulp-yaml'
+jsoncombine = require 'gulp-jsoncombine'
+_ = require 'underscore'
 
 sources =
     sass:    'style/**/*.scss'
@@ -25,6 +28,7 @@ sources =
     coffee:  'src/coffee/**/*.coffee'
     sources: 'src/**/*.js'
     images:  'style/images/places/**/*.{JPG,jpg}'
+    yaml:    'data/**/*.yaml'
 
 dest =
     coffee: 'src/coffee'
@@ -32,6 +36,7 @@ dest =
     html:   'dist/'
     js:     'dist/js'
     images: 'dist/images'
+    json:   'data'
 
 # Styles
 gulp.task 'styles', ->
@@ -72,6 +77,14 @@ gulp.task 'resize', ->
         .pipe(gulp.dest((file) ->
             file.base.replace('places', 'places-M')
         )) # Destination in the same folder as source
+
+# Convert json to
+gulp.task 'yaml2json', ->
+    gulp.src(sources.yaml)
+        .pipe yaml()
+        .pipe jsoncombine 'places.json',
+            ((data) -> new Buffer JSON.stringify _.values data),
+        .pipe gulp.dest dest.json
 
 # Clean
 gulp.task 'clean', ->

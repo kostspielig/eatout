@@ -17,3 +17,4 @@ node_modules/
 src/coffee/*.js
 style/images/places/*
 style/stylesheets/.sass-cache/
+data/places.json
