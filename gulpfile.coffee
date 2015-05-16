@@ -63,26 +63,15 @@ gulp.task 'scripts', ->
         .pipe(gulp.dest(dest.js))
         .pipe(notify(message: 'Scripts task complete'))
 
-# Images
-# gulp.task('images', function() {
-#    return gulp.src('src/images/**/*')
-#        .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-#        .pipe(gulp.dest('dist/images'))
-#        .pipe(notify({ message: 'Images task complete' }));
-#});
-
 # Images -resize
 gulp.task 'resize', ->
-    gulp.src(sources.images) # 'style/images/places/Lagari/*.{JPG,jpg}'
+    gulp.src(sources.images)
         .pipe imageResize
             width : 1000
             upscale : false
-        #.pipe(rename(suffix: "-M"))
         .pipe(gulp.dest((file) ->
-            # process.stdout.write(file.base)
-            return file.base.replace('places', 'places-M')
+            file.base.replace('places', 'places-M')
         )) # Destination in the same folder as source
-
 
 # Clean
 gulp.task 'clean', ->
