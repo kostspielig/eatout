@@ -21,6 +21,7 @@ yaml = require 'gulp-yaml'
 jsoncombine = require 'gulp-jsoncombine'
 _ = require 'underscore'
 path = require 'path'
+marked = require 'marked'
 
 sources =
     sass:    'style/**/*.scss'
@@ -87,7 +88,9 @@ gulp.task 'yaml2json', ->
             ((data) ->
                 result = _.pairs data
                     .map ([fname, obj]) ->
-                        _.extend obj, slug: path.basename path.dirname fname
+                        _.extend obj,
+                            slug: path.basename path.dirname fname
+                            description: marked obj.description
                 new Buffer JSON.stringify result),
         .pipe gulp.dest dest.json
 
