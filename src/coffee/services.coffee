@@ -1,18 +1,5 @@
 eob_services = angular.module 'eob.services', []
 
-# https://gist.github.com/bentruyman/1211400
-toSlug = (value) ->
-  # 1) convert to lowercase
-  # 2) remove dashes and pluses
-  # 3) replace spaces with dashes
-  # 4) remove everything but alphanumeric characters and dashes
-    value
-      .toLowerCase()
-      .replace /-+/g, ''
-      .replace /\s+/g, '-'
-      .replace /[^a-z0-9-]/g, ''
-
-
 eob_services.factory 'eob_imgCache', ($q) ->
   loadImg = (url) ->
     promise = $q.defer()
@@ -52,29 +39,17 @@ eob_services.factory 'eob_geolocation', ->
 
 
 eob_services.factory 'eob_data', ($http, $q) ->
-  service = {};
-
-  service.placesPromise = $http.get 'data/places.json'
-    .success (data) ->
-	    # Order the array by descending vertical position on the map
-	    data.sort (a, b) ->
-        (b.lat - a.lat)
-
-      # Compute slug information
-      data.forEach (place) ->
-        place.slug = toSlug place.name
-
-	    service.places = data
-
-
-  service.districtsPromise = $http.get 'data/districts.json'
+    service = {};
+    service.placesPromise = $http.get 'data/places.json'
         .success (data) ->
-    	    service.districts = data
-
-
-  service.promise = $q.all [service.placesPromise, service.districtsPromise]
-
-  service;
+            # Order the array by descending vertical position on the map
+            data.sort (a, b) -> b.lat - a.lat
+            service.places = data
+    service.districtsPromise = $http.get 'data/districts.json'
+        .success (data) ->
+            service.districts = data
+    service.promise = $q.all [service.placesPromise, service.districtsPromise]
+    return service
 
 
 eob_services.factory 'eob_weather', ['$http',
