@@ -1,6 +1,7 @@
 !_reset.css
 !lib/README.md
 *.css
+*.css.map
 *.pyc
 *~
 .DS_Store
@@ -14,6 +15,5 @@ dist/
 lib/bower
 node_modules/
 src/coffee/*.js
-style/images/places-M/*
 style/images/places/*
 style/stylesheets/.sass-cache/
