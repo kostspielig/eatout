@@ -17,11 +17,11 @@ eob_services.factory 'eob_imgCache', ($q) ->
   loadImg = (url) ->
     promise = $q.defer()
     img = new Image()
-    img.src = url
+    img.src = url.url
     img.onload  = -> promise.resolve(img)
     img.onerror = -> promise.reject(img)
     promise
-    
+
 
   cache = {};
 
@@ -32,9 +32,9 @@ eob_services.factory 'eob_imgCache', ($q) ->
       if promise == null
         promise = cache[key] = loadImg(images[key]);
       promises[key] = promise
-            
+
     $q.all promises
-        
+
 
 
 eob_services.factory 'eob_geolocation', ->
@@ -59,21 +59,21 @@ eob_services.factory 'eob_data', ($http, $q) ->
 	    # Order the array by descending vertical position on the map
 	    data.sort (a, b) ->
         (b.lat - a.lat)
-	    
+
       # Compute slug information
       data.forEach (place) ->
         place.slug = toSlug place.name
-            
+
 	    service.places = data
-        
+
 
   service.districtsPromise = $http.get 'data/districts.json'
         .success (data) ->
     	    service.districts = data
-        
+
 
   service.promise = $q.all [service.placesPromise, service.districtsPromise]
-    
+
   service;
 
 
