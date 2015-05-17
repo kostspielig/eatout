@@ -4,6 +4,17 @@ runtime: python27
 api_version: 1
 threadsafe: true
 
+skip_files:
+- ^(.*/)?.sass-cache/.*$
+- ^(.*/)?.*\.coffee$
+- ^(.*/)?.*\.scss$
+- ^(.*/)?.git(.*/)?$
+- ^config/.*$
+- ^data/.*\.yaml$
+- ^node_modules/.*$
+- ^test/.*$
+- ^util/.*$
+
 libraries:
 - name: jinja2
   version: latest
