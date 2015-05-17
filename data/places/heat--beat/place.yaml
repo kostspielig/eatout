@@ -1,0 +1,20 @@
+name: 'Heat & Beat'
+url: 'https://www.facebook.com/pages/Heat-Beat/435280026581997'
+address: Sonnenallee 67
+date: '2015-04-25'
+foodtype: burger
+lat: 52.48447
+lng: 13.43492
+title: The Burger
+description: ''
+rating: 4.3
+pricerange: 1
+recommended: false
+images:
+  - images/places-M/HeatAndBeat/cover.JPG
+  - images/places-M/HeatAndBeat/image1.JPG
+  - images/places-M/HeatAndBeat/image2.JPG
+  - images/places-M/HeatAndBeat/image3.JPG
+  - images/places-M/HeatAndBeat/image4.JPG
+  - images/places-M/HeatAndBeat/image5.JPG
+  - images/places-M/HeatAndBeat/image6.JPG

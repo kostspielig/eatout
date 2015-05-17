@@ -1,0 +1,17 @@
+name: Markthalle Neun
+url: 'http://www.markthalleneun.de/'
+address: Eisenbahnstraße 42
+date: '2014-02-15'
+foodtype: german
+lat: 52.502166
+lng: 13.431472
+title: New concept of food and shopping made fun
+description: 'This charming market has many options to eat, you can find from delicious curry bursts to all different types of cheesse. Definitely this a place not to be missed.'
+rating: 4.5
+pricerange: 2
+images:
+  - images/places-M/MarkthalleNeun/cover.JPG
+  - images/places-M/MarkthalleNeun/image1.JPG
+  - images/places-M/MarkthalleNeun/image2.JPG
+  - images/places-M/MarkthalleNeun/image3.JPG
+  - images/places-M/MarkthalleNeun/image4.JPG

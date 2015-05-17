@@ -17,6 +17,11 @@ coffee = require 'gulp-coffee'
 gutil = require 'gulp-util'
 changed = require 'gulp-changed'
 debug = require 'gulp-debug'
+yaml = require 'gulp-yaml'
+jsoncombine = require 'gulp-jsoncombine'
+_ = require 'underscore'
+path = require 'path'
+marked = require 'marked'
 
 sources =
     sass:    'style/**/*.scss'
@@ -25,6 +30,7 @@ sources =
     coffee:  'src/coffee/**/*.coffee'
     sources: 'src/**/*.js'
     images:  'style/images/places/**/*.{JPG,jpg}'
+    yaml:    'data/**/*.yaml'
 
 dest =
     coffee: 'src/coffee'
@@ -32,6 +38,7 @@ dest =
     html:   'dist/'
     js:     'dist/js'
     images: 'dist/images'
+    json:   'data'
 
 # Styles
 gulp.task 'styles', ->
@@ -63,26 +70,29 @@ gulp.task 'scripts', ->
         .pipe(gulp.dest(dest.js))
         .pipe(notify(message: 'Scripts task complete'))
 
-# Images
-# gulp.task('images', function() {
-#    return gulp.src('src/images/**/*')
-#        .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-#        .pipe(gulp.dest('dist/images'))
-#        .pipe(notify({ message: 'Images task complete' }));
-#});
-
 # Images -resize
 gulp.task 'resize', ->
-    gulp.src(sources.images) # 'style/images/places/Lagari/*.{JPG,jpg}'
+    gulp.src(sources.images)
         .pipe imageResize
             width : 1000
             upscale : false
-        #.pipe(rename(suffix: "-M"))
         .pipe(gulp.dest((file) ->
-            # process.stdout.write(file.base)
-            return file.base.replace('places', 'places-M')
+            file.base.replace('places', 'places-M')
         )) # Destination in the same folder as source
 
+# Convert json to
+gulp.task 'yaml2json', ->
+    gulp.src(sources.yaml)
+        .pipe yaml()
+        .pipe jsoncombine 'places.json',
+            ((data) ->
+                result = _.pairs data
+                    .map ([fname, obj]) ->
+                        _.extend obj,
+                            slug: path.basename path.dirname fname
+                            description: marked obj.description
+                new Buffer JSON.stringify result),
+        .pipe gulp.dest dest.json
 
 # Clean
 gulp.task 'clean', ->

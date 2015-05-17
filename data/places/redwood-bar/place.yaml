@@ -1,0 +1,15 @@
+name: Redwood Bar
+url: 'http://www.redwoodbar.de/'
+address: Bergstraße 25
+date: '2014-08-17'
+foodtype: cocktails
+lat: 52.53181
+lng: 13.39466
+title: The best cocktails
+description: 'Phasellus iaculis venenatis viverra. Pellentesque mattis lectus sem. Donec facilisis dolor sed tellus mattis venenatis. Nullam gravida gravida est et egestas. Nam varius semper lacus eget hendrerit. Integer metus diam, ornare sit amet commodo vitae, posuere posuere enim. Aenean imperdiet est sapien, ut volutpat augue lacinia id.'
+rating: 4.8
+pricerange: 2.5
+images:
+  - images/places-M/Redwood/cover.JPG
+  - images/places-M/Redwood/image1.JPG
+  - images/places-M/Redwood/image2.JPG

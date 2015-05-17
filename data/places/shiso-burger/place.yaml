@@ -1,0 +1,19 @@
+name: Shiso Burger
+url: 'http://www.shisoburger.de/'
+address: Auguststraße 29
+date: '2014-07-18'
+foodtype: burger
+lat: 52.527236
+lng: 13.398483
+title: Japanese style burgers
+description: 'It may not have the best burger in town, but for some reason I keep coming back for more. All the burgers have a unique flavour, and the fries are to die for. One of the must-order burgers is the chilli lemon: a unique pleasure to your senses.'
+rating: 4.3
+pricerange: 1
+images:
+  - images/places-M/SishoBurger/cover.JPG
+  - images/places-M/SishoBurger/image1.JPG
+  - images/places-M/SishoBurger/image2.JPG
+  - images/places-M/SishoBurger/image3.JPG
+  - images/places-M/SishoBurger/image4.JPG
+  - images/places-M/SishoBurger/image5.JPG
+  - images/places-M/SishoBurger/image6.JPG

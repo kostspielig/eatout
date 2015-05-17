@@ -1,0 +1,17 @@
+name: Ristorante Masaniello
+url: 'http://www.masaniello.de'
+address: Hasenheide 20
+date: '2014-04-20'
+foodtype: italian
+lat: 52.48801
+lng: 13.41893
+title: Title
+description: 'Pizza in this restaurant is amazing, you have a wide variety to choose from. The downside? It is always crowded, and might not be the most romantic place to enjoy a quite dinner. I would recommend the terrace outside and the dessert!'
+rating: 3.4
+pricerange: 2
+images:
+  - images/places-M/Masaniello/cover.JPG
+  - images/places-M/Masaniello/image1.JPG
+  - images/places-M/Masaniello/image2.JPG
+  - images/places-M/Masaniello/image3.JPG
+  - images/places-M/Masaniello/image4.JPG

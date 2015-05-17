@@ -1,0 +1,19 @@
+name: Restaurant Richard
+url: 'http://www.restaurant-richard.de/'
+address: Köpenicker Straße 174
+date: '2015-03-24'
+foodtype: french
+lat: 52.504206
+lng: 13.435268
+title: From Paris with style
+description: ''
+rating: 4.8
+pricerange: 5
+recommended: true
+images:
+  - images/places-M/Richard/cover.JPG
+  - images/places-M/Richard/image1.JPG
+  - images/places-M/Richard/image2.JPG
+  - images/places-M/Richard/image3.JPG
+  - images/places-M/Richard/image4.JPG
+  - images/places-M/Richard/image5.JPG

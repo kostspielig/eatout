@@ -1,0 +1,18 @@
+name: Maria Bonita
+url: 'http://mariabonitaberlin.wordpress.com/'
+date: '2014-05-31'
+address: Danziger Strasse 33
+foodtype: mexican
+lat: 52.54041
+lng: 13.418194
+title: The closest Mexican food we have found in Berlin
+description: "Berlin's First Authentic Mexican Restaurant."
+rating: 4
+pricerange: 1
+images:
+  - images/places-M/MariaBonita/cover.JPG
+  - images/places-M/MariaBonita/image2.JPG
+  - images/places-M/MariaBonita/image3.JPG
+  - images/places-M/MariaBonita/image4.JPG
+  - images/places-M/MariaBonita/image5.JPG
+  - images/places-M/MariaBonita/image6.JPG

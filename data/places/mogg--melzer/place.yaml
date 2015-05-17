@@ -1,0 +1,18 @@
+name: 'Mogg & Melzer'
+url: 'http://moggandmelzer.com'
+address: Auguststraße 11-13
+date: '2014-04-22'
+foodtype: sandwich
+lat: 52.526498
+lng: 13.394434
+title: Title
+description: Delish Turkey Pastrami
+rating: 3.8
+pricerange: 2
+images:
+  - images/places-M/MoggMelzer/cover.JPG
+  - images/places-M/MoggMelzer/image1.JPG
+  - images/places-M/MoggMelzer/image2.JPG
+  - images/places-M/MoggMelzer/image3.JPG
+  - images/places-M/MoggMelzer/image4.JPG
+  - images/places-M/MoggMelzer/image5.JPG

@@ -1,0 +1,16 @@
+name: Black Cat
+url: 'http://blackcat.berlin/'
+address: Prenzlauer Allee 48
+date: '2015-03-25'
+foodtype: burger
+lat: 52.537227
+lng: 13.423372
+title: The Black Burger
+description: ''
+rating: 3.9
+pricerange: 2
+images:
+  - images/places-M/BlackCat/cover.JPG
+  - images/places-M/BlackCat/image1.JPG
+  - images/places-M/BlackCat/image2.JPG
+  - images/places-M/BlackCat/image3.JPG

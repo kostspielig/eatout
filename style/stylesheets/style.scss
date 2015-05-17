@@ -121,33 +121,33 @@ body {
 
 .expanded-100 {
     a.expand-panel {
-        @include transform(rotate(-180deg) translateX(-4px));
+        @include transform(rotate(-180deg));
     }
 }
 
 .expand-panel {
     position: fixed;
     cursor: pointer;
-    top: 28px;
-    left: 16px;
-    width: 40px;
-    height: 40px;
+    top: 25px;
+    left: 20px;
+    width: 24px;
+    height: 28px;
 
     @include transition(0.5s transform ease-out);
 
     b:nth-child(1) {
-        @include transform(translate3d(0, 8px, 0) rotate(-45deg));
+        @include transform(translate3d(-5px, 6px, 0) rotate(-45deg));
         width: 20px;
     }
 
     b:nth-child(2) {
-        @include transform(translate3d(0, 19px, 0) rotate(45deg));
+        @include transform(translate3d(-5px, 18px, 0) rotate(45deg));
         width: 20px;
     }
 
     b:nth-child(3) {
-        @include transform(translate3d(10px, 10px, 0));
-        width: 17px;
+        @include transform(translate3d(0px, 9px, 0));
+        width: 24px;
     }
 }
 

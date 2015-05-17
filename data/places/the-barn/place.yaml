@@ -1,0 +1,20 @@
+name: The Barn
+url: 'http://barn.bigcartel.com/'
+address: Schönhauser Allee 8
+date: '2014-02-21'
+foodtype: breakfast
+lat: 52.529971
+lng: 13.410655
+title: Coffee Roastery
+description: 'Never have I ever tried such a great coffee, the taste without sugar is superb. We also tried the carrot cake, and it was a great delight. The only reason why I did not give them a 5 is because the chairs are not really confortable, I would have loved to spend the afternoon there.'
+rating: 4.7
+pricerange: 2
+images:
+  - images/places-M/TheBarn/cover.JPG
+  - images/places-M/TheBarn/image1.JPG
+  - images/places-M/TheBarn/image2.JPG
+  - images/places-M/TheBarn/image3.JPG
+  - images/places-M/TheBarn/image4.JPG
+  - images/places-M/TheBarn/image5.JPG
+  - images/places-M/TheBarn/image6.JPG
+  - images/places-M/TheBarn/image7.JPG
