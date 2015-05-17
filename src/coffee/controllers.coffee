@@ -1,7 +1,7 @@
 
 eob_controllers = angular.module 'eob.controllers', []
 
-DROP_DELAY = 200
+DROP_DELAY = 0
 
 BERLIN_POS = new google.maps.LatLng 52.5170423, 13.4018519
 
@@ -274,7 +274,7 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
 
           markers.push findMeMarker
 
-          $scope.centerPosition position.coords.latitude, position.coords.longitude  if center
+          $scope.centerPosition position.coords.latitude, position.coords.longitude if center
 
           getSuggestedPlaces pos, $scope.places
 
@@ -288,7 +288,19 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
         mapTypeId: google.maps.MapTypeId.ROADMAP
         styles: MAP_STYLES
 
+    mcOptions =
+        gridSize: 50
+        maxZoom: 15
+        styles:
+            for i in [1..6]
+                url: "images/cluster/c#{i}.svg"
+                height: 52
+                width: 52
+                textSize: 17
+
     map = new google.maps.Map(document.getElementById('map-canvas'), mapData)
+
+    mc = null
     markers = []
 
     addMarkersFrom = (index) ->
@@ -318,12 +330,20 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
                 return
         else if index is $scope.places.length
             $scope.findMe false
+            mc = new MarkerClusterer(map, markers, mcOptions)
+            mc.setCalculator (markers, styles) ->
+                text: "<span class='cluster-txt'>#{markers.length}</span>"
+                index: Math.min markers.length-1, styles
 
     $scope.filterMarkers = (types) ->
+        mm = []
         _.map markers, (marker) ->
             visible = undefined != _.find types, (type) ->
                 marker.getIcon().url is MARKER_ICONS[type].url
             marker.setVisible visible
+            mm.push marker unless not visible
+        mc.clearMarkers()
+        mc.addMarkers(mm)
 
     getSuggestedPlaces = (pos, places) ->
         suggestions = {}
