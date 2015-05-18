@@ -42,6 +42,9 @@ handlers:
 - url: /templates
   static_dir: templates
 
+- url: /dist
+  static_dir: dist
+
 - url: /data
   static_dir: data
 

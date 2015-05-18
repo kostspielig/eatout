@@ -2,7 +2,6 @@
 eob_controllers = angular.module 'eob.controllers', []
 
 DROP_DELAY = 0
-
 BERLIN_POS = new google.maps.LatLng 52.5170423, 13.4018519
 
 ASCII_ART = "Made with ❤ by\n\n"+
