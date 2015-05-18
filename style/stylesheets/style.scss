@@ -162,6 +162,7 @@ body {
     top: 90px;
     right: 15px;
     width: 160px;
+    pointer-events: none;
     @include transition(transform 0.5s ease-out);
 
     &.panel-open {
@@ -171,6 +172,7 @@ body {
         width: 170px;
     }
     .tag {
+        pointer-events: all;
         background: $red;
         float: right;
         color: white;
