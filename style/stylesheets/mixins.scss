@@ -71,7 +71,3 @@
     @include css3-prefix('animation-name', $name);
     @include css3-prefix('animation-fill-mode', $fill);
 }
-
-/*@mixin animation($str) {
-  @include css3-prefix('animation', $str);
-}*/

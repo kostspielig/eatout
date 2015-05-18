@@ -2,7 +2,6 @@
 eob_controllers = angular.module 'eob.controllers', []
 
 DROP_DELAY = 0
-
 BERLIN_POS = new google.maps.LatLng 52.5170423, 13.4018519
 
 ASCII_ART = "Made with ❤ by\n\n"+
@@ -136,7 +135,6 @@ eob_controllers.controller 'eob_WeatherCtrl', ($scope, eob_weather) ->
     return
 
 eob_controllers.controller 'eob_MenuCtrl', ($scope, $location, eob_data) ->
-
     eob_data.districtsPromise.success (data) ->
         $scope.districts = data
 
@@ -238,9 +236,11 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
             setTimeout (->
                 mapWidth = document.getElementById("map-canvas").offsetWidth
                 panelWidth = if not $scope.seepanel \
-                             then 0 else document.getElementById("main-panel").offsetWidth
+                             then 0
+                             else document.getElementById("main-panel").offsetWidth
                 menuWidth  = if not $scope.seemenu \
-                             then 0 else document.getElementById("main-menu").offsetWidth
+                             then 0
+                             else document.getElementById("main-menu").offsetWidth
                 panelWidth = 0  if panelWidth >= mapWidth
                 adjust = panelWidth / 2 - menuWidth / 2
                 map.panTo center
@@ -258,25 +258,25 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
                                              position.coords.longitude
 
     $scope.findMe = (center) ->
-      eob_geolocation.getCurrentPosition (position) ->
-        eob_imgCache.load( _.pick MARKER_ICONS, 'findme').then ->
-          pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
-          if findMeMarker isnt null
-              markers.splice markers.indexOf(findMeMarker), 1
-              findMeMarker.setMap null
+        eob_geolocation.getCurrentPosition (position) ->
+            eob_imgCache.load( _.pick MARKER_ICONS, 'findme').then ->
+                pos = new google.maps.LatLng position.coords.latitude, position.coords.longitude
+                if findMeMarker isnt null
+                    markers.splice markers.indexOf(findMeMarker), 1
+                    findMeMarker.setMap null
 
-          findMeMarker = new google.maps.Marker
-              map: map
-              position: pos
-              icon: "images/SVG/iamhere.svg"
-              animation: google.maps.Animation.DROP
-              zIndex: 9999999
+                findMeMarker = new google.maps.Marker
+                    map: map
+                    position: pos
+                    icon: "images/SVG/iamhere.svg"
+                    animation: google.maps.Animation.DROP
+                    zIndex: 9999999
 
-          markers.push findMeMarker
+                markers.push findMeMarker
 
-          $scope.centerPosition position.coords.latitude, position.coords.longitude if center
+                $scope.centerPosition position.coords.latitude, position.coords.longitude if center
 
-          getSuggestedPlaces pos, $scope.places
+                getSuggestedPlaces pos, $scope.places
 
     eob_data.placesPromise.success (data) ->
         $scope.places = data
@@ -352,7 +352,7 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
 
         for place, i in places
             placePos = new google.maps.LatLng(place.lat, place.lng)
-            distance = (google.maps.geometry.spherical.computeDistanceBetween( pos, placePos ) / 1000).toFixed(2)
+            distance = (google.maps.geometry.spherical.computeDistanceBetween(pos, placePos) / 1000).toFixed(2)
             place.distance = distance
             if min > distance then min = distance
 
@@ -383,7 +383,7 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
 
 eob_controllers.controller 'eob_PlaceCtrl', ($scope, $location, $window) ->
     shareMsg = (place) ->
-         'I found delicious ' + place.foodtype + ' at '+ place.name + ' via #EatOutBerlin'
+        'I found delicious ' + place.foodtype + ' at '+ place.name + ' via #EatOutBerlin'
 
     twitterShareUrl = ->
         event = event or window.event

@@ -1,29 +1,32 @@
 {
-  "name": "EatOutBerlin",
-  "version": "0.0.0",
-  "description": "Awesome places to eat in Berlin",
-  "keywords": [
-    "eat",
-    "out",
-    "berlin",
-    "food",
-    "restaurants"
-  ],
-  "authors": [
-    "Maria Carrasco",
-    "Juan Pedro Bolivar"
-  ],
-  "license": "MIT",
-  "homepage": "eatoutberlin.com",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "lib/bower",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "angular-deckgrid": "~0.5.0"
-  }
+    "name": "EatOutBerlin",
+    "version": "0.0.0",
+    "description": "Awesome places to eat in Berlin",
+    "keywords": [
+        "eat",
+        "out",
+        "berlin",
+        "food",
+        "restaurants"
+    ],
+    "authors": [
+        "Maria Carrasco",
+        "Juan Pedro Bolivar"
+    ],
+    "license": "MIT",
+    "homepage": "eatoutberlin.com",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "lib/bower",
+        "test",
+        "tests"
+    ],
+    "devDependencies": {
+        "angular": "1.3.0-beta.10",
+        "angular-route": "1.3.0-beta.10",
+        "angular-animate": "1.3.0-beta.10",
+        "underscore": "~1.8.3"
+    }
 }
