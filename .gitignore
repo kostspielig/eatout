@@ -15,6 +15,7 @@ dist/
 lib/bower
 node_modules/
 src/coffee/*.js
+src/coffee/*.js.map
 style/images/places/*
 style/stylesheets/.sass-cache/
 data/places.json
