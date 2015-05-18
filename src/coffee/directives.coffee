@@ -9,16 +9,6 @@ eob_directives
                     element.parent().removeClass('open')
                 else element.parent().addClass('open')
 
-
-    .directive 'eob-markdown', ->
-        converter = new Showdown.converter()
-        {
-            restrict: 'E',
-            link: (scope, element, attrs) ->
-                htmlText =  converter.makeHtml element.text()
-                element.html htmlText
-        }
-
     .directive 'clickOut', ($window, $parse) ->
         {
             restrict: 'A',
