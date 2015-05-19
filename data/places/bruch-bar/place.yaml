@@ -6,9 +6,12 @@ foodtype: breakfast
 lat: 52.487005
 lng: 13.4308384
 title: 'Breakfast & Cocktail Bar'
-description: ''
 rating: 4.3
 pricerange: 2
+phone: 0176 72139520
+recommended: false
+description: ''
+
 images:
   - images/places-M/Bruch/cover.JPG
   - images/places-M/Bruch/image1.JPG

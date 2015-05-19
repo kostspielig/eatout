@@ -6,10 +6,12 @@ foodtype: brunch
 lat: 52.50572
 lng: 13.33776
 title: At the 25hours hotel bikini berlin
-description: 'The culinary mosaic of Persian, Russian, Arabic, Moroccan, Turkish, Spanish, German and Austrian influences'
 rating: 4.1
 pricerange: 3
+phone: 030 12022120
 recommended: true
+description: 'The culinary mosaic of Persian, Russian, Arabic, Moroccan, Turkish, Spanish, German and Austrian influences'
+
 images:
   - images/places-M/Neni/cover.JPG
   - images/places-M/Neni/image1.JPG

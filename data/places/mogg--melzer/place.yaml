@@ -6,9 +6,12 @@ foodtype: sandwich
 lat: 52.526498
 lng: 13.394434
 title: Title
-description: Delish Turkey Pastrami
 rating: 3.8
 pricerange: 2
+phone: 030 330060770
+recommended: falsex
+description: Delish Turkey Pastrami
+
 images:
   - images/places-M/MoggMelzer/cover.JPG
   - images/places-M/MoggMelzer/image1.JPG

@@ -6,10 +6,12 @@ foodtype: french
 lat: 52.504206
 lng: 13.435268
 title: From Paris with style
-description: ''
 rating: 4.8
 pricerange: 5
+phone: 030 49207242
 recommended: true
+description: One of the best experiences in Berlin
+
 images:
   - images/places-M/Richard/cover.JPG
   - images/places-M/Richard/image1.JPG

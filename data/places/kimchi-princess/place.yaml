@@ -6,9 +6,12 @@ foodtype: viet
 lat: 52.498557
 lng: 13.425854
 title: Korean restaurant in Kreuzberg
-description: 'Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa.'
 rating: 4.1
 pricerange: 3
+phone: 0163 4580203
+recommended: false
+description: 'Maecenas dapibus interdum mi, ac sodales nunc mollis sed. Donec dignissim dui non enim tristique, nec placerat nibh gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros lorem. Proin egestas massa non sapien volutpat tempor. Aliquam malesuada fermentum congue. Nullam dictum magna sit amet mauris luctus aliquet. Proin mollis felis magna, nec tristique ante porta fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa.'
+
 images:
   - images/places-M/KimchiPrincess/cover.JPG
   - images/places-M/KimchiPrincess/image1.JPG

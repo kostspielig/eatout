@@ -6,9 +6,12 @@ foodtype: german
 lat: 52.53106
 lng: 13.414893
 title: German Kuche
-description: Hola
 rating: 3.7
 pricerange: 1
+phone: 030 4427656
+recommended: false
+description: Positive
+
 images:
   - images/places-M/MetzerEck/cover.JPG
   - images/places-M/MetzerEck/image1.JPG

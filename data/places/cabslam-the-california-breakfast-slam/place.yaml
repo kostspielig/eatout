@@ -6,9 +6,12 @@ foodtype: breakfast
 lat: 52.483219
 lng: 13.446782
 title: Coffee Roastery
-description: 'Are you hungry? This is the place to be. I was not really sure about what to expect, since I have lived in California and could not remember that there was a Californian type of breakfast. The result? Well, the food is plenty and delicious.'
 rating: 4
 pricerange: 2
+phone: 030 6869624
+recommended: false
+description: 'Are you hungry? This is the place to be. I was not really sure about what to expect, since I have lived in California and could not remember that there was a Californian type of breakfast. The result? Well, the food is plenty and delicious.'
+
 images:
   - images/places-M/CabSlam/cover.JPG
   - images/places-M/CabSlam/image1.JPG

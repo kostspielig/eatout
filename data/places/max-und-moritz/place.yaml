@@ -6,9 +6,12 @@ foodtype: german
 lat: 52.502646
 lng: 13.414026
 title: Authentic German Experience
-description: ''
 rating: 4
 pricerange: 3.5
+phone: 030 69515911
+recommended: false
+description: Great german food
+
 images:
   - images/places-M/MaxUndMoritz/cover.JPG
   - images/places-M/MaxUndMoritz/image1.JPG

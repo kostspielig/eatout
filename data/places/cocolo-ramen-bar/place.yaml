@@ -6,9 +6,12 @@ foodtype: viet
 lat: 52.49623
 lng: 13.4221
 title: Title
-description: Ramen
 rating: 4.3
 pricerange: 2
+phone: 030 98339073
+recommended: false
+description: Ramen bei den Kanal
+
 images:
   - images/places-M/Cocolo/cover.JPG
   - images/places-M/Cocolo/image1.JPG

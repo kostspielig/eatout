@@ -6,10 +6,12 @@ foodtype: breakfast
 lat: 52.52471
 lng: 13.38885
 title: 'Breakfast from Williamsburg, Brooklyn'
-description: ''
 rating: 4.1
 pricerange: 2
+phone: 030 27582877
 recommended: true
+description: ''
+
 images:
   - images/places-M/HOSM/cover.JPG
   - images/places-M/HOSM/image1.JPG

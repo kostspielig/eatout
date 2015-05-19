@@ -6,10 +6,12 @@ foodtype: burger
 lat: 52.48447
 lng: 13.43492
 title: The Burger
-description: ''
 rating: 4.3
 pricerange: 1
+phone: 01523 8455905
 recommended: false
+description: ''
+
 images:
   - images/places-M/HeatAndBeat/cover.JPG
   - images/places-M/HeatAndBeat/image1.JPG

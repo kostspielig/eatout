@@ -6,9 +6,12 @@ foodtype: italian
 lat: 52.49055
 lng: 13.43518
 title: Italian Bistrot
-description: ''
 rating: 4.3
 pricerange: 2
+phone: 01521 7752702
+recommended: false
+description: ''
+
 images:
   - images/places-M/Gaia/cover.JPG
   - images/places-M/Gaia/image1.JPG

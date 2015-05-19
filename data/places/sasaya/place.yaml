@@ -6,9 +6,12 @@ foodtype: japanese
 lat: 52.544239
 lng: 13.418352
 title: "Berlin's authentic Japaneese delight."
-description: "Berlin's authentic Japaneese."
 rating: 4.5
 pricerange: 2.5
+phone: 030 44717721
+recommended: true
+description: "Berlin's authentic Japaneese."
+
 images:
   - images/places-M/Sasaya/image0.JPG
   - images/places-M/Sasaya/image1.JPG
