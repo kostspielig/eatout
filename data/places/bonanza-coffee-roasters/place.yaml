@@ -1,0 +1,17 @@
+name: Bonanza Coffee Roasters
+url: 'www.bonanzacoffee.de'
+address: Schönhauser Allee 8
+date: '2014-07-18'
+foodtype: breakfast
+lat: 52.539977
+lng: 13.405374
+title: Coffee Roastery
+rating: 4.5
+pricerange: 1
+phone: 0171 5630795
+recommended: false
+description: Coffee near mauer park
+
+images:
+  - images/places-M/bonanza-coffee-roasters/cover.JPG
+  - images/places-M/bonanza-coffee-roasters/image1.JPG
