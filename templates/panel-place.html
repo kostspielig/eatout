@@ -8,10 +8,8 @@
     </a>
     <div class="place-info-area">
       <div class="place-info">
-	<div class="place-name">
-	  <a ng-href="{{place.url}}" target="_blank"> {{place.name}} </a>
-	</div>
-	<div class="rating-wrapper">
+	<div class="place-name">{{place.name}}</div>
+	<div class="rating-wrapper" title="Place rating">
 	  <div class="rating-number"> {{place.rating}} </div>
           <div class="rating">
             <div class="rating-value" style="width: {{place.rating*120/5}}px"></div>
@@ -20,8 +18,8 @@
             </div>
 	  </div>
 	</div>
-	<div class="place-address"><span class="sico ico-place"></span> {{place.address}}</div>
-	<div class="distance-from-me" ng-if="place.distance"> <span class="sico ico-walking"></span> {{place.distance}} km</div>
+	<div class="place-address" title="address"><span class="sico ico-place"></span> {{place.address}}</div>
+	<div class="distance-from-me" ng-if="place.distance" title="distance from me"> <span class="sico ico-walking"></span> {{place.distance}} km</div>
       </div>
       <div class="recommended" ng-if="place.recommended"></div>
       <div class="social-icons">
