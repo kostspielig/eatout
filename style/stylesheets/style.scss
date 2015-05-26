@@ -124,6 +124,16 @@ body {
     .love { color: $red; }
 }
 
+.ico-mail {
+    background: transparent url(/images/SVG/mail.svg) no-repeat 0 0;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    position: relative;
+    right: -2px;
+    bottom: -9px;
+}
+
 .menu-icon {
     position: absolute;
     top: 26px; left: 31px;
