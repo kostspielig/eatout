@@ -805,8 +805,18 @@ h3 { font-size: 22px; margin: 15px 0 10px 0;  font-weight: bold; }
 
 @media screen and (min-width: 870px) {
     #main-panel.expanded-100 {
-	.place-wrapper .content {
-	    padding: 20px 10vw 20px 10vw;
+	.place-wrapper {
+            .content {
+	        padding: 20px 10vw 20px 10vw;
+            }
+
+            .header .place-info-area {
+                padding: 0 10vw 20px 10vw;
+                .recommended { right: 10.3vw; }
+                .social-icons { right: 10vw; }
+            }
         }
+
+
     }
 }
