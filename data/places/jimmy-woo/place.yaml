@@ -6,9 +6,12 @@ foodtype: viet
 lat: 52.491949
 lng: 13.428121
 title: French indochine cuisine
-description: ''
 rating: 4
 pricerange: 2
+phone: 01573 5785369
+recommended: false
+description: Indochine-French cuisine
+
 images:
   - images/places-M/JimmyWoo/cover.JPG
   - images/places-M/JimmyWoo/image1.JPG

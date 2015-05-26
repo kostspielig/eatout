@@ -6,9 +6,12 @@ foodtype: japanese
 lat: 52.485864
 lng: 13.434984
 title: Japanese Tapas Bar
-description: 'As a sushi lover, Kuchi was the official stop in Mitte. Fresh rolls that melt in your mouth, and delicious sashimi.'
 rating: 4
 pricerange: 3
+phone: 0163 1633122
+recommended: false
+description: 'As a sushi lover, Kuchi was the official stop in Mitte. Fresh rolls that melt in your mouth, and delicious sashimi.'
+
 images:
   - images/places-M/DrTo/cover.JPG
   - images/places-M/DrTo/image1.JPG

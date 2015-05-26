@@ -6,9 +6,12 @@ foodtype: burger
 lat: 52.527236
 lng: 13.398483
 title: Japanese style burgers
-description: 'It may not have the best burger in town, but for some reason I keep coming back for more. All the burgers have a unique flavour, and the fries are to die for. One of the must-order burgers is the chilli lemon: a unique pleasure to your senses.'
 rating: 4.3
 pricerange: 1
+phone: 030 88944687
+recommended: false
+description: 'It may not have the best burger in town, but for some reason I keep coming back for more. All the burgers have a unique flavour, and the fries are to die for. One of the must-order burgers is the chilli lemon: a unique pleasure to your senses.'
+
 images:
   - images/places-M/SishoBurger/cover.JPG
   - images/places-M/SishoBurger/image1.JPG

@@ -6,9 +6,12 @@ foodtype: brunch
 lat: 52.48703
 lng: 13.43051
 title: Title
-pricerange: 2
-description: "Berlin's only French-Australian Café Restaurant and Cocktail bar."
 rating: 3.5
+pricerange: 2
+phone: 030 69515911
+recommended: false
+description: "Berlin's only French-Australian Café Restaurant and Cocktail bar."
+
 images:
   - images/places-M/MelbourneCanteen/image0.JPG
   - images/places-M/MelbourneCanteen/image1.JPG

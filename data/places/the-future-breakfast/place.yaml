@@ -6,10 +6,12 @@ foodtype: foodtruck
 lat: 52.49717
 lng: 13.39047
 title: The Breakfast Food Truch
-description: ''
 rating: 4.9
 pricerange: 2
+phone: 0176 80545667
 recommended: true
+description: Eggs Benedict speciality
+
 images:
   - images/places-M/TheFutureBreakfast/cover.JPG
   - images/places-M/TheFutureBreakfast/image1.JPG

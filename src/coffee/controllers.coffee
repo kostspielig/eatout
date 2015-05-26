@@ -29,6 +29,7 @@ MARKER_ICONS =
     #croissant: 'images/icons/croissant.png', color: ''
     #cheese: 'images/icons/cheese.png'
     french: url: 'images/icons/SVG/french.svg', color: 'light-blue'
+    foodmarket: url: 'images/icons/SVG/foodmarket.svg', color: 'orange'
     german: url: 'images/icons/SVG/german.svg', color: 'black'
     icecream: url: 'images/icons/SVG/icecream.svg', color: 'dark-blue'
     japanese: url: 'images/icons/SVG/sushi.svg', color: 'red'
@@ -272,8 +273,6 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
                     animation: google.maps.Animation.DROP
                     zIndex: 9999999
 
-                markers.push findMeMarker
-
                 $scope.centerPosition position.coords.latitude, position.coords.longitude if center
 
                 getSuggestedPlaces pos, $scope.places
@@ -373,6 +372,8 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
         for marker, i in markers
             if marker.getVisible() is true
                 bounds.extend marker.getPosition()
+        if findMeMarker.getVisible() is true
+            bounds.extend findMeMarker.getPosition()
         map.fitBounds bounds
 
     # do something only the first time the map is loaded

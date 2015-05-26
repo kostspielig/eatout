@@ -5,9 +5,12 @@ date: '2014-09-05'
 foodtype: icecream
 lat: 52.4923402
 lng: 13.4277503
-description: 'If this is not the best ice-cream in town, it  might be very close.'
 rating: 4.3
 pricerange: 1
+phone: 030 95595521
+recommended: false
+description: 'If this is not the best ice-cream in town, it  might be very close.'
+
 images:
   - images/places-M/Eiscafe/cover.JPG
   - images/places-M/Eiscafe/image1.JPG

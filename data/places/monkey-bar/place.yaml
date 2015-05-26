@@ -1,0 +1,19 @@
+name: Monkey Bar
+url: 'http://www.25hours-hotels.com/en/bikini/restaurant/monkey-bar.html'
+address: Bergstraße 25
+date: '2015-03-06'
+foodtype: cocktails
+lat: 52.505671
+lng: 13.337896
+title: Views to the zoo monkeys
+rating: 4.2
+pricerange: 3
+phone: 030 120221210
+recommended: true
+description: 'Phasellus iaculis venenatis viverra. Pellentesque mattis lectus sem. Donec facilisis dolor sed tellus mattis venenatis. Nullam gravida gravida est et egestas. Nam varius semper lacus eget hendrerit. Integer metus diam, ornare sit amet commodo vitae, posuere posuere enim. Aenean imperdiet est sapien, ut volutpat augue lacinia id.'
+
+images:
+  - images/places-M/monkey-bar/cover.JPG
+  - images/places-M/monkey-bar/image1.JPG
+  - images/places-M/monkey-bar/image2.JPG
+  - images/places-M/monkey-bar/image3.JPG

@@ -6,9 +6,12 @@ foodtype: mexican
 lat: 52.54041
 lng: 13.418194
 title: The closest Mexican food we have found in Berlin
-description: "Berlin's First Authentic Mexican Restaurant."
 rating: 4
 pricerange: 1
+phone: false
+recommended: false
+description: "Berlin's First Authentic Mexican Restaurant."
+
 images:
   - images/places-M/MariaBonita/cover.JPG
   - images/places-M/MariaBonita/image2.JPG

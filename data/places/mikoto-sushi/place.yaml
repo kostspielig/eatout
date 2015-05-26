@@ -6,10 +6,12 @@ foodtype: japanese
 lat: 52.5444
 lng: 13.4162941
 title: Sushi and Cocktails
-description: ''
 rating: 3.7
 pricerange: 2
+phone: 030 44677988
 recommended: true
+description: The perfect place for sushi and cocktails
+
 images:
   - images/places-M/Mikoto/cover.JPG
   - images/places-M/Mikoto/image1.JPG
