@@ -412,10 +412,12 @@ body {
 	}
     }
 
+    .menu-content-wrapper { width: 105px; overflow: hidden; }
     .menu-content {
 	padding: 92px  0 0 0px;
 	background: #282828;
-	width: 105px;
+	width: 120px;
+        overflow-y: scroll;
 
 	@include container-shadow;
 	@include click;
@@ -745,7 +747,7 @@ h3 { font-size: 22px; margin: 15px 0 10px 0;  font-weight: bold; }
 	.eatout-text { @include bg-cover; left: 50px; height: 38px; width: 79px; }
     }
 }
-
+/*
 @media screen and (max-height: 450px) {
     .menu-icon { left: 24px; }
     #main-menu {
@@ -789,7 +791,7 @@ h3 { font-size: 22px; margin: 15px 0 10px 0;  font-weight: bold; }
 	 }
      }
 }
-
+*/
 @media screen and (max-width: 760px) {
     .info-content {
 	.description { font-size: 15px; }
