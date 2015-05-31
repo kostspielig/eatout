@@ -292,6 +292,7 @@ body {
     position: absolute;
     top: 18px; right: 20px;
 
+    @include no-click;
     @include transition(transform 0.5s ease-out);
 
     &.panel-open {
@@ -299,10 +300,8 @@ body {
         @include transform(translateX(-52vw));
         right: 0;
     }
-
-    a { color:#333; text-decoration:none; overflow: hidden; display: flex; }
     .w-temp {
-	display: block;
+	display: inline-block;
 	padding: 15px 0 0px 5px;
 	top: 4px;
 
@@ -316,7 +315,7 @@ body {
 
     .w-icon {
 	width: 60px; height:52px;
-	display: block;
+	display: inline-block;
 	vertical-align: bottom;
 	background:url(/images/weather/fair.svg) no-repeat center center;
 
