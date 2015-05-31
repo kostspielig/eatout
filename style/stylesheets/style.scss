@@ -369,16 +369,16 @@ body {
     .submenus {
         @include click;
 
-	&.districtItem { top: 198px; }
-	&.foodItem { top: 100px; width: 120px; }
-
 	margin-left: 105px;
-	background: #282828;
-	padding: 8px 0;
 	font-weight: bold;
 	opacity: 0.9;
 	position: absolute;
 	top: 0;
+
+	&.districtItem { margin-top: 198px; width: 135px; overflow: hidden; }
+	&.foodItem { margin-top: 100px; width: 136px; overflow: hidden; }
+        .submenu-wrapper  { overflow: hidden; overflow-y: scroll; width: 152px; }
+        .submenu { background: #282828;	padding: 8px 0; }
 
 	li.submenu-item {
 	    padding: 8px  15px;
@@ -649,7 +649,7 @@ body {
             .place-content-info {
                 float: left;
                 font-size: 17px;
-                width: 65%;
+                width: 60%;
                 a:link,
                 a:visited {
                     color: $darkGrayShaded; //$green;
@@ -792,6 +792,14 @@ h3 { font-size: 22px; margin: 15px 0 10px 0;  font-weight: bold; }
      }
 }
 */
+@media screen and (max-height: 600px) {
+    #main-menu .submenus.districtItem,
+    #main-menu .submenus.foodItem {
+        margin-top: 0;
+    }
+
+}
+
 @media screen and (max-width: 760px) {
     .info-content {
 	.description { font-size: 15px; }

@@ -4,6 +4,7 @@ eob_controllers = angular.module 'eob.controllers', []
 DROP_DELAY = 0
 BERLIN_POS = new google.maps.LatLng 52.5170423, 13.4018519
 MOBILE_BP = 760
+MENU_BP = 600
 ASCII_ART = "Made with ❤ by\n\n"+
 
 "\t\t\t      ___       \n"+
@@ -188,6 +189,13 @@ eob_controllers.controller 'eob_MenuCtrl', ($scope, $location, eob_data) ->
     $scope.getColor = (type) ->
         MARKER_ICONS[type].color
 
+    $scope.menuPosition = (type) ->
+        if window.innerHeight < MENU_BP
+            0
+        else if type is 'foodItem'
+            116
+        else
+            214
     return
 
 
