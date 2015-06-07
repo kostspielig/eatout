@@ -13,6 +13,6 @@ recommended: true
 description: 'Phasellus iaculis venenatis viverra. Pellentesque mattis lectus sem. Donec facilisis dolor sed tellus mattis venenatis. Nullam gravida gravida est et egestas. Nam varius semper lacus eget hendrerit. Integer metus diam, ornare sit amet commodo vitae, posuere posuere enim. Aenean imperdiet est sapien, ut volutpat augue lacinia id.'
 
 images:
-  - images/places-M/Redwood/cover.JPG
-  - images/places-M/Redwood/image1.JPG
-  - images/places-M/Redwood/image2.JPG
+  - images/places-M/redwood-bar/cover.JPG
+  - images/places-M/redwood-bar/image1.JPG
+  - images/places-M/redwood-bar/image2.JPG
