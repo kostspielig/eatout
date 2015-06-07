@@ -1,0 +1,20 @@
+name: Lagari
+url: 'http://www.lagari.de'
+address: Pflügerstraße 19
+date: '2015-04-18'
+foodtype: breakfast
+lat: 52.490583
+lng: 13.431352
+title: 'California style breakfast'
+rating: 3.7
+pricerange: 2.5
+phone: 030 35128731
+recommended: false
+description: ''
+
+images:
+  - images/places-M/lagari/cover.JPG
+  - images/places-M/lagari/image1.JPG
+  - images/places-M/lagari/image2.JPG
+  - images/places-M/lagari/image3.JPG
+  - images/places-M/lagari/image4.JPG
