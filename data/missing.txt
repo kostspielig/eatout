@@ -13,5 +13,4 @@
 - yamyam
 - factory girl
 - hamburger heaven
-- bonanaza coffee roasters
-- monkey bar
+- hammy

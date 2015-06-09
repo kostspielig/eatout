@@ -292,6 +292,7 @@ body {
     position: absolute;
     top: 18px; right: 20px;
 
+    @include no-click;
     @include transition(transform 0.5s ease-out);
 
     &.panel-open {
@@ -299,10 +300,8 @@ body {
         @include transform(translateX(-52vw));
         right: 0;
     }
-
-    a { color:#333; text-decoration:none; overflow: hidden; display: flex; }
     .w-temp {
-	display: block;
+	display: inline-block;
 	padding: 15px 0 0px 5px;
 	top: 4px;
 
@@ -316,7 +315,7 @@ body {
 
     .w-icon {
 	width: 60px; height:52px;
-	display: block;
+	display: inline-block;
 	vertical-align: bottom;
 	background:url(/images/weather/fair.svg) no-repeat center center;
 
@@ -370,16 +369,16 @@ body {
     .submenus {
         @include click;
 
-	&.districtItem { top: 198px; }
-	&.foodItem { top: 100px; width: 120px; }
-
 	margin-left: 105px;
-	background: #282828;
-	padding: 8px 0;
 	font-weight: bold;
 	opacity: 0.9;
 	position: absolute;
 	top: 0;
+
+	&.districtItem { margin-top: 198px; width: 135px; overflow: hidden; }
+	&.foodItem { margin-top: 100px; width: 136px; overflow: hidden; }
+        .submenu-wrapper  { overflow: hidden; overflow-y: scroll; width: 152px; }
+        .submenu { background: #282828;	padding: 8px 0; }
 
 	li.submenu-item {
 	    padding: 8px  15px;
@@ -413,10 +412,12 @@ body {
 	}
     }
 
+    .menu-content-wrapper { width: 105px; overflow: hidden; }
     .menu-content {
 	padding: 92px  0 0 0px;
 	background: #282828;
-	width: 105px;
+	width: 120px;
+        overflow-y: scroll;
 
 	@include container-shadow;
 	@include click;
@@ -648,7 +649,7 @@ body {
             .place-content-info {
                 float: left;
                 font-size: 17px;
-                width: 65%;
+                width: 60%;
                 a:link,
                 a:visited {
                     color: $darkGrayShaded; //$green;
@@ -746,7 +747,7 @@ h3 { font-size: 22px; margin: 15px 0 10px 0;  font-weight: bold; }
 	.eatout-text { @include bg-cover; left: 50px; height: 38px; width: 79px; }
     }
 }
-
+/*
 @media screen and (max-height: 450px) {
     .menu-icon { left: 24px; }
     #main-menu {
@@ -789,6 +790,14 @@ h3 { font-size: 22px; margin: 15px 0 10px 0;  font-weight: bold; }
 	     padding: 6px 25px;
 	 }
      }
+}
+*/
+@media screen and (max-height: 600px) {
+    #main-menu .submenus.districtItem,
+    #main-menu .submenus.foodItem {
+        margin-top: 0;
+    }
+
 }
 
 @media screen and (max-width: 760px) {

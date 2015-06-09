@@ -1,0 +1,34 @@
+name: STANDARD - serious pizza
+url: 'http://www.standard-berlin.de'
+address: Templiner Straße 7
+date: '2015-05-29'
+foodtype: italian
+lat: 52.53304
+lng: 13.40859
+title: Another delicious pizza place in Mitte
+rating: 4.0
+pricerange: 2.5
+phone: 030 48625614
+recommended: true
+description: |
+  Being Spanish, **Maecenas dapibus** interdum mi, ac sodales nunc mollis
+  sed. Donec dignissim dui non enim tristique, nec placerat nibh
+  gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros
+  lorem. Proin egestas massa non sapien volutpat tempor. Aliquam
+  malesuada fermentum congue. Nullam dictum magna sit amet mauris
+  luctus aliquet. Proin mollis felis magna, nec tristique ante porta
+  fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna,
+
+  ### Vaya vaya
+  ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod,
+  ante sit amet posuere aliquam, ipsum libero posuere neque, vitae
+  commodo sem nibh sit amet justo. Suspendisse eget posuere
+  justo. Maecenas congue congue molestie. Donec odio tellus,
+  consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem,
+  pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis
+  semper auctor.
+
+images:
+  - images/places-M/standard-serious-pizza/cover.JPG
+  - images/places-M/standard-serious-pizza/image1.JPG
+  - images/places-M/standard-serious-pizza/image2.JPG

@@ -3,7 +3,8 @@ eob_controllers = angular.module 'eob.controllers', []
 
 DROP_DELAY = 0
 BERLIN_POS = new google.maps.LatLng 52.5170423, 13.4018519
-
+MOBILE_BP = 760
+MENU_BP = 600
 ASCII_ART = "Made with ❤ by\n\n"+
 
 "\t\t\t      ___       \n"+
@@ -143,7 +144,12 @@ eob_controllers.controller 'eob_MenuCtrl', ($scope, $location, eob_data) ->
         $scope.allChecked = true
         $scope.foodTypeChecked = {}
 
+    hideIfPanel = ->
+        if $scope.isMobileOrFs()
+            $scope.hidePanel()
+
     $scope.menuFindMe = ->
+        hideIfPanel()
         $location.path "/"
         $scope.findMe true
 
@@ -151,11 +157,13 @@ eob_controllers.controller 'eob_MenuCtrl', ($scope, $location, eob_data) ->
         $location.path '/suggestion'
 
     $scope.menuSelectAll = ->
+        hideIfPanel()
         $scope.allChecked = true
         $scope.foodTypeChecked = {}
         $scope.filterMarkers $scope.foodTypes
 
     $scope.menuSelectFoodType = (food) ->
+        hideIfPanel()
         $scope.allChecked = false
         $scope.foodTypeChecked[food] = !$scope.foodTypeChecked[food]
         checkedTypes = _.filter $scope.foodTypes, (foodtype) ->
@@ -165,6 +173,7 @@ eob_controllers.controller 'eob_MenuCtrl', ($scope, $location, eob_data) ->
         else $scope.filterMarkers checkedTypes
 
     $scope.menuSelectDistrict = (district) ->
+        hideIfPanel()
         $scope.active = ''
         $scope.centerPosition district.lat, district.lng, district.zoom
 
@@ -180,6 +189,13 @@ eob_controllers.controller 'eob_MenuCtrl', ($scope, $location, eob_data) ->
     $scope.getColor = (type) ->
         MARKER_ICONS[type].color
 
+    $scope.menuPosition = (type) ->
+        if window.innerHeight < MENU_BP
+            0
+        else if type is 'foodItem'
+            116
+        else
+            214
     return
 
 
@@ -198,13 +214,18 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
     $scope.suggestions = true
     findMeMarker = null
 
+    $scope.isMobileOrFs = ->
+        if window.innerWidth < MOBILE_BP or $scope.expandpanel is 100
+            return true
+        return false
+
     $scope.hidePanel = ->
         $scope.seepanel = false
         $scope.expandpanel = 50
 
     $scope.showPanel = ->
         $scope.seepanel = true
-        if window.innerWidth < 760
+        if window.innerWidth < MOBILE_BP
             do $scope.hideMenu
 
     $scope.hideMenu = ->

@@ -8,10 +8,8 @@
   <div ng-view></div>
 
   <div id="weather" ng-controller="eob_WeatherCtrl" class="{{seepanel ? 'panel-open' : 'panel-close'}}">
-    <a ng-href="https://www.google.es/search?q=weather+berlin">
       <div class="w-icon c{{wcode}}"></div>
       <div class="w-temp">{{temp}}<span class="w-units">°C</span></div>
-    </a>
   </div>
 
   <div id="logo"><div class="tv-tower"></div><div class="eatout-text"></div></div>

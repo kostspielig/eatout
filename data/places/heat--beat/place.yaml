@@ -13,10 +13,10 @@ recommended: false
 description: The new burger place in the neighborhood
 
 images:
-  - images/places-M/HeatAndBeat/cover.JPG
-  - images/places-M/HeatAndBeat/image1.JPG
-  - images/places-M/HeatAndBeat/image2.JPG
-  - images/places-M/HeatAndBeat/image3.JPG
-  - images/places-M/HeatAndBeat/image4.JPG
-  - images/places-M/HeatAndBeat/image5.JPG
-  - images/places-M/HeatAndBeat/image6.JPG
+  - images/places-M/heat--beat/cover.JPG
+  - images/places-M/heat--beat/image1.JPG
+  - images/places-M/heat--beat/image2.JPG
+  - images/places-M/heat--beat/image3.JPG
+  - images/places-M/heat--beat/image4.JPG
+  - images/places-M/heat--beat/image5.JPG
+  - images/places-M/heat--beat/image6.JPG
