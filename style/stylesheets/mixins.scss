@@ -28,6 +28,11 @@
     @include css3-prefix('transform', $params);
 }
 
+// TRANSFORM
+@mixin transform-origin($properties...) {
+    @include css3-prefix('transform-origin', $properties);
+}
+
 // TRANSFORM STYLE
 @mixin transform-style($style: preserve-3d) {
     @include css3-prefix('transform-style', $style);

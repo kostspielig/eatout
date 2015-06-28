@@ -556,6 +556,7 @@ body {
 	    background-color: $darkGray;
             padding: 35vh 0 20px 0;
 
+
             .place-info-area {
                 background: $darkGrayShaded;
                 padding: 0 3vw 20px 4vw;
@@ -644,7 +645,28 @@ body {
 	    .ico-sphere   {  background: url(/images/SVG/sphere.svg) no-repeat center; }
             .ico-foodtype {  background: url(/images/SVG/foodtype.svg) no-repeat center; }
 
-            .top-content { overflow: hidden; }
+            .top-content { min-height: 100px; }
+            .place-closed {
+                background: url(/images/SVG/closed.svg) no-repeat center;
+                width: 90px;
+                height: 75px;
+
+                @include animation(600ms, 800ms,place-closed-animation, forwards);
+                @include transform-origin (center 2%);
+            }
+
+            @include keyframes(place-closed-animation) {
+                0%   { @include transform(none) }
+                10%  { @include transform(rotate(20deg)) }
+                20% { @include transform(rotate(45deg)) }
+                30% { @include transform(rotate(20deg)) }
+                40% { @include transform(rotate(0deg)) }
+                50% { @include transform(rotate(-20deg)) }
+                60% { @include transform(rotate(-45deg)) }
+                80% { @include transform(rotate(-20deg)) }
+                100% { @include transform(rotate(0deg)) }
+            }
+
             .price-number { display: inline-block; margin-right: 10px; float: left; }
             .place-content-info {
                 float: left;
@@ -831,7 +853,7 @@ h3 { font-size: 22px; margin: 15px 0 10px 0;  font-weight: bold; }
 
             .header .place-info-area {
                 padding: 0 10vw 20px 10vw;
-                .recommended { right: 10.3vw; }
+                .recommended  { right: 10.3vw; }
                 .social-icons { right: 10vw; }
             }
         }
