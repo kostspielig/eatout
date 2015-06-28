@@ -651,8 +651,8 @@ body {
                 width: 90px;
                 height: 75px;
 
-                @include animation(600ms, 800ms,place-closed-animation, forwards);
-                @include transform-origin (center 2%);
+                @include animation(800ms, 1000ms,place-closed-animation, forwards);
+                @include transform-origin (center 10%);
             }
 
             @include keyframes(place-closed-animation) {
