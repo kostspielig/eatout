@@ -1,0 +1,21 @@
+name: Schiller Burger
+url: 'http://www.schillerburger.com'
+address: Schönleinstraße 34
+date: '2015-06-27'
+foodtype: burger
+lat: 52.49268
+lng: 13.42181
+title: Yet another decent Burger place
+rating: 3.7
+pricerange: 1
+phone: 030 61620420
+recommended: false
+description: Cras blandit tincidunt nisi sed gravida. Donec dui urna, ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod, ante sit amet posuere aliquam, ipsum libero posuere neque, vitae commodo sem nibh sit amet justo. Suspendisse eget posuere justo. Maecenas congue congue molestie. Donec odio tellus, consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem, pretium quis ullamcorper vel, adipiscing eget nunc.
+
+images:
+  - images/places-M/schiller-burger/cover.JPG
+  - images/places-M/schiller-burger/image1.JPG
+  - images/places-M/schiller-burger/image2.JPG
+  - images/places-M/schiller-burger/image3.JPG
+  - images/places-M/schiller-burger/image4.JPG
+  - images/places-M/schiller-burger/image5.JPG

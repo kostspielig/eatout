@@ -1,0 +1,20 @@
+name: Restaurant Muse
+url: http://www.museberlin.com
+address: Immanuelkirchstraße 31
+date: '2015-05-21'
+foodtype: burger
+lat: 52.532934
+lng: 13.423249
+title: Simple delicious food
+rating: 3.9
+pricerange: 2
+phone: 030 40056289
+recommended: false
+description: 'You can enjoy delicious food on Monday-Friday, 12:00 - 22:00, enjoying a changing menu and at the weekend, they host different events or invite chefs to take over the kitchen and offer special menus.'
+
+images:
+  - images/places-M/muse/cover.JPG
+  - images/places-M/muse/image1.JPG
+  - images/places-M/muse/image2.JPG
+  - images/places-M/muse/image3.JPG
+  - images/places-M/muse/image4.JPG
