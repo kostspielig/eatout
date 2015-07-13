@@ -15,6 +15,7 @@ skip_files:
 - ^config/.*$
 - ^data/.*\.yaml$
 - ^node_modules/.*$
+- ^style/images/places/.*$
 - ^test/.*$
 - ^util/.*$
 
