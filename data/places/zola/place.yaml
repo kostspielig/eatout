@@ -1,0 +1,20 @@
+name: Zola
+url: https://www.facebook.com/zolakreuzberg
+address: Paul-Lincke-Ufer 39-40
+date: '2015-07-02'
+foodtype: italian
+lat: 52.4962051
+lng: 13.4224634
+title: The Pizza place from Napoli
+rating: 4.3
+pricerange: 1.5
+phone: false
+recommended: false
+description: 'Neapolitan wood-fired pizza. The downside of this place is that it only opens for lunch time(12-16 h), but i you get the opportunity to visit, do not miss out!'
+
+images:
+  - images/places-M/zola/cover.JPG
+  - images/places-M/zola/image1.JPG
+  - images/places-M/zola/image2.JPG
+  - images/places-M/zola/image3.JPG
+  - images/places-M/zola/image4.JPG
