@@ -1,0 +1,21 @@
+name: Salt'n Bone
+url: http://saltnbone.de
+address: Schliemannstraße 31
+date: '2015-07-18'
+foodtype: burger
+lat: 52.5441561
+lng: 13.419845
+title: Gastropub
+rating: 4.5
+pricerange: 2
+phone: 030 91448885
+recommended: false
+description: Craft Beers, Modern Bar Food & Cocktails
+
+images:
+  - images/places-M/salt-n-bone/cover.JPG
+  - images/places-M/salt-n-bone/image1.JPG
+  - images/places-M/salt-n-bone/image2.JPG
+  - images/places-M/salt-n-bone/image3.JPG
+  - images/places-M/salt-n-bone/image4.JPG
+  - images/places-M/salt-n-bone/image5.JPG
