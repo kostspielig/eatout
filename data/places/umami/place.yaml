@@ -1,0 +1,19 @@
+name: Umami restaurant
+url: http://umami-restaurant.de/
+address: Knaackstraße 16
+date: '2015-07-30'
+foodtype: viet
+lat: 52.53465
+lng: 13.41971
+title: Asian mami
+rating: 4
+pricerange: 2
+phone: 030 28860626
+recommended: false
+description: ''
+
+images:
+  - images/places-M/umami/cover.JPG
+  - images/places-M/umami/image1.JPG
+  - images/places-M/umami/image2.JPG
+  - images/places-M/umami/image3.JPG

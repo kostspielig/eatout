@@ -1,0 +1,19 @@
+name: Geist im glas
+url: http://geistimglas.com
+address: Lenaustraße 27
+date: '2015-08-01'
+foodtype: brunch
+lat: 52.4901171
+lng: 13.4248021
+title: What the new brunch should be
+rating: 4.6
+pricerange: 2
+phone: 0176 86302464
+recommended: true
+description: ''
+
+images:
+  - images/places-M/geist-im-glas/cover.JPG
+  - images/places-M/geist-im-glas/image1.JPG
+  - images/places-M/geist-im-glas/image2.JPG
+  - images/places-M/geist-im-glas/image3.JPG
