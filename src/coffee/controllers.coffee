@@ -1,7 +1,6 @@
 
 eob_controllers = angular.module 'eob.controllers', []
 
-DROP_DELAY = 0
 BERLIN_POS = new google.maps.LatLng 52.5170423, 13.4018519
 MOBILE_BP = 760
 MENU_BP = 600
@@ -323,32 +322,23 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
     mc = null
     markers = []
 
-    addMarkersFrom = (index) ->
-        index = 0 if index is null
-
-        if index >= 0 and index < $scope.places.length
-            place = $scope.places[index]
-            eob_imgCache.load(_.pick(MARKER_ICONS, place.foodtype)).then ->
+    addMarkersToMap = () ->
+        eob_imgCache.load(MARKER_ICONS).then ->
+            $scope.places.forEach (place, index) ->
                 image =
                     url: MARKER_ICONS[place.foodtype].url
                     size: new google.maps.Size(70, 85)
                     scaledSize: new google.maps.Size(70, 85)
-
                 marker = new google.maps.Marker
                     position: new google.maps.LatLng place.lat, place.lng
                     map: map
                     title: place.name
                     icon: image
                     animation: google.maps.Animation.DROP
-
                 markers.push marker
                 google.maps.event.addListener marker, "click", ->
                     $scope.openPlace place.slug
-                    return
 
-                setTimeout _.partial(addMarkersFrom, index + 1), DROP_DELAY
-                return
-        else if index is $scope.places.length
             $scope.findMe false
             mc = new MarkerClusterer(map, markers, mcOptions)
             mc.setCalculator (markers, styles) ->
@@ -399,7 +389,7 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
 
     # do something only the first time the map is loaded
     google.maps.event.addListenerOnce map, 'tilesloaded', ->
-        eob_data.placesPromise.then _.partial(addMarkersFrom, 0)
+        eob_data.placesPromise.then addMarkersToMap
 
     return
 
