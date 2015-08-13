@@ -409,7 +409,7 @@ eob_controllers.controller 'eob_PlaceCtrl', ($scope, $location, $window) ->
 
     twitterShareUrl = ->
         event = event or window.event
-        if event.stoppPropagation then event.stopPropagation()
+        if event.stopPropagation then event.stopPropagation()
         else (event.cancelBubble = true)
 
         place = $scope.place
@@ -436,7 +436,7 @@ eob_controllers.controller 'eob_PlaceCtrl', ($scope, $location, $window) ->
 
     $scope.facebookShare = ->
         event = event || window.event
-        if event.stoppPropagation then event.stopPropagation()
+        if event.stopPropagation then event.stopPropagation()
         else (event.cancelBubble = true)
         place = $scope.place
         if place
