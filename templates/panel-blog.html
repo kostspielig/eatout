@@ -1,0 +1,48 @@
+<div class="place-wrapper blog-panel">
+    <!-- <a class="expand-panel" ng-click="expandPanel();"><b></b><b></b><b></b></a>
+    <a class="close-place" href="/">
+    <div class="menu-toggle close">
+    <b></b> <b></b> <b></b>
+    </div>
+    </a> -->
+    <div class="blog-bar">
+        <a href="/"><img ng-src="/images/SVG/eatoutText-white.svg"/></a>
+        <div class="blog-tittle"></div>
+  </div>
+  <div class="blog">
+      <div id="#{{place.slug}}" class="blog-entry"  ng-repeat="place in blogEntries">
+          <div class="entry-info">
+
+              <img ng-src="{{place.images.0}}" class="entry-cover" alt="{{place.title}}" title="{{place.title}}" />
+     	      <div class="place-name">{{place.name}}</div>
+              <div class="place-date"> &nbsp;&nbsp;{{place.date}}</div>
+
+              <div class="place-description" ng-bind-html="place.description | unsafe"></div>
+              <div class="image-container" ng-repeat="img in place.images" ng-show="!$first">
+                  <figure>
+	              <img ng-src="{{img}}" class="place-image" alt="{{place.title}}" title="{{place.title}}" />
+                      <!-- <figcaption>Caption for this image</figcaption> -->
+                  </figure>
+              </div>
+              <div class="place-info">
+                  <ul class="place-content-info">
+                      <li class="truncate place-website" title="website"><span class="sico ico-sphere"></span><span><a href="{{place.url}}" target="_blank">{{place.url}}</a></span></li>
+                      <li ng-if="place.phone" title="phone"><span class="sico ico-phone"></span><span><a href="tel:{{place.phone}}">{{place.phone}}</a></span></li>
+                      <li title="price range">
+                          <div class="price-wrapper">
+                              <div class="price-range">
+                                  <div class="price-value" style="width: {{place.pricerange*80/5}}px"></div>
+                                  <div class="price-rest"
+                                       style="width: {{80-place.pricerange*80/5}}px; background-position: {{-place.pricerange*80/5}}px -16px">
+                                  </div>
+	                      </div>
+	                  </div>
+                      </li>
+                  </ul>
+                  <div class="go-to-entry" ng-click="openPlaceFromBlog(place.slug);">See in map -> </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+</div>

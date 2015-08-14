@@ -21,6 +21,10 @@ eob_app.config ($routeProvider) ->
             templateUrl: 'templates/empty.html',
             controller: 'eob_SuggestionUrlCtrl'
         })
+        .when('/blog', {
+            templateUrl: 'templates/empty.html',
+            controller: 'eob_BlogCtrl'
+        })
         .otherwise({
             redirectTo: '/'
         })

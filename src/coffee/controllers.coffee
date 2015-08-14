@@ -234,7 +234,7 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
         $scope.seemenu = true
 
     $scope.expandPanel = ->
-        $scope.hideMenu()
+        do $scope.hideMenu
         $scope.expandpanel = if $scope.expandpanel is 100 then 50 else 100
 
     $scope.toggleMenu = ->
@@ -244,6 +244,12 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
     $scope.setPlace = (place) -> $scope.place = place
     $scope.setSuggestions = (place) -> $scope.suggestions = place
     $scope.setPanel = (panel) -> $scope.panel = panel
+
+    $scope.setBlogEntries = (places) -> $scope.blogEntries = _.sortBy(places, 'date').reverse()
+
+    $scope.openPlaceFromBlog = (placeSlug) ->
+        do $scope.expandPanel
+        $scope.openPlace placeSlug
 
     $scope.openPlace = (placeSlug) ->
         $location.path '/place/' + placeSlug
@@ -462,6 +468,16 @@ eob_controllers.controller 'eob_SuggestionUrlCtrl', ($scope, eob_data) ->
         $scope.setSuggestions places
         $scope.showPanel()
         return
+
+
+eob_controllers.controller 'eob_BlogCtrl', ($scope, eob_data) ->
+    eob_data.placesPromise.success (places) ->
+        $scope.setPanel 'blog'
+        $scope.setBlogEntries places
+        $scope.expandPanel()
+        $scope.showPanel()
+        return
+
 
 eob_controllers.controller 'eob_NoPlaceUrlCtrl', ($scope) ->
     do $scope.hidePanel
