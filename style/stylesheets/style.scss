@@ -6,6 +6,7 @@
 /* variables */
 $red: #ff1526;
 $green: #5ebf64;
+$darkGrayBg: #282828;
 $darkGray: #333333;
 $darkGrayShaded: rgba(30, 30, 30, 0.55);
 $softGray: rgba(30, 30, 30, 0.25);
@@ -60,6 +61,7 @@ html { height: 100% }
 body {
     height: 100%; margin: 0; padding: 0;
     overflow: hidden;
+    //font-family: 'Open Sans', sans-serif;
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -142,7 +144,7 @@ body {
 }
 
 .menu-icon {
-    background-color: #282828;
+    background-color: $darkGrayBg;
     border-radius: 2px;
     width: 23px;
     height: 18px;
@@ -344,7 +346,7 @@ body {
 #main-menu {
     height: 100%;
     position: absolute;
-    background: #282828;
+    background: $darkGrayBg;
     color: white;
     top: 0;
     left: 0;
@@ -378,7 +380,7 @@ body {
 	&.districtItem { margin-top: 198px; width: 135px; overflow: hidden; }
 	&.foodItem { margin-top: 100px; width: 136px; overflow: hidden; }
         .submenu-wrapper  { overflow: hidden; overflow-y: scroll; width: 152px; }
-        .submenu { background: #282828;	padding: 8px 0; }
+        .submenu { background: $darkGrayBg;	padding: 8px 0; }
 
 	li.submenu-item {
 	    padding: 8px  15px;
@@ -415,7 +417,7 @@ body {
     .menu-content-wrapper { width: 105px; overflow: hidden; }
     .menu-content {
 	padding: 92px  0 0 0px;
-	background: #282828;
+	background: $darkGrayBg;
 	width: 120px;
         overflow-y: scroll;
 
@@ -813,12 +815,12 @@ body {
 
 /************** MARKDOWN *************/
 
-strong { font-weight: bold; font-style: italic; color: $red; }
+strong { font-weight: bold; font-style: italic; color: $green; }
 
 h1 { font-size: 26px; font-weight: bold; margin: 25px 0 20px 0; border-top: 2px solid #333; border-bottom: 2px solid #333; padding: 6px 0 4px; text-align: center; }
 h2 { font-size: 24px; font-weight: bold; font-style: italic; margin: 20px 0 15px 0; }
 h3 { font-size: 22px; margin: 15px 0 10px 0;  font-weight: bold; }
-
+p  { margin-bottom: 10px; }
 
 /*********************************************************************
  *                    RESIZING THE WINDOW                             *
