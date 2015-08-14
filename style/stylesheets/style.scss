@@ -505,6 +505,88 @@ body {
         }
     }
 }
+
+
+/************** Blog *************/
+
+.blog-bar {
+    position: sticky;
+    width: 100%;
+    height: 70px;
+    background: $darkGrayBg;
+    color: #fff;
+    z-index: 1000;
+    -webkit-transition: height .3s ease;
+    -moz-transition: height .3s ease;
+    -o-transition: height .3s ease;
+    transition: height .3s ease;
+    text-align: center;
+
+    img { height: 45px; padding-top: 10px; }
+    .blog-title { }
+}
+
+.blog {
+    display: block;
+
+    .entry-info { padding: 50px 10vw 50px 10vw; }
+    .entry-cover {
+        width: 500px;
+        float: left;
+        margin: 0 30px 15px -5vw;
+    }
+    .place-date, .place-name {  }
+    .place-name { font-size: 3.5em;  font-weight: 700; font-family: 'Old Standard TT',serif; padding-top: 15px; }
+    .place-date { font-size: 1em; padding-top: 10px; }
+
+    .image-container {
+        margin-bottom: 1%;
+        img { width: 100%; }
+    }
+    .place-description {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 17px;
+        line-height: 25px;
+        color: #1d1f1f;
+        padding: 30px 0;
+    }
+    .place-info {
+        padding: 50px 0 0px 0; margin: 0 auto; text-align: center;
+
+        li { padding-bottom: 8px; }
+        .price-range {
+            display: block;
+            height: 35px;
+            margin: 0 auto;
+        }
+    }
+    .go-to-entry { cursor: pointer; }
+}
+
+/************** WIDGETS *************/
+
+.widget-place-content-info {
+    float: left;
+    font-size: 17px;
+    width: 60%;
+    a:link,
+    a:visited {
+        color: $darkGrayShaded; //$green;
+        text-decoration: none;
+    }
+    li {
+        margin: 0 0 6px 0;
+    }
+}
+
+.sico { width: 16px; height: 16px; position: relative; top: 2px; display: inline-block; margin-right: 5px; }
+.ico-seen     { background: url(/images/SVG/eye.svg) no-repeat center; }
+.ico-phone    { background: url(/images/SVG/phone.svg) no-repeat center; }
+.ico-sphere   { background: url(/images/SVG/sphere.svg) no-repeat center; }
+.ico-foodtype { background: url(/images/SVG/foodtype.svg) no-repeat center; }
+.ico-walking  { background: url(/images/SVG/walking.svg) no-repeat center; }
+.ico-place    { background: url(/images/SVG/place.svg) no-repeat center; }
+
 /************** The Place *************/
 
 #main-panel {
@@ -603,9 +685,7 @@ body {
 	        }
 		.place-address { display: inline-block; margin-right: 5px; }
 		.distance-from-me { display: inline-block; }
-		.sico { width: 13px; height: 16px; position: relative; top: 2px; display: inline-block; }
-		.ico-walking { background: url(/images/SVG/walking.svg) no-repeat center; }
-		.ico-place   { background: url(/images/SVG/place.svg) no-repeat center; }
+                .sico { width: 13px; height: 16px; position: relative; top: 2px; display: inline-block; }
 	    }
 
             .social-icons {
@@ -639,12 +719,6 @@ body {
 	    background-color: $white;
 	    font-size: 20px;
 
-            .sico { width: 16px; height: 16px; position: relative; top: 2px; display: inline-block; margin-right: 5px; }
-	    .ico-seen     {  background: url(/images/SVG/eye.svg) no-repeat center; }
-	    .ico-phone    {  background: url(/images/SVG/phone.svg) no-repeat center; }
-	    .ico-sphere   {  background: url(/images/SVG/sphere.svg) no-repeat center; }
-            .ico-foodtype {  background: url(/images/SVG/foodtype.svg) no-repeat center; }
-
             .top-content { min-height: 100px; }
             .place-closed {
                 background: url(/images/SVG/closed.svg) no-repeat center;
@@ -668,19 +742,7 @@ body {
             }
 
             .price-number { display: inline-block; margin-right: 10px; float: left; }
-            .place-content-info {
-                float: left;
-                font-size: 17px;
-                width: 60%;
-                a:link,
-                a:visited {
-                    color: $darkGrayShaded; //$green;
-                    text-decoration: none;
-                }
-                li {
-                    margin: 0 0 6px 0;
-                }
-            }
+            .place-content-info { @extend .widget-place-content-info; }
 
 	    .last-visited {
 		font-size: 0.8em;
@@ -841,7 +903,13 @@ h3 { font-size: 22px; margin: 15px 0 10px 0;  font-weight: bold; }
 	    }
 	}
     }
+    .blog-panel { z-index: 16 !important; }
+}
 
+@media screen and (max-width: 850px) {
+    .blog {
+        .entry-cover { margin: 0 auto 15px auto; width: 80%; float: none; display: block; }
+    }
 }
 
 @media screen and (min-width: 870px) {
