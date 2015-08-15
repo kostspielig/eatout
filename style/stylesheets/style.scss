@@ -530,8 +530,8 @@ body {
 
 .blog {
     display: block;
-
-    .entry-info { padding: 50px 10vw 50px 10vw; }
+    .divider { height: 8px; width: 100%; background-color: $darkGrayBg; margin-top: 50px;  }
+    .entry-info { padding: 50px 10vw 25px 10vw; }
     .entry-cover {
         width: 500px;
         float: left;
