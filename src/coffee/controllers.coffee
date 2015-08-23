@@ -228,6 +228,10 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
         if $scope.isMobile()
             do $scope.hideMenu
 
+    $scope.panelToTop = ->
+        panelElem = document.getElementById('main-panel')
+        if panelElem then panelElem.scrollTop = 0
+
     $scope.hideMenu = ->
         $scope.seemenu = false
 
@@ -247,7 +251,9 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
 
     $scope.setPlace = (place) -> $scope.place = place
     $scope.setSuggestions = (place) -> $scope.suggestions = place
-    $scope.setPanel = (panel) -> $scope.panel = panel
+    $scope.setPanel = (panel) ->
+        $scope.panel = panel
+        $scope.panelToTop()
 
     $scope.setBlogEntries = (places) ->
         $scope.blogEntries = _.sortBy(places, 'date').reverse()
@@ -488,8 +494,7 @@ eob_controllers.controller 'eob_BlogUrlCtrl', ($scope, $routeParams, eob_data) -
         $scope.setBlogEntries places
         $scope.showPanel()
         $scope.expandPanel()
-        panelElem = document.getElementById('main-panel')
-        if panelElem then panelElem.scrollTop = 0
+        $scope.panelToTop()
 
 eob_controllers.controller 'eob_BlogCtrl', ($scope, eob_data) ->
     $scope.hideNewerLink = ->
