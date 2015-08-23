@@ -565,6 +565,22 @@ body {
     .go-to-entry { cursor: pointer; }
 }
 
+.pagination {
+    margin: 0 auto 30px auto;
+    text-align: center;
+    font-weight: 700;
+
+    button {
+        background-color: $green;
+        border: none;
+        color: white;
+        padding: 8px 10px;
+        margin: 0 10px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+}
+
 /************** WIDGETS *************/
 
 .widget-place-content-info {

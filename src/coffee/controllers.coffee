@@ -234,6 +234,9 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
         $scope.seemenu = true
 
     $scope.expandPanel = ->
+        $scope.expandpanel = $scope.expandpanel = 100
+
+    $scope.togglePanel = ->
         do $scope.hideMenu
         $scope.expandpanel = if $scope.expandpanel is 100 then 50 else 100
 
@@ -472,11 +475,20 @@ eob_controllers.controller 'eob_SuggestionUrlCtrl', ($scope, eob_data) ->
 
 eob_controllers.controller 'eob_BlogCtrl', ($scope, eob_data) ->
     eob_data.placesPromise.success (places) ->
+        $scope.currentPage = 0
+        $scope.pageSize = 5
+
+        $scope.numberOfPages = ->
+            Math.ceil $scope.blogEntries.length / $scope.pageSize
+
         $scope.setPanel 'blog'
         $scope.setBlogEntries places
-        $scope.expandPanel()
         $scope.showPanel()
-        return
+        $scope.expandPanel()
+
+        $scope.scrollTop = ->
+            panelElem = document.getElementById('main-panel')
+            if panelElem then panelElem.scrollTop = 0
 
 
 eob_controllers.controller 'eob_NoPlaceUrlCtrl', ($scope) ->

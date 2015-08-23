@@ -38,6 +38,11 @@ eob_app.run ['$route', angular.noop]
 
 # Filters
 
-eob_app.filter "unsafe", ($sce) ->
+eob_app.filter 'unsafe', ($sce) ->
     (val) ->
         $sce.trustAsHtml val
+
+eob_app.filter 'startFrom', ->
+    (input, start) ->
+        start = +start  #parse to int
+        input.slice start

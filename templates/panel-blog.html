@@ -1,16 +1,10 @@
 <div class="place-wrapper blog-panel">
-    <!-- <a class="expand-panel" ng-click="expandPanel();"><b></b><b></b><b></b></a>
-    <a class="close-place" href="/">
-    <div class="menu-toggle close">
-    <b></b> <b></b> <b></b>
-    </div>
-    </a> -->
     <div class="blog-bar">
         <a href="/"><img ng-src="/images/SVG/eatoutText-white.svg"/></a>
         <div class="blog-tittle"></div>
   </div>
   <div class="blog">
-      <div id="#{{place.slug}}" class="blog-entry"  ng-repeat="place in blogEntries">
+      <div id="#{{place.slug}}" class="blog-entry"  ng-repeat="place in blogEntries | startFrom:currentPage*pageSize | limitTo:pageSize">
           <div class="entry-info">
 
               <img ng-src="{{place.images.0}}" class="entry-cover" alt="{{place.title}}" title="{{place.title}}" />
@@ -43,6 +37,15 @@
               </div>
               <div class="divider"></div>
           </div>
+      </div>
+      <div class="pagination">
+          <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+              Previous
+          </button>
+          {{currentPage+1}}/{{numberOfPages()}}
+          <button ng-disabled="currentPage >= blogEntries.length/pageSize - 1" ng-click="currentPage=currentPage+1; scrollTop();">
+              Next
+          </button>
       </div>
   </div>
 </div>
