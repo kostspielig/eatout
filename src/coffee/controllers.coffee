@@ -264,7 +264,6 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
 
     $scope.openPlace = (placeSlug) ->
         $location.path '/place/' + placeSlug
-        do $scope.$apply
 
     $scope.centerPosition = (lat, lng, zoom) ->
         center = new google.maps.LatLng(lat, lng)
@@ -355,6 +354,7 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
                 markers.push marker
                 google.maps.event.addListener marker, "click", ->
                     $scope.openPlace place.slug
+                    do $scope.$apply
 
             $scope.findMe false
             mc = new MarkerClusterer(map, markers, mcOptions)
