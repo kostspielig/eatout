@@ -33,7 +33,7 @@
           <div class="FR AR">
               <div class="last-visited" ng-if="place.date" title="last visit"> <span class="sico ico-seen"></span> {{place.date}} </div>
               <!-- <span class="sico ico-foodtype"></span><span>{{place.foodtype}}</span> -->
-              <img ng-if="!place.closed" src="images/icons/foodtype/{{place.foodtype}}.svg" alt="{{place.foodtype}}" title="{{place.foodtype}}">
+              <img ng-if="!place.closed" ng-src="images/icons/foodtype/{{place.foodtype}}.svg" alt="{{place.foodtype}}" title="{{place.foodtype}}">
               <div ng-if="place.closed" class="place-closed"> </div>
           </div>
           <ul class="place-content-info">
