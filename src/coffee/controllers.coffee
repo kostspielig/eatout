@@ -213,10 +213,11 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
     $scope.suggestions = true
     findMeMarker = null
 
+    $scope.isMobile = ->
+        return window.innerWidth < MOBILE_BP
+
     $scope.isMobileOrFs = ->
-        if window.innerWidth < MOBILE_BP or $scope.expandpanel is 100
-            return true
-        return false
+        return $scope.isMobile() or $scope.expandpanel is 100
 
     $scope.hidePanel = ->
         $scope.seepanel = false
@@ -224,7 +225,7 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
 
     $scope.showPanel = ->
         $scope.seepanel = true
-        if window.innerWidth < MOBILE_BP
+        if $scope.isMobile()
             do $scope.hideMenu
 
     $scope.hideMenu = ->
