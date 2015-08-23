@@ -106,7 +106,7 @@ gulp.task 'resize', ->
             width : 1000
             upscale : false
         .pipe(gulp.dest((file) ->
-            file.base.replace('places', 'places-M')
+            file.base.replace('places', 'places-MM')
         )) # Destination in the same folder as source
 
 # Convert json to
