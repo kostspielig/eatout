@@ -264,9 +264,13 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
         $scope.newerPageIndex = $scope.currentPage - 1
         $scope.olderPageIndex = $scope.currentPage + 1
 
-    $scope.openPlaceFromBlog = (placeSlug) ->
-        do $scope.expandPanel
-        $scope.openPlace placeSlug
+    $scope.openPlaceFromBlog = (place) ->
+        if $scope.isMobile()
+            do $scope.hidePanel
+            $scope.centerPosition place.lat, place.lng, 16
+        else
+            do $scope.togglePanel
+            $scope.openPlace place.slug
 
     $scope.openPlace = (placeSlug) ->
         $location.path '/place/' + placeSlug
@@ -284,7 +288,8 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
                 menuWidth  = if not $scope.seemenu \
                              then 0
                              else document.getElementById("main-menu").offsetWidth
-                panelWidth = 0  if panelWidth >= mapWidth
+                panelWidth = $scope.seepanel * mapWidth * (
+                             if $scope.isMobile() then 1 else $scope.expandpanel / 100.0)
                 adjust = panelWidth / 2 - menuWidth / 2
                 map.panTo center
                 map.setZoom zoom  if zoom
