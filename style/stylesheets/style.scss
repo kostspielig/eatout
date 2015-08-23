@@ -570,14 +570,16 @@ body {
     text-align: center;
     font-weight: 700;
 
-    button {
+    a {
         background-color: $green;
+        text-decoration: none;
         border: none;
         color: white;
         padding: 8px 10px;
         margin: 0 10px;
         font-weight: 700;
         cursor: pointer;
+        &[disabled] { display: none; }
     }
 }
 

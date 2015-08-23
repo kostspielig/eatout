@@ -248,7 +248,14 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
     $scope.setSuggestions = (place) -> $scope.suggestions = place
     $scope.setPanel = (panel) -> $scope.panel = panel
 
-    $scope.setBlogEntries = (places) -> $scope.blogEntries = _.sortBy(places, 'date').reverse()
+    $scope.setBlogEntries = (places) ->
+        $scope.blogEntries = _.sortBy(places, 'date').reverse()
+
+    $scope.setBlogPagination = (pageSize, currentPage) ->
+        $scope.currentPage = currentPage
+        $scope.pageSize = pageSize
+        $scope.newerPageIndex = $scope.currentPage - 1
+        $scope.olderPageIndex = $scope.currentPage + 1
 
     $scope.openPlaceFromBlog = (placeSlug) ->
         do $scope.expandPanel
@@ -472,24 +479,24 @@ eob_controllers.controller 'eob_SuggestionUrlCtrl', ($scope, eob_data) ->
         $scope.showPanel()
         return
 
-
-eob_controllers.controller 'eob_BlogCtrl', ($scope, eob_data) ->
+eob_controllers.controller 'eob_BlogUrlCtrl', ($scope, $routeParams, eob_data) ->
     eob_data.placesPromise.success (places) ->
-        $scope.currentPage = 0
-        $scope.pageSize = 5
-
-        $scope.numberOfPages = ->
-            Math.ceil $scope.blogEntries.length / $scope.pageSize
-
+        idx = parseInt $routeParams.pageIndex, 10
+        $scope.setBlogPagination 5, Math.max ((if isNaN idx then 0 else idx) - 1), 0
         $scope.setPanel 'blog'
         $scope.setBlogEntries places
         $scope.showPanel()
         $scope.expandPanel()
+        panelElem = document.getElementById('main-panel')
+        if panelElem then panelElem.scrollTop = 0
 
-        $scope.scrollTop = ->
-            panelElem = document.getElementById('main-panel')
-            if panelElem then panelElem.scrollTop = 0
-
+eob_controllers.controller 'eob_BlogCtrl', ($scope, eob_data) ->
+    $scope.hideNewerLink = ->
+        $scope.currentPage <= 0
+    $scope.hideOlderLink = ->
+        $scope.currentPage >= $scope.blogEntries.length / $scope.pageSize - 1
+    $scope.numberOfPages = ->
+        Math.ceil $scope.blogEntries.length / $scope.pageSize
 
 eob_controllers.controller 'eob_NoPlaceUrlCtrl', ($scope) ->
     do $scope.hidePanel
