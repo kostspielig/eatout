@@ -110,7 +110,7 @@ gulp.task 'resize', ->
         )) # Destination in the same folder as source
 
 # Convert json to
-gulp.task 'yaml2json', ->
+gulp.task 'data', ->
     gulp.src(sources.yaml)
         .pipe yaml()
         .pipe jsoncombine 'places.json',
@@ -132,6 +132,8 @@ gulp.task 'watch', ->
 gulp.task 'clean', ->
     gulp.src([dest.js, dest.css], {read: false})
         .pipe clean()
+
+gulp.task 'dev', ['coffee', 'data', 'sass'], ->
 
 # Default task
 gulp.task 'default', ['clean'], ->
