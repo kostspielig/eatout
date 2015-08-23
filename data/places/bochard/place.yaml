@@ -1,0 +1,34 @@
+name: Bochard
+url: http://www.borchardt-restaurant.de/
+address: Franz. Str. 47
+date: '2015-08-15'
+foodtype: german
+lat: 52.5149992
+lng: 13.3903492
+title: German cuisine
+rating: 3.2
+pricerange: 3.5
+phone: 030 81886262
+recommended: false
+description: |
+  Where to go for lunch when your family is visiting? That was my problem while visiting
+  one of the most touristy streets in Berlin Friedrichstraße, where you can find the finest
+  galleries or shops. We found this restaurant, just in front of the ritter sport
+  shop (that its worth a visit, you can create your own chocolate!).
+
+  They describe the food as classic Berlin food with a new twist. We tried the wiener
+  schnitzel and the steak tartare, while the food was good it wasn't great, and with
+  the prices I was expecting amazing food.
+
+  While it is not a bad place to go, I would not travel to go there specifically, however
+  if you find yourself in the neighborhood starving, it might be not be a bad a idea
+  to try their schnitzel.
+
+images:
+  - images/places-M/bochard/cover.JPG
+  - images/places-M/bochard/image1.JPG
+  - images/places-M/bochard/image2.JPG
+  - images/places-M/bochard/image3.JPG
+  - images/places-M/bochard/image4.JPG
+  - images/places-M/bochard/image5.JPG
+  - images/places-M/bochard/image6.JPG

@@ -1,0 +1,33 @@
+name: Roamers
+url: http://roamersberlin.tumblr.com/
+address: Pannierstraße 64
+date: '2015-08-22'
+foodtype: breakfast
+lat: 52.4855301
+lng: 13.429323
+title: Yet another amazing brunch place in Neukolln
+rating: 4.2
+pricerange: 2
+phone: false
+recommended: false
+description: |
+  It is the second time this month that we tried this little charming place in pannierstraße,
+  the first time around it was super packed and many people was waiting to sit. When this happens
+  or we either get a reservation for another day or we just leave. I think it is great that
+  to find a new place, and if you read amazing reviews of course you want to go, but honestly,
+  life is too short to keep waiting for lunch.
+
+  So this time (Saturday at 5 pm), we found a table inside in the first try. Let me tell you,
+  all the food in this place looked amazing. Brunch style, with **huevos rancheros**, **eggs benedict**
+  and many other delicious plates on the menu, but since we already had late lunch we decided to go
+  only for dessert.
+
+  The carrot cake with seeds its definitely worth trying, good coffe and nice smoothies and lemonades.
+  What else can we ask for? Well, I will let you know next time I go there.
+
+images:
+  - images/places-M/roamers/cover.JPG
+  - images/places-M/roamers/image1.JPG
+  - images/places-M/roamers/image2.JPG
+  - images/places-M/roamers/image3.JPG
+  - images/places-M/roamers/image4.JPG
