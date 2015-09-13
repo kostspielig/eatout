@@ -1,4 +1,4 @@
-<div id="main-panel" ng-show="seepanel" href="" class="expanded-{{expandpanel}} {{panel}}-panel">
+<div id="main-panel" ng-show="seepanel" href="" class="expanded-{{expandpanel}} {{panel}}-panel see-{{seepanel}}">
   <div class="place-item" id="panel-wrapper" ng-controller="eob_PlaceCtrl">
     <ng-include ng-if="panel === 'place'" src="'templates/panel-place.html'"></ng-include>
     <ng-include ng-if="panel === 'suggestion'" src="'templates/panel-suggestions.html'"></ng-include>

@@ -668,6 +668,8 @@ body {
     &.expanded-100 { width: 100vw; }
     &.expanded-50  { width: 50vw; }
 
+    &.see-false { display: none; }
+
     &.ng-hide-add, &.ng-hide-remove  {
 	display: block !important;
     }
