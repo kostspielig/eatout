@@ -10,7 +10,13 @@ rating: 4
 pricerange: 2
 phone: 030 28860626
 recommended: false
-description: ''
+description: |
+   We went to this place after beign recommended by several friends, it is
+   always super packed- so it might be a good idea to make reservations
+   beforehand.
+
+   They have a nice menu, that makes it really difficult to just decide for
+   one plate.
 
 images:
   - images/places-M/umami/cover.JPG

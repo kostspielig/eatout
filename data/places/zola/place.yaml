@@ -10,7 +10,10 @@ rating: 4.3
 pricerange: 1.5
 phone: false
 recommended: false
-description: 'Neapolitan wood-fired pizza. The downside of this place is that it only opens for lunch time(12-16 h), but i you get the opportunity to visit, do not miss out!'
+description: |
+   Neapolitan wood-fired pizza. The downside of this place is that it only
+   opens at lunch time (12-16 h), but if you get the opportunity to visit,
+   do not miss out!
 
 images:
   - images/places-M/zola/cover.JPG
