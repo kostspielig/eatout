@@ -7,7 +7,7 @@
       <div id="#{{place.slug}}" class="blog-entry"  ng-repeat="place in blogEntries | startFrom:currentPage*pageSize | limitTo:pageSize">
           <div class="entry-info">
 
-              <img ng-src="{{place.images.0}}" class="entry-cover" alt="{{place.title}}" title="{{place.title}}" />
+              <img ng-src="{{place.images[0]}}" class="entry-cover" alt="{{place.title}}" title="{{place.title}}" />
      	      <div class="place-name">{{place.name}}</div>
               <div class="place-date"> &nbsp;&nbsp;{{place.date}}</div>
 

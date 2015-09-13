@@ -6,7 +6,7 @@
       <b></b> <b></b> <b></b>
     </div>
   </a>
-  <div class="header" style="background-image: url( {{place.images.0}} );" ng-repeat="place in suggestions | filter:query" ng-click="openPlace(place.slug);">
+  <div class="header" style="background-image: url( {{place.images[0]}} );" ng-repeat="place in suggestions | filter:query" ng-click="openPlace(place.slug);">
     <div class="place-info-area">
       <div class="place-info">
 	<div class="place-name">
