@@ -171,6 +171,8 @@ eob_controllers.controller 'eob_MenuCtrl', ($scope, $location, eob_data) ->
         if _.isEmpty checkedTypes then $scope.menuSelectAll()
         else $scope.filterMarkers checkedTypes
 
+        do $scope.fitBounds
+
     $scope.menuSelectDistrict = (district) ->
         hideIfPanel()
         $scope.active = ''
@@ -406,9 +408,10 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
         if a.distance > b.distanc then return 1
         return 0
 
-    fitBounds = (markers) ->
+    $scope.fitBounds = (markersToFit) ->
+        markersToFit ?= markers
         bounds = new google.maps.LatLngBounds()
-        for marker, i in markers
+        for marker, i in markersToFit
             if marker.getVisible() is true
                 bounds.extend marker.getPosition()
         if findMeMarker.getVisible() is true
