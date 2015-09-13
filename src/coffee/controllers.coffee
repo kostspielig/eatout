@@ -414,7 +414,7 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
         for marker, i in markersToFit
             if marker.getVisible() is true
                 bounds.extend marker.getPosition()
-        if findMeMarker.getVisible() is true
+        if findMeMarker and findMeMarker.getVisible() is true
             bounds.extend findMeMarker.getPosition()
         map.fitBounds bounds
 
