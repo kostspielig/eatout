@@ -10,7 +10,10 @@ rating: 4.5
 pricerange: 1
 phone: false
 recommended: false
-description: 'This charming market has many options to eat, you can find from delicious curry bursts to all different types of cheesse. Definitely this a place not to be missed.'
+description: |
+   This charming market has many options to eat, you can find from delicious
+   curry bursts to all different types of cheesse. Definitely this a place not
+   to be missed.
 
 images:
   - images/places-M/thai-park/cover.JPG
@@ -22,4 +25,3 @@ images:
   - images/places-M/thai-park/image6.JPG
   - images/places-M/thai-park/image7.JPG
   - images/places-M/thai-park/image8.JPG
-  - images/places-M/thai-park/image9.JPG
