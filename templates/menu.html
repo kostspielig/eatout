@@ -1,25 +1,24 @@
 <div ng-controller="eob_MenuCtrl">
-  <div class="menu-icon" ng-click="toggleMenu()">
-    <div class="menu-toggle {{seemenu ? 'close' : 'open'}}">
-      <b></b> <b></b> <b></b>
+    <div class="menu-icon" ng-click="toggleMenu()">
+        <div class="menu-toggle {{seemenu ? 'close' : 'open'}}">
+            <b></b> <b></b> <b></b>
+        </div>
     </div>
-  </div>
-  <div class="tag-list {{seepanel ? 'panel-open' : 'panel-close'}}">
-    <ul>
-      <li class="tag {{ getColor(food) }}" ng-class="" ng-repeat="(food, val) in foodTypeChecked" ng-if="val" ng-click="menuSelectFoodType(food);">{{food}} <div class="close-icon no-animation"><b></b> <b></b></div></li>
-    </ul>
-  </div>
+    <div class="tag-list {{seepanel ? 'panel-open' : 'panel-close'}}">
+        <ul>
+            <li class="tag {{ getColor(food) }}" ng-class="" ng-repeat="(food, val) in foodTypeChecked" ng-if="val" ng-click="menuSelectFoodType(food);">{{food}} <div class="close-icon no-animation"><b></b> <b></b></div></li>
+        </ul>
+    </div>
   <div id="main-menu" ng-show="seemenu" click-out="closeSubmenus()">
+      <div class="menu-content-wrapper">
+          <div resizable class="menu-content" style=" height: {{windowHeight-92}}px">
+              <div class="header">{{windowHeight}}</div>
 
-    <div class="menu-content-wrapper">
-        <div resizable class="menu-content" style=" height: {{windowHeight-92}}px">
-            <div class="header">{{windowHeight}}</div>
-
-            <div class="menu-items">
-	        <ul>
-	            <li class="menu-item food-type" ng-click="toggleItem('foodItem')" ng-class="{ active: isActive('foodItem') }">
-	                <div class="item-icon"></div>
-	                <span class="item-description">Food Type</span>
+              <div class="menu-items">
+	          <ul>
+	              <li class="menu-item food-type" ng-click="toggleItem('foodItem')" ng-class="{ active: isActive('foodItem') }">
+	                  <div class="item-icon"></div>
+	                  <span class="item-description">Food Type</span>
 	            </li>
 
                     <li class="menu-item districts" ng-click="toggleItem('districtItem')" ng-class="{active: isActive('districtItem')}">
@@ -34,10 +33,16 @@
 	                <div class="item-icon"></div>
 	                <span class="item-description">Search</span>
 	            </li>
-	        </ul>
-            </div>
-        </div>
-    </div>
+                    <li class="menu-item blog">
+                        <a ng-href="/blog">
+	                    <div class="item-icon"></div>
+	                    <span class="item-description">Blog</span>
+                        </a>
+	            </li>
+	          </ul>
+              </div>
+          </div>
+      </div>
 
     <div class="submenus {{active}}">
         <div class="submenu-wrapper" style=" height: {{windowHeight-menuPosition('foodItem')}}px" ng-show="isActive('foodItem')">
@@ -54,5 +59,6 @@
             </ul>
         </div>
     </div>
+    <div class="menu-gradient"></div>
   </div>
 </div>
