@@ -1,0 +1,35 @@
+name: dots · café
+url: http://ilovedots.de
+address: Weserstraße 191
+date: '2015-09-12'
+foodtype: breakfast
+lat: 52.4864047
+lng: 13.4347424
+title:
+rating: 4.1
+pricerange: 1.5
+phone: false
+recommended: false
+description: |
+   We found this little charming coffee place in our way to find a different
+   brunt spot that was actually closed, so we decided to come back and give it
+   a  try.
+
+   What a pleasant surprise, there is no doubt that Neukolln is becoming an
+   amazing neighborhood to live in. The variety of places with affordable prices
+   is overwelming, and the atmosphere is relaxing and welcoming. This place has
+   some spots to sit outside which is perfect from spring to autum.
+
+   We tried the **Savory James**, pancakes with bacon and the
+   **Getruffeltes Ei im Glas**, eggs in a glass topped with grilled cheese. Both
+   plates were very tasty, and there is also great coffee and wifi, which makes
+   it also a great spot to come to do some work.
+
+   We will defenitely be back to try some of the pastries they had inside.
+
+images:
+  - images/places-M/dots-cafe/cover.JPG
+  - images/places-M/dots-cafe/image1.JPG
+  - images/places-M/dots-cafe/image2.JPG
+  - images/places-M/dots-cafe/image3.JPG
+  - images/places-M/dots-cafe/image4.JPG

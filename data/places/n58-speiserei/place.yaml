@@ -1,0 +1,27 @@
+name: N°58 Speiserei
+url: http://www.facebook.com/no58speiserei
+address: Weisestraße 58
+date: '2015-09-06'
+foodtype: brunch
+lat: 52.47851
+lng: 13.4239201
+title: Vegan friendly Brunch next to Tempelhof
+rating: 3.1
+pricerange: 2
+phone: 030 62728050
+recommended: false
+description: |
+   Right next to Tempelhofer Field you can find this small charming coffee place
+   serving vegetarian and vegan meals.
+
+   They have an interesting and varied menu with a decent coffee, but we found the
+   taste of the food quite bland. Maybe pinch of salt might have helped a bit with
+   the flavours.
+
+images:
+  - images/places-M/n58-speiserei/cover.JPG
+  - images/places-M/n58-speiserei/image1.JPG
+  - images/places-M/n58-speiserei/image2.JPG
+  - images/places-M/n58-speiserei/image3.JPG
+  - images/places-M/n58-speiserei/image4.JPG
+  - images/places-M/n58-speiserei/image5.JPG

@@ -1,0 +1,46 @@
+name: Cordobar
+url: http://www.cordobar.net
+address: Große Hamburger Str. 32
+date: '2015-09-10'
+foodtype: french
+lat: 52.5257194
+lng: 13.3988477
+title: The wine world
+rating: 4.1
+pricerange: 4
+phone: 030 27581215
+recommended: false
+description: |
+   We had read so many amazing reviews about this wine bar in mitte, that we could
+   not wait to try it. Reading throw the tapas menu just makes your mounth water,
+   and the wine list is insane, and some of the prices there also (it can get up to
+   999€).
+
+   We started with the **bread & butter**, which is a delicate whipped butter with
+   a soft texture and mixed rote bete. This is something everyone should try, it
+   has nothing to do with the normal butter, it tastes more like a creamy delight.
+   Followed by **frozen hamachi ceviche**, a must-try (if the menu doesn't change
+   before you go). The **artichoke with liquorice** is defenitely different than
+   what I expected, but it was worth a try. What we could have left away were the
+   three tortelini soup- for 13€. We finished with a **chocolate cake** with
+   maracuja cream, always a great choice.
+
+   Although the stuff seemed nice, we did not like partially the behaviour of a
+   waiter. At first he was almost forcing us to order some dishes - it is nice to
+   have some recommendations but just recommend, and also suggesting around
+   dishes 3-4 for person, which turned out to be more than necessary (5 for two
+   were enough for us). He also made a miskate and brought us sparkling water
+   instead of still, when we told him about it he seemed bothered about it and
+   took us a couple of arguments with him to correct the mistake.
+
+   Althougt we liked the place, I would rather recommend
+   [**industry standard**](place/industry-standard).
+
+images:
+  - images/places-M/cordobar/cover.JPG
+  - images/places-M/cordobar/image1.JPG
+  - images/places-M/cordobar/image2.JPG
+  - images/places-M/cordobar/image3.JPG
+  - images/places-M/cordobar/image4.JPG
+  - images/places-M/cordobar/image5.JPG
+  - images/places-M/cordobar/image6.JPG

@@ -1,0 +1,23 @@
+name: Parker Bowles
+url: http://parker-bowles.com/en
+address: Prinzenstraße 85d
+date: '2015-08-30'
+foodtype: german
+lat: 52.502686
+lng: 13.4095929
+title: Charles meets Camilla
+rating: 3.1
+pricerange: 2
+phone: 030 55279099
+recommended: false
+description: |
+  Right next to the club **Prince Charles** you can find this modern restaurant
+  called **Parker Bowles**.
+
+images:
+  - images/places-M/parker-bowles/cover.JPG
+  - images/places-M/parker-bowles/image1.JPG
+  - images/places-M/parker-bowles/image2.JPG
+  - images/places-M/parker-bowles/image3.JPG
+  - images/places-M/parker-bowles/image4.JPG
+  - images/places-M/parker-bowles/image5.JPG
