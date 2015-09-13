@@ -61,8 +61,8 @@ html { height: 100% }
 body {
     height: 100%; margin: 0; padding: 0;
     overflow: hidden;
-    //font-family: 'Open Sans', sans-serif;
-    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .truncate {
@@ -87,8 +87,9 @@ body {
     .gm-style .gm-style-mtc div { display: none; }
 
     .cluster-txt {
-        font-family: 'Josefin Sans';
+        font-family: 'Josefin Sans', sans-serif;
         color: white;
+        font-size: 0.95em;
         text-shadow: 0px 1px 0.5px rgba(0,0,0,0.3);
     }
 }
@@ -287,6 +288,7 @@ body {
 }
 
 #weather {
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 40px;
     color: $darkGray;
     font-weight: 700;
@@ -373,6 +375,7 @@ body {
         bottom: 0;
         height: 60px;
         width: 100%;
+        pointer-events: none;
 
         background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6+ */
         background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
@@ -448,6 +451,7 @@ body {
 	}
 
 	.menu-items {
+            a { text-decoration: none; }
 	    li.menu-item {
 		margin: 0px auto;
 		padding: 9px 0;
@@ -466,14 +470,13 @@ body {
 		&.food-type .item-icon   { background-image: url(/images/menu/food.svg); }
 		&.districts .item-icon   { background-image: url(/images/menu/district.svg); }
 		&.best-places .item-icon { background-image: url(/images/menu/search.svg); }
-                &.blog .item-icon { background-image: url(/images/menu/blog.svg); }
+                &.blog .item-icon        { background-image: url(/images/menu/blog.svg); }
 	    }
 	}
     }
 
     .info-content {
 	margin: 10px;
-	font-family: 'Josefin Slab', serif;
 
 	h1 {
 	    display: inline-block;
@@ -546,7 +549,7 @@ body {
 
 .blog {
     display: block;
-    .divider { height: 8px; width: 100%; background-color: $darkGrayBg; margin-top: 50px;  }
+    .divider { height: 8px; width: 100%; background-color: $darkGrayBg; margin-top: 50px; }
     .entry-info { padding: 50px 10vw 25px 10vw; }
     .entry-cover {
         width: 500px;
@@ -569,16 +572,31 @@ body {
         padding: 30px 0;
     }
     .place-info {
-        padding: 50px 0 0px 0; margin: 0 auto; text-align: center;
+        padding: 50px 0 0px 0;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 0.96em;
 
-        li { padding-bottom: 8px; }
+        li {
+            .rating { float: none; }
+            .price-wrapper { padding: 0; }
+            padding-bottom: 6px;
+        }
         .price-range {
-            display: block;
-            height: 35px;
+            display: none;
+            height: 18px;
             margin: 0 auto;
         }
     }
-    .go-to-entry { cursor: pointer; }
+    .go-to-entry {
+        cursor: pointer;
+        background-color: $red;
+        color: white;
+        padding: 8px 10px;
+        margin: 10px auto 0 auto;
+        font-weight: 700;
+        display: inline-block;
+    }
 }
 
 .pagination {
@@ -603,7 +621,7 @@ body {
 
 .widget-place-content-info {
     float: left;
-    font-size: 17px;
+    font-size: 0.9em;
     width: 60%;
     a:link,
     a:visited {
@@ -622,6 +640,8 @@ body {
 .ico-foodtype { background: url(/images/SVG/foodtype.svg) no-repeat center; }
 .ico-walking  { background: url(/images/SVG/walking.svg) no-repeat center; }
 .ico-place    { background: url(/images/SVG/place.svg) no-repeat center; }
+.ico-walking-dark  { background: url(/images/SVG/walking-dark.svg) no-repeat center; }
+.ico-place-dark    { background: url(/images/SVG/place-dark.svg) no-repeat center; }
 
 /************** The Place *************/
 
@@ -705,6 +725,7 @@ body {
 		display: inline-block;
 		color: $white;
 		max-width: 84%;
+                font-size: 0.96em;
 
 		.place-name {
 		    font-size: 32px;
@@ -756,9 +777,10 @@ body {
 	.content {
 	    padding: 20px 4vw 20px 4vw;
 	    background-color: $white;
-	    font-size: 20px;
+	    font-size: 17px;
 
-            .top-content { min-height: 100px; }
+            .top-content { min-height: 90px; }
+            .description { line-height: 25px; }
             .place-closed {
                 background: url(/images/SVG/closed.svg) no-repeat center;
                 width: 90px;
@@ -784,17 +806,17 @@ body {
             .place-content-info { @extend .widget-place-content-info; }
 
 	    .last-visited {
-		font-size: 0.8em;
-                margin-bottom: 5px;
+		font-size: 0.9em;
+                margin-bottom: 8px;
 	    }
 
 	    .title {
                 clear: both;
-		font-size: 1.4em;
+		font-size: 1.6em;
                 text-transform: uppercase;
 		font-weight: bold;
                 padding: 14px 0;
-                margin: 30px 0 5px 0;
+                margin: 30px 0 10px 0;
                 border-top: 3px solid #333;
                 font-family: 'Oswald', sans-serif;
 	    }
@@ -865,7 +887,7 @@ p  { margin-bottom: 10px; }
 @media screen and (max-width: 1150px) { }
 
 @media screen and (max-width: 860px) {
-    #logo {
+    #logo{
 	.tv-tower { @include bg-cover; width: 34px; height: 120px;  left:10px;}
 	.eatout-text { @include bg-cover; left: 50px; height: 38px; width: 79px; }
     }
@@ -947,6 +969,7 @@ p  { margin-bottom: 10px; }
 
 @media screen and (max-width: 850px) {
     .blog {
+        .entry-info { padding: 50px 5vw 25px 5vw; }
         .entry-cover { margin: 0 auto 15px auto; width: 80%; float: none; display: block; }
     }
 }
