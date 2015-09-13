@@ -628,6 +628,9 @@ body {
     @include scroll-y;
     @include backface;
 
+    &.expanded-100 { width: 100vw; }
+    &.expanded-50  { width: 50vw; }
+
     &.ng-hide-add, &.ng-hide-remove  {
 	display: block !important;
     }
