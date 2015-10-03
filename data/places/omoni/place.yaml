@@ -1,0 +1,21 @@
+name: Omoni
+url: http://www.omoni-berlin.net/
+date: '2015-09-18'
+address: Kopenhagener Str. 14
+foodtype: japanese
+lat: 52.5489601
+lng: 13.409285
+title: A piece of japan in Berlin
+rating: 4.5
+pricerange: 2.5
+phone: 030 23619244
+recommended: true
+description: |
+   What we have been missing.
+
+images:
+  - images/places-M/omoni/cover.JPG
+  - images/places-M/omoni/image1.JPG
+  - images/places-M/omoni/image2.JPG
+  - images/places-M/omoni/image3.JPG
+  - images/places-M/omoni/image4.JPG

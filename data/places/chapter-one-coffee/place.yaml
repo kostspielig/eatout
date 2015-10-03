@@ -1,0 +1,27 @@
+name: Chapter One Coffee
+url: http://www.chapter-one-coffee.com
+address: Mittenwalder Str. 30
+date: '2015-10-03'
+foodtype: breakfast
+lat: 52.48981
+lng: 13.39567
+title: Coffee Masters in Kreuzberg
+rating: 4.5
+pricerange: 1
+phone: 030 25922799
+recommended: false
+description: |
+   Delicious coffee and nice pastries is what you can expect from this charming
+   coffee place in Kreuzberg. The coffee has an intense yet sharp flavour that makes
+   it delicious without sugar. The staff is very friendly and explains in detail
+   extense coffee selection that changes every week.
+
+   It is located next to **Marheineke Markthalle**, and on saturdays there is a nice
+   small **flea market** that is worth visiting since it is not as crowded and expensive as
+   Mauer Park.
+
+
+images:
+  - images/places-M/chapter-one-coffee/cover.JPG
+  - images/places-M/chapter-one-coffee/image1.JPG
+  - images/places-M/chapter-one-coffee/image2.JPG
