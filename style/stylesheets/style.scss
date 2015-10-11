@@ -396,9 +396,9 @@ body {
 	position: absolute;
 	top: 0;
 
-	&.districtItem { margin-top: 198px; width: 135px; overflow: hidden; }
+	&.districtItem { margin-top: 198px; width: 140px; overflow: hidden; }
 	&.foodItem { margin-top: 100px; width: 136px; overflow: hidden; }
-        .submenu-wrapper  { overflow: hidden; overflow-y: scroll; width: 152px; }
+        .submenu-wrapper  { overflow: hidden; overflow-y: scroll; width: 165px; }
         .submenu { background: $darkGrayBg;	padding: 8px 0; }
 
 	li.submenu-item {
@@ -437,7 +437,7 @@ body {
     .menu-content {
 	padding: 92px  0 0 0px;
 	background: $darkGrayBg;
-	width: 120px;
+	width: 130px;
         overflow-y: scroll;
 
 	@include container-shadow;
