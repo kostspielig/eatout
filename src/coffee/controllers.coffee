@@ -24,6 +24,7 @@ MARKER_ICONS =
     #beer: 'images/icons/SVG/beer.svg'
     breakfast: url: 'images/icons/SVG/coffee.svg', color: 'blue'
     brunch: url: 'images/icons/SVG/brunch.svg', color: 'purple'
+    hotdog: url: 'images/icons/SVG/hotdog.svg', color: 'light-blue'
     burger: url: 'images/icons/SVG/burger.svg', color: 'purple'
     cocktails: url: 'images/icons/SVG/cocktails.svg', color: 'black'
     #croissant: 'images/icons/croissant.png', color: ''
