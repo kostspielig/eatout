@@ -50,22 +50,21 @@ eob_services.factory 'eob_data', ($http, $q) ->
             service.districts = data
     service.promise = $q.all [service.placesPromise, service.districtsPromise]
     return service
+]
 
+eob_services.factory 'eob_weather', ['$http', ($http) ->
+    FORECAST_ENDPOINT = "http://query.yahooapis.com/v1/public/yql?q="
+    FORECAST_YQL_OPEN 	= "select * from weather.forecast where location='"
+    FORECAST_YQL_CLOSE 	= "'and u='c'&format=json"
+    YQL_BERLIN = "GMXX0007"
 
-eob_services.factory 'eob_weather', ['$http',
-    ($http) ->
-        FORECAST_ENDPOINT = "http://query.yahooapis.com/v1/public/yql?q="
-        FORECAST_YQL_OPEN 	= "select * from weather.forecast where location='"
-        FORECAST_YQL_CLOSE 	= "'and u='c'&format=json"
-        YQL_BERLIN = "GMXX0007"
-
-        {
-            getWeather: (scope) ->
-                url = FORECAST_ENDPOINT + FORECAST_YQL_OPEN + YQL_BERLIN + FORECAST_YQL_CLOSE
-                $http.get(url).success( (data) ->
-                    scope.weather = data
-                    scope.temp = data.query.results.channel.item.condition.temp
-                    scope.wcode = data.query.results.channel.item.condition.code
-                )
-        }
+    {
+        getWeather: (scope) ->
+            url = FORECAST_ENDPOINT + FORECAST_YQL_OPEN + YQL_BERLIN + FORECAST_YQL_CLOSE
+            $http.get(url).success( (data) ->
+                scope.weather = data
+                scope.temp = data.query.results.channel.item.condition.temp
+                scope.wcode = data.query.results.channel.item.condition.code
+            )
+    }
 ]
