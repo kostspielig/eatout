@@ -896,51 +896,7 @@ p  { margin-bottom: 10px; }
 	.eatout-text { @include bg-cover; left: 50px; height: 38px; width: 79px; }
     }
 }
-/*
-@media screen and (max-height: 450px) {
-    .menu-icon { left: 24px; }
-    #main-menu {
-	.submenus {
-	    margin-left: 90px;
-	    &.foodItem, &.districtItem { top: 0; }
-	}
-	.menu-content {
-	    padding: 88px 0 0 0px;
-	    width: 90px;
 
-    	    .menu-items {
-		li.menu-item {
-		    margin: 0px auto;
-		    padding: 4px 0;
-		    cursor: pointer;
-		    text-align: center;
-
-		    .item-icon {
-			background-size: cover;
-			height: 40px;
-			width: 40px;
-		    }
-
-		    &:hover, &.active {
-			.item-icon { background-position: 0 -40px; }
-		    }
-		}
-	    }
-	}
-    }
-}
-
-@media screen and (max-height: 340px) {
-     #main-menu {
-	 .menu-items {
-	     .menu-item .item-description { display: none; }
-	 }
-	 .submenus li.submenu-item.submenu-all {
-	     padding: 6px 25px;
-	 }
-     }
-}
-*/
 @media screen and (max-height: 600px) {
     #main-menu .submenus.districtItem,
     #main-menu .submenus.foodItem {
