@@ -201,7 +201,7 @@ eob_controllers.controller 'eob_MenuCtrl', ($scope, $location, eob_data) ->
     return
 
 
-eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
+eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location, $timeout,
              eob_data, eob_geolocation, eob_imgCache) ->
 
     eob_imgCache.load MARKER_ICONS
@@ -283,7 +283,7 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location,
         # The panel might be changing right now, in which case
         # 'offsetWidth' returns 0, so let's deffer this
         if $scope.seepanel or $scope.seemenu
-            setTimeout (->
+            $timeout (->
                 mapWidth = document.getElementById("map-canvas").offsetWidth
                 panelWidth = if not $scope.seepanel \
                              then 0
