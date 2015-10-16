@@ -1,0 +1,23 @@
+name: Skykitchen
+url: 'http://www.skykitchen.berlin'
+address: Landsberger Allee 106
+date: '2015-10-15'
+foodtype: french
+lat: 52.52844
+lng: 13.45707
+title: Michelin star
+rating: 4.8
+pricerange: 5
+phone: 030 49207242
+recommended: true
+description: One of the best experiences in Berlin
+
+images:
+  - images/places-M/skykitchen/cover.JPG
+  - images/places-M/skykitchen/image1.JPG
+  - images/places-M/skykitchen/image2.JPG
+  - images/places-M/skykitchen/image3.JPG
+  - images/places-M/skykitchen/image4.JPG
+  - images/places-M/skykitchen/image5.JPG
+  - images/places-M/skykitchen/image6.JPG
+  - images/places-M/skykitchen/image7.JPG
