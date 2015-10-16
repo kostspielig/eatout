@@ -22,23 +22,25 @@ eob_services.factory 'eob_imgCache', ($q) ->
 
         $q.all promises
 
+eob_services.factory 'eob_msg', ($q, $timeout) ->
+    logger = (x) -> console.log "MESSAGE: ", x
+    callbacks: [ logger ]
+    put: (msg) ->
+        $timeout (=>
+            this.callbacks.forEach (fn) -> fn text: msg
+        ), 0
 
+eob_services.factory 'eob_geolocation', ['eob_msg', (eob_msg) ->
+    getCurrentPosition: (success) ->
+        # Try HTML5 geolocation
+        if navigator.geolocation
+            navigator.geolocation.getCurrentPosition success, ->
+                eob_msg.put "Geolocation failed!"
+        else
+            eob_msg.put "Geolocation not supported by your browser!"
+]
 
-eob_services.factory 'eob_geolocation', ->
-    service = {
-        getCurrentPosition: (success) ->
-            # Try HTML5 geolocation
-            if navigator.geolocation
-                navigator.geolocation.getCurrentPosition success, ->
-                    alert "Geolocation failed!"
-                    return
-            else alert "Geolocation not supported by your browser!"
-            return
-    }
-    service
-
-
-eob_services.factory 'eob_data', ($http, $q) ->
+eob_services.factory 'eob_data', [ '$http', '$q', ($http, $q) ->
     service = {}
     service.placesPromise = $http.get 'data/places.json'
         .success (data) ->

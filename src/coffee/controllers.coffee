@@ -474,7 +474,7 @@ eob_controllers.controller 'eob_PlaceCtrl', ($scope, $location, $window) ->
     return
 
 
-eob_controllers.controller 'eob_PlaceUrlCtrl', ($scope, $routeParams, eob_data) ->
+eob_controllers.controller 'eob_PlaceUrlCtrl', ($scope, $routeParams, eob_data, eob_msg) ->
     eob_data.placesPromise.success (places) ->
         place = _.findWhere(places,
             slug: $routeParams.placeSlug
@@ -485,7 +485,7 @@ eob_controllers.controller 'eob_PlaceUrlCtrl', ($scope, $routeParams, eob_data) 
             $scope.showPanel()
             $scope.centerPosition place.lat, place.lng, 16
         else
-            alert "Place not found: " + $routeParams.placeSlug
+            eob_msg.put "Place not found: #{$routeParams.placeSlug}"
     return
 
 eob_controllers.controller 'eob_SuggestionUrlCtrl', ($scope, eob_data) ->
