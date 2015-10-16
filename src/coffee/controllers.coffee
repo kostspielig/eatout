@@ -136,6 +136,20 @@ eob_controllers.controller 'eob_WeatherCtrl', ($scope, eob_weather) ->
     eob_weather.getWeather $scope
     return
 
+eob_controllers.controller 'eob_MessagesCtrl', ($scope, $timeout, eob_weather, eob_msg) ->
+    MESSAGE_TIMEOUT = 10 * 1000
+
+    $scope.messages = []
+
+    $scope.remove = (msg) ->
+        $scope.messages = $scope.messages.filter (m) -> m != msg
+
+    eob_msg.callbacks.push (msg) ->
+        $scope.$apply ->
+            $scope.messages.push msg
+            $timeout (-> $scope.remove msg), MESSAGE_TIMEOUT
+    return
+
 eob_controllers.controller 'eob_MenuCtrl', ($scope, $location, eob_data) ->
     eob_data.districtsPromise.success (data) ->
         $scope.districts = data

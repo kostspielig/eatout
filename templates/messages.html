@@ -1,0 +1,10 @@
+<div ng-controller="eob_MessagesCtrl">
+  <ul id="messages" >
+    <li class="message-item fade"
+        ng-repeat="message in messages"
+        ng-click="remove(message)">
+      {{message.text}}
+      <div class="close-icon no-animation"><b></b> <b></b></div>
+    </li>
+  </ul>
+</div>

@@ -127,6 +127,58 @@ body {
     .love { color: $red; }
 }
 
+
+.fade.ng-enter {
+    transition: 0.3s linear all;
+    opacity: 0;
+}
+.fade.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+.fade.ng-leave {
+    transition:0.3s linear all;
+    opacity:1;
+}
+.fade.ng-leave.ng-leave-active {
+    opacity:0;
+}
+.fade.ng-move {
+    transition: .3s linear all;
+}
+
+#messages {
+    position: absolute;
+    z-index: 1000;
+    top: 20px;
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    font-family: 'Josefin Sans', sans-serif;
+
+    .message-item {
+        background-color: rgba(255, 99, 71, 0.8);
+        border-radius: 20px;
+        color: white;
+        cursor: pointer;
+        max-width: 80%;
+        margin: 10px auto;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px;
+        text-align: center;
+        position: relative;
+        .close-icon {
+            position: absolute;
+            right: 14px;
+            top: 12px;
+            height: 13px;
+            margin: -1px 0 0 4px;
+            width: 13px;
+        }
+    }
+}
+
 .ico-mail {
     background: transparent url(/images/SVG/mail.svg) no-repeat 0 0;
     width: 30px;
