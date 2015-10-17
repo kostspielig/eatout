@@ -132,11 +132,12 @@ MAP_STYLES = [
 ]
 
 
-eob_controllers.controller 'eob_WeatherCtrl', ($scope, eob_weather) ->
+eob_controllers.controller 'eob_WeatherCtrl', [ '$scope', 'eob_weather', ($scope, eob_weather) ->
     eob_weather.getWeather $scope
     return
+]
 
-eob_controllers.controller 'eob_MessagesCtrl', ($scope, $timeout, eob_weather, eob_msg) ->
+eob_controllers.controller 'eob_MessagesCtrl', [ '$scope', '$timeout', 'eob_weather', 'eob_msg', ($scope, $timeout, eob_weather, eob_msg) ->
     MESSAGE_TIMEOUT = 10 * 1000
 
     $scope.messages = []
@@ -149,8 +150,9 @@ eob_controllers.controller 'eob_MessagesCtrl', ($scope, $timeout, eob_weather, e
             $scope.messages.push msg
             $timeout (-> $scope.remove msg), MESSAGE_TIMEOUT
     return
+]
 
-eob_controllers.controller 'eob_MenuCtrl', ($scope, $location, eob_data) ->
+eob_controllers.controller 'eob_MenuCtrl', [ '$scope', '$location', 'eob_data', ($scope, $location, eob_data) ->
     eob_data.districtsPromise.success (data) ->
         $scope.districts = data
 
@@ -213,10 +215,9 @@ eob_controllers.controller 'eob_MenuCtrl', ($scope, $location, eob_data) ->
         else
             214
     return
+]
 
-
-eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location, $timeout,
-             eob_data, eob_geolocation, eob_imgCache) ->
+eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$timeout', 'eob_data', 'eob_geolocation', 'eob_imgCache', ($scope, $http, $location, $timeout, eob_data, eob_geolocation, eob_imgCache) ->
 
     eob_imgCache.load MARKER_ICONS
 
@@ -438,8 +439,9 @@ eob_controllers.controller 'eob_MapCtrl', ($scope, $http, $location, $timeout,
         eob_data.placesPromise.then addMarkersToMap
 
     return
+]
 
-eob_controllers.controller 'eob_PlaceCtrl', ($scope, $location, $window) ->
+eob_controllers.controller 'eob_PlaceCtrl', [ '$scope', '$location', '$window', ($scope, $location, $window) ->
     shareMsg = (place) ->
         'I found delicious ' + place.foodtype + ' at '+ place.name + ' via #EatOutBerlin'
 
@@ -486,9 +488,9 @@ eob_controllers.controller 'eob_PlaceCtrl', ($scope, $location, $window) ->
             }, -> )
 
     return
+]
 
-
-eob_controllers.controller 'eob_PlaceUrlCtrl', ($scope, $routeParams, eob_data, eob_msg) ->
+eob_controllers.controller 'eob_PlaceUrlCtrl', [ '$scope', '$routeParams', 'eob_data', 'eob_msg', ($scope, $routeParams, eob_data, eob_msg) ->
     eob_data.placesPromise.success (places) ->
         place = _.findWhere(places,
             slug: $routeParams.placeSlug
@@ -501,15 +503,17 @@ eob_controllers.controller 'eob_PlaceUrlCtrl', ($scope, $routeParams, eob_data, 
         else
             eob_msg.put "Place not found: #{$routeParams.placeSlug}"
     return
+]
 
-eob_controllers.controller 'eob_SuggestionUrlCtrl', ($scope, eob_data) ->
+eob_controllers.controller 'eob_SuggestionUrlCtrl', [ '$scope', 'eob_data', ($scope, eob_data) ->
     eob_data.placesPromise.success (places) ->
         $scope.setPanel 'suggestion'
         $scope.setSuggestions places
         $scope.showPanel()
         return
+]
 
-eob_controllers.controller 'eob_BlogUrlCtrl', ($scope, $routeParams, eob_data) ->
+eob_controllers.controller 'eob_BlogUrlCtrl', [ '$scope', '$routeParams', 'eob_data', ($scope, $routeParams, eob_data) ->
     eob_data.placesPromise.success (places) ->
         idx = parseInt $routeParams.pageIndex, 10
         $scope.setBlogPagination 5, Math.max ((if isNaN idx then 0 else idx) - 1), 0
@@ -518,15 +522,18 @@ eob_controllers.controller 'eob_BlogUrlCtrl', ($scope, $routeParams, eob_data) -
         $scope.showPanel()
         $scope.expandPanel()
         $scope.panelToTop()
+]
 
-eob_controllers.controller 'eob_BlogCtrl', ($scope, eob_data) ->
+eob_controllers.controller 'eob_BlogCtrl', [ '$scope', 'eob_data', ($scope, eob_data) ->
     $scope.hideNewerLink = ->
         $scope.currentPage <= 0
     $scope.hideOlderLink = ->
         $scope.currentPage >= $scope.blogEntries.length / $scope.pageSize - 1
     $scope.numberOfPages = ->
         Math.ceil $scope.blogEntries.length / $scope.pageSize
+]
 
-eob_controllers.controller 'eob_NoPlaceUrlCtrl', ($scope) ->
+eob_controllers.controller 'eob_NoPlaceUrlCtrl', [ '$scope', ($scope) ->
     do $scope.hidePanel
     return
+]

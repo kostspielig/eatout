@@ -21,8 +21,8 @@ eob_directives
                     scope.$apply()
         }
 
-    .directive 'resizable', ($window) ->
-        ($scope) ->
+    .directive 'resizable', ['$window', ($window) ->
+        [ '$scope', ($scope) ->
             $scope.initializeWindowSize = ->
                 $scope.windowHeight = $window.innerHeight
                 $scope.windowWidth  = $window.innerWidth
@@ -33,3 +33,5 @@ eob_directives
                     $scope.initializeWindowSize()
                     $scope.$apply()
                 , 500
+        ]
+    ]

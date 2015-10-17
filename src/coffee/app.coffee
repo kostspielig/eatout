@@ -7,7 +7,7 @@ eob_app = angular.module 'eob.app', [
     'eob.services'
 ]
 
-eob_app.config ($routeProvider) ->
+eob_app.config ['$routeProvider', ($routeProvider) ->
     $routeProvider
         .when('/', {
             templateUrl:'templates/empty.html',
@@ -28,19 +28,21 @@ eob_app.config ($routeProvider) ->
         .otherwise({
             redirectTo: '/'
         })
+]
 
-eob_app.config ($locationProvider) ->
+eob_app.config ['$locationProvider', ($locationProvider) ->
     $locationProvider.html5Mode(true)
-
+]
 
 eob_app.run ['$route', angular.noop]
 
 
 # Filters
 
-eob_app.filter 'unsafe', ($sce) ->
+eob_app.filter 'unsafe', ['$sce', ($sce) ->
     (val) ->
         $sce.trustAsHtml val
+]
 
 eob_app.filter 'startFrom', ->
     (input, start) ->

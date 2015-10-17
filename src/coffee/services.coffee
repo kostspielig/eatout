@@ -1,6 +1,6 @@
 eob_services = angular.module 'eob.services', []
 
-eob_services.factory 'eob_imgCache', ($q) ->
+eob_services.factory 'eob_imgCache', [ '$q', ($q) ->
     loadImg = (url) ->
         promise = $q.defer()
         img = new Image()
@@ -21,14 +21,16 @@ eob_services.factory 'eob_imgCache', ($q) ->
             promises[key] = promise
 
         $q.all promises
+]
 
-eob_services.factory 'eob_msg', ($q, $timeout) ->
+eob_services.factory 'eob_msg', [ '$q', '$timeout', ($q, $timeout) ->
     logger = (x) -> console.log "MESSAGE: ", x
     callbacks: [ logger ]
     put: (msg) ->
         $timeout (=>
             this.callbacks.forEach (fn) -> fn text: msg
         ), 0
+]
 
 eob_services.factory 'eob_geolocation', ['eob_msg', (eob_msg) ->
     getCurrentPosition: (success) ->
