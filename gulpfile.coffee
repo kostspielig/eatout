@@ -19,6 +19,7 @@ _ = require 'underscore'
 path = require 'path'
 marked = require 'marked'
 print = require 'gulp-print' # prints names of files to the console
+plumber = require 'gulp-plumber'
 
 sources =
     sass:    'style/stylesheets/**/*.scss'
@@ -49,6 +50,7 @@ dest =
 gulp.task 'sass', ->
     gulp.src(sources.sass)
         .pipe(sourcemaps.init())
+        .pipe(plumber())
         .pipe(sass({errLogToConsole: true}))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(dest.sass))
@@ -65,6 +67,7 @@ gulp.task 'styles', ->
 # Coffee -dev
 gulp.task 'coffee', ->
     gulp.src(sources.coffee)
+        .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(coffee({bare: true}).on('error', gutil.log))
         .pipe(sourcemaps.write('.'))
@@ -136,5 +139,5 @@ gulp.task 'clean', ->
 gulp.task 'dev', ['coffee', 'data', 'sass'], ->
 
 # Default task
-gulp.task 'default', ['clean'], ->
+gulp.task 'default', ['dev'], ->
     gulp.start 'styles', 'scripts', 'libs'
