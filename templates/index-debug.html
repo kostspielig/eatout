@@ -2,7 +2,7 @@
 <!-- manifest="manifest.appcache"-->
 <html ng-app="eob.app">
   <head>
-    <base href="/">
+    <base href="/debug/">
     <meta charset="UTF-8">
     <meta name="author" content="Maria Carrasco, Juan Pedro Bolivar Puente">
     <meta name="description" content="Eat Out Berlin is the perfect site to discover great places to eat in Berlin. We cover both: new exicitng places and great old fashioned ones. Taking advantage of the great diversity of Berlin, we are proud to share our top findings here. ">
@@ -19,15 +19,29 @@
     <link rel="icon" sizes="192x192" href="icon-highres.png">
     <link href="http://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Lily+Script+One|Oswald:700|open+sans|Old+Standard+TT:400,700" rel="stylesheet" type="text/css">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="dist/styles/style.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/style.css">
 
     <title>EatOutBerlin</title>
 
   </head>
   <body>
     <ng-include src="'templates/app.html'"></ng-include>
+
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD2hEhOQFAt4zT3mpV2oQcII_EArR1dyRw&sensor=true&libraries=geometry"></script>
-    <script src="dist/js/libs.min.js"></script>
-    <script src="dist/js/app.min.js"></script>
+    <script src="lib/js-marker-clusterer/src/markerclusterer_compiled.js"></script>
+    <script src="lib/bower/underscore/underscore-min.js"></script>
+    <script src="lib/bower/angular/angular.min.js"></script>
+    <script src="lib/bower/angular-animate/angular-animate.min.js"></script>
+    <script src="lib/bower/angular-route/angular-route.min.js"></script>
+
+    <script src="src/coffee/app.js"></script>
+    <script src="src/coffee/controllers.js"></script>
+    <script src="src/coffee/directives.js"></script>
+    <script src="src/coffee/services.js"></script>
+
+    <!-- Facebook APO -->
+    <script src="src/js/facebook.js" async></script>
+    <!-- Google Analytics API -->
+    <script src="src/js/analytics.js" async></script>
   </body>
 </html>
