@@ -134,6 +134,23 @@ MAP_STYLES = [
   }
 ]
 
+MAP_OPTIONS =
+    center: BERLIN_POS
+    zoom: 13
+    disableDefaultUI: true
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+    styles: MAP_STYLES
+
+MAP_CLUSTERER_OPTIONS =
+    gridSize: 50
+    maxZoom: 15
+    styles:
+        for i in [1..6]
+            url: "images/cluster/c#{i}.svg"
+            height: 52
+            width: 52
+            textSize: 17
+
 
 eob_controllers.controller 'eob_WeatherCtrl', [ '$scope', 'eob_weather', ($scope, eob_weather) ->
     eob_weather.getWeather $scope
@@ -339,24 +356,7 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
     eob_data.placesPromise.success (data) ->
         $scope.places = data
 
-    mapData =
-        center: BERLIN_POS
-        zoom: 13
-        disableDefaultUI: true
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-        styles: MAP_STYLES
-
-    mcOptions =
-        gridSize: 50
-        maxZoom: 15
-        styles:
-            for i in [1..6]
-                url: "images/cluster/c#{i}.svg"
-                height: 52
-                width: 52
-                textSize: 17
-
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapData)
+    map = new google.maps.Map(document.getElementById('map-canvas'), MAP_OPTIONS)
 
     mc = null
     markers = []
@@ -380,7 +380,7 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
                     do $scope.$apply
 
             $scope.findMe false
-            mc = new MarkerClusterer(map, markers, mcOptions)
+            mc = new MarkerClusterer(map, markers, MAP_CLUSTERER_OPTIONS)
             mc.setCalculator (markers, styles) ->
                 text: "<span class='cluster-txt'>#{markers.length}</span>"
                 index: Math.min markers.length-1, styles
