@@ -223,18 +223,18 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
 
     eob_imgCache.load MARKER_ICONS
 
+    $scope.isMobile = ->
+        return window.innerWidth < MOBILE_BP
+
     # display my name one time on the console!
     console.log ASCII_ART
-    $scope.seemenu = true
+    $scope.seemenu = not do $scope.isMobile
     $scope.seepanel = false
     $scope.expandpanel = 50
     $scope.place = null
     $scope.panel = true
     $scope.suggestions = true
     findMeMarker = null
-
-    $scope.isMobile = ->
-        return window.innerWidth < MOBILE_BP
 
     $scope.isMobileOrFs = ->
         return $scope.isMobile() or $scope.expandpanel is 100
