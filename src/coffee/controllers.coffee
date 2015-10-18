@@ -4,20 +4,21 @@ eob_controllers = angular.module 'eob.controllers', []
 BERLIN_POS = new google.maps.LatLng 52.5170423, 13.4018519
 MOBILE_BP = 760
 MENU_BP = 600
-ASCII_ART = "Made with ❤ by\n\n"+
+ASCII_ART = """
+Made with ❤ by
 
-"\t\t\t      ___       \n"+
-"\t\t\t     /\\  \\        ___    \n"+
-"\t\t\t    |::\\  \\      /\\__\\   \n"+
-"\t\t\t    |:|:\\  \\    /:/__/   \n"+
-"\t\t\t  __|:|\\:\\  \\  /::\\  \\   \n"+
-"\t\t\t /::::|_\\:\\__\\ \\/\\:\\  \\  \n"+
-"\t\t\t \\:\\~~\\  \\/__/  ~~\\:\\  \\ \n"+
-"\t\t\t  \\:\\  \\           \\:\\__\\ \n"+
-"\t\t\t   \\:\\  \\     &    /:/  / \n"+
-"\t\t\t    \\:\\__\\        /:/  / \n"+
-"\t\t\t     \\/__/        \\/__/  \n"
-
+\t\t\t      ___
+\t\t\t     /\\  \\        ___
+\t\t\t    |::\\  \\      /\\__\\
+\t\t\t    |:|:\\  \\    /:/__/
+\t\t\t  __|:|\\:\\  \\  /::\\  \\
+\t\t\t /::::|_\\:\\__\\ \\/\\:\\  \\
+\t\t\t \\:\\~~\\  \\/__/  ~~\\:\\  \\
+\t\t\t  \\:\\  \\           \\:\\__\\
+\t\t\t   \\:\\  \\     &    /:/  /
+\t\t\t    \\:\\__\\        /:/  /
+\t\t\t     \\/__/        \\/__/
+"""
 
 MARKER_ICONS =
     #bakery: 'images/icons/SVG/muffin.svg'
