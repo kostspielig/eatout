@@ -9,9 +9,9 @@
             <li class="tag {{ getColor(food) }}" ng-class="" ng-repeat="(food, val) in foodTypeChecked" ng-if="val" ng-click="menuSelectFoodType(food);">{{food}} <div class="close-icon no-animation"><b></b> <b></b></div></li>
         </ul>
     </div>
-  <div id="main-menu" ng-show="seemenu" click-out="closeSubmenus()">
+  <div id="main-menu" ng-show="seemenu" eob-click-out="closeSubmenus()">
       <div class="menu-content-wrapper">
-          <div resizable class="menu-content" style=" height: {{windowHeight-92}}px">
+          <div eob-resizable class="menu-content" style=" height: {{windowHeight-92}}px">
               <div class="header">{{windowHeight}}</div>
 
               <div class="menu-items">
