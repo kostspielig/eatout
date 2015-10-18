@@ -177,12 +177,13 @@ eob_controllers.controller 'eob_MenuCtrl', [ '$scope', '$location', 'eob_data', 
         $scope.districts = data
 
     $scope.foodTypes = Object.keys MARKER_ICONS
-    $scope.anyChecked = -> _.some _.values $scope.foodTypeChecked
-    $scope.foodTypeChecked = {}
 
     hideIfPanel = ->
         if $scope.isMobileOrFs()
             $scope.hidePanel()
+
+    $scope.anyChecked = ->
+        do $scope.hasFoodTypeFilter
 
     $scope.menuFindMe = ->
         hideIfPanel()
@@ -191,18 +192,11 @@ eob_controllers.controller 'eob_MenuCtrl', [ '$scope', '$location', 'eob_data', 
 
     $scope.menuSelectAll = ->
         hideIfPanel()
-        $scope.foodTypeChecked = {}
-        $scope.filterMarkers $scope.foodTypes
+        $scope.setFoodTypeFilters []
 
     $scope.menuSelectFoodType = (food) ->
         hideIfPanel()
-        $scope.foodTypeChecked[food] = !$scope.foodTypeChecked[food]
-        checkedTypes = _.filter $scope.foodTypes, (foodtype) ->
-            $scope.foodTypeChecked[foodtype]
-
-        if _.isEmpty checkedTypes then $scope.menuSelectAll()
-        else $scope.filterMarkers checkedTypes
-
+        $scope.toggleFoodTypeFilter food
         do $scope.fitBounds
 
     $scope.menuSelectDistrict = (district) ->
@@ -234,19 +228,37 @@ eob_controllers.controller 'eob_MenuCtrl', [ '$scope', '$location', 'eob_data', 
 
 eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$timeout', 'eob_data', 'eob_geolocation', 'eob_imgCache', ($scope, $http, $location, $timeout, eob_data, eob_geolocation, eob_imgCache) ->
 
+    console.log ASCII_ART
     eob_imgCache.load MARKER_ICONS
 
     $scope.isMobile = ->
         return window.innerWidth < MOBILE_BP
 
-    # display my name one time on the console!
-    console.log ASCII_ART
     $scope.seemenu = not do $scope.isMobile
     $scope.seepanel = false
     $scope.expandpanel = 50
+
+    $scope.places = []
     $scope.place = null
     $scope.panel = true
-    findMeMarker = null
+
+    $scope.filterFoodTypes = []
+    $scope.filteredPlaces = []
+
+    eob_data.placesPromise.success (data) ->
+        $scope.places = data
+
+    $scope.setFoodTypeFilters = (filters) ->
+        $scope.filterFoodTypes = filters
+        do updateFilters
+
+    $scope.toggleFoodTypeFilter = (type) ->
+        $scope.setFoodTypeFilters if $scope.hasFoodTypeFilter type \
+            then _.without $scope.filterFoodTypes, type \
+            else $scope.filterFoodTypes.concat [type]
+
+    $scope.hasFoodTypeFilter = (type) ->
+        _.contains $scope.filterFoodTypes, type
 
     $scope.isMobileOrFs = ->
         return $scope.isMobile() or $scope.expandpanel is 100
@@ -336,67 +348,29 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
                 pos = new google.maps.LatLng position.coords.latitude,
                                              position.coords.longitude
 
+    map = new google.maps.Map(document.getElementById('map-canvas'), MAP_OPTIONS)
+    clusterer = new MarkerClusterer(map, [], MAP_CLUSTERER_OPTIONS)
+    placeMarkers = {}
+    findMeMarker = null
+
+    clusterer.setCalculator (markers, styles) ->
+        text: "<span class='cluster-txt'>#{markers.length}</span>"
+        index: Math.min markers.length-1, styles
     $scope.findMe = (center) ->
         eob_geolocation.getCurrentPosition (position) ->
             eob_imgCache.load( _.pick MARKER_ICONS, 'findme').then ->
                 pos = new google.maps.LatLng position.coords.latitude, position.coords.longitude
-                if findMeMarker isnt null
-                    markers.splice markers.indexOf(findMeMarker), 1
-                    findMeMarker.setMap null
-
+                findMeMarker.setMap null unless findMeMarker is null
                 findMeMarker = new google.maps.Marker
                     map: map
                     position: pos
                     icon: "images/SVG/iamhere.svg"
                     animation: google.maps.Animation.DROP
                     zIndex: 9999999
-
                 $scope.centerPosition position.coords.latitude, position.coords.longitude if center
 
-    eob_data.placesPromise.success (data) ->
-        $scope.places = data
-
-    map = new google.maps.Map(document.getElementById('map-canvas'), MAP_OPTIONS)
-
-    mc = null
-    markers = []
-
-    addMarkersToMap = () ->
-        eob_imgCache.load(MARKER_ICONS).then ->
-            $scope.places.forEach (place, index) ->
-                image =
-                    url: MARKER_ICONS[place.foodtype].url
-                    size: new google.maps.Size(70, 85)
-                    scaledSize: new google.maps.Size(70, 85)
-                marker = new google.maps.Marker
-                    position: new google.maps.LatLng place.lat, place.lng
-                    map: map
-                    title: place.name
-                    icon: image
-                    animation: google.maps.Animation.DROP
-                markers.push marker
-                google.maps.event.addListener marker, "click", ->
-                    $scope.openPlace place.slug
-                    do $scope.$apply
-
-            $scope.findMe false
-            mc = new MarkerClusterer(map, markers, MAP_CLUSTERER_OPTIONS)
-            mc.setCalculator (markers, styles) ->
-                text: "<span class='cluster-txt'>#{markers.length}</span>"
-                index: Math.min markers.length-1, styles
-
-    $scope.filterMarkers = (types) ->
-        mm = []
-        _.map markers, (marker) ->
-            visible = undefined != _.find types, (type) ->
-                marker.getIcon().url is MARKER_ICONS[type].url
-            marker.setVisible visible
-            mm.push marker unless not visible
-        mc.clearMarkers()
-        mc.addMarkers(mm)
-
     $scope.fitBounds = (markersToFit) ->
-        markersToFit ?= markers
+        markersToFit ?= _.values placeMarkers
         bounds = new google.maps.LatLngBounds()
         for marker, i in markersToFit
             if marker.getVisible() is true
@@ -405,9 +379,43 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
             bounds.extend findMeMarker.getPosition()
         map.fitBounds bounds
 
-    # do something only the first time the map is loaded
+    updateFilters = ->
+        $scope.filteredPlaces = if _.isEmpty $scope.filterFoodTypes \
+            then $scope.places \
+            else $scope.places.filter (place) ->
+                _.contains $scope.filterFoodTypes, place.foodtype
+
+        filtered = []
+        _.mapObject placeMarkers, (marker, slug) ->
+            visible = undefined != _.find $scope.filteredPlaces, (place) ->
+                place.slug == slug
+            marker.setVisible visible
+            filtered.push marker unless not visible
+        do clusterer.clearMarkers
+        clusterer.addMarkers filtered
+
+    # Once the map and all the needed is loaded, we actually add the
+    # markers to the map
     google.maps.event.addListenerOnce map, 'tilesloaded', ->
-        eob_data.placesPromise.then addMarkersToMap
+        eob_data.placesPromise.then ->
+            eob_imgCache.load(MARKER_ICONS).then ->
+                $scope.places.forEach (place, index) ->
+                    image =
+                        url: MARKER_ICONS[place.foodtype].url
+                        size: new google.maps.Size(70, 85)
+                        scaledSize: new google.maps.Size(70, 85)
+                    marker = new google.maps.Marker
+                        position: new google.maps.LatLng place.lat, place.lng
+                        map: map
+                        title: place.name
+                        icon: image
+                        animation: google.maps.Animation.DROP
+                    placeMarkers[place.slug] = marker
+                    google.maps.event.addListener marker, "click", ->
+                        $scope.openPlace place.slug
+                        do $scope.$apply
+                $scope.findMe false
+                do updateFilters
 
     return
 ]

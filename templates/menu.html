@@ -6,7 +6,11 @@
     </div>
     <div class="tag-list {{seepanel ? 'panel-open' : 'panel-close'}}">
         <ul>
-            <li class="tag {{ getColor(food) }}" ng-class="" ng-repeat="(food, val) in foodTypeChecked" ng-if="val" ng-click="menuSelectFoodType(food);">{{food}} <div class="close-icon no-animation"><b></b> <b></b></div></li>
+            <li class="tag {{ getColor(food) }}"
+                ng-repeat="food in filterFoodTypes" ng-click="menuSelectFoodType(food);">
+                {{food}}
+                <div class="close-icon no-animation"><b></b> <b></b></div>
+            </li>
         </ul>
     </div>
   <div id="main-menu" ng-show="seemenu" eob-click-out="closeSubmenus()">
@@ -50,9 +54,9 @@
         <div class="submenu-wrapper" style=" height: {{windowHeight-menuPosition('foodItem')}}px" ng-show="isActive('foodItem')">
             <ul class="submenu" >
 	        <li class="submenu-item submenu-all" ng-class="{checkall: !anyChecked(), notcheckall: anyChecked()}"  ng-click="menuSelectAll();"> all</li>
-	        <li class="submenu-item submenu-food" ng-class="{checkitem: foodTypeChecked[food]}"  ng-repeat="food in foodTypes" ng-click="menuSelectFoodType(food);">
+	        <li class="submenu-item submenu-food" ng-class="{checkitem: hasFoodTypeFilter(food)}"  ng-repeat="food in foodTypes" ng-click="menuSelectFoodType(food);">
 	            <div class="icon-container">
-	                <div ng-class="{ checkicon: foodTypeChecked[food] }" style="with: 10px"></div></div>{{food}}</li>
+	                <div ng-class="{ checkicon: hasFoodTypeFilter(food) }" style="with: 10px"></div></div>{{food}}</li>
             </ul>
         </div>
         <div class="submenu-wrapper" style=" height: {{windowHeight-menuPosition('districtItem')}}px" ng-show="isActive('districtItem')">
