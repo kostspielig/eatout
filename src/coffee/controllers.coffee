@@ -158,9 +158,9 @@ eob_controllers.controller 'eob_MenuCtrl', [ '$scope', '$location', 'eob_data', 
     eob_data.districtsPromise.success (data) ->
         $scope.districts = data
 
-        $scope.foodTypes = Object.keys MARKER_ICONS
-        $scope.allChecked = true
-        $scope.foodTypeChecked = {}
+    $scope.foodTypes = Object.keys MARKER_ICONS
+    $scope.anyChecked = -> _.some _.values $scope.foodTypeChecked
+    $scope.foodTypeChecked = {}
 
     hideIfPanel = ->
         if $scope.isMobileOrFs()
@@ -176,13 +176,11 @@ eob_controllers.controller 'eob_MenuCtrl', [ '$scope', '$location', 'eob_data', 
 
     $scope.menuSelectAll = ->
         hideIfPanel()
-        $scope.allChecked = true
         $scope.foodTypeChecked = {}
         $scope.filterMarkers $scope.foodTypes
 
     $scope.menuSelectFoodType = (food) ->
         hideIfPanel()
-        $scope.allChecked = false
         $scope.foodTypeChecked[food] = !$scope.foodTypeChecked[food]
         checkedTypes = _.filter $scope.foodTypes, (foodtype) ->
             $scope.foodTypeChecked[foodtype]

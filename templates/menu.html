@@ -47,7 +47,7 @@
     <div class="submenus {{active}}">
         <div class="submenu-wrapper" style=" height: {{windowHeight-menuPosition('foodItem')}}px" ng-show="isActive('foodItem')">
             <ul class="submenu" >
-	        <li class="submenu-item submenu-all" ng-class="{checkall: allChecked, notcheckall: !allChecked}"  ng-click="menuSelectAll();"> all</li>
+	        <li class="submenu-item submenu-all" ng-class="{checkall: !anyChecked(), notcheckall: anyChecked()}"  ng-click="menuSelectAll();"> all</li>
 	        <li class="submenu-item submenu-food" ng-class="{checkitem: foodTypeChecked[food]}"  ng-repeat="food in foodTypes" ng-click="menuSelectFoodType(food);">
 	            <div class="icon-container">
 	                <div ng-class="{ checkicon: foodTypeChecked[food] }" style="with: 10px"></div></div>{{food}}</li>
