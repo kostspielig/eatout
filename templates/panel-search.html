@@ -1,4 +1,4 @@
-<div class="suggestion-wrapper place-wrapper">
+<div class="search-wrapper place-wrapper">
   <input class="searchbox" ng-model="query" autofocus placeholder="Type to search">
   <a class="expand-panel" ng-click="togglePanel();"><b></b><b></b><b></b></a>
   <a class="close-place" href=".">
@@ -6,7 +6,7 @@
       <b></b> <b></b> <b></b>
     </div>
   </a>
-  <div class="header" style="background-image: url( {{place.images[0]}} );" ng-repeat="place in suggestions | filter:query" ng-click="openPlace(place.slug);">
+  <div class="header" style="background-image: url( {{place.images[0]}} );" ng-repeat="place in places | filter:query" ng-click="openPlace(place.slug);">
     <div class="place-info-area">
       <div class="place-info">
 	<div class="place-name">

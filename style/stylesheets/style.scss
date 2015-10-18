@@ -529,7 +529,7 @@ body {
 		&.find-me .item-icon     { background-image: url(/images/menu/iamhere.svg); }
 		&.food-type .item-icon   { background-image: url(/images/menu/food.svg); }
 		&.districts .item-icon   { background-image: url(/images/menu/district.svg); }
-		&.best-places .item-icon { background-image: url(/images/menu/search.svg); }
+		&.search .item-icon { background-image: url(/images/menu/search.svg); }
                 &.blog .item-icon        { background-image: url(/images/menu/blog.svg); }
 	    }
 	}
@@ -895,7 +895,7 @@ body {
 	}
     }
 
-    .suggestion-wrapper {
+    .search-wrapper {
         -webkit-overflow-scrolling: touch;
         .expand-panel b { background: $darkGray; }
 	.close-place.close-place {

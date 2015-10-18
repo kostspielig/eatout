@@ -17,9 +17,9 @@ eob_app.config ['$routeProvider', ($routeProvider) ->
             templateUrl:'templates/empty.html',
             controller: 'eob_PlaceUrlCtrl'
         })
-        .when('/suggestion', {
+        .when('/search', {
             templateUrl: 'templates/empty.html',
-            controller: 'eob_SuggestionUrlCtrl'
+            controller: 'eob_SearchUrlCtrl'
         })
         .when('/blog/:pageIndex?', {
             templateUrl: 'templates/empty.html',

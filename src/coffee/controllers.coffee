@@ -171,9 +171,6 @@ eob_controllers.controller 'eob_MenuCtrl', [ '$scope', '$location', 'eob_data', 
         $location.path "/"
         $scope.findMe true
 
-    $scope.openSuggestion = ->
-        $location.path '/suggestion'
-
     $scope.menuSelectAll = ->
         hideIfPanel()
         $scope.foodTypeChecked = {}
@@ -231,7 +228,6 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
     $scope.expandpanel = 50
     $scope.place = null
     $scope.panel = true
-    $scope.suggestions = true
     findMeMarker = null
 
     $scope.isMobileOrFs = ->
@@ -268,7 +264,6 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
         $scope.active = ''
 
     $scope.setPlace = (place) -> $scope.place = place
-    $scope.setSuggestions = (place) -> $scope.suggestions = place
     $scope.setPanel = (panel) ->
         $scope.panel = panel
         $scope.panelToTop()
@@ -480,10 +475,9 @@ eob_controllers.controller 'eob_PlaceUrlCtrl', [ '$scope', '$routeParams', 'eob_
     return
 ]
 
-eob_controllers.controller 'eob_SuggestionUrlCtrl', [ '$scope', 'eob_data', ($scope, eob_data) ->
+eob_controllers.controller 'eob_SearchUrlCtrl', [ '$scope', 'eob_data', ($scope, eob_data) ->
     eob_data.placesPromise.success (places) ->
-        $scope.setPanel 'suggestion'
-        $scope.setSuggestions places
+        $scope.setPanel 'search'
         $scope.showPanel()
         return
 ]
