@@ -340,8 +340,6 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
 
                 $scope.centerPosition position.coords.latitude, position.coords.longitude if center
 
-                getSuggestedPlaces pos, $scope.places
-
     eob_data.placesPromise.success (data) ->
         $scope.places = data
 
@@ -400,29 +398,6 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
             mm.push marker unless not visible
         mc.clearMarkers()
         mc.addMarkers(mm)
-
-    getSuggestedPlaces = (pos, places) ->
-        suggestions = {}
-        i = 0
-        min = 999
-
-        for place, i in places
-            placePos = new google.maps.LatLng(place.lat, place.lng)
-            distance = (google.maps.geometry.spherical.computeDistanceBetween(pos, placePos) / 1000).toFixed(2)
-            place.distance = distance
-            if min > distance then min = distance
-
-        if min >= 999 then suggestions = null
-        # Get the closest places
-        newPlaces = places.slice 0
-        newPlaces.sort compareDistances
-        suggestions = newPlaces.slice 0,5
-        return suggestions
-
-    compareDistances = (a,b) ->
-        if a.distance < b.distance then return -1
-        if a.distance > b.distanc then return 1
-        return 0
 
     $scope.fitBounds = (markersToFit) ->
         markersToFit ?= markers
