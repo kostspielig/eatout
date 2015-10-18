@@ -13,7 +13,7 @@ eob_directives.directive 'clickOut', [ '$window', '$parse', ($window, $parse) ->
 ]
 
 eob_directives.directive 'resizable', ['$window', ($window) ->
-    [ '$scope', ($scope) ->
+    resizable = ($scope) ->
         $scope.initializeWindowSize = ->
             $scope.windowHeight = $window.innerHeight
             $scope.windowWidth  = $window.innerWidth
@@ -24,5 +24,5 @@ eob_directives.directive 'resizable', ['$window', ($window) ->
                 $scope.initializeWindowSize()
                 $scope.$apply()
             , 500
-    ]
+    return resizable
 ]
