@@ -308,8 +308,8 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
                 menuWidth  = if not $scope.seemenu \
                              then 0
                              else document.getElementById("main-menu").offsetWidth
-                panelWidth = $scope.seepanel * mapWidth * (
-                             if $scope.isMobile() then 1 else $scope.expandpanel / 100.0)
+                usePanel   = not $scope.isMobile() and $scope.seepanel
+                panelWidth = usePanel * mapWidth * $scope.expandpanel / 100.0
                 adjust = panelWidth / 2 - menuWidth / 2
                 map.panTo center
                 map.setZoom zoom  if zoom
