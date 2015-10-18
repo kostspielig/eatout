@@ -226,7 +226,7 @@ eob_controllers.controller 'eob_MenuCtrl', [ '$scope', '$location', 'eob_data', 
     return
 ]
 
-eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$timeout', 'eob_data', 'eob_geolocation', 'eob_imgCache', ($scope, $http, $location, $timeout, eob_data, eob_geolocation, eob_imgCache) ->
+eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$timeout', '$filter', 'eob_data', 'eob_geolocation', 'eob_imgCache', ($scope, $http, $location, $timeout, $filter, eob_data, eob_geolocation, eob_imgCache) ->
 
     console.log ASCII_ART
     eob_imgCache.load MARKER_ICONS
@@ -242,11 +242,16 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
     $scope.place = null
     $scope.panel = true
 
+    $scope.filterSearch = ''
     $scope.filterFoodTypes = []
     $scope.filteredPlaces = []
 
     eob_data.placesPromise.success (data) ->
         $scope.places = data
+
+    $scope.setSearchFilter = (query) ->
+        $scope.filterSearch = query
+        do updateFilters
 
     $scope.setFoodTypeFilters = (filters) ->
         $scope.filterFoodTypes = filters
@@ -379,20 +384,31 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
             bounds.extend findMeMarker.getPosition()
         map.fitBounds bounds
 
+    searcher = $filter 'filter'
+
     updateFilters = ->
-        $scope.filteredPlaces = if _.isEmpty $scope.filterFoodTypes \
-            then $scope.places \
-            else $scope.places.filter (place) ->
+        filterFoodType = (places) ->
+            if _.isEmpty $scope.filterFoodTypes \
+            then places \
+            else places.filter (place) ->
                 _.contains $scope.filterFoodTypes, place.foodtype
 
-        filtered = []
-        _.mapObject placeMarkers, (marker, slug) ->
-            visible = undefined != _.find $scope.filteredPlaces, (place) ->
-                place.slug == slug
-            marker.setVisible visible
-            filtered.push marker unless not visible
-        do clusterer.clearMarkers
-        clusterer.addMarkers filtered
+        filterSearch = (places) ->
+            if _.isEmpty $scope.filterSearch \
+            then places \
+            else searcher places, $scope.filterSearch
+
+        filtered = filterSearch filterFoodType $scope.places
+
+        if not _.isEqual filtered, $scope.filteredPlaces
+            $scope.filteredPlaces = filtered
+            visibleMarkers = []
+            _.mapObject placeMarkers, (marker, slug) ->
+                visible = (_.find filtered, (place) -> place.slug == slug)?
+                marker.setVisible visible
+                visibleMarkers.push marker unless not visible
+            do clusterer.clearMarkers
+            clusterer.addMarkers visibleMarkers
 
     # Once the map and all the needed is loaded, we actually add the
     # markers to the map
@@ -467,6 +483,13 @@ eob_controllers.controller 'eob_PlaceCtrl', [ '$scope', '$location', '$window', 
             }, -> )
 
     return
+]
+
+eob_controllers.controller 'eob_SearchCtrl', [ '$scope', ($scope) ->
+    $scope.query = ''
+    $scope.queryChanged = ->
+        $scope.setSearchFilter $scope.query
+        do $scope.fitBounds
 ]
 
 eob_controllers.controller 'eob_PlaceUrlCtrl', [ '$scope', '$routeParams', 'eob_data', 'eob_msg', ($scope, $routeParams, eob_data, eob_msg) ->
