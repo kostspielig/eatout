@@ -25,3 +25,10 @@ eob_directives.directive 'eobResizable', ['$window', ($window) ->
                 $scope.$apply()
             , 500
 ]
+
+eob_directives.directive 'eobAutofocus', ['$timeout', ($timeout) ->
+    restrict: 'A'
+    link: ($scope, element) ->
+        console.log("AUTOFOCUS!")
+        $timeout -> do element[0].focus
+]
