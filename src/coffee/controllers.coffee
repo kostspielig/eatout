@@ -375,14 +375,15 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
                 $scope.centerPosition position.coords.latitude, position.coords.longitude if center
 
     $scope.fitBounds = (markersToFit) ->
-        markersToFit ?= _.values placeMarkers
-        bounds = new google.maps.LatLngBounds()
-        for marker, i in markersToFit
-            if marker.getVisible() is true
-                bounds.extend marker.getPosition()
-        if findMeMarker and findMeMarker.getVisible() is true
-            bounds.extend findMeMarker.getPosition()
-        map.fitBounds bounds
+        if not markersToFit?
+            markersToFit = _.values placeMarkers
+            markersToFit.push findMeMarker
+            markersToFit = _.filter markersToFit, (m) -> m.getVisible()
+        if markersToFit.length > 1
+            bounds = markersToFit.reduce (b, m) ->
+                b.extend m.getPosition()
+            , new google.maps.LatLngBounds()
+            map.fitBounds bounds
 
     searcher = $filter 'filter'
 
