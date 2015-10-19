@@ -168,7 +168,9 @@ eob_controllers.controller 'eob_MessagesCtrl', [ '$scope', '$timeout', 'eob_weat
     eob_msg.callbacks.push (msg) ->
         $scope.$apply ->
             $scope.messages.push msg
-            $timeout (-> $scope.remove msg), MESSAGE_TIMEOUT
+            $timeout ->
+                $scope.remove msg
+            , MESSAGE_TIMEOUT
     return
 ]
 
@@ -328,7 +330,7 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
         # The panel might be changing right now, in which case
         # 'offsetWidth' returns 0, so let's deffer this
         if $scope.seepanel or $scope.seemenu
-            $timeout (->
+            $timeout ->
                 mapWidth = document.getElementById("map-canvas").offsetWidth
                 panelWidth = if not $scope.seepanel \
                              then 0
@@ -342,7 +344,7 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
                 map.panTo center
                 map.setZoom zoom  if zoom
                 map.panBy adjust, 0
-              ), 0
+            , 0
         else
             map.panTo center
             if zoom then map.setZoom zoom
