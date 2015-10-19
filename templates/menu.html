@@ -6,6 +6,11 @@
     </div>
     <div class="tag-list {{seepanel ? 'panel-open' : 'panel-close'}}">
         <ul>
+            <a class="tag search"
+                ng-if="filterSearch && (!seepanel || panel != 'search')"
+                ng-href="search">
+                "{{filterSearch}}"
+            </a>
             <li class="tag {{ getColor(food) }}"
                 ng-repeat="food in filterFoodTypes" ng-click="menuSelectFoodType(food);">
                 {{food}}

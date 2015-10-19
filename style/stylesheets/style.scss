@@ -254,6 +254,15 @@ body {
         right: 0;
         width: 170px;
     }
+
+    .tag.search {
+        background: $darkGrayBg;
+        margin-right: -35px;
+        font-size: 20px;
+        padding: 10px 40px 10px 20px;
+        text-decoration: none;
+    }
+
     .tag {
         pointer-events: all;
         background: $red;

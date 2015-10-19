@@ -240,7 +240,7 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
 
     $scope.places = []
     $scope.place = null
-    $scope.panel = true
+    $scope.panel = ''
 
     $scope.filterSearch = ''
     $scope.filterFoodTypes = []
