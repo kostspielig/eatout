@@ -257,10 +257,11 @@ body {
 
     .tag.search {
         background: $darkGrayBg;
-        margin-right: -35px;
+        margin-right: -2vw;
         font-size: 20px;
-        padding: 10px 40px 10px 20px;
+        padding: 10px 30px 10px 20px;
         text-decoration: none;
+        border-radius: 20px 0 0 20px;
     }
 
     .tag {
