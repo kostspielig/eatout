@@ -981,8 +981,6 @@ p  { margin-bottom: 10px; }
     #main-menu  { z-index: 12; }
     #main-panel {
 	width: 100vw !important;
-	/*We need this for chrome for phones not just max width*/
-	height: initial;
 
         .expand-panel { display: none; }
 	.suggestion-wrapper {
