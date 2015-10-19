@@ -29,7 +29,11 @@ eob_directives.directive 'eobResizable', ['$window', ($window) ->
 eob_directives.directive 'eobAutofocus', ['$timeout', ($timeout) ->
     restrict: 'A'
     link: ($scope, element, attrs) ->
-        focus = (cond) -> if cond then $timeout -> do element[0].focus
+        focus = (cond) ->
+            if cond
+                $timeout ->
+                    do element[0].focus
+                , $scope.$eval(attrs.eobAutofocusDelay) ? 0
         if attrs.eobAutofocus
             $scope.$watch attrs.eobAutofocus, focus
         else

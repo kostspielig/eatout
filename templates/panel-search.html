@@ -1,5 +1,10 @@
 <div class="search-wrapper place-wrapper" ng-controller="eob_SearchCtrl">
-  <input class="searchbox" ng-model="query" ng-change="queryChanged()" eob-autofocus="seepanel" placeholder="Type to search">
+  <!-- eob-autofocus-delay must match expand transition delay -->
+  <input class="searchbox" ng-model="query" ng-change="queryChanged()"
+         autofocus
+         eob-autofocus="seepanel"
+         eob-autofocus-delay="501"
+         placeholder="Type to search">
   <a class="expand-panel" ng-click="togglePanel();"><b></b><b></b><b></b></a>
   <a class="close-place" href=".">
     <div class="menu-toggle close">
