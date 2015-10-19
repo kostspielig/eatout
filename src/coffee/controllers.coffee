@@ -413,6 +413,10 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
             do clusterer.clearMarkers
             clusterer.addMarkers visibleMarkers
 
+    document.onkeydown = (evt) ->
+        if evt.keyCode is 27
+            $scope.$apply -> $location.path '/'
+
     # Once the map and all the needed is loaded, we actually add the
     # markers to the map
     google.maps.event.addListenerOnce map, 'tilesloaded', ->
