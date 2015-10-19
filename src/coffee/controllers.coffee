@@ -380,7 +380,7 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
         if not markersToFit?
             markersToFit = _.values placeMarkers
             markersToFit.push findMeMarker
-            markersToFit = _.filter markersToFit, (m) -> m.getVisible()
+            markersToFit = _.filter markersToFit, (m) -> m?.getVisible()
         if markersToFit.length > 1
             bounds = markersToFit.reduce (b, m) ->
                 b.extend m.getPosition()
