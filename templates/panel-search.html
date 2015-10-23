@@ -11,7 +11,10 @@
       <b></b> <b></b> <b></b>
     </div>
   </a>
-  <div class="header" style="background-image: url( {{place.images[0]}} );" ng-repeat="place in filteredPlaces" ng-click="openPlace(place.slug);">
+  <div class="header"
+       style="background-image: url( {{place.images[0]}} );"
+       ng-repeat="place in filteredPlaces"
+       ng-click="openPlace(place.slug);">
     <div class="place-info-area">
       <div class="place-info">
 	<div class="place-name">
@@ -30,7 +33,6 @@
 	  {{place.address}}
 	</div>
 	<div class="distance-from-me" ng-if="place.distance"> <span class="sico ico-walking"></span> {{place.distance}} km  </div>
-
       </div>
 
       <div class="recommended" ng-if="place.recommended"></div>
