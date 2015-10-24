@@ -11,6 +11,11 @@
       <b></b> <b></b> <b></b>
     </div>
   </a>
+
+  <div class="search-message" ng-if="filteredPlaces.length == 0">
+    No place found!
+  </div>
+
   <div class="header"
        style="background-image: url( {{place.images[0]}} );"
        ng-repeat="place in filteredPlaces"

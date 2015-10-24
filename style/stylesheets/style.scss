@@ -257,7 +257,7 @@ body {
 
     .tag.search {
         background: $darkGrayBg;
-        margin-right: -2vw;
+        margin-right: -2.1vw;
         font-size: 20px;
         padding: 10px 30px 10px 20px;
         text-decoration: none;
@@ -908,6 +908,10 @@ body {
 
     .search-wrapper {
         -webkit-overflow-scrolling: touch;
+
+        background-color: $darkGray;
+        min-height: 100%;
+
         .expand-panel b { background: $darkGray; }
 	.close-place.close-place {
 	    b { background: $darkGray; }
@@ -922,7 +926,21 @@ body {
 	    border: none;
 	    background: 0 0;
 	    outline: 0;
+            background-color: #fff;
+            min-width: 100%;
+            box-sizing: border-box;
 	}
+
+        .search-message {
+            width: 100%;
+            color: #777;
+            text-align: center;
+            padding-top: 40%;
+            box-sizing: border-box;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 42pt;
+            font-weight: 200;
+        }
 
 	.header {
 	    margin: 0 0 6px 0;
