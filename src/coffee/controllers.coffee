@@ -41,7 +41,8 @@ MARKER_ICONS =
     sandwich: url: 'images/icons/SVG/sandwich.svg', color: 'purple'
     viet: url: 'images/icons/SVG/ramen.svg', color: 'red'
     foodtruck: url: 'images/icons/SVG/food-truck.svg', color: 'green'
-
+    international: url: 'images/icons/SVG/international.svg', color: 'yellow'
+    michelin: url: 'images/icons/SVG/michelin.svg', color: 'dark-red'
 
 MAP_STYLES = [
   {
