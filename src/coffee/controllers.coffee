@@ -31,18 +31,19 @@ MARKER_ICONS =
     #cheese: 'images/icons/cheese.png'
     french: url: 'images/icons/SVG/french.svg', color: 'light-blue'
     foodmarket: url: 'images/icons/SVG/foodmarket.svg', color: 'orange'
+    foodtruck: url: 'images/icons/SVG/food-truck.svg', color: 'green'
     german: url: 'images/icons/SVG/german.svg', color: 'black'
     icecream: url: 'images/icons/SVG/icecream.svg', color: 'dark-blue'
+    international: url: 'images/icons/SVG/international.svg', color: 'yellow'
+    italian: url: 'images/icons/SVG/pizza.svg', color: 'green'
     japanese: url: 'images/icons/SVG/sushi.svg', color: 'red'
     mexican: url: 'images/icons/SVG/mexican.svg', color: 'brown'
-    italian: url: 'images/icons/SVG/pizza.svg', color: 'green'
+    michelin: url: 'images/icons/SVG/michelin.svg', color: 'dark-red'
     portuguese: url: 'images/icons/SVG/sardine.svg', color: 'green'
     spanish: url: 'images/icons/SVG/spanish.svg', color: 'yellow'
     sandwich: url: 'images/icons/SVG/sandwich.svg', color: 'purple'
     viet: url: 'images/icons/SVG/ramen.svg', color: 'red'
-    foodtruck: url: 'images/icons/SVG/food-truck.svg', color: 'green'
-    international: url: 'images/icons/SVG/international.svg', color: 'yellow'
-    michelin: url: 'images/icons/SVG/michelin.svg', color: 'dark-red'
+
 
 MAP_STYLES = [
   {
