@@ -12,12 +12,7 @@
     </div>
   </a>
 
-  <div class="search-message" ng-if="filteredPlaces.length == 0">
-    No place found!
-  </div>
-
   <div class="search-result"
-       style="background-image: url( {{place.images[0]}} );"
        ng-repeat="place in filteredPlaces"
        ng-click="openPlace(place.slug);">
 
@@ -37,16 +32,10 @@
         </div>
       </div>
 
-      <div class="place-address">
-        <span class="sico ico-place"></span>
-        {{place.address}}
-      </div>
-      <div class="distance-from-me" ng-if="place.distance">
+      <div class="distance-from-me">
         <span class="sico ico-walking"></span>
         {{place.distance}} km
       </div>
-
-      <div class="recommended" ng-if="place.recommended"></div>
     </div>
   </div>
 </div>
