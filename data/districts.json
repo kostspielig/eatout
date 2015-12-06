@@ -24,9 +24,19 @@
       "lng" : 13.4557724,
       "zoom": 15
     },
+    { "name": "Lichtenberg",
+      "lat" : 52.5323095,
+      "lng" : 13.4855306,
+      "zoom": 13
+    },
     { "name": "Schöneberg",
       "lat" : 52.4893436,
       "lng" : 13.352548,
+      "zoom": 15
+    },
+    { "name": "Tiergarten",
+      "lat" : 52.5108066,
+      "lng" : 13.3450899,
       "zoom": 15
     },
     { "name": "Charlottenburg",
