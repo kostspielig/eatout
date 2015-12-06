@@ -5,12 +5,15 @@
          eob-autofocus="seepanel"
          eob-autofocus-delay="501"
          placeholder="Type to search">
-  <a class="expand-panel" ng-click="togglePanel();"><b></b><b></b><b></b></a>
   <a class="close-place" href=".">
     <div class="menu-toggle close">
       <b></b> <b></b> <b></b>
     </div>
   </a>
+
+  <div class="search-message" ng-if="filteredPlaces.length == 0">
+    No place found!
+  </div>
 
   <div class="search-result"
        ng-repeat="place in filteredPlaces"
@@ -18,23 +21,15 @@
 
     <div class="search-result-wrapper">
       <div class="place-name">
-        <a ng-href="{{place.url}}" target="_blank"> {{place.name}} </a>
+        {{place.name}}
       </div>
 
-      <div class="rating-wrapper">
-        <div class="rating-number"> {{place.rating}} </div>
-        <div class="rating">
-          <div class="rating-value" style="width: {{place.rating*120/5}}px"></div>
-          <div class="rating-rest"
-               style="width: {{120-place.rating*120/5}}px;
-                      background-position: {{-place.rating*120/5}}px -24px">
-          </div>
-        </div>
+      <div class="search-rating">
+        <span class="sico ico-star"></span>{{place.rating}}
       </div>
 
       <div class="distance-from-me">
-        <span class="sico ico-walking"></span>
-        {{place.distance}} km
+        <span class="sico ico-walking"></span>{{place.distance}} km
       </div>
     </div>
   </div>

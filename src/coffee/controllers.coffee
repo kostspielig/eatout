@@ -363,6 +363,7 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
     clusterer.setCalculator (markers, styles) ->
         text: "<span class='cluster-txt'>#{markers.length}</span>"
         index: Math.min markers.length-1, styles
+
     $scope.findMe = (center) ->
         eob_geolocation.getCurrentPosition (position) ->
             eob_imgCache.load( _.pick MARKER_ICONS, 'findme').then ->
@@ -375,6 +376,13 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
                     animation: google.maps.Animation.DROP
                     zIndex: 9999999
                 $scope.centerPosition position.coords.latitude, position.coords.longitude if center
+
+                # Calcule distance to places
+                $scope.places.forEach (place, index) =>
+                    placePos = new google.maps.LatLng(place.lat, place.lng)
+                    distance = (google.maps.geometry.spherical.computeDistanceBetween(pos, placePos) / 1000).toFixed(2)
+                    place.distance = distance
+
 
     $scope.fitBounds = (markersToFit) ->
         if not markersToFit?
@@ -435,6 +443,7 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
                         icon: image
                         animation: google.maps.Animation.DROP
                     placeMarkers[place.slug] = marker
+
                     google.maps.event.addListener marker, "click", ->
                         $scope.openPlace place.slug
                         do $scope.$apply
