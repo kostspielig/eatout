@@ -1,6 +1,7 @@
 name: Burgermeister
 url: 'http://www.thefuturebreakfast.com/'
 address: Oberbaumstraße 8
+district: Kreuzberg
 date: '2015-04-04'
 foodtype: burger
 lat: 52.501036

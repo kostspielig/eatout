@@ -1,0 +1,19 @@
+name: Zur Haxe
+url: 'zurhaxe-berlin.de'
+address: Erich-Weinert-Straße 128
+district: Prenzlauer Berg
+date: '2015-11-08'
+foodtype: german
+lat: 52.5310282
+lng: 13.4380715
+title: Authentic German Experience
+rating: 4.1
+pricerange: 2.5
+phone: 030 4216312
+recommended: true
+description: Great german food
+
+images:
+  - images/places-M/zur-haxe/cover.JPG
+  - images/places-M/zur-haxe/image1.JPG
+  - images/places-M/zur-haxe/image2.JPG

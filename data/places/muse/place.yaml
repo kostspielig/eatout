@@ -1,6 +1,7 @@
 name: Restaurant Muse
 url: http://www.museberlin.com
 address: Immanuelkirchstraße 31
+district: Prenzlauer Berg
 date: '2015-05-21'
 foodtype: burger
 lat: 52.532934

@@ -9,6 +9,8 @@ $green: #5ebf64;
 $darkGrayBg: #282828;
 $darkGray: #333333;
 $darkGrayShaded: rgba(30, 30, 30, 0.55);
+$darkGrayShadedStrong: rgba(30, 30, 30, 0.7);
+$darkGrayShadedStronger: rgba(30, 30, 30, 0.8);
 $softGray: rgba(30, 30, 30, 0.25);
 $yellow: #fff6d5;
 $darkYellow: #ffc200;
@@ -20,6 +22,7 @@ $brown: #8e4b39;
 $lightBlue: #baf0f4;
 $darkBlue: #364fc4;
 $darkRed: #c82247;
+$searchText: #ddd;
 
 .red        { background-color: $red !important; }
 .green      { background-color: $green !important; }
@@ -240,7 +243,7 @@ body {
 .tag-list {
     font-family: 'Josefin Sans', sans-serif;
     position: absolute;
-    top: 90px;
+    top: 87px;
     right: 15px;
     width: 160px;
     pointer-events: none;
@@ -254,6 +257,16 @@ body {
         right: 0;
         width: 170px;
     }
+
+    .tag.search {
+        background: $darkGrayBg;
+        margin-right: -2.1vw;
+        font-size: 20px;
+        padding: 10px 30px 10px 20px;
+        text-decoration: none;
+        border-radius: 20px 0 0 20px;
+    }
+
     .tag {
         pointer-events: all;
         background: $red;
@@ -266,6 +279,7 @@ body {
         padding: 5px 10px;
         display: block;
         font-weight: bold;
+        clear: both;
 
         .close-icon {
             display: inline-block;
@@ -529,7 +543,7 @@ body {
 		&.find-me .item-icon     { background-image: url(/images/menu/iamhere.svg); }
 		&.food-type .item-icon   { background-image: url(/images/menu/food.svg); }
 		&.districts .item-icon   { background-image: url(/images/menu/district.svg); }
-		&.best-places .item-icon { background-image: url(/images/menu/search.svg); }
+		&.search .item-icon { background-image: url(/images/menu/search.svg); }
                 &.blog .item-icon        { background-image: url(/images/menu/blog.svg); }
 	    }
 	}
@@ -697,6 +711,7 @@ body {
 .ico-sphere   { background: url(/images/SVG/sphere.svg) no-repeat center; }
 .ico-foodtype { background: url(/images/SVG/foodtype.svg) no-repeat center; }
 .ico-walking  { background: url(/images/SVG/walking.svg) no-repeat center; }
+.ico-star     { background: url(/images/SVG/lilstar.svg) no-repeat center; }
 .ico-place    { background: url(/images/SVG/place.svg) no-repeat center; }
 .ico-walking-dark  { background: url(/images/SVG/walking-dark.svg) no-repeat center; }
 .ico-place-dark    { background: url(/images/SVG/place-dark.svg) no-repeat center; }
@@ -723,7 +738,10 @@ body {
     @include scroll-y;
     @include backface;
 
-    &.expanded-100 { width: 100vw; }
+    &.expanded-100 {
+        width: 100vw;
+        &.search-panel { width: 50vw; }
+    }
     &.expanded-50  { width: 50vw; }
 
     &.see-false { display: none; }
@@ -738,6 +756,11 @@ body {
 
     &.ng-hide-remove.ng-hide-remove-active, &.ng-hide-add {
 	@include transform(translate3d(0, 0, 0));
+    }
+
+    &.search-panel {
+        background: transparent;
+        box-shadow: none;
     }
 
     .place-wrapper {
@@ -895,8 +918,11 @@ body {
 	}
     }
 
-    .suggestion-wrapper {
+    .search-wrapper {
         -webkit-overflow-scrolling: touch;
+
+        min-height: 100%;
+
         .expand-panel b { background: $darkGray; }
 	.close-place.close-place {
 	    b { background: $darkGray; }
@@ -907,15 +933,49 @@ body {
 	.searchbox {
 	    font-size: 2em;
 	    color: $darkGray;
-	    padding: 24px 0px 24px 70px;
+	    padding: 20px 0px 20px 4vw;
+            margin: 5px 0 0 0;
 	    border: none;
 	    background: 0 0;
 	    outline: 0;
+            background-color: #fff;
+            min-width: 100%;
+            box-sizing: border-box;
 	}
 
-	.header {
-	    margin: 0 0 6px 0;
+        .search-message {
+            padding: 18px 4vw;
+            background-color: $darkGrayShadedStrong;
+            box-sizing: border-box;
+            color: $searchText;
+            font-size: 18px;
 	    cursor: pointer;
+            margin: 5px 0 0 0;
+            position: relative;
+        }
+
+	.search-result {
+	    background-color: $darkGrayShadedStrong;
+            box-sizing: border-box;
+            color: $searchText;
+	    cursor: pointer;
+            margin: 5px 0 0 0;
+            position: relative;
+
+            &:hover { background-color: $darkGrayShadedStronger; }
+            .place-name {
+		font-size: 32px;
+		font-family: Lily Script One, cursive;
+		a { color: $white; text-decoration: none; }
+                margin-bottom: 10px;
+	    }
+
+            .distance-from-me  { display: inline-block; margin-left: 5px; }
+            .search-rating     { display: inline-block; }
+
+            .search-result-wrapper {
+                padding: 18px 4vw;
+            }
 	}
     }
 }
@@ -970,13 +1030,10 @@ p  { margin-bottom: 10px; }
     #main-menu  { z-index: 12; }
     #main-panel {
 	width: 100vw !important;
-	/*We need this for chrome for phones not just max width*/
-	height: initial;
 
         .expand-panel { display: none; }
 	.suggestion-wrapper {
 	    .searchbox {
-		padding: 24px 0px 24px 90px;
 		width: 65%;
 	    }
 	}

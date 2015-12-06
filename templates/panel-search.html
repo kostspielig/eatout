@@ -1,0 +1,39 @@
+<div class="search-wrapper place-wrapper" ng-controller="eob_SearchCtrl">
+  <!-- eob-autofocus-delay must match expand transition delay -->
+  <input class="searchbox" ng-model="query" ng-change="queryChanged()"
+         autofocus
+         eob-autofocus="seepanel"
+         eob-autofocus-delay="501"
+         placeholder="Type to search"
+         ng-value="filterSearch">
+  <a class="close-place" href=".">
+    <div class="menu-toggle close">
+      <b></b> <b></b> <b></b>
+    </div>
+  </a>
+
+  <div class="search-message" ng-if="filteredPlaces.length == 0">
+    No place found!
+  </div>
+
+  <div class="search-result"
+       ng-repeat="place in filteredPlaces"
+       ng-click="openPlaceFromSearch(place);"
+       ng-mouseenter="enterPlace(place);"
+       ng-mouseleave="leavePlace(place);">
+
+    <div class="search-result-wrapper">
+      <div class="place-name">
+        {{place.name}}
+      </div>
+
+      <div class="search-rating">
+        <span class="sico ico-star"></span>{{place.rating}}
+      </div>
+
+      <div class="distance-from-me">
+        <span class="sico ico-walking"></span>{{place.distance}} km
+      </div>
+    </div>
+  </div>
+</div>

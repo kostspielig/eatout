@@ -1,6 +1,7 @@
 name: Ristorante Masaniello
 url: 'http://www.masaniello.de'
 address: Hasenheide 20
+district: Kreuzberg
 date: '2014-04-20'
 foodtype: italian
 lat: 52.48801

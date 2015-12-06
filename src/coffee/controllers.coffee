@@ -4,20 +4,21 @@ eob_controllers = angular.module 'eob.controllers', []
 BERLIN_POS = new google.maps.LatLng 52.5170423, 13.4018519
 MOBILE_BP = 760
 MENU_BP = 600
-ASCII_ART = "Made with ❤ by\n\n"+
+ASCII_ART = """
+Made with ❤ by
 
-"\t\t\t      ___       \n"+
-"\t\t\t     /\\  \\        ___    \n"+
-"\t\t\t    |::\\  \\      /\\__\\   \n"+
-"\t\t\t    |:|:\\  \\    /:/__/   \n"+
-"\t\t\t  __|:|\\:\\  \\  /::\\  \\   \n"+
-"\t\t\t /::::|_\\:\\__\\ \\/\\:\\  \\  \n"+
-"\t\t\t \\:\\~~\\  \\/__/  ~~\\:\\  \\ \n"+
-"\t\t\t  \\:\\  \\           \\:\\__\\ \n"+
-"\t\t\t   \\:\\  \\     &    /:/  / \n"+
-"\t\t\t    \\:\\__\\        /:/  / \n"+
-"\t\t\t     \\/__/        \\/__/  \n"
-
+\t\t\t      ___
+\t\t\t     /\\  \\        ___
+\t\t\t    |::\\  \\      /\\__\\
+\t\t\t    |:|:\\  \\    /:/__/
+\t\t\t  __|:|\\:\\  \\  /::\\  \\
+\t\t\t /::::|_\\:\\__\\ \\/\\:\\  \\
+\t\t\t \\:\\~~\\  \\/__/  ~~\\:\\  \\
+\t\t\t  \\:\\  \\           \\:\\__\\
+\t\t\t   \\:\\  \\     &    /:/  /
+\t\t\t    \\:\\__\\        /:/  /
+\t\t\t     \\/__/        \\/__/
+"""
 
 MARKER_ICONS =
     #bakery: 'images/icons/SVG/muffin.svg'
@@ -133,6 +134,23 @@ MAP_STYLES = [
   }
 ]
 
+MAP_OPTIONS =
+    center: BERLIN_POS
+    zoom: 13
+    disableDefaultUI: true
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+    styles: MAP_STYLES
+
+MAP_CLUSTERER_OPTIONS =
+    gridSize: 50
+    maxZoom: 15
+    styles:
+        for i in [1..6]
+            url: "images/cluster/c#{i}.svg"
+            height: 52
+            width: 52
+            textSize: 17
+
 
 eob_controllers.controller 'eob_WeatherCtrl', [ '$scope', 'eob_weather', ($scope, eob_weather) ->
     eob_weather.getWeather $scope
@@ -150,7 +168,9 @@ eob_controllers.controller 'eob_MessagesCtrl', [ '$scope', '$timeout', 'eob_weat
     eob_msg.callbacks.push (msg) ->
         $scope.$apply ->
             $scope.messages.push msg
-            $timeout (-> $scope.remove msg), MESSAGE_TIMEOUT
+            $timeout ->
+                $scope.remove msg
+            , MESSAGE_TIMEOUT
     return
 ]
 
@@ -158,38 +178,27 @@ eob_controllers.controller 'eob_MenuCtrl', [ '$scope', '$location', 'eob_data', 
     eob_data.districtsPromise.success (data) ->
         $scope.districts = data
 
-        $scope.foodTypes = Object.keys MARKER_ICONS
-        $scope.allChecked = true
-        $scope.foodTypeChecked = {}
+    $scope.foodTypes = Object.keys MARKER_ICONS
 
     hideIfPanel = ->
         if $scope.isMobileOrFs()
             $scope.hidePanel()
+
+    $scope.anyChecked = ->
+        do $scope.hasFoodTypeFilter
 
     $scope.menuFindMe = ->
         hideIfPanel()
         $location.path "/"
         $scope.findMe true
 
-    $scope.openSuggestion = ->
-        $location.path '/suggestion'
-
     $scope.menuSelectAll = ->
         hideIfPanel()
-        $scope.allChecked = true
-        $scope.foodTypeChecked = {}
-        $scope.filterMarkers $scope.foodTypes
+        $scope.setFoodTypeFilters []
 
     $scope.menuSelectFoodType = (food) ->
         hideIfPanel()
-        $scope.allChecked = false
-        $scope.foodTypeChecked[food] = !$scope.foodTypeChecked[food]
-        checkedTypes = _.filter $scope.foodTypes, (foodtype) ->
-            $scope.foodTypeChecked[foodtype]
-
-        if _.isEmpty checkedTypes then $scope.menuSelectAll()
-        else $scope.filterMarkers checkedTypes
-
+        $scope.toggleFoodTypeFilter food
         do $scope.fitBounds
 
     $scope.menuSelectDistrict = (district) ->
@@ -219,22 +228,44 @@ eob_controllers.controller 'eob_MenuCtrl', [ '$scope', '$location', 'eob_data', 
     return
 ]
 
-eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$timeout', 'eob_data', 'eob_geolocation', 'eob_imgCache', ($scope, $http, $location, $timeout, eob_data, eob_geolocation, eob_imgCache) ->
+eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$timeout', '$filter', 'eob_data', 'eob_geolocation', 'eob_imgCache', ($scope, $http, $location, $timeout, $filter, eob_data, eob_geolocation, eob_imgCache) ->
 
-    eob_imgCache.load MARKER_ICONS
-
-    # display my name one time on the console!
     console.log ASCII_ART
-    $scope.seemenu = true
-    $scope.seepanel = false
-    $scope.expandpanel = 50
-    $scope.place = null
-    $scope.panel = true
-    $scope.suggestions = true
-    findMeMarker = null
+    eob_imgCache.load MARKER_ICONS
 
     $scope.isMobile = ->
         return window.innerWidth < MOBILE_BP
+
+    $scope.seemenu = not do $scope.isMobile
+    $scope.seepanel = false
+    $scope.expandpanel = 50
+
+    $scope.places = []
+    $scope.place = null
+    $scope.panel = ''
+
+    $scope.filterSearch = ''
+    $scope.filterFoodTypes = []
+    $scope.filteredPlaces = []
+
+    eob_data.placesPromise.success (data) ->
+        $scope.places = data
+
+    $scope.setSearchFilter = (query) ->
+        $scope.filterSearch = query
+        do updateFilters
+
+    $scope.setFoodTypeFilters = (filters) ->
+        $scope.filterFoodTypes = filters
+        do updateFilters
+
+    $scope.toggleFoodTypeFilter = (type) ->
+        $scope.setFoodTypeFilters if $scope.hasFoodTypeFilter type \
+            then _.without $scope.filterFoodTypes, type \
+            else $scope.filterFoodTypes.concat [type]
+
+    $scope.hasFoodTypeFilter = (type) ->
+        _.contains $scope.filterFoodTypes, type
 
     $scope.isMobileOrFs = ->
         return $scope.isMobile() or $scope.expandpanel is 100
@@ -270,7 +301,6 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
         $scope.active = ''
 
     $scope.setPlace = (place) -> $scope.place = place
-    $scope.setSuggestions = (place) -> $scope.suggestions = place
     $scope.setPanel = (panel) ->
         $scope.panel = panel
         $scope.panelToTop()
@@ -292,15 +322,25 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
             do $scope.togglePanel
             $scope.openPlace place.slug
 
+    $scope.openPlaceFromSearch = (place) ->
+        $scope.leavePlace place
+        $scope.openPlace place.slug
+
     $scope.openPlace = (placeSlug) ->
         $location.path '/place/' + placeSlug
+
+    $scope.enterPlace = (place) ->
+        placeMarkers[place.slug].setAnimation google.maps.Animation.BOUNCE
+
+    $scope.leavePlace = (place) ->
+        placeMarkers[place.slug].setAnimation null
 
     $scope.centerPosition = (lat, lng, zoom) ->
         center = new google.maps.LatLng(lat, lng)
         # The panel might be changing right now, in which case
         # 'offsetWidth' returns 0, so let's deffer this
         if $scope.seepanel or $scope.seemenu
-            $timeout (->
+            $timeout ->
                 mapWidth = document.getElementById("map-canvas").offsetWidth
                 panelWidth = if not $scope.seepanel \
                              then 0
@@ -308,13 +348,13 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
                 menuWidth  = if not $scope.seemenu \
                              then 0
                              else document.getElementById("main-menu").offsetWidth
-                panelWidth = $scope.seepanel * mapWidth * (
-                             if $scope.isMobile() then 1 else $scope.expandpanel / 100.0)
+                usePanel   = not $scope.isMobile() and $scope.seepanel
+                panelWidth = usePanel * mapWidth * $scope.expandpanel / 100.0
                 adjust = panelWidth / 2 - menuWidth / 2
                 map.panTo center
                 map.setZoom zoom  if zoom
                 map.panBy adjust, 0
-              ), 0
+            , 0
         else
             map.panTo center
             if zoom then map.setZoom zoom
@@ -325,120 +365,99 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
                 pos = new google.maps.LatLng position.coords.latitude,
                                              position.coords.longitude
 
+    map = new google.maps.Map(document.getElementById('map-canvas'), MAP_OPTIONS)
+    clusterer = new MarkerClusterer(map, [], MAP_CLUSTERER_OPTIONS)
+    placeMarkers = {}
+    findMeMarker = null
+
+    clusterer.setCalculator (markers, styles) ->
+        text: "<span class='cluster-txt'>#{markers.length}</span>"
+        index: Math.min markers.length-1, styles
+
     $scope.findMe = (center) ->
         eob_geolocation.getCurrentPosition (position) ->
             eob_imgCache.load( _.pick MARKER_ICONS, 'findme').then ->
                 pos = new google.maps.LatLng position.coords.latitude, position.coords.longitude
-                if findMeMarker isnt null
-                    markers.splice markers.indexOf(findMeMarker), 1
-                    findMeMarker.setMap null
-
+                findMeMarker.setMap null unless findMeMarker is null
                 findMeMarker = new google.maps.Marker
                     map: map
                     position: pos
                     icon: "images/SVG/iamhere.svg"
                     animation: google.maps.Animation.DROP
                     zIndex: 9999999
-
                 $scope.centerPosition position.coords.latitude, position.coords.longitude if center
 
-                getSuggestedPlaces pos, $scope.places
+                # Calcule distance to places
+                $scope.places.forEach (place, index) =>
+                    placePos = new google.maps.LatLng(place.lat, place.lng)
+                    distance = (google.maps.geometry.spherical.computeDistanceBetween(pos, placePos) / 1000).toFixed(2)
+                    place.distance = distance
 
-    eob_data.placesPromise.success (data) ->
-        $scope.places = data
-
-    mapData =
-        center: BERLIN_POS
-        zoom: 13
-        disableDefaultUI: true
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-        styles: MAP_STYLES
-
-    mcOptions =
-        gridSize: 50
-        maxZoom: 15
-        styles:
-            for i in [1..6]
-                url: "images/cluster/c#{i}.svg"
-                height: 52
-                width: 52
-                textSize: 17
-
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapData)
-
-    mc = null
-    markers = []
-
-    addMarkersToMap = () ->
-        eob_imgCache.load(MARKER_ICONS).then ->
-            $scope.places.forEach (place, index) ->
-                image =
-                    url: MARKER_ICONS[place.foodtype].url
-                    size: new google.maps.Size(70, 85)
-                    scaledSize: new google.maps.Size(70, 85)
-                marker = new google.maps.Marker
-                    position: new google.maps.LatLng place.lat, place.lng
-                    map: map
-                    title: place.name
-                    icon: image
-                    animation: google.maps.Animation.DROP
-                markers.push marker
-                google.maps.event.addListener marker, "click", ->
-                    $scope.openPlace place.slug
-                    do $scope.$apply
-
-            $scope.findMe false
-            mc = new MarkerClusterer(map, markers, mcOptions)
-            mc.setCalculator (markers, styles) ->
-                text: "<span class='cluster-txt'>#{markers.length}</span>"
-                index: Math.min markers.length-1, styles
-
-    $scope.filterMarkers = (types) ->
-        mm = []
-        _.map markers, (marker) ->
-            visible = undefined != _.find types, (type) ->
-                marker.getIcon().url is MARKER_ICONS[type].url
-            marker.setVisible visible
-            mm.push marker unless not visible
-        mc.clearMarkers()
-        mc.addMarkers(mm)
-
-    getSuggestedPlaces = (pos, places) ->
-        suggestions = {}
-        i = 0
-        min = 999
-
-        for place, i in places
-            placePos = new google.maps.LatLng(place.lat, place.lng)
-            distance = (google.maps.geometry.spherical.computeDistanceBetween(pos, placePos) / 1000).toFixed(2)
-            place.distance = distance
-            if min > distance then min = distance
-
-        if min >= 999 then suggestions = null
-        # Get the closest places
-        newPlaces = places.slice 0
-        newPlaces.sort compareDistances
-        suggestions = newPlaces.slice 0,5
-        return suggestions
-
-    compareDistances = (a,b) ->
-        if a.distance < b.distance then return -1
-        if a.distance > b.distanc then return 1
-        return 0
 
     $scope.fitBounds = (markersToFit) ->
-        markersToFit ?= markers
-        bounds = new google.maps.LatLngBounds()
-        for marker, i in markersToFit
-            if marker.getVisible() is true
-                bounds.extend marker.getPosition()
-        if findMeMarker and findMeMarker.getVisible() is true
-            bounds.extend findMeMarker.getPosition()
-        map.fitBounds bounds
+        if not markersToFit?
+            markersToFit = _.values placeMarkers
+            markersToFit.push findMeMarker
+            markersToFit = _.filter markersToFit, (m) -> m?.getVisible()
+        if markersToFit.length > 1
+            bounds = markersToFit.reduce (b, m) ->
+                b.extend m.getPosition()
+            , new google.maps.LatLngBounds()
+            map.fitBounds bounds
 
-    # do something only the first time the map is loaded
+    searcher = $filter 'filter'
+
+    updateFilters = ->
+        filterFoodType = (places) ->
+            if _.isEmpty $scope.filterFoodTypes \
+            then places \
+            else places.filter (place) ->
+                _.contains $scope.filterFoodTypes, place.foodtype
+
+        filterSearch = (places) ->
+            if _.isEmpty $scope.filterSearch \
+            then places \
+            else searcher places, $scope.filterSearch
+
+        filtered = filterSearch filterFoodType $scope.places
+
+        if not _.isEqual filtered, $scope.filteredPlaces
+            $scope.filteredPlaces = filtered
+            visibleMarkers = []
+            _.mapObject placeMarkers, (marker, slug) ->
+                visible = (_.find filtered, (place) -> place.slug == slug)?
+                marker.setVisible visible
+                visibleMarkers.push marker unless not visible
+            do clusterer.clearMarkers
+            clusterer.addMarkers visibleMarkers
+
+    document.onkeydown = (evt) ->
+        if evt.keyCode is 27
+            $scope.$apply -> $location.path '/'
+
+    # Once the map and all the needed is loaded, we actually add the
+    # markers to the map
     google.maps.event.addListenerOnce map, 'tilesloaded', ->
-        eob_data.placesPromise.then addMarkersToMap
+        eob_data.placesPromise.then ->
+            eob_imgCache.load(MARKER_ICONS).then ->
+                $scope.places.forEach (place, index) ->
+                    image =
+                        url: MARKER_ICONS[place.foodtype].url
+                        size: new google.maps.Size(70, 85)
+                        scaledSize: new google.maps.Size(70, 85)
+                    marker = new google.maps.Marker
+                        position: new google.maps.LatLng place.lat, place.lng
+                        map: map
+                        title: place.name
+                        icon: image
+                        animation: google.maps.Animation.DROP
+                    placeMarkers[place.slug] = marker
+
+                    google.maps.event.addListener marker, "click", ->
+                        $scope.openPlace place.slug
+                        do $scope.$apply
+                $scope.findMe false
+                do updateFilters
 
     return
 ]
@@ -492,6 +511,13 @@ eob_controllers.controller 'eob_PlaceCtrl', [ '$scope', '$location', '$window', 
     return
 ]
 
+eob_controllers.controller 'eob_SearchCtrl', [ '$scope', ($scope) ->
+    $scope.query = ''
+    $scope.queryChanged = ->
+        $scope.setSearchFilter $scope.query
+        do $scope.fitBounds
+]
+
 eob_controllers.controller 'eob_PlaceUrlCtrl', [ '$scope', '$routeParams', 'eob_data', 'eob_msg', ($scope, $routeParams, eob_data, eob_msg) ->
     eob_data.placesPromise.success (places) ->
         place = _.findWhere(places,
@@ -507,10 +533,9 @@ eob_controllers.controller 'eob_PlaceUrlCtrl', [ '$scope', '$routeParams', 'eob_
     return
 ]
 
-eob_controllers.controller 'eob_SuggestionUrlCtrl', [ '$scope', 'eob_data', ($scope, eob_data) ->
+eob_controllers.controller 'eob_SearchUrlCtrl', [ '$scope', 'eob_data', ($scope, eob_data) ->
     eob_data.placesPromise.success (places) ->
-        $scope.setPanel 'suggestion'
-        $scope.setSuggestions places
+        $scope.setPanel 'search'
         $scope.showPanel()
         return
 ]

@@ -1,7 +1,6 @@
-<div id="main-panel" ng-show="seepanel" href="" class="expanded-{{expandpanel}} {{panel}}-panel see-{{seepanel}}">
-  <div class="place-item" id="panel-wrapper" ng-controller="eob_PlaceCtrl">
-    <ng-include ng-if="panel === 'place'" src="'templates/panel-place.html'"></ng-include>
-    <ng-include ng-if="panel === 'suggestion'" src="'templates/panel-suggestions.html'"></ng-include>
-    <ng-include ng-if="panel === 'blog'" src="'templates/panel-blog.html'" ng-controller="eob_BlogCtrl"></ng-include>
-  </div>
+<div id="main-panel" ng-show="seepanel"
+     class="expanded-{{expandpanel}} {{panel}}-panel see-{{seepanel}}">
+  <ng-include ng-if="panel === 'place'" src="'templates/panel-place.html'"></ng-include>
+  <ng-include ng-if="panel === 'search'" src="'templates/panel-search.html'"></ng-include>
+  <ng-include ng-if="panel === 'blog'" src="'templates/panel-blog.html'"></ng-include>
 </div>

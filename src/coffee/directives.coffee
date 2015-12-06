@@ -1,7 +1,7 @@
 
 eob_directives = angular.module 'eob.directives', []
 
-eob_directives.directive 'clickOut', [ '$window', '$parse', ($window, $parse) ->
+eob_directives.directive 'eobClickOut', [ '$window', '$parse', ($window, $parse) ->
     restrict: 'A'
     scope: { method:'&clickOut' }
     link: (scope, element, attrs) ->
@@ -12,8 +12,8 @@ eob_directives.directive 'clickOut', [ '$window', '$parse', ($window, $parse) ->
             scope.$apply()
 ]
 
-eob_directives.directive 'resizable', ['$window', ($window) ->
-    resizable = ($scope) ->
+eob_directives.directive 'eobResizable', ['$window', ($window) ->
+    ($scope) ->
         $scope.initializeWindowSize = ->
             $scope.windowHeight = $window.innerHeight
             $scope.windowWidth  = $window.innerWidth
@@ -24,5 +24,18 @@ eob_directives.directive 'resizable', ['$window', ($window) ->
                 $scope.initializeWindowSize()
                 $scope.$apply()
             , 500
-    return resizable
+]
+
+eob_directives.directive 'eobAutofocus', ['$timeout', ($timeout) ->
+    restrict: 'A'
+    link: ($scope, element, attrs) ->
+        focus = (cond) ->
+            if cond
+                $timeout ->
+                    do element[0].focus
+                , $scope.$eval(attrs.eobAutofocusDelay) ? 0
+        if attrs.eobAutofocus
+            $scope.$watch attrs.eobAutofocus, focus
+        else
+            focus true
 ]

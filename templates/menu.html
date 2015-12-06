@@ -1,64 +1,102 @@
 <div ng-controller="eob_MenuCtrl">
-    <div class="menu-icon" ng-click="toggleMenu()">
-        <div class="menu-toggle {{seemenu ? 'close' : 'open'}}">
-            <b></b> <b></b> <b></b>
+
+  <div class="menu-icon" ng-click="toggleMenu()">
+    <div class="menu-toggle {{seemenu ? 'close' : 'open'}}">
+      <b></b> <b></b> <b></b>
+    </div>
+  </div>
+
+  <div class="tag-list {{seepanel ? 'panel-open' : 'panel-close'}}">
+    <ul>
+      <a class="tag search"
+         ng-if="filterSearch"
+         ng-href="search">
+        "{{filterSearch}}"
+      </a>
+      <li class="tag {{ getColor(food) }}"
+          ng-repeat="food in filterFoodTypes" ng-click="menuSelectFoodType(food);">
+        {{food}}
+        <div class="close-icon no-animation"><b></b> <b></b></div>
+      </li>
+    </ul>
+  </div>
+
+  <div id="main-menu" ng-show="seemenu" eob-click-out="closeSubmenus()">
+    <div class="menu-content-wrapper">
+      <div eob-resizable class="menu-content" style=" height: {{windowHeight-92}}px">
+        <div class="header">{{windowHeight}}</div>
+
+        <div class="menu-items">
+	  <ul>
+	    <li class="menu-item food-type" ng-click="toggleItem('foodItem')"
+                ng-class="{ active: isActive('foodItem') }">
+	      <div class="item-icon"></div>
+	      <span class="item-description">Food Type</span>
+	    </li>
+
+            <li class="menu-item districts" ng-click="toggleItem('districtItem')"
+                ng-class="{active: isActive('districtItem')}">
+	      <div class="item-icon"></div>
+	      <span class="item-description">District</span>
+	    </li>
+
+	    <li class="menu-item find-me" ng-click="menuFindMe(this); toggleItem('findMe')">
+	      <div class="item-icon"></div>
+	      <span class="item-description">Find me</span>
+	    </li>
+
+            <li class="menu-item search">
+              <a ng-href="search" ng-click="toggleItem('search')">
+	        <div class="item-icon"></div>
+	        <span class="item-description">Search</span>
+              </a>
+	    </li>
+
+            <li class="menu-item blog">
+              <a ng-href="blog" ng-click="menuSelectAll()">
+	        <div class="item-icon"></div>
+	        <span class="item-description">Blog</span>
+              </a>
+	    </li>
+	  </ul>
         </div>
-    </div>
-    <div class="tag-list {{seepanel ? 'panel-open' : 'panel-close'}}">
-        <ul>
-            <li class="tag {{ getColor(food) }}" ng-class="" ng-repeat="(food, val) in foodTypeChecked" ng-if="val" ng-click="menuSelectFoodType(food);">{{food}} <div class="close-icon no-animation"><b></b> <b></b></div></li>
-        </ul>
-    </div>
-  <div id="main-menu" ng-show="seemenu" click-out="closeSubmenus()">
-      <div class="menu-content-wrapper">
-          <div resizable class="menu-content" style=" height: {{windowHeight-92}}px">
-              <div class="header">{{windowHeight}}</div>
-
-              <div class="menu-items">
-	          <ul>
-	              <li class="menu-item food-type" ng-click="toggleItem('foodItem')" ng-class="{ active: isActive('foodItem') }">
-	                  <div class="item-icon"></div>
-	                  <span class="item-description">Food Type</span>
-	            </li>
-
-                    <li class="menu-item districts" ng-click="toggleItem('districtItem')" ng-class="{active: isActive('districtItem')}">
-	                <div class="item-icon"></div>
-	                <span class="item-description">District</span>
-	            </li>
-	            <li class="menu-item find-me" ng-click="menuFindMe(this); toggleItem('findMe')" ng-class="">
-	                <div class="item-icon"></div>
-	                <span class="item-description">Find me</span>
-	            </li>
-	            <li class="menu-item best-places" ng-click="openSuggestion(this); toggleItem('bestPlaces')" ng-class="">
-	                <div class="item-icon"></div>
-	                <span class="item-description">Search</span>
-	            </li>
-                    <li class="menu-item blog">
-                        <a ng-href="blog">
-	                    <div class="item-icon"></div>
-	                    <span class="item-description">Blog</span>
-                        </a>
-	            </li>
-	          </ul>
-              </div>
-          </div>
       </div>
+    </div>
 
     <div class="submenus {{active}}">
-        <div class="submenu-wrapper" style=" height: {{windowHeight-menuPosition('foodItem')}}px" ng-show="isActive('foodItem')">
-            <ul class="submenu" >
-	        <li class="submenu-item submenu-all" ng-class="{checkall: allChecked, notcheckall: !allChecked}"  ng-click="menuSelectAll();"> all</li>
-	        <li class="submenu-item submenu-food" ng-class="{checkitem: foodTypeChecked[food]}"  ng-repeat="food in foodTypes" ng-click="menuSelectFoodType(food);">
-	            <div class="icon-container">
-	                <div ng-class="{ checkicon: foodTypeChecked[food] }" style="with: 10px"></div></div>{{food}}</li>
-            </ul>
-        </div>
-        <div class="submenu-wrapper" style=" height: {{windowHeight-menuPosition('districtItem')}}px" ng-show="isActive('districtItem')">
-            <ul class="submenu" >
-	        <li class="submenu-item" ng-repeat="district in districts" ng-click="menuSelectDistrict(district);">{{district.name}}</li>
-            </ul>
-        </div>
+      <div class="submenu-wrapper"
+           style=" height: {{windowHeight-menuPosition('foodItem')}}px"
+           ng-show="isActive('foodItem')">
+        <ul class="submenu" >
+	  <li class="submenu-item submenu-all"
+              ng-class="{checkall: !anyChecked(), notcheckall: anyChecked()}"
+              ng-click="menuSelectAll();"> all</li>
+	  <li class="submenu-item submenu-food"
+              ng-class="{checkitem: hasFoodTypeFilter(food)}"
+              ng-repeat="food in foodTypes"
+              ng-click="menuSelectFoodType(food);">
+	    <div class="icon-container">
+	      <div ng-class="{ checkicon: hasFoodTypeFilter(food) }" style="with: 10px"></div>
+            </div>
+            {{food}}
+          </li>
+        </ul>
+      </div>
+
+      <div class="submenu-wrapper"
+           style=" height: {{windowHeight-menuPosition('districtItem')}}px"
+           ng-show="isActive('districtItem')">
+        <ul class="submenu" >
+	  <li class="submenu-item"
+              ng-repeat="district in districts"
+              ng-click="menuSelectDistrict(district);">
+            {{district.name}}
+          </li>
+        </ul>
+      </div>
     </div>
+
     <div class="menu-gradient"></div>
+
   </div>
 </div>

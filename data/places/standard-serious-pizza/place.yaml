@@ -1,6 +1,7 @@
 name: STANDARD - serious pizza
 url: 'http://www.standard-berlin.de'
 address: Templiner Straße 7
+district: Prenzlauer Berg
 date: '2015-05-29'
 foodtype: italian
 lat: 52.53304
