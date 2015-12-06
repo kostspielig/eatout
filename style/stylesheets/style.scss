@@ -746,6 +746,8 @@ body {
 
     &.see-false { display: none; }
 
+    &.search-panel { height: auto; }
+
     &.ng-hide-add, &.ng-hide-remove  {
 	display: block !important;
     }
@@ -920,8 +922,6 @@ body {
 
     .search-wrapper {
         -webkit-overflow-scrolling: touch;
-
-        min-height: 100%;
 
         .expand-panel b { background: $darkGray; }
 	.close-place.close-place {
