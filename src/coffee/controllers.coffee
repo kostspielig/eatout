@@ -325,6 +325,12 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
     $scope.openPlace = (placeSlug) ->
         $location.path '/place/' + placeSlug
 
+    $scope.enterPlace = (place) ->
+        placeMarkers[place.slug].setAnimation google.maps.Animation.BOUNCE
+
+    $scope.leavePlace = (place) ->
+        placeMarkers[place.slug].setAnimation null
+
     $scope.centerPosition = (lat, lng, zoom) ->
         center = new google.maps.LatLng(lat, lng)
         # The panel might be changing right now, in which case

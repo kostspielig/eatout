@@ -17,7 +17,9 @@
 
   <div class="search-result"
        ng-repeat="place in filteredPlaces"
-       ng-click="openPlace(place.slug);">
+       ng-click="openPlace(place.slug);"
+       ng-mouseenter="enterPlace(place);"
+       ng-mouseleave="leavePlace(place);">
 
     <div class="search-result-wrapper">
       <div class="place-name">
