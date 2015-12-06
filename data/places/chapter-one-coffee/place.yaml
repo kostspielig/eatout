@@ -1,6 +1,7 @@
 name: Chapter One Coffee
 url: http://www.chapter-one-coffee.com
 address: Mittenwalder Str. 30
+district: Kreuzberg
 date: '2015-10-03'
 foodtype: breakfast
 lat: 52.48981

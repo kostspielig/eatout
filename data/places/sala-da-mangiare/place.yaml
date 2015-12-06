@@ -1,6 +1,7 @@
 name: Sala Da Mangiare
 url: 'http://www.saladamangiare.de/'
 address: Mainzer Straße 23
+district: Neukolln
 date: '2014-09-20'
 foodtype: italian
 lat: 52.480655

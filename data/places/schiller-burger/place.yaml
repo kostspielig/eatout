@@ -1,6 +1,7 @@
 name: Schiller Burger
 url: 'http://www.schillerburger.com'
 address: Schönleinstraße 34
+district: Kreuzberg
 date: '2015-06-27'
 foodtype: burger
 lat: 52.49268

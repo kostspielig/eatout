@@ -1,7 +1,8 @@
 name: Sasaya
 url: 'http://sasaya-berlin.de/'
-date: '2014-05-29'
 address: Lychener Straße 50
+district: Prenzlauer Berg
+date: '2014-05-29'
 foodtype: japanese
 lat: 52.544239
 lng: 13.418352
@@ -10,7 +11,8 @@ rating: 4.5
 pricerange: 2.5
 phone: 030 44717721
 recommended: true
-description: "Berlin's authentic Japaneese."
+description: |
+  Berlin's authentic Japaneese food.
 
 images:
   - images/places-M/sasaya/image0.JPG

@@ -1,6 +1,7 @@
 name: Restaurant Richard
 url: 'http://www.restaurant-richard.de/'
 address: Köpenicker Straße 174
+district: Kreuzberg
 date: '2015-03-24'
 foodtype: michelin
 lat: 52.504206
