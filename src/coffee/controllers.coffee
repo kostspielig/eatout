@@ -322,6 +322,10 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
             do $scope.togglePanel
             $scope.openPlace place.slug
 
+    $scope.openPlaceFromSearch = (place) ->
+        $scope.leavePlace place
+        $scope.openPlace place.slug
+
     $scope.openPlace = (placeSlug) ->
         $location.path '/place/' + placeSlug
 
