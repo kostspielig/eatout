@@ -413,7 +413,6 @@ eob_controllers.controller 'eob_MapCtrl', [ '$scope', '$http', '$location', '$ti
 
         if not _.isEqual filtered, $scope.filteredPlaces
             $scope.filteredPlaces = filtered
-            console.log "FILTER", filtered
             visibleMarkers = []
             _.mapObject placeMarkers, (marker, slug) ->
                 visible = (_.find filtered, (place) -> place.slug == slug)?
