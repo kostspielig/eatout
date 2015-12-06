@@ -10,6 +10,7 @@ $darkGrayBg: #282828;
 $darkGray: #333333;
 $darkGrayShaded: rgba(30, 30, 30, 0.55);
 $darkGrayShadedStrong: rgba(30, 30, 30, 0.7);
+$darkGrayShadedStronger: rgba(30, 30, 30, 0.8);
 $softGray: rgba(30, 30, 30, 0.25);
 $yellow: #fff6d5;
 $darkYellow: #ffc200;
@@ -961,6 +962,7 @@ body {
             margin: 5px 0 0 0;
             position: relative;
 
+            &:hover { background-color: $darkGrayShadedStronger; }
             .place-name {
 		font-size: 32px;
 		font-family: Lily Script One, cursive;
