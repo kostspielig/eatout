@@ -1040,6 +1040,17 @@ p  { margin-bottom: 10px; }
 	}
     }
     .blog-panel { z-index: 16 !important; }
+
+    .tag-list {
+        right: 0;
+        &.panel-open {
+            @include transform(translateX(0));
+        }
+    }
+
+    #weather.panel-open {
+        @include transform(translateX(-52vw));
+    }
 }
 
 @media screen and (max-width: 850px) {
