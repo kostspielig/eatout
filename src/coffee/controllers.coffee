@@ -182,7 +182,7 @@ eob_controllers.controller 'eob_MenuCtrl', [ '$scope', '$location', 'eob_data', 
 
     hideIfPanel = ->
         if $scope.isMobileOrFs()
-            $scope.hidePanel()
+            $location.path "/"
 
     $scope.anyChecked = ->
         do $scope.hasFoodTypeFilter
