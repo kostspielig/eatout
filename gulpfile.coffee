@@ -20,6 +20,10 @@ path = require 'path'
 marked = require 'marked'
 print = require 'gulp-print' # prints names of files to the console
 plumber = require 'gulp-plumber'
+rss = require 'gulp-rss'
+frontMatter = require 'gulp-front-matter'
+insert = require 'gulp-insert'
+through2 = require 'through2'
 
 sources =
     sass:    'style/stylesheets/**/*.scss'
@@ -43,6 +47,7 @@ dest =
     html:   'dist/'
     js:     'dist/js'
     images: 'dist/images'
+    atom:   'dist/feed'
     json:   'data'
 
 
@@ -126,6 +131,35 @@ gulp.task 'data', ->
                 new Buffer JSON.stringify result),
         .pipe gulp.dest dest.json
 
+# Generate a news feed
+gulp.task 'rss', ->
+    gulp.src(sources.yaml)
+        .pipe insert.wrap '---\n', '---\n'
+        .pipe frontMatter()
+        .pipe through2.obj (f, enc, next) ->
+            slug = path.basename path.dirname f.path
+            f.frontMatter.link = "place/#{slug}"
+            @push f
+            do next
+        .pipe rss
+            properties:
+                data: 'description'
+                title: 'name'
+                link: 'link'
+            feedOptions:
+                title: 'Eat Out Berlin'
+                description:  """
+                    Eat Out Berlin is the perfect site to discover great
+                    places to eat in Berlin. We cover both: new exicitng
+                    places and great old fashioned ones. Taking advantage
+                    of the great diversity of Berlin, we are proud to
+                    share our top findings here.
+                    """
+                link: 'http://eatoutberlin.com'
+                author: 'M & J'
+                render: 'atom-1.0'
+        .pipe gulp.dest dest.atom
+
 # Watch
 gulp.task 'watch', ->
     gulp.watch sources.sass, ['sass']
@@ -140,4 +174,4 @@ gulp.task 'dev', ['coffee', 'data', 'sass'], ->
 
 # Default task
 gulp.task 'default', ['dev'], ->
-    gulp.start 'styles', 'scripts', 'libs'
+    gulp.start 'styles', 'scripts', 'libs', 'rss'
