@@ -970,7 +970,8 @@ body {
                 margin-bottom: 10px;
 	    }
 
-            .distance-from-me  { display: inline-block; margin-left: 5px; }
+            .distance-from-me,
+            .place-address     { display: inline-block; margin-left: 5px; }
             .search-rating     { display: inline-block; }
 
             .search-result-wrapper {

@@ -31,8 +31,12 @@
         <span class="sico ico-star"></span>{{place.rating}}
       </div>
 
-      <div class="distance-from-me">
+      <div class="distance-from-me" title="distance from me" ng-if="place.distance">
         <span class="sico ico-walking"></span>{{place.distance}} km
+      </div>
+
+      <div class="place-address" title="address"  ng-if="!place.distance">
+        <span class="sico ico-place"></span>{{place.address}}
       </div>
     </div>
   </div>
