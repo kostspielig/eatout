@@ -1,19 +1,38 @@
 name: Burgermeister
-url: 'http://www.thefuturebreakfast.com/'
+url: 'http://www.burger-meister.de/'
 address: Oberbaumstraße 8
 district: Kreuzberg
 date: '2015-04-04'
 foodtype: burger
 lat: 52.501036
 lng: 13.442571
-title: The Burger
-rating: 3.7
+rating: 4.5
 pricerange: 1
 phone: 030 23883840
 recommended: false
-description: ''
-
 images:
   - images/places-M/burgermeister/cover.JPG
   - images/places-M/burgermeister/image1.JPG
   - images/places-M/burgermeister/image2.JPG
+title: Masters of the burger
+description: |
+  The Berlin burger scene is becoming overcrowded with hipster venues
+  targeted at expats and tourists, that use contemporary design and
+  posed cues from underground american cuture to distract us from the
+  fact that we are paying too much for an average burger.  This is not
+  the case in *Burgermeister*.
+
+  While the place has become more crowded over the years---tourists
+  are starting to pick it up, attracted by its well deserved
+  reputation---it is still true to its spirit.  Situated in a former
+  public toilet under the _U-8 Schlesisches Tor_ station, in the
+  middle of the Berlin clubbing route, the place offers cheap quality
+  burgers to the crowds of party people that pass by in the later ours
+  of the night.  But any time of the day is a good time take your bike
+  and ride to Burgermeister for some decent burger and nice german
+  fries.
+
+  While it is still possible to find better burgers in Berlin,
+  Burgermeister stands out because of its authenticity and fair price.
+  Our recommendation: the *Meisterburger* with fried onions, mustard,
+  bacon and bbq sauce.  A must go.

@@ -6,26 +6,28 @@ date: '2015-03-25'
 foodtype: burger
 lat: 52.537227
 lng: 13.423372
-title: The Black Burger
 rating: 3.9
 pricerange: 2
 phone: 030 880 627 41
 recommended: false
-description: |
-   We heard about this place thanks to its peculiar burgers, they are beautiful
-   and once you see a great picture of them, its hard not to want one.
-
-   The place is charming and conftable, they inmediately greeted us with
-   enthusiasm and were really attentive. We went for a sweet cat and a
-   special cocktail that was definitely worth it. The burger was good,
-   although I might admit that  it looks better than it tastes. The combination
-   was good but the quality of the meet and taste is not excellent.
-
-   I would definitely recommend the place, its perfect to go with friends and
-   have a lovely dinner, maybe you will find a better burger.
-
 images:
   - images/places-M/black-cat/cover.JPG
   - images/places-M/black-cat/image1.JPG
   - images/places-M/black-cat/image2.JPG
   - images/places-M/black-cat/image3.JPG
+title: The Black Burger
+description: |
+   We heard about this place because of its _instagramable_ burgers.
+   They are beautiful and once you see a great picture of them, its
+   hard not to want one.
+
+   The place is charming and comfortable, they inmediately greeted us
+   with enthusiasm and were really attentive. We went for a *Sweet
+   Cat* burger and a meaty Bloody Mary that was definitely worth it.
+   The burger was decent, although I admit that it looks better than
+   it tastes. The combination was good but the quality of the meat did
+   not rise over the high bar that other venues have set in Berlin.
+
+   I would definitely recommend the place---it's perfect to go with
+   friends and have a nice dinner---but maybe you will find a better
+   burger elsewhere if you are really into burgers.

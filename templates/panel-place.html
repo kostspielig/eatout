@@ -51,7 +51,7 @@
               </li>
           </ul>
       </div>
-    <div class="title">
+    <div class="title" ng-if="place.title">
       {{place.title}}
     </div>
     <div class="description" ng-bind-html="place.description | unsafe"> </div>

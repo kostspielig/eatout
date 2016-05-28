@@ -6,31 +6,21 @@ date: '2014-12-09'
 foodtype: italian
 lat: 52.547824
 lng: 13.415377
-title: We may have found a new favorite pizza place
 rating: 4.2
 pricerange: 1.5
 phone: 030 22808290
 recommended: true
-description: |
-  Being Spanish, **Maecenas dapibus** interdum mi, ac sodales nunc mollis
-  sed. Donec dignissim dui non enim tristique, nec placerat nibh
-  gravida. Nam placerat neque sed vehicula condimentum. Donec vel eros
-  lorem. Proin egestas massa non sapien volutpat tempor. Aliquam
-  malesuada fermentum congue. Nullam dictum magna sit amet mauris
-  luctus aliquet. Proin mollis felis magna, nec tristique ante porta
-  fringilla. Cras blandit tincidunt nisi sed gravida. Donec dui urna,
-
-  ### Vaya vaya
-  ornare non nulla ut, sollicitudin ultrices massa. Aliquam euismod,
-  ante sit amet posuere aliquam, ipsum libero posuere neque, vitae
-  commodo sem nibh sit amet justo. Suspendisse eget posuere
-  justo. Maecenas congue congue molestie. Donec odio tellus,
-  consectetur congue enim a, commodo aliquet nulla. Aliquam sem sem,
-  pretium quis ullamcorper vel, adipiscing eget nunc. Ut venenatis
-  semper auctor.
-
 images:
   - images/places-M/a-magica/cover.JPG
   - images/places-M/a-magica/image1.JPG
   - images/places-M/a-magica/image2.JPG
   - images/places-M/a-magica/image3.JPG
+title: We may have found a new favorite pizza place
+description: |
+  Finding good pizza in Berlin is not hard.  This city is full of
+  pizza shops, many of which even get the aproval even of our italian
+  friends.  Yet *A Magica* managed to surprise us.  Rough, basic but
+  very authentic and definitelly tasty pizzas are served in this
+  little place in Prenzlauer Berg.  The place is small so it easily
+  becomes full---and noisy!---so don't forget to make a reservation.
+  Would repeat!

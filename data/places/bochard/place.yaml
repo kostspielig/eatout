@@ -6,25 +6,10 @@ date: '2015-08-15'
 foodtype: german
 lat: 52.5149992
 lng: 13.3903492
-title: German cuisine
 rating: 3.2
 pricerange: 3.5
 phone: 030 81886262
 recommended: false
-description: |
-  Where to go for lunch when your family is visiting? That was my problem while visiting
-  one of the most touristy streets in Berlin Friedrichstraße, where you can find the finest
-  galleries or shops. We found this restaurant, just in front of the ritter sport
-  shop (that its worth a visit, you can create your own chocolate!).
-
-  They describe the food as classic Berlin food with a new twist. We tried the wiener
-  schnitzel and the steak tartare, while the food was good it wasn't great, and with
-  the prices I was expecting amazing food.
-
-  While it is not a bad place to go, I would not travel to go there specifically, however
-  if you find yourself in the neighborhood starving, it might be not be a bad a idea
-  to try their schnitzel.
-
 images:
   - images/places-M/bochard/cover.JPG
   - images/places-M/bochard/image1.JPG
@@ -33,3 +18,22 @@ images:
   - images/places-M/bochard/image4.JPG
   - images/places-M/bochard/image5.JPG
   - images/places-M/bochard/image6.JPG
+title: German cuisine
+description: |
+  Where to go for lunch when you are stuck in the touristy parts of
+  the city?  That was my problem: some relatives where visiting and we
+  were walking around Berlin Friedrichstraße, one of the most touristy
+  areas in Berlin, where you can find some of the poshiest galleries
+  or shops.  Eventually we found this restaurant, just in front of the
+  Ritter Sport shop---which, by the way, is worth a visit on its own:
+  you can create your own chocolate!
+
+  They describe the food as classic Berlin food with a new twist. We
+  tried the *wiener Schnitzel* and the *steak tartare*.  While the
+  food was good it wasn't as amazing as you would expect from the
+  price.
+
+  While it's not a bad place to go to, I would not travel to go there
+  specifically.  However if you find yourself starving in the
+  neighborhood, it might be not be a bad a idea to try their
+  *Schnitzel*.

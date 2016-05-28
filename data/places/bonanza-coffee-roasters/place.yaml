@@ -6,13 +6,19 @@ date: '2014-07-18'
 foodtype: breakfast
 lat: 52.539977
 lng: 13.405374
-title: Coffee Roastery
 rating: 4.5
 pricerange: 1
 phone: 0171 5630795
 recommended: false
-description: Coffee near mauer park
-
 images:
   - images/places-M/bonanza-coffee-roasters/cover.JPG
   - images/places-M/bonanza-coffee-roasters/image1.JPG
+title: Coffee roaster near Mauer Park
+description: |
+  Very close to Mauerpark, Bonanza is a small coffee shop.  Greeting
+  us with its dark sky front and cursive neon light sign, the roaster
+  opens to small but cosy caffe.
+
+  They roast their own coffee and it shows: its fine selection is a
+  delight for coffee lovers.  You can match the drink with some of
+  their tasty pastries, open a book, and enjoy the afternoon.

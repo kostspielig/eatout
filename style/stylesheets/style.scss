@@ -905,7 +905,7 @@ body {
                 margin-bottom: 8px;
 	    }
 
-	    .title {
+	    .title, h1 {
                 clear: both;
 		font-size: 1.6em;
                 text-transform: uppercase;
@@ -915,9 +915,8 @@ body {
                 border-top: 3px solid #333;
                 font-family: 'Oswald', sans-serif;
 	    }
+
 	    .images {
-                //display: flex;
-                //flex-wrap: wrap;
                 display: block;
                 align-items: center;
 		width: 100%;

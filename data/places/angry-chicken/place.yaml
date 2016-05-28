@@ -6,16 +6,28 @@ date: '2014-12-10'
 foodtype: burger
 lat: 52.50069
 lng: 13.42287
-title: Korean style fried chicken
 rating: 4.2
 pricerange: 1
 phone: 030 69599427
 recommended: false
-description: 'It may not have the best burger in town, but for some reason I keep coming back for more. All the burgers have a unique flavour, and the fries are to die for. One of the must-order burgers is the chilli lemon: a unique pleasure to your senses. '
-
 images:
   - images/places-M/angry-chicken/cover.JPG
   - images/places-M/angry-chicken/image1.JPG
   - images/places-M/angry-chicken/image2.JPG
   - images/places-M/angry-chicken/image3.JPG
   - images/places-M/angry-chicken/image4.JPG
+title: Korean style fried chicken
+description: |
+  This place is a small fast food shop from the same people that run
+  [Kimchi Princess](kimchi-princess) around the corner.  With a
+  similar colourful, bold and trendy branding, it blends Korean street
+  food with western fast food.
+
+  The offering is simple: deep fried chicken with increasing levels of
+  *angryness*---read: hotness---with the exeption of the delicious
+  *sexy* chicken, which is served on a soja-garlic sauce that is for
+  sure stimulating.  On the side, the sweet potato chips definitelly
+  stand out, with a crunchy touch that makes them even more addictive
+  than usual.  They also do worthy Bibimbap and Burgers, both veggi
+  and otherwise.  The perfect place to grab something quick and fatty
+  on a hangovery sunday afternoon.

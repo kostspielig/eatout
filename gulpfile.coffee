@@ -127,7 +127,8 @@ gulp.task 'data', ->
                     .map ([fname, obj]) ->
                         _.extend obj,
                             slug: path.basename path.dirname fname
-                            description: marked obj.description
+                            description: marked obj.description,
+                                smartypants: true
                 new Buffer JSON.stringify result),
         .pipe gulp.dest dest.json
 

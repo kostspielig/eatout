@@ -6,14 +6,10 @@ date: '2015-10-11'
 foodtype: hotdog
 lat: 52.498153
 lng: 13.4309
-title: American hotdogs, Whiskey & Craft Beers
-rating: 3.8
+rating: 3.5
 pricerange: 2.5
 phone: 0170 2140487
 recommended: false
-description: |
-   Craft Beers, American hotdogs & Cocktails
-
 images:
   - images/places-M/bourbon-dogs/cover.JPG
   - images/places-M/bourbon-dogs/image1.JPG
@@ -21,3 +17,17 @@ images:
   - images/places-M/bourbon-dogs/image3.JPG
   - images/places-M/bourbon-dogs/image4.JPG
   - images/places-M/bourbon-dogs/image5.JPG
+title: American hotdogs, Whiskey & Craft Beers
+description: |
+  Craft beer, fancy cocktails, lots of bourbon, and hotdogs.  That's
+  the main offering of this tiny but cosy spot in Spreewaldplatz, next
+  to Gorlitzer Platz, at the heart of the party part of Kreuzberg.
+
+  While the drinks are good---although leaning towards the pricey
+  side---I would totally not go there for the food.  The hotdogs are
+  unimpressive.  While the toppings and sauce are *ok*, the sausage
+  and bread are small and average and definitely not worth the 6 euros
+  that they cost.  For half the price you may have a much more tasty
+  _schawarma_ next door.  The place is maybe interesting as a
+  anthropological curiosity: it is one good example of the hipster
+  anglophone expat culture that is gentrifying Berlin.
