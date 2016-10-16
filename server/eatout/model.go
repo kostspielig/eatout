@@ -64,6 +64,28 @@ func ProcessPlaceDescription(desc string) string {
 	return string(blackfriday.MarkdownCommon([]byte(desc)))
 }
 
+func ReadPlaceImages(placeName string) []string {
+	imagesPath := PLACES_PATH + "/" + placeName + "/images"
+
+	imagesDir, err := os.Open(imagesPath)
+	if err != nil {
+		return nil
+	}
+
+	defer imagesDir.Close()
+
+	images, err := imagesDir.Readdirnames(0)
+	if err != nil {
+		return nil
+	}
+
+	for idx := range images {
+		images[idx] = imagesPath + "/" + images[idx]
+	}
+
+	return images
+}
+
 func ReadPlace(placeName string) (Place, error) {
 	placePath := PLACES_PATH + "/" + placeName
 	placeYAML, err := ioutil.ReadFile(placePath + "/place.yaml")
@@ -78,5 +100,7 @@ func ReadPlace(placeName string) (Place, error) {
 	}
 
 	place.Description = ProcessPlaceDescription(place.Description)
+	place.Images = ReadPlaceImages(placeName)
+
 	return place, nil
 }
