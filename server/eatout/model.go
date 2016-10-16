@@ -2,6 +2,7 @@ package eatout
 
 import (
 	"github.com/ghodss/yaml"
+	"github.com/russross/blackfriday"
 	"io/ioutil"
 	"log"
 	"os"
@@ -59,6 +60,10 @@ func ReadAllPlaces() ([]Place, error) {
 	return places, nil
 }
 
+func ProcessPlaceDescription(desc string) string {
+	return string(blackfriday.MarkdownCommon([]byte(desc)))
+}
+
 func ReadPlace(placeName string) (Place, error) {
 	placePath := PLACES_PATH + "/" + placeName
 	placeYAML, err := ioutil.ReadFile(placePath + "/place.yaml")
@@ -72,5 +77,6 @@ func ReadPlace(placeName string) (Place, error) {
 		return Place{}, err
 	}
 
+	place.Description = ProcessPlaceDescription(place.Description)
 	return place, nil
 }

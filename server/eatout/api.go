@@ -12,10 +12,12 @@ func HandleApiPlaces(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	placesJSON, err := json.Marshal(places)
+	encoder := json.NewEncoder(w)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent("", "    ")
+
+	err = encoder.Encode(places)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	w.Write(placesJSON)
 }
