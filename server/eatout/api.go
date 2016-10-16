@@ -14,7 +14,8 @@ var (
 func BuildPlacesJSON() []byte {
 	places, err := ReadAllPlaces()
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return nil
 	}
 
 	buf := bytes.Buffer{}
@@ -23,7 +24,8 @@ func BuildPlacesJSON() []byte {
 	encoder.SetIndent("", "    ")
 	err = encoder.Encode(places)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return nil
 	}
 
 	return buf.Bytes()

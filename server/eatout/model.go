@@ -29,7 +29,7 @@ type Place struct {
 	Description string   `json:"description"`
 }
 
-const (
+var (
 	PLACES_PATH = "data/places"
 )
 
