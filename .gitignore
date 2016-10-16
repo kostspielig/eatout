@@ -19,3 +19,4 @@ src/coffee/*.js.map
 style/images/places/*
 style/stylesheets/.sass-cache/
 data/places.json
+server/server
