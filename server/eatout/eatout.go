@@ -10,30 +10,34 @@ import (
 
 func Start() {
 	fmt.Println("Start, babe!")
-
-	http.HandleFunc("/api/places.json", HandleApiPlaces)
-
-	http.Handle("/images/", &StaticServer{"style"})
-	http.Handle("/templates/", &StaticServer{"."})
-	http.Handle("/dist/", &StaticServer{"."})
-	http.Handle("/data/", &StaticServer{"."})
-
-	http.HandleFunc("/favicon.ico", HandleFavicon)
-	http.HandleFunc("/", HandleIndex)
-
+	http.Handle("/debug/", http.StripPrefix("/debug", SiteHandler("templates/index-debug.html")))
+	http.Handle("/", SiteHandler("templates/index.html"))
 	http.ListenAndServe(":4000", nil)
 }
 
-func HandleFavicon(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "./style/images/favicon.png")
-}
+func SiteHandler(indexFile string) *http.ServeMux {
+	s := http.NewServeMux()
 
-func HandleIndex(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "./templates/index.html")
-}
+	s.HandleFunc("/api/places.json", HandleApiPlaces)
 
-type StaticServer struct {
-	Base string
+	s.Handle("/images/", &StaticServer{"style"})
+	s.Handle("/templates/", &StaticServer{"."})
+	s.Handle("/dist/", &StaticServer{"."})
+	s.Handle("/data/", &StaticServer{"."})
+
+	// original sources, for debug mode
+	s.Handle("/stylesheets/", &StaticServer{"style"})
+	s.Handle("/src/", &StaticServer{"."})
+	s.Handle("/lib/", &StaticServer{"."})
+
+	s.HandleFunc("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./style/images/favicon.png")
+	})
+	s.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, indexFile)
+	})
+
+	return s
 }
 
 func toHTTPError(err error) (msg string, httpStatus int) {
@@ -44,6 +48,10 @@ func toHTTPError(err error) (msg string, httpStatus int) {
 		return "403 Forbidden", http.StatusForbidden
 	}
 	return "500 Internal Server Error", http.StatusInternalServerError
+}
+
+type StaticServer struct {
+	Base string
 }
 
 func (s *StaticServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
