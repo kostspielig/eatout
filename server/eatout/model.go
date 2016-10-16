@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"sort"
 )
 
 type Place struct {
@@ -79,6 +80,7 @@ func ReadPlaceImages(placeName string) []string {
 		return nil
 	}
 
+	sort.Strings(images)
 	for idx := range images {
 		images[idx] = imagesPath + "/" + images[idx]
 	}
