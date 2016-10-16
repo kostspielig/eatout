@@ -8,6 +8,7 @@ import (
 )
 
 type Place struct {
+	Slug        string   `json:"slug"`
 	Name        string   `json:"name"`
 	Url         string   `json:"url"`
 	Address     string   `json:"address"`
@@ -65,7 +66,7 @@ func ReadPlace(placeName string) (Place, error) {
 		return Place{}, err
 	}
 
-	place := Place{}
+	place := Place{Slug: placeName}
 	err = yaml.Unmarshal(placeYAML, &place)
 	if err != nil {
 		return Place{}, err
