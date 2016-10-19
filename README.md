@@ -54,3 +54,13 @@ Deploy the current version to gcloud:
 ```
     make deploy
 ```
+
+# License
+
+Programming source code is licensed under the
+[Affero General Public License v3](https://www.gnu.org/licenses/agpl-3.0.html).
+![AGPLv3 logo](https://www.gnu.org/graphics/agplv3-155x51.png)
+
+Content, including all text and pictures in the `data` folder, are licensed under
+[Creative Commons + Attribution + Non Commercial + Share Alike v4](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+![CC-BY-NC-SA logo](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)

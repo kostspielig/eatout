@@ -1,3 +1,22 @@
+
+# eatout - yummy places in the hood
+# Copyright (C) 2014-2016 Maria Carrasco Rodriguez
+#
+# This file is part of eatout.
+#
+# eatout is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# eatout is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with eatout.  If not, see <http://www.gnu.org/licenses/>.
+
 #
 #  appuser.py : Class representing an user
 #
@@ -31,7 +50,7 @@ def users_key(group = 'default'):
 
 class User(db.Model):
     """ Class representing an user."""
-    
+
     #Attributes for a user
     name = db.StringProperty(required = True)
     pw_hash = db.StringProperty(required = True)
@@ -41,8 +60,8 @@ class User(db.Model):
     avatar = db.BlobProperty()
 
     #users are also assigned a art_posts reference property.
-    
-    
+
+
     @classmethod
     def by_id(cls, uid):
         return User.get_by_id(uid, parent = users_key())
@@ -73,5 +92,3 @@ class User(db.Model):
         u = cls.by_name(name)
         if u and valid_pw(name, pw, u.pw_hash):
             return u
-
-    
