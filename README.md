@@ -1,8 +1,9 @@
 
+![Eat Out Berlin Logo](https://cdn.rawgit.com/kostspielig/eatout/master/style/images/eatoutb.png)
+
 # Eat Out Berlin
 
 Eat Out Berlin is a tool to discover great places to eat in Berlin.
-
 
 # Usage
 
