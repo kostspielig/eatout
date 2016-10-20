@@ -21,7 +21,7 @@
 package main
 
 import (
-	"./eatout"
+	"eatout"
 	"fmt"
 )
 
