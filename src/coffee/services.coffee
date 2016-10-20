@@ -63,7 +63,7 @@ eob_services.factory 'eob_geolocation', ['eob_msg', (eob_msg) ->
 
 eob_services.factory 'eob_data', [ '$http', '$q', ($http, $q) ->
     service = {}
-    service.placesPromise = $http.get 'data/places.json'
+    service.placesPromise = $http.get 'api/places.json'
         .success (data) ->
             # Order the array by descending vertical position on the map
             data.sort (a, b) -> b.lat - a.lat
