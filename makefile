@@ -34,8 +34,10 @@ deploy-appengine: app.yaml
 	appcfg.py --oauth2 -A eatoutberlin update .
 
 serve:
-	export GOPATH=$(GOPATH)
 	$(GO) run server/main.go
+
+check:
+	$(GO) test eatout
 
 clean:
 	rm -f app.yaml

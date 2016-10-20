@@ -26,7 +26,7 @@ import (
 )
 
 func init() {
-	PLACES_PATH = "../../data/places"
+	PLACES_PATH = "../../../data/places"
 }
 
 func TestReadPlace(t *testing.T) {
