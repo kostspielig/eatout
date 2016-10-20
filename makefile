@@ -46,6 +46,7 @@ clean:
 	rm -f app.yaml
 
 deploy:
+	chmod 600 deploy_key
 	ssh -o StrictHostKeyChecking=no -i deploy_key eatout@sinusoid.es " \
 		cd eatout && \
 		git pull && \
