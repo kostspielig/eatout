@@ -49,6 +49,7 @@ deploy:
 	chmod 600 deploy_key
 	ssh -o StrictHostKeyChecking=no -i deploy_key eatout@sinusoid.es " \
 		cd eatout && \
+		git checkout master && \
 		git pull && \
 		make GO=/usr/local/go/bin/go deps && \
 		make GO=/usr/local/go/bin/go && \
