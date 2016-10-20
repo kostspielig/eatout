@@ -5,9 +5,11 @@
 all: default
 
 NPM=npm
+GO=go
+GIT=git
+
 BOWER=./node_modules/bower/bin/bower
 GULP=./node_modules/gulp/bin/gulp.js
-GO=go
 
 export GOPATH=$(CURDIR)/server
 
@@ -15,6 +17,7 @@ default:
 	$(GULP) default
 
 deps:
+	$(GIT) submodule update --recursive --init
 	$(NPM) install
 	$(BOWER) install
 	$(GO) get eatout
