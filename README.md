@@ -1,15 +1,12 @@
 
 ![Eat Out Berlin Logo](https://cdn.rawgit.com/kostspielig/eatout/master/style/images/eatoutb.png)
 
-# Eat Out Berlin
+**Eat Out Berlin** is a tool to discover yummy places to eat in Berlin.
+Visit us at: [eatoutberlin.com](http://www.eatoutberlin.com/).
 
 [![Travis Status](https://travis-ci.org/kostspielig/eatout.svg?branch=new-server)](https://travis-ci.org/kostspielig/eatout)
 
-Eat Out Berlin is a tool to discover yummy places to eat in Berlin.
-Visit us at: [eatoutberlin.com](http://www.eatoutberlin.com/).
-
 # Usage
-
 
 ## Dependencies
 
@@ -63,8 +60,9 @@ Deploy the current version to gcloud:
 
 Programming source code is licensed under the
 [Affero General Public License v3](https://www.gnu.org/licenses/agpl-3.0.html).
-![AGPLv3 logo](https://www.gnu.org/graphics/agplv3-155x51.png)
 
 Content, including all text and pictures in the `data` folder, are licensed under
 [Creative Commons + Attribution + Non Commercial + Share Alike v4](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+![AGPLv3 logo](https://www.gnu.org/graphics/agplv3-155x51.png)
 ![CC-BY-NC-SA logo](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)
