@@ -44,3 +44,12 @@ check:
 
 clean:
 	rm -f app.yaml
+
+deploy:
+	ssh -i deploy_key eatout@sinusoid.es " \
+		cd eatout && \
+		git pull && \
+		make GO=/usr/local/go/bin/go deps && \
+		make GO=/usr/local/go/bin/go && \
+		systemctl --user restart eatout \
+	"

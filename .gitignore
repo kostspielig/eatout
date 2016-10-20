@@ -9,18 +9,25 @@
 .sass-cache
 DSC*.JPG
 \#*\#
+
 app.yaml
+
 build/
 dist/
 lib/bower
 node_modules/
+
 src/coffee/*.js
 src/coffee/*.js.map
+
 style/images/places/*
 style/stylesheets/.sass-cache/
+
 data/places.json
 
 server/*
 !server/src
 server/src/*
 !server/src/eatout
+
+deploy_key

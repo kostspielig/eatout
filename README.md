@@ -3,7 +3,10 @@
 
 # Eat Out Berlin
 
-Eat Out Berlin is a tool to discover great places to eat in Berlin.
+![Travis Status](https://travis-ci.org/kostspielig/eatout.svg?branch=new-server)
+
+Eat Out Berlin is a tool to discover yummy places to eat in Berlin.
+Visit us at: [eatoutberlin.com](http://www.eatoutberlin.com/).
 
 # Usage
 

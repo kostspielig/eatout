@@ -1,6 +1,10 @@
 language: go
-
 before_script:
-  - make check-deps
+- make check-deps
 script:
-  - make check
+- make check
+after_script:
+- make deploy
+before_install:
+- openssl aes-256-cbc -K $encrypted_4908001666b2_key -iv $encrypted_4908001666b2_iv
+  -in deploy_key.enc -out ./deploy_key -d
