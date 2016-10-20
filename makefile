@@ -46,7 +46,7 @@ clean:
 	rm -f app.yaml
 
 deploy:
-	ssh -i deploy_key eatout@sinusoid.es " \
+	ssh -o StrictHostKeyChecking=no -i deploy_key eatout@sinusoid.es " \
 		cd eatout && \
 		git pull && \
 		make GO=/usr/local/go/bin/go deps && \
