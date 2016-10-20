@@ -36,6 +36,9 @@ deploy-appengine: app.yaml
 serve:
 	$(GO) run server/main.go
 
+check-deps:
+	$(GO) get eatout
+
 check:
 	$(GO) test eatout
 

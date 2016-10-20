@@ -1,0 +1,6 @@
+language: go
+
+before_script:
+  - make check-deps
+script:
+  - make check
