@@ -77,17 +77,17 @@ eob_services.factory 'eob_data', [ '$http', '$q', ($http, $q) ->
 
 eob_services.factory 'eob_weather', ['$http', ($http) ->
     FORECAST_ENDPOINT = "http://query.yahooapis.com/v1/public/yql?q="
-    FORECAST_YQL_OPEN 	= "select * from weather.forecast where location='"
-    FORECAST_YQL_CLOSE 	= "'and u='c'&format=json"
-    YQL_BERLIN = "GMXX0007"
+    FORECAST_YQL_OPEN 	= "select item from weather.forecast where woeid in (select woeid from geo.places where text='"
+    FORECAST_YQL_CLOSE 	= "') and u='c'&format=json"
+    YQL_BERLIN = "Berlin, Germany"
 
     {
         getWeather: (scope) ->
             url = FORECAST_ENDPOINT + FORECAST_YQL_OPEN + YQL_BERLIN + FORECAST_YQL_CLOSE
             $http.get(url).success( (data) ->
                 scope.weather = data
-                scope.temp = data.query.results.channel.item.condition.temp
-                scope.wcode = data.query.results.channel.item.condition.code
+                scope.temp = data.query.results.channel[0].item.condition.temp
+                scope.wcode = data.query.results.channel[0].item.condition.code
             )
     }
 ]
