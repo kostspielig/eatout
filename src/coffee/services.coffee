@@ -76,7 +76,7 @@ eob_services.factory 'eob_data', [ '$http', '$q', ($http, $q) ->
 ]
 
 eob_services.factory 'eob_weather', ['$http', ($http) ->
-    FORECAST_ENDPOINT = "http://query.yahooapis.com/v1/public/yql?q="
+    FORECAST_ENDPOINT = "https://query.yahooapis.com/v1/public/yql?q="
     FORECAST_YQL_OPEN 	= "select item from weather.forecast where woeid in (select woeid from geo.places where text='"
     FORECAST_YQL_CLOSE 	= "') and u='c'&format=json"
     YQL_BERLIN = "Berlin, Germany"
