@@ -16,6 +16,13 @@ To install all the dependencies run:
     bower install
 ```
 
+## Dev Dependencies
+
+To resize images you will need
+```
+sudo apt-get install graphicsmagick
+```
+
 ## Compilation
 
 The project uses CoffeeScript and Sass, which require a precompilation

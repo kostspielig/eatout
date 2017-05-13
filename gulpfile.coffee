@@ -58,6 +58,7 @@ sources =
              'src/js/analytics.js'
              ]
     images:  'style/images/places/**/*.{JPG,jpg}'
+    imagesp: 'places/**/*.{JPG,jpg}'
     yaml:    'data/**/*.yaml'
 
 dest =
@@ -129,7 +130,7 @@ gulp.task 'jslint', ->
 
 # Images -resize
 gulp.task 'resize', ->
-    gulp.src(sources.images)
+    gulp.src(sources.imagesp)
         .pipe imageResize
             width : 1000
             upscale : false

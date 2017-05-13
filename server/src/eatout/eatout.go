@@ -9,7 +9,7 @@ import (
 )
 
 func Start() {
-	fmt.Println("Start, babe!")
+	fmt.Println("Start, babe! port:4000")
 	http.Handle("/debug/", http.StripPrefix("/debug", SiteHandler("templates/index-debug.html")))
 	http.Handle("/", SiteHandler("templates/index.html"))
 	http.ListenAndServe(":4000", nil)
