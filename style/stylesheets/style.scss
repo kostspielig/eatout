@@ -42,19 +42,21 @@ $brown: #8e4b39;
 $lightBlue: #baf0f4;
 $darkBlue: #364fc4;
 $darkRed: #c82247;
+$lightYellow: #ffea92ff;
 $searchText: #ddd;
 
-.red        { background-color: $red !important; }
-.green      { background-color: $green !important; }
-.yellow     { background-color: $darkYellow !important; }
-.purple     { background-color: $purple !important; }
-.orange     { background-color: $orange !important; }
-.black      { background-color: $darkGray !important; }
-.blue       { background-color: $blue !important; }
-.brown      { background-color: $brown !important; }
-.light-blue { background-color: $lightBlue !important; color: $darkGray !important; b { background: $darkGray !important; }}
-.dark-blue  { background-color: $darkBlue !important; }
-.dark-red   { background-color: $darkRed !important; }
+.red           { background-color: $red !important; }
+.green         { background-color: $green !important; }
+.yellow        { background-color: $darkYellow !important; }
+.purple        { background-color: $purple !important; }
+.orange        { background-color: $orange !important; }
+.black         { background-color: $darkGray !important; }
+.blue          { background-color: $blue !important; }
+.brown         { background-color: $brown !important; }
+.light-blue    { background-color: $lightBlue !important; color: $darkGray !important; b { background: $darkGray !important; }}
+.light-yelllow { background-color: $lightYellow !important; color: $darkGray !important; b { background: $darkGray !important; }}
+.dark-blue     { background-color: $darkBlue !important; }
+.dark-red      { background-color: $darkRed !important; }
 ::selection {
     background: $green; /* WebKit/Blink Browsers */
     color: white;

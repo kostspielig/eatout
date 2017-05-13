@@ -57,6 +57,7 @@ MARKER_ICONS =
     international: url: 'images/icons/SVG/international.svg', color: 'yellow'
     italian: url: 'images/icons/SVG/pizza.svg', color: 'green'
     japanese: url: 'images/icons/SVG/sushi.svg', color: 'red'
+    chinese: url: 'images/icons/SVG/dumplings.svg', color: 'light-yellow'
     mexican: url: 'images/icons/SVG/mexican.svg', color: 'brown'
     michelin: url: 'images/icons/SVG/michelin.svg', color: 'dark-red'
     portuguese: url: 'images/icons/SVG/sardine.svg', color: 'green'
