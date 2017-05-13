@@ -10,7 +10,7 @@ title: What the new brunch should be
 rating: 4.6
 pricerange: 2
 phone: 0176 86302464
-recommended: true
+recommended: false
 description: |
    The beauty of these plates is just breathtaking, the difficult part here is
    just to decide for one of them. We tried the **huevos rancheros** and the
@@ -26,6 +26,9 @@ description: |
    the coffee: they only have american coffee, not real espresso. Instead I
    would recommend to try one of their cocktails instead, maybe the gazpacho
    with a twist.
+
+   *2017-05-13* Revisited the place to find new price ranges from 9 to
+    10,50 for the main dishes.
 
 images:
   - images/places-M/geist-im-glas/cover.JPG

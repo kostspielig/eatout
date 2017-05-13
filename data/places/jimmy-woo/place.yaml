@@ -2,7 +2,7 @@ name: Jimmy Woo
 url: 'http://jimmy-woo.de/'
 address: Friedelstraße 24
 district: Neukolln
-date: '2015-05-02'
+date: '2017-05-13'
 foodtype: viet
 lat: 52.491949
 lng: 13.428121
@@ -11,14 +11,5 @@ rating: 4
 pricerange: 2
 phone: 01573 5785369
 recommended: false
-description: Indochine-French cuisine
-
-images:
-  - images/places-M/jimmy-woo/cover.JPG
-  - images/places-M/jimmy-woo/image1.JPG
-  - images/places-M/jimmy-woo/image2.JPG
-  - images/places-M/jimmy-woo/image3.JPG
-  - images/places-M/jimmy-woo/image4.JPG
-  - images/places-M/jimmy-woo/image5.JPG
-  - images/places-M/jimmy-woo/image6.JPG
-  - images/places-M/jimmy-woo/image7.JPG
+description: |
+  Indochine-French cuisine
