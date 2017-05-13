@@ -47,7 +47,7 @@ clean:
 
 deploy:
 	chmod 600 deploy_key
-	ssh -o StrictHostKeyChecking=no -i deploy_key eatout@sinusoid.es " \
+	ssh -o StrictHostKeyChecking=no -i deploy_key eatout@sinusoid.es -p 5488 " \
 		cd eatout && \
 		git checkout master && \
 		git pull && \
