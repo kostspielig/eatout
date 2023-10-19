@@ -2,7 +2,7 @@
 ![Eat Out Berlin Logo](https://cdn.rawgit.com/kostspielig/eatout/master/style/images/eatoutb.png)
 
 **Eat Out Berlin** is a tool to discover yummy places to eat in Berlin.
-Visit us at: [eatoutberlin.com](http://www.eatoutberlin.com/).
+Visit us at: [eatout.berlin](https://eatout.sinusoid.es/).
 
 [![Travis Status](https://travis-ci.org/kostspielig/eatout.svg?branch=master)](https://travis-ci.org/kostspielig/eatout)
 
